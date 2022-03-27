@@ -19,3 +19,58 @@
     margin-right: auto;
     box-shadow: 8px 10px 18px 8px rgba(0, 0, 0, 0.5);
 }
+.user{
+    background-color: #53C4CD;
+    margin-bottom: 30px;
+    padding: 5px 20px 5px 20px;
+    width: auto;
+    border-radius: 30px;
+    display: block;
+    margin-left: 50px;
+    margin-right: 455px;
+    margin-top: 30px;
+}
+.senha{
+    background-color: #53C4CD;
+    margin-bottom: 30px;
+    padding: 5px 20px 5px 20px;
+    width: auto;
+    border-radius: 30px;
+    display: block;
+    margin-left: 50px;
+    margin-right: 560px;
+    margin-top: 30px;
+}
+#floatingInput{
+    height: 50px;
+    background-color: #fff;
+    border: 2px solid #3AC6C4;
+    border-radius: 20px;
+    width: 550px;
+    margin-left: 50px;
+}
+#floatingPassword{
+    height: 50px;
+    background-color: #fff;
+    border: 2px solid #3AC6C4;
+    border-radius: 20px;
+    width: 550px;
+    margin-left: 50px;
+}
+.col-12 > button {
+    margin-left: 190px;
+    margin-top: 40px;
+    width: 300px;
+    color: #000000;
+    background-color: #53C4CD;
+    border: 2px solid #53C4CD;
+    border-radius: 20px;
+    -webkit-transition: 1s;
+}
+
+.col-12 > button:hover {
+    color: #000000;
+    background-color: #21ebe7;
+    border: 2px solid #21ebe7;
+    border-radius: 20px;
+}
