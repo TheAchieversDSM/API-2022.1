@@ -39,6 +39,7 @@ h1, a, h2, h3{
     height: fit-content;
     margin-top: -490px;
     margin-left: 250px;
-    padding: 30px 30px 40px 30px;
+    margin-bottom: 30px;
+    padding: 50px;
 }
 
