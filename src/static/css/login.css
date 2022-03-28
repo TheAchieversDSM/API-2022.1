@@ -23,7 +23,7 @@ main > img {
 #floatingPassword {
     height: 50px;
     background-color: #414042;
-    border: 2px solid #3AC6C4;
+    border: 2px solid #53C4CD;
     border-radius: 20px;
     width: 350px;
     color: #fff;
@@ -44,12 +44,12 @@ main > img {
 }
 
 .form-check > input {
-    border: 2px solid #3AC6C4;
+    border: 2px solid #53C4CD;
     background-color: #414042;
 }
 
 .form-check > input:checked:after {
-    background-color: #3AC6C4;
+    background-color: #53C4CD;
 }
 
 .opcao > a {
