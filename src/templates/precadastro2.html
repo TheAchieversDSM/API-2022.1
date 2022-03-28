@@ -18,23 +18,27 @@
     <!-- FAVICON-->
     <link rel="shortcut icon" href="../static/img/icone_logo.svg" type="image/x-icon">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://kit.fontawesome.com/4d3a0277e3.js" crossorigin="anonymous"></script>
+
     <title>Pré-cadastro</title>
 </head>
 <body>
     <div class="navbar">
         <nav class="nav flex-column">
             <img class="logo" src="../static/img/logo_correto_geral.svg">
-            <a class="nav-link" href="#">HOME</a>
-            <a class="nav-link" href="#">Organograma</a>
-            <a class="nav-link" href="#">Perfil do Colaborador</a>
-            <a class="nav-link active" aria-current="page" href="#">Novo Perfil</a>
-            <a class="nav-link" href="#">Notificações</a>
-            <a class="nav-link" href="#">Documentos</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-house"></i> HOME</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-location-crosshairs"></i> Organograma</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Perfil do Colaborador</a>
+            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-id-badge"></i> Novo Perfil</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-message"></i> Notificações</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Documentos</a>
         </nav>
     </div><br>
+
     <div class="conteudo">
         <div class="row">
-            <div class="col-6">
+            <div class="col-7">
                 <h4>Dados Acadêmicos</h4>
                 <div class="educa">
                     <label class="form-label">Formação</label>
@@ -48,7 +52,8 @@
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-5">
+                <h4>Benefícios</h4>
                 <div class="educa">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -69,7 +74,43 @@
                 </div>
             </div>
 
-            <div class="col-10"></div>
+            <div class="col-12">
+                <h4>Mais informações trabalhistas</h4>
+                <div class="educa">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Departamento</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label class="form-label">Cargo</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Nível</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Faixa Salarial</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState" class="form-label">Contratação</label>
+                            <select id="inputState" class="form-select">
+                                <option selected>...</option>
+                                <option>CLT</option>
+                                <option>PJ</option>
+                                <option>Estagiário</option>
+                                <option>Temporário</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-lg btn-primary me-md-2" type="button">Voltar</button>
+            <button class="btn btn-lg btn-primary" type="button">Próximo</button>
         </div>
     </div>
 </body>

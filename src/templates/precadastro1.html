@@ -18,114 +18,157 @@
     <!-- FAVICON-->
     <link rel="shortcut icon" href="../static/img/icone_logo.svg" type="image/x-icon">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://kit.fontawesome.com/4d3a0277e3.js" crossorigin="anonymous"></script>
+
     <title>Pré-cadastro</title>
+
 </head>
 <body>
     <div class="navbar">
         <nav class="nav flex-column">
             <img class="logo" src="../static/img/logo_correto_geral.svg">
-            <a class="nav-link" href="#">HOME</a>
-            <a class="nav-link" href="#">Organograma</a>
-            <a class="nav-link" href="#">Perfil do Colaborador</a>
-            <a class="nav-link active" aria-current="page" href="#">Novo Perfil</a>
-            <a class="nav-link" href="#">Notificações</a>
-            <a class="nav-link" href="#">Documentos</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-house"></i> HOME</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-location-crosshairs"></i> Organograma</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Perfil do Colaborador</a>
+            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-id-badge"></i> Novo Perfil</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-message"></i> Notificações</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Documentos</a>
         </nav>
     </div><br>
     <div class="conteudo">
         <div class="row">
+
+            <!--Dados pessoais-->
             <div class="col-12">
-                <form class="row g-3">
-                    <div class="col-md-10">
-                        <label class="form-label">Nome Completo</label>
-                        <input type="text" class="form-control" id="Name">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Nacionalidade</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Naturalidade</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Raça</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Gênero</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-5">
-                        <label class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="CPF">
-                    </div>
-                </form>
+                <div class="campos">
+                    <form class="row g-3">
+                        <div class="col-md-10">
+                            <label class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nacionalidade</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Naturalidade</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Raça</label>
+                            <select class="form-select">
+                                <option selected>...</option>
+                                <option>Branco(a)</option>
+                                <option>Preto(a)</option>
+                                <option>Pardo(a)</option>
+                                <option>Indígena</option>
+                                <option>Amarelo(a)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Gênero</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="CPF">
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="col-3">
-                <form class="row g-3">
-                    <div class="col-md-11">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="inputEmail4" class="form-label">DDD</label>
-                        <input class="form-control" >
-                    </div>
-                    <div class="col-md-11">
-                        <label for="inputEmail4" class="form-label">Telefone</label>
-                        <input class="form-control">
-                    </div>
+            <!--Contatos-->
+            <div class="col-4">
+                <div class="campos">
+                    <form class="row g-3">
+                        <div class="col-md-11">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">DDD</label>
+                            <input class="form-control" >
+                        </div>
+                        <div class="col-md-11">
+                            <label class="form-label">Telefone</label>
+                            <input class="form-control">
+                        </div>
+                </div>
             </div>
 
-            <div class="col-1"></div>
-
+            <!--Endereço-->
             <div class="col-8">
-                <form class="row g-3">
-                    <div class="col-11">
-                        <label for="inputAddress" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress">
-                    </div>
-                    <div class="col-md-5">
-                        <label for="inputCity" class="form-label">Bairro</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-5">
-                        <label for="inputState" class="form-label">Complemento</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="inputZip" class="form-label">CEP</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-5">
-                <label for="inputState" class="form-label">Estado Civil</label>
-                <select id="inputState" class="form-select">
-                    <option selected>...</option>
-                    <option>Solteiro(a)</option>
-                    <option>Casado(a)</option>
-                    <option>Divorciado(a)</option>
-                    <option>Viúvo(a)</option>
-                </select>
-            </div>
-
-            <div class="col-1"></div>
-
-            <div class="col-5">
-                <label class="form-label">Possui filhos?</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Sim</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Não</label>
+                <div class="campos">
+                    <form class="row g-3">
+                        <div class="col">
+                            <label for="inputEmail4" class="form-label">Endereço</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="teste">
+                            <div>
+                                <label for="inputCity" class="form-label">Bairro</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <label for="inputState" class="form-label">Complemento</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <label for="inputZip" class="form-label">CEP</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="inputEmail4" class="form-label">Cidade</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="test">
+                            <div>
+                                <label for="inputEmail4" class="form-label">Estado</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <label for="inputPassword4" class="form-label">Região</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+
+            <!--Estado Civil-->
+            <div class="col-6">
+                <div class="campos">
+                    <label for="inputState" class="form-label">Estado Civil</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>...</option>
+                        <option>Solteiro(a)</option>
+                        <option>Casado(a)</option>
+                        <option>Divorciado(a)</option>
+                        <option>Viúvo(a)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--Filhos-->
+            <div class="col-6">
+                <div class="campos">
+                    <p>Possui filhos?</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid justify-content-md-center">
+            <button class="btn btn-lg btn-primary" type="button">Próximo</button>
         </div>
     </div>
 </body>
