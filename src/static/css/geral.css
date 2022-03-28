@@ -16,14 +16,18 @@ h1, a, h2, h3{
 .nav-link{
     margin-left: 10px;
     margin-bottom: 15px;
-    color: #58595B;
+    color: #58595B !important;
     font-size: 18px;
 }
 
 .nav-link:hover{
     color: #1b1c1d !important;
 }
-
+.nav-link.active{
+    background-color: #ffff;
+    border-radius: 30px;
+    color: #53C4CD !important;
+}
 .navbar{
     width: 500px;
 }
