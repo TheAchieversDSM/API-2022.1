@@ -1,0 +1,16 @@
+.conteudo{
+    height: 600px;
+}
+h1{
+    position: absolute;
+    top: 275px;
+    left: 515px;
+    font: 200px;
+    color:#fff;
+}
+h4{
+    position: absolute;
+    top: 350px;
+    left: 575px;
+    color: #53C4CD;
+}
