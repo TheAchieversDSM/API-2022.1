@@ -54,24 +54,33 @@
         <script>
             //JavaScript Organogramas 
             window.onload = function () {
+        
+                OrgChart.templates.polina.menuButton =
+                '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer;" data-ctrl-menu="">'
+                + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
+                + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
+                + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
+                + '</div>';
+                OrgChart.SEARCH_PLACEHOLDER = "Pesquisar";
+                OrgChart.templates.polina.link = '<path stroke-linejoin="round" stroke="#aeaeae" stroke-width="1px" fill="none" d="{edge}" />';
                 OrgChart.templates.polina.node = '<rect x="0" y="0" height="80" width="300" fill="#039BE5" stroke-width="4" stroke="#3AC6C4" rx="40" ry="40"></rect>';
                 OrgChart.templates.polina.field_0 = '<text width="130" style="font-size: 18px;" fill="#000000" x="150" y="45" text-anchor="middle" class="field_0">{val}</text>';
                 OrgChart.templates.polina.field_1 = '<text width="130" text-overflow="multiline" style="font-size: 12px;" fill="#ffffff" x="270" y="20" text-anchor="end" class="field_1">{val}</text>';
             var chart = new OrgChart(document.getElementById("tree"), {
+                layout: OrgChart.treeLeftOffset,
                 showYScroll: OrgChart.scroll.visible,
                 mouseScrool: OrgChart.action.yScroll,
                 template: "polina",
-                enableSearch: false,
                 nodeBinding: {
                     field_0: "name",
                     field_1: "title",
                     img_0: "img"
                 },
                 menu: {
-                    pdf: { text: "Export PDF" },
-                    png: { text: "Export PNG" },
-                    svg: { text: "Export SVG" },
-                    csv: { text: "Export CSV" }
+                    pdf: { text: "Exportar para PDF" },
+                    png: { text: "Exportar para PNG" },
+                    svg: { text: "Exportar para SVG" },
+                    csv: { text: "Exportar para CSV" }
                 },
                 nodes: [
                     { id: 1, name: "Amber McKenzie", title: "CEO", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
@@ -80,7 +89,7 @@
                     { id: 4, pid: 2, name: "Mariana Ayumi",title: "IT Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
                     { id: 5, pid: 2, name: "Maria Clara",title: "IT Intern" ,img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
                     { id: 6, pid: 3, name: "Rikio Anzai", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
-                    { id: 7, pid: 3, name: "Gizeli", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
+                    { id: 7, pid: 3, name: "Gizeli Fonseca", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
                 ]
             });
             }
