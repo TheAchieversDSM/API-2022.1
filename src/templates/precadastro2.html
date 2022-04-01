@@ -10,10 +10,12 @@
 
     <link rel="stylesheet" href="../static/css/precadastro2.css">
 
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MATERIALIZE -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- FAVICON-->
     <link rel="shortcut icon" href="../static/img/icone_logo.svg" type="image/x-icon">
@@ -24,94 +26,101 @@
     <title>Pré-cadastro</title>
 </head>
 <body>
-    <div class="navbar">
-        <nav class="nav flex-column">
-            <img class="logo" src="../static/img/logo_correto_geral.svg">
-            <a class="nav-link" href="#"><i class="fa-solid fa-house"></i> HOME</a>
-            <a class="nav-link" href="#"><i class="fa-solid fa-location-crosshairs"></i> Organograma</a>
-            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Perfil do Colaborador</a>
-            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-id-badge"></i> Novo Perfil</a>
-            <a class="nav-link" href="#"><i class="fa-solid fa-message"></i> Notificações</a>
-            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Documentos</a>
-        </nav>
-    </div><br>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <img class="logo" src="../static/img/logo_correto_geral.svg">
+        <li><a href="#!"><i class="fa-solid fa-house"></i> HOME</a></li>
+        <li><a href="#!"><i class="fa-solid fa-location-crosshairs"></i> Organograma</a></li>
+        <li><a href="#!"><i class="fa-solid fa-user"></i> Perfil do Colaborador</a></li>
+        <li><a href="#!"><i class="fa-solid fa-id-badge"></i> Novo Perfil</a></li>
+        <li><a href="#!"><i class="fa-solid fa-message"></i> Notificações</a></li>
+        <li><a href="#!"><i class="fa-solid fa-file"></i> Documentos</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
     <div class="conteudo">
         <div class="row">
-            <div class="col-7">
-                <h4>Dados Acadêmicos</h4>
-                <div class="educa">
-                    <label class="form-label">Formação</label>
-                    <input type="text" class="form-control">
-    
-                    <label class="form-label">Curso</label>
-                    <input type="text" class="form-control">
-    
-                    <label class="form-label">Línguas</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
 
-            <div class="col-5">
-                <h4>Benefícios</h4>
-                <div class="educa">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">Plano de Saúde</label>    
+            <!-- DADOS ACADÊMICOS -->
+            <div class="col s12">
+                <h5>Dados Acadêmicos</h5>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="formacao" type="email" class="validate">
+                        <label for="formacao">Formação</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">Vale Refeição</label>    
+
+                    <div class="input-field col s4">
+                        <input id="Cursos" type="email" class="validate">
+                        <label for="Cursos">Cursos</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">Vale Transporte</label>    
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">Auxílio Creche</label>    
+
+                    <div class="input-field col s4">
+                        <input id="linguas" type="email" class="validate">
+                        <label for="linguas">Línguas</label>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12">
-                <h4>Mais informações trabalhistas</h4>
-                <div class="educa">
-                    <div class="row">
-                        <div class="col-6">
-                            <label class="form-label">Departamento</label>
-                            <input type="text" class="form-control">
+            <!-- BENEFÍCIOS -->
+            <div class="col s12">
+                <h5>Benefícios</h5>
+                <form action="#">
+                    <p>
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>Plano de Saúde</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>Vale Transporte</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>Vale Refeição</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>Auxílio creche</span>
+                        </label>
+                    </p>
+                </form>
+            </div>
+
+            <!-- MAIS INFORMAÇÕES TRABALHISTAS -->
+            <div class="col s12">
+                <h5>Mais informações trabalhistas</h5>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="departamento" type="text" class="validate">
+                                <label for="departamento">Departamento</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="cargo" type="text" class="validate">
+                                <label for="cargo">Cargo</label>
+                            </div>
                         </div>
-                        <div class="col-5">
-                            <label class="form-label">Cargo</label>
-                            <input type="text" class="form-control">
+                        <div class="input-field col s4">
+                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                            <label for="first_name">Nível</label>
                         </div>
-                        <div class="col-4">
-                            <label class="form-label">Nível</label>
-                            <input type="text" class="form-control">
+                        <div class="input-field col s4">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Faixa Salarial</label>
                         </div>
-                        <div class="col-4">
-                            <label class="form-label">Faixa Salarial</label>
-                            <input type="text" class="form-control">
+                        <div class="input-field col s4">
+                            <input id="contratacao" type="text" class="validate">
+                            <label for="contratacao">Contratação</label>
                         </div>
-                        <div class="col-6">
-                            <label for="inputState" class="form-label">Contratação</label>
-                            <select id="inputState" class="form-select">
-                                <option selected>...</option>
-                                <option>CLT</option>
-                                <option>PJ</option>
-                                <option>Estagiário</option>
-                                <option>Temporário</option>
-                            </select>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-lg btn-primary me-md-2" type="button">Voltar</button>
-            <button class="btn btn-lg btn-primary" type="button">Próximo</button>
-        </div>
+        <a class="waves-effect waves-light btn"><i class="fa-solid fa-arrow-left-long"></i> Voltar</a>
+        <a class="waves-effect waves-light btn">Próximo <i class="fa-solid fa-arrow-right-long"></i></a>
     </div>
 </body>
 </html>

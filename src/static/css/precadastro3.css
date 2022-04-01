@@ -1,16 +1,15 @@
 .conteudo{
-    height: 600px;
+    height: 710px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
 }
 h1{
-    position: absolute;
-    top: 275px;
-    left: 515px;
-    font: 200px;
-    color:#fff;
+    color: #f4f4f4;
 }
+
 h4{
-    position: absolute;
-    top: 350px;
-    left: 575px;
     color: #53C4CD;
 }
+

@@ -1,41 +1,24 @@
-.educa{
-    background-color: #f2f2f2;
-    padding: 30px;
+.col{
+    background-color: #f4f4f4;
     border-radius: 30px;
+    grid-gap: 50px !important;
+    padding: 5px 15px 0px 15px !important;
+    margin-bottom: 20px;
 }
 
-h4{
-    background-color: #53C4CD;
-    width: fit-content;
-    padding: 5px 15px 5px 15px;
-    border-radius: 30px;
-}
-
-label{
-    font-size: 18px;
-}
-
-.col-7, .col-12{
-    padding-bottom: 30px;
-}
-
-.form-control, .form-select{
-    background-color: #f2f2f2 !important;
-    border: 2px solid #53C4CD !important;
-    border-radius: 20px !important;
-}
-
-.form-check-input{
-    border: 2px solid #53C4CD !important;
-}
-
-.form-check{
-    margin-bottom: 20px !important;
+p > label{
+    margin: 20px;
 }
 
 .btn{
     background-color: #53C4CD !important;
-    color: #414042 !important;
     border-radius: 30px !important;
-    font-size: 20px;
+}
+
+h5{
+    color: #414042;
+    background-color: #53C4CD;
+    width: fit-content;
+    border-radius: 30px;
+    padding: 5px 10px 5px 10px;
 }

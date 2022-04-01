@@ -1,10 +1,11 @@
 body{
     background-color: #53C4CD !important;
+    margin: 20px !important;
 }
 
-h1, a, h2, h3{
+h1, h2, h3, h4, h5{
     font-family: coolvetica, sans-serif;
-    font-weight: 600 !important;
+    font-weight: 550 !important;
 }
 
 .logo{
@@ -13,33 +14,19 @@ h1, a, h2, h3{
     margin: 10px 0px 20px 20px;
 }
 
-.nav-link{
-    margin-left: 10px;
-    margin-bottom: 15px;
-    color: #58595B !important;
-    font-size: 18px;
-}
-
-.nav-link:hover{
-    color: #1b1c1d !important;
-}
-.nav-link.active{
-    background-color: #ffff;
-    border-radius: 30px;
-    color: #53C4CD !important;
-}
-.navbar{
-    width: 500px;
+.sidenav{
+    background-color: #53C4CD !important;
+    box-shadow: none !important;
+    width: 260px !important;
 }
 
 .conteudo{
     background-color: #414042 !important;
     border-radius: 30px;
-    max-width: 1250px;
+    width: 82%;
     height: fit-content;
-    margin-top: -490px;
-    margin-left: 250px;
-    margin-bottom: 30px;
+    float: right;
     padding: 50px;
+    margin-bottom: 20px;
 }
 
