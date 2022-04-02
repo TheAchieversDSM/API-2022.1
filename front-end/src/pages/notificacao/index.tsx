@@ -10,7 +10,8 @@ import './style.css'
 class Notificacao extends Component {
     render() {
         return (
-
+            <>
+            </>
         );
     }
 }
