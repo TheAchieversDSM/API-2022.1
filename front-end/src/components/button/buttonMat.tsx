@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 type props = {
+    class: string,
     name: string,
     iClass: string
 }
@@ -8,7 +9,7 @@ type props = {
 class ButtonMat extends Component<props> {
     render() {
         return (
-            <a className="waves-effect waves-light btn">{this.props.name}<i className={this.props.iClass}></i></a>
+            <a className={this.props.class}>{this.props.name}<i className={this.props.iClass}></i></a>
         )
     }
 }

@@ -19,8 +19,8 @@ class Notificacao extends Component {
                         <div className="row">
                             <h5 className="col s9">Rebeca fez o pré-cadastro!</h5>
                             <div className="grid-button">
-                                <ButtonMat name="Aceitar" iClass="fa-solid fa-circle-check" />
-                                <ButtonMat name="Rejeitar" iClass="fa-solid fa-circle-xmark" />
+                                <ButtonMat class="waves-effect waves-light btn" name="Aceitar" iClass="fa-solid fa-circle-check" />
+                                <ButtonMat class="waves-effect waves-light btn" name="Rejeitar" iClass="fa-solid fa-circle-xmark" />
                             </div>
                         </div>
                     </div>

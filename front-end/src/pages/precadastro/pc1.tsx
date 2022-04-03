@@ -122,7 +122,7 @@ class PreCadastro1 extends Component {
                         </div>
                     </div>
 
-                    <ButtonMat name="Próximo" iClass="fa-solid fa-arrow-right-long" />
+                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" />
                 </div>
             </>
         )

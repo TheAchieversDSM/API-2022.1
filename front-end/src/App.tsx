@@ -9,6 +9,7 @@ import NovoPerfil from './pages/novo perfil';
 import PreCadastro1 from './pages/precadastro/pc1';
 import PreCadastro2 from './pages/precadastro/pc2';
 import PreCadastro3 from './pages/precadastro/pc3';
+import PerfilColab from './pages/pefil colab';
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
         return (
             <div className="App">
         
-                <PreCadastro1/>
+                <PerfilColab/>
                 
             </div>
         );
