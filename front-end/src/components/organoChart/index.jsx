@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import OrgStruct from '../organoStruct/';
 
-
-
-
 export default class OrganoChart extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return (
             <div style={{height: '100%'}}>
@@ -21,10 +13,7 @@ export default class OrganoChart extends Component {
                     { id: 4, pid: 2, name: "Mariana Ayumi",title: "IT Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
                     { id: 5, pid: 2, name: "Maria Clara",title: "IT Intern" ,img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
                     { id: 6, pid: 3, name: "Rikio Anzai", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
-                    { id: 7, pid: 3, name: "Gizeli Fonseca", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },
-                            
-
-                            
+                    { id: 7, pid: 3, name: "Gizeli Fonseca", title: "HR Intern", img: "https://cdn.balkan.app/shared/empty-img-white.svg" },                            
                 ]} />
             </div>
         );

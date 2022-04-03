@@ -40,17 +40,8 @@ main > img {
     font-size: 17px;
 }
 
-.form-check > label {
-    color: #ffff
-}
-
-.form-check > input {
-    border: 2px solid #53C4CD;
-    background-color: #414042;
-}
-
-.form-check > input:checked:after {
-    background-color: #53C4CD;
+span {
+    color: white;
 }
 
 .opcao > a {

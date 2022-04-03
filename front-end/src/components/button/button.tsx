@@ -1,13 +1,14 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
-class Button extends Component<{ title: string }>{
-    constructor(props) {
-        super(props)
-    }
+type props = {
+    class: string,
+    name: string
+}
 
+class Button extends Component<props> {
     render() {
         return (
-            <button className="btn btn-primary" type="submit">{this.props.title}</button>
+            <button type="button" className={this.props.class}>{this.props.name}</button>
         )
     }
 }

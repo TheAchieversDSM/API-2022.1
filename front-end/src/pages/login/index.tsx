@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 // LOCAL CSS
 import './style.css'
@@ -7,15 +7,15 @@ import './style.css'
 import LogoLogin from "../../assets/img/logo_login.svg"
 
 // COMPONENTS
-import InputNormal from "../../components/input/normal";
-import InputPrivate from "../../components/input/private";
+import Input from "../../components/input/input";
 import Check from "../../components/input/check";
-import Button from "../../components/button/button";
+import Submit from "../../components/button/submit";
+
 
 class Login extends Component {
     render() {
         return (
-            <div>
+            <>
                 <head>
                     // CSS LOCAL 
                     <link rel="stylesheet" href="../static/css/login.css"/>
@@ -31,25 +31,24 @@ class Login extends Component {
                     <main>
                         <img src={LogoLogin} />
 
-                        <InputNormal type="email" id="floatingInput" name="E-mail"/>
+                        <Input div="form-floating mb-3" type="email" class="form-control" id="floatingInput" name="E-mail"/>
 
-                        <InputPrivate type="password" id="floatingPassword" name="Senha"/>
+                        <Input div="form-floating mb-3" type="password" class="form-control" id="floatingPassword" name="Senha"/>
                 
                         <div className="opcao">
                             <div className="col-12">
-                                <Check label="Lembrar de Mim"/>
+                                <Check name="Lembrar de Mim"/>
                             </div>
                 
                             <a href="#">Esqueci a senha</a>
                         </div>
                 
                         <div className="col-12">
-                            <Button title="Log In" />
+                            <Submit title="Log In" />
                         </div>
-                
                     </main>
                 </body>
-            </div>
+            </>
         )
     }
 };

@@ -1,28 +1,32 @@
-import { Component } from "react";
-import Menu from "../../components/menu";
-import OrganoChart from "../../components/organoChart";
-
+import React, { Component } from "react";
 
 // LOCAL CSS
 import './style.css'
+
+// COMPONENTS
+import SideNav from "../../components/general";
+import OrganoChart from "../../components/organoChart";
+import Button from "../../components/button/button";
+import General from "../../components/general";
 
 export default class Organograma extends Component{
     render(){
         return(
             <>
-                <link rel="stylesheet" href="./style.css" />
-                <Menu />
+                <General />
+
                 <div className="conteudo">
                     <select className="browser-default">
                         <option value="" disabled selected>Escolha o departamento</option>
                         <option value="1">T.I.</option>
                         <option value="2">R.H.</option>
                     </select>
-                    <button type="button" className="inativos">Inativos</button>
-                    <button type="button" className="novodep">Novo Departamento</button>
+
+                    <Button class="inativos" name="Inativos"/>
+                    <Button class="novodep" name="Novo Departamento" />
+                    
                     <OrganoChart/>
                 </div>
-               
             </>
         )
     }
