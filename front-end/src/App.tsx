@@ -16,7 +16,7 @@ class App extends Component {
         return (
             <div className="App">
         
-                <PreCadastro1 />
+                <PreCadastro1/>
                 
             </div>
         );

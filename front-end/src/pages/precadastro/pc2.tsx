@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 // LOCAL CSS
 import './style2.css'
@@ -9,18 +9,19 @@ import General from "../../components/general";
 import Input from "../../components/input/input";
 import Check from "../../components/input/check";
 
+
 class PreCadastro2 extends Component {
     render() {
         return (
             <>
                 <General />
 
-                <div class="conteudo">
-                    <div class="row">
-                        <div class="col s12">
+                <div className="conteudo">
+                    <div className="row">
+                        <div className="col s12">
                             <h5>Dados Acadêmicos</h5>
-                            <div class="teste1">
-                                <div class="row">
+                            <div className="teste1">
+                                <div className="row">
                                     <Input div="input-field col s4" id="formacao" type="text" class="validate" name="Formação" />
 
                                     <Input div="input-field col s4" id="cursos" type="text" class="validate" name="Cursos" />
@@ -30,9 +31,9 @@ class PreCadastro2 extends Component {
                             </div>
                         </div>
 
-                        <div class="col s12">
+                        <div className="col s12">
                             <h5>Benefícios</h5>
-                            <div class="teste1">
+                            <div className="teste1">
                                 <form action="#">
                                     <p>
                                         <Check name="Plano de Saúde" />
@@ -44,12 +45,12 @@ class PreCadastro2 extends Component {
                             </div>
                         </div>
 
-                        <div class="col s12">
+                        <div className="col s12">
                             <h5>Mais informações trabalhistas</h5>
-                            <div class="teste2">
-                                <div class="row">
-                                    <form class="col s12">
-                                        <div class="row">
+                            <div className="teste2">
+                                <div className="row">
+                                    <form className="col s12">
+                                        <div className="row">
                                             <Input div="input-field col s6" type="text" id="departamento" class="validate" name="Departamento"/>
                                             
                                             <Input div="input-field col s6" type="text" id="cargo" class="validate" name="Cargo"/>

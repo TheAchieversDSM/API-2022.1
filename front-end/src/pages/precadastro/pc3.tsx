@@ -10,7 +10,7 @@ class PreCadastro3 extends Component {
             <>
                 <General />
 
-                <div class="conteudo">
+                <div className="conteudo">
                     <div>
                         <h1>INFORMAÇÕES COMPLETAS!</h1>
                         <h4>Por favor, aguarde a aprovação do cadastro</h4>

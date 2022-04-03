@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 // LOCAL CSS
 import './style.css'
@@ -13,11 +13,11 @@ class NovoPerfil extends Component {
         return (
             <>
                 <General />
-                <div class="conteudo">
+                <div className="conteudo">
                     <h2>Novo Perfil</h2>
-                    <div class="form">
-                        <Input div="input-field col s12" type="email" id="email" name="E-mail" />
-                        <Input div="input-field col s12" type="password" id="password" name="Senha" />
+                    <div className="form">
+                        <Input div="input-field col s12" type="email" id="email" name="E-mail" class="validate" />
+                        <Input div="input-field col s12" type="password" id="password" name="Senha" class="validate" />
                         <ButtonMat name="Criar novo perfil" iClass="{}" />
                     </div>
                 </div>
