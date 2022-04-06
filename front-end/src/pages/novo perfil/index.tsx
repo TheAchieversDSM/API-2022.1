@@ -18,7 +18,7 @@ class NovoPerfil extends Component {
                     <div className="form">
                         <Input div="input-field col s12" type="email" id="email" name="E-mail" class="validate" />
                         <Input div="input-field col s12" type="password" id="password" name="Senha" class="validate" />
-                        <ButtonMat name="Criar novo perfil" iClass="{}" />
+                        <ButtonMat class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
                     </div>
                 </div>
             </>

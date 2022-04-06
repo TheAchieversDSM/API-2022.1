@@ -68,8 +68,8 @@ class PreCadastro2 extends Component {
                         </div>
                     </div>
 
-                    <Link to="/PreCad1"><ButtonMat name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
-                    <Link to="/PreCad3"><ButtonMat name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+                    <Link to="/PreCad1"><ButtonMat class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
+                    <Link to="/PreCad3"><ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
                 </div>
             </>
         )

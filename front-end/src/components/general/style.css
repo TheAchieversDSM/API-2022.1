@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5 {
     width: 260px !important;
 }
 
+.sidenav > li {
+    text-align: left;
+}
+
 .conteudo {
     background-color: #414042 !important;
     border-radius: 30px;

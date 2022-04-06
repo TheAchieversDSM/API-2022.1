@@ -8,6 +8,7 @@ import PreCadastro3 from "../pages/precadastro/pc3";
 import NovoPerfil from "../pages/novo perfil";
 import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
+import PerfilColab from "../pages/perfilcolab";
 
 function Routes(){
     return(
@@ -20,6 +21,7 @@ function Routes(){
                 <Route path="/Notificacao" element ={<Notificacao/>}/>
                 <Route path="/NovoPerfil" element ={<NovoPerfil/>}/>
                 <Route path="/Organograma" element ={<Organograma/>}/>      
+                <Route path="/PerfilColaborador" element={<PerfilColab/>}/>
             </Switch>
         </BrowserRouter>
         

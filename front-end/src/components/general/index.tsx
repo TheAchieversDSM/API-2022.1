@@ -18,7 +18,7 @@ export default class General extends Component{
                 
                 <SideNav link="" class="fa-solid fa-house" name="Home" />
                 <SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" />
-                <SideNav link="" class="fa-solid fa-user" name="Perfil do Colaborador" />
+                <SideNav link="/PerfilColaborador" class="fa-solid fa-user" name="Perfil do Colaborador" />
                 <SideNav link="/NovoPerfil" class="fa-solid fa-id-badge" name="Novo Perfil" />
                 <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
                 <SideNav link="" class="fa-solid fa-file" name="Documentos" />
