@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import './style.css'
 
 // COMPONENTS
-import SideNav from "../../components/general";
+
 import OrganoChart from "../../components/organoChart";
 import Button from "../../components/button/button";
 import General from "../../components/general";

@@ -17,8 +17,6 @@ class Login extends Component {
         return (
             <>
                 <head>
-                    // CSS LOCAL 
-                    <link rel="stylesheet" href="../static/css/login.css"/>
                 
                     // BOOTSTRAP 
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import{Link} from "react-router-dom";
 
 // LOCAL CSS
 import './style1.css'
@@ -122,7 +123,7 @@ class PreCadastro1 extends Component {
                         </div>
                     </div>
 
-                    <ButtonMat name="Próximo" iClass="fa-solid fa-arrow-right-long" />
+                    <Link to="/PreCad2"><ButtonMat name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
                 </div>
             </>
         )
