@@ -1,9 +1,24 @@
-.col{
+.teste1{
     background-color: #f4f4f4;
     border-radius: 30px;
-    grid-gap: 50px !important;
     padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
+}
+
+.teste2{
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 5px 15px 0px 15px !important;
+    margin-bottom: 20px;
+    height: 350px;
+}
+
+.teste3{
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 5px 15px 0px 15px !important;
+    margin-bottom: 20px;
+    height: 100px;
 }
 
 .s6{

@@ -1,0 +1,48 @@
+.teste1, .teste2, .teste3{
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 10px !important;
+    margin: 10px;
+}
+
+h4{
+    background-color: #53C4CD;
+    border-radius: 30px;
+    width: fit-content;
+    padding: 5px 15px 5px 15px;
+    vertical-align: middle;
+}
+
+.collapsible-header{
+    background-color: #53C4CD !important;
+    border-radius: 30px !important;
+    font-size: 18px;
+    border: 3px solid #58595B !important;
+}
+
+.popout > li{
+    margin: 10px !important;
+}
+
+.collapsible > li{
+    border-radius: 30px !important;
+}
+
+.btn, .btn-large{
+    background-color: #53C4CD !important;
+    border-radius: 30px !important;
+    position: absolute;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+}
+
+.foto{
+    border-radius: 30px !important;
+    background-color: #58595B;
+    height: 200px;
+    width: 180px;
+}
+
+p, span{
+    font-size: 18px !important;
+}
