@@ -4,7 +4,7 @@
     left: 3%;
     border: 3px solid #3AC6C4;
     border-radius: 20px;
-
+    font-family: coolvetica, sans-serif !important;
 }
 
 .conteudo > button{
@@ -14,7 +14,9 @@
     margin-left: 20px;
     height: 35px;
     border: none;
-    border-radius: 15px;
+    border-radius: 30px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
 }
 
 .inativos{
@@ -77,6 +79,5 @@
   .field_1 {
     fill: #000000;
   }
-  
 
 

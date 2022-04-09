@@ -1,16 +1,16 @@
 .teste1{
     background-color: #f4f4f4;
     border-radius: 30px;
-    padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 .teste2{
     background-color: #f4f4f4;
     border-radius: 30px;
-    padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
-    height: 350px;
+    height: 310px;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 .teste3{
@@ -19,6 +19,7 @@
     padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
     height: 100px;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 .s6{
@@ -31,10 +32,34 @@ p > label{
 
 .browser-default{
     border-radius: 30px !important;
-
+    border: 3px solid #53C4CD !important;
+    background-color: #f4f4f4 !important;
 }
 
 .btn{
     background-color: #53C4CD !important;
     border-radius: 30px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+}
+
+.input-field > input{
+    border: 3px solid #53C4CD !important;
+    border-radius: 30px !important;
+}
+
+.input-field > label{
+    margin-left: 20px !important;
+}
+
+form > div{
+    margin: 0px !important;
+}
+
+.input-field input[type=text].valid {
+    border: 3px solid #00e676 !important;
+}
+
+label, select, option {
+    font-family: source-sans-pro, sans-serif !important;
 }

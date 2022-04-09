@@ -3,21 +3,24 @@
     border-radius: 30px;
     padding: 10px !important;
     margin: 10px;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 h4{
     background-color: #53C4CD;
-    border-radius: 30px;
-    width: fit-content;
-    padding: 5px 15px 5px 15px;
+    color: #414042;
+    border-radius: 10px;
+    padding: 5px;
     vertical-align: middle;
+    text-align: center;
 }
 
 .collapsible-header{
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     font-size: 18px;
-    border: 3px solid #58595B !important;
+    font-family: coolvetica, sans-serif !important;
+    border: 3px solid #53C4CD !important;
 }
 
 .popout > li{
@@ -41,8 +44,23 @@ h4{
     background-color: #58595B;
     height: 200px;
     width: 180px;
+    margin:auto;
 }
 
 p, span{
     font-size: 18px !important;
+    font-family: source-sans-pro, sans-serif !important;
+}
+
+.inform{
+    display: inline-flex;
+}
+
+.inform > p{
+    margin: 6px;
+    color: #53C4CD;
+}
+
+.s6 > p{
+    color: #53C4CD;
 }
