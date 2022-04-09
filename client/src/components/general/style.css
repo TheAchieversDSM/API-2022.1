@@ -1,0 +1,35 @@
+body {
+    background-color: #53C4CD !important;
+    margin: 20px !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: coolvetica, sans-serif;
+    font-weight: 550 !important;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+    margin: 10px 0px 20px -50px;
+}
+
+.sidenav {
+    background-color: #53C4CD !important;
+    box-shadow: none !important;
+    width: 260px !important;
+}
+
+.sidenav > li {
+    text-align: left;
+}
+
+.conteudo {
+    background-color: #414042 !important;
+    border-radius: 30px;
+    width: 83%;
+    height: fit-content;
+    float: right;
+    padding: 50px;
+    margin-bottom: 20px;
+}

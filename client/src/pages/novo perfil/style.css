@@ -1,0 +1,21 @@
+h2 {
+    background-color: #53C4CD;
+    margin-bottom: 30px;
+    padding: 5px 20px 5px 20px;
+    width: fit-content;
+    border-radius: 30px;
+
+}
+
+.form {
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    width: 50%;
+    height: fit-content;
+    padding: 40px;
+}
+
+.btn {
+    background-color: #53C4CD !important;
+    border-radius: 30px !important;
+}

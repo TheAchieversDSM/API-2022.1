@@ -1,0 +1,25 @@
+.col {
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    grid-gap: 50px !important;
+    padding: 5px 15px 0px 15px !important;
+    margin-bottom: 20px;
+}
+
+.s6 {
+    padding: 10px 10px 20px 10px !important;
+}
+
+p > label {
+    margin: 10px;
+}
+
+.browser-default {
+    border-radius: 30px !important;
+
+}
+
+.btn {
+    background-color: #53C4CD !important;
+    border-radius: 30px !important;
+}
