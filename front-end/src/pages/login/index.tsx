@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // LOCAL CSS
-import './style.css'
+//import './login.css'
 
 // IMAGE
 import LogoLogin from "../../assets/img/logo_login.svg"

@@ -4,6 +4,7 @@
     padding: 10px !important;
     margin: 10px;
     align-items: center;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 .contrato-info {
@@ -65,10 +66,11 @@ h4{
 }
 
 .collapsible-header{
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     font-size: 18px;
-    border: 3px solid #58595B !important;
+    font-family: coolvetica, sans-serif !important;
+    border: 3px solid #53C4CD !important;
 }
 
 .popout > li{
@@ -79,18 +81,12 @@ h4{
     border-radius: 30px !important;
 }
 
-.btn{
+.btn, .btn-large {
     background-color: #53C4CD !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
     margin-left: 95px;
-}
-.btn-large {
-    background-color: #53C4CD !important;
-    border-radius: 30px !important;
-    color: #414042 !important;
-    font-family: coolvetica, sans-serif !important;
 }
 
 #info {
@@ -103,6 +99,7 @@ h4{
     background-color: #58595B;
     height: 250px;
     width: 225px;
+    margin: auto   ;
 }
 
 p, span{
@@ -117,4 +114,17 @@ p, span{
 }
 .contrato{
     margin-left: 70px;
+}
+
+.inform{
+    display: inline-flex;
+}
+
+.inform > p{
+    margin: 6px;
+    color: #53C4CD;
+}
+
+.s6 > p{
+    color: #53C4CD;
 }

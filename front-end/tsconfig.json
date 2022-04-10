@@ -7,7 +7,7 @@
       "esnext"
     ],
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true, 
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
@@ -21,6 +21,6 @@
     "jsx": "react"
   },
   "include": [
-    "src"
-  ]
+    "src", 
+    "src/routes"]
 }

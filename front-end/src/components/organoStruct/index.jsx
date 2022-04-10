@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
 
 // LOCAL CSS
-import './style.css'
+import './organoStruct.css'
 
 export default class extends Component {
     constructor(props) {

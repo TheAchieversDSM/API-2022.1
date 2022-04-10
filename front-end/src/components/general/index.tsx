@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // LOCAL CSS
-import './style.css'
+import './general.css'
 
 // IMAGE
 import LogoMenu from "../../assets/img/logo_correto_geral.svg"
