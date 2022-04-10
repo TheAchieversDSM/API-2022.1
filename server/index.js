@@ -1,10 +1,8 @@
 const userRoutes = require("./routes/userRoutes")
 
-
 const cors = require("cors")
 const express = require("express");
 const app = express();
-
 
 app.use(express.json());
 
@@ -13,6 +11,5 @@ app.get('/', (req, res)=>{
 });
 app.use("/novocolaborador",userRoutes)
 
-
-app.listen(5000 , ()=> console.log('Servidor rodando'))
+app.listen(5000 , () => console.log('Servidor rodando'))
 app.use(cors());

@@ -20,26 +20,6 @@ main > img {
     margin-bottom: 20px;
 }
 
-#floatingInput, 
-#floatingPassword {
-    height: 50px;
-    background-color: #414042;
-    border: 2px solid #53C4CD;
-    border-radius: 20px;
-    width: 350px;
-    color: #fff;
-    text-indent: 8px;
-    font-size: 15px;
-}
-
-.form-floating.mb-3 > label{
-    color: #ffff;
-    position: absolute;
-    top: -5px;
-    left: 8px;
-    font-size: 17px;
-}
-
 span {
     color: white;
 }
@@ -65,19 +45,21 @@ span {
     grid-template-columns: 1fr 1fr;
 }
 
-.col-12 > button {
-    margin-left: auto;
-    width: 300px;
-    color: #000000;
-    background-color: #53C4CD;
-    border: 2px solid #53C4CD;
-    border-radius: 20px;
-    -webkit-transition: 1s;
+.btn {
+    margin-left: auto !important;
+    width: 300px !important;
+    height: 40px !important;
+    color: #000000 !important   ;
+    background-color: #53C4CD!important;
+    border: 2px solid #53C4CD !important;
+    border-radius: 20px !important;
+    -webkit-transition: 1s !important;
 }
 
-.col-12 > button:hover {
+.btn:hover {
     color: #000000;
-    background-color: #21ebe7;
-    border: 2px solid #21ebe7;
-    border-radius: 20px;
+    background-color: #21ebe7 !important;
+    border: 2px solid #21ebe7 !important;
+    border-radius: 20px ;
 }
+

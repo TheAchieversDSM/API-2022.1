@@ -22,11 +22,11 @@ class PreCadastro2 extends Component {
                             <h5>Dados Acadêmicos</h5>
                             <div className="teste1">
                                 <div className="row">
-                                    <Input div="input-field col s4" id="formacao" type="text" class="validate" name="Formação" />
+                                    <Input div="input-field col s4" id="formacao" type="text" fname={""} class="validate" name="Formação" />
 
-                                    <Input div="input-field col s4" id="cursos" type="text" class="validate" name="Cursos" />
+                                    <Input div="input-field col s4" id="cursos" fname={""} type="text" class="validate" name="Cursos" />
 
-                                    <Input div="input-field col s4" id="linguas" type="text" class="validate" name="Línguas" />
+                                    <Input div="input-field col s4" id="linguas" fname={""}  type="text" class="validate" name="Línguas" />
                                 </div>
                             </div>
                         </div>
@@ -51,24 +51,24 @@ class PreCadastro2 extends Component {
                                 <div className="row">
                                     <form className="col s12">
                                         <div className="row">
-                                            <Input div="input-field col s6" type="text" id="departamento" class="validate" name="Departamento"/>
+                                            <Input div="input-field col s6" type="text" id="departamento" fname={""}     class="validate" name="Departamento"/>
                                             
-                                            <Input div="input-field col s6" type="text" id="cargo" class="validate" name="Cargo"/>
+                                            <Input div="input-field col s6" type="text" id="cargo" fname={""}   class="validate" name="Cargo"/>
                                         </div>
 
-                                        <Input div="input-field col s4" type="text" id="nivel" class="validate" name="Nível"/>
+                                        <Input div="input-field col s4" type="text" id="nivel" fname={""}    class="validate" name="Nível"/>
 
-                                        <Input div="input-field col s4" type="text" id="salario" class="validate" name="Faixa Salarial"/>
+                                        <Input div="input-field col s4" type="text" id="salario" fname={""}   class="validate" name="Faixa Salarial"/>
 
-                                        <Input div="input-field col s4" type="text" id="contratacao" class="validate" name="Contratação"/>
+                                        <Input div="input-field col s4" type="text" id="contratacao" fname={""}   class="validate" name="Contratação"/>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <ButtonMat class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" />
-                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" />
+                    <ButtonMat class="waves-effect waves-light btn" name="Voltar" fname={""}  iClass="fa-solid fa-arrow-left-long" />
+                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" fname={""}  iClass="fa-solid fa-arrow-right-long" />
                 </div>
             </>
         )

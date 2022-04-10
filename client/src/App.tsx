@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+//import Routes from './routes';
+
 // PAGES
 import Login from './pages/login';
 import Organograma from './pages/organograma';
@@ -17,7 +19,7 @@ class App extends Component {
         return (
             <div className="App">
         
-                <NovoPerfil/>
+                <NovoPerfil  />
                 
             </div>
         );

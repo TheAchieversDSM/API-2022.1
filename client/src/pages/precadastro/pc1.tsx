@@ -24,27 +24,27 @@ class PreCadastro1 extends Component {
                                 <div className="row">
                                     <form className="col s12">
                                         <div className="row">
-                                            <Input div="input-field col s8" id="nome" class="validate" type="text" name="Nome Completo" />
+                                            <Input div="input-field col s8" id="nome" fname={""} class="validate" type="text" name="Nome Completo" />
 
-                                            <Input div="input-field col s4" id="cpf" class="validate" type="text" name="CPF" />
+                                            <Input div="input-field col s4" id="cpf" fname={""}  class="validate" type="text" name="CPF" />
                                         </div>
 
                                         <div className="row">
-                                            <Input div="input-field col s6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+                                            <Input div="input-field col s6" id="nacionalidade" fname={""}   class="validate" type="text" name="Nacionalidade" />
 
-                                            <Input div="input-field col s6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
+                                            <Input div="input-field col s6" id="naturalidade" fname={""}  class="validate"  type="text" name="Naturalidade" />
                                         </div>
 
                                         <div className="row">
-                                            <Input div="input-field col s4" id="genero" class="validate" type="text" name="Gênero" />
+                                            <Input div="input-field col s4" id="genero" fname={""}  class="validate"  type="text" name="Gênero" />
 
-                                            <Input div="input-field col s4" id="raca" class="validate" type="text" name="Raça" />
+                                            <Input div="input-field col s4" id="raca" fname={""}  class="validate"  type="text" name="Raça" />
                                         </div>
 
                                         <div className="row">
-                                            <Input div="input-field col s5" id="data" class="datepicker" type="text" name="Data de Nascimento" />
+                                            <Input div="input-field col s5" id="data" class="datepicker" fname={""}   type="text" name="Data de Nascimento" />
 
-                                            <Input div="input-field col s4" id="idade" class="validate" type="text" name="Idade" />
+                                            <Input div="input-field col s4" id="idade" fname={""}    class="validate" type="text" name="Idade" />
 
                                         </div>
                                     </form>
@@ -57,15 +57,15 @@ class PreCadastro1 extends Component {
                         <div className="teste2">
                             <form className="col s12">
                                 <div className="row">
-                                    <Input div="input-field col s12" id="email" class="validate" type="text" name="E-mail" />
+                                    <Input div="input-field col s12" id="email" fname={""}   class="validate" type="text" name="E-mail" />
                                 </div>
 
                                 <div className="row">
-                                    <Input div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="DDD" />
+                                    <Input div="input-field col s6" id="icon_telephone" fname={""}   class="validate" type="tel" name="DDD" />
                                 </div>
 
                                 <div className="row">
-                                    <Input div="input-field col s12" id="icon_telephone" class="validate" type="tel" name="Telefone" />
+                                    <Input div="input-field col s12" id="icon_telephone" fname={""}   class="validate" type="tel" name="Telefone" />
                                 </div>
                             </form>
                         </div>
@@ -75,23 +75,23 @@ class PreCadastro1 extends Component {
                         <div className="teste2">
                             <form className="col s12">
                                 <div className="row">
-                                    <Input div="input-field col s12" id="endereco" class="validate" type="text" name="Endereço" />
+                                    <Input div="input-field col s12" id="endereco" fname={""}    class="validate" type="text" name="Endereço" />
                                 </div>
 
                                 <div className="row">
-                                    <Input div="input-field col s6" id="bairro" class="validate" type="text" name="Bairro" />
+                                    <Input div="input-field col s6" id="bairro" fname={""}     class="validate" type="text" name="Bairro" />
 
-                                    <Input div="input-field col s3" id="complemento" class="validate" type="text" name="Complemento" />
+                                    <Input div="input-field col s3" id="complemento" fname={""}    class="validate" type="text" name="Complemento" />
 
-                                    <Input div="input-field col s3" id="cep" class="validate" type="text" name="CEP" />
+                                    <Input div="input-field col s3" id="cep" fname={""}    class="validate" type="text" name="CEP" />
                                 </div>
 
                                 <div className="row">
-                                    <Input div="input-field col s6" id="cidade" class="validate" type="text" name="Cidade" />
+                                    <Input div="input-field col s6" id="cidade" fname={""}     class="validate" type="text" name="Cidade" />
 
-                                    <Input div="input-field col s2" id="estado" class="validate" type="text" name="Estado" />
+                                    <Input div="input-field col s2" id="estado" fname={""}    class="validate" type="text" name="Estado" />
 
-                                    <Input div="input-field col s4" id="regiao" class="validate" type="text" name="Região" />
+                                    <Input div="input-field col s4" id="regiao" fname={""}    class="validate" type="text" name="Região" />
                                 </div>
                             </form>
                         </div>
@@ -122,7 +122,7 @@ class PreCadastro1 extends Component {
                         </div>
                     </div>
 
-                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" />
+                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" fname={""}  iClass="fa-solid fa-arrow-right-long" />
                 </div>
             </>
         )

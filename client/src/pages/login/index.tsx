@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 // LOCAL CSS
 import './style.css'
 
@@ -9,10 +11,31 @@ import LogoLogin from "../../assets/img/logo_login.svg"
 // COMPONENTS
 import Input from "../../components/input/input";
 import Check from "../../components/input/check";
-import Submit from "../../components/button/submit";
+import ButtonMat from "../../components/button/buttonMat";
 
 
 class Login extends Component {
+    state = {
+        email: String,
+        password: String,
+    }
+
+    handleChange = event => {
+        this.setState({
+            email: event.target.value,
+            password: event.target.value,        
+        });
+    };
+    handleSubmit = async(event) => { 
+        event.preventDefault();
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+        }
+        await axios.post("http://localhost:5000/login", user)
+        alert("data foi")
+    };
+
     render() {
         return (
             <>
@@ -31,9 +54,9 @@ class Login extends Component {
                     <main>
                         <img src={LogoLogin} />
 
-                        <Input div="form-floating mb-3" type="email" class="form-control" id="floatingInput" name="E-mail"/>
+                        <Input div="input-field col s12" type="email" id="email" name="E-mail" class="validate" fname={this.handleChange} />
 
-                        <Input div="form-floating mb-3" type="password" class="form-control" id="floatingPassword" name="Senha"/>
+                        <Input div="input-field col s12" type="password" id="password" name="Senha" class="validate" fname={this.handleChange}/>
                 
                         <div className="opcao">
                             <div className="col-12">
@@ -44,7 +67,7 @@ class Login extends Component {
                         </div>
                 
                         <div className="col-12">
-                            <Submit title="Log In" />
+                            <ButtonMat class="waves-effect waves-light btn" fname="Submit" name="Login" iClass={""} />
                         </div>
                     </main>
                 </body>

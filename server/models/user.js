@@ -1,19 +1,19 @@
 const db = require("../config/dbconfig")
 
- User = function(user) {
-    this.con_email = user.email
-    this.con_senha = user.password
+User = function (user) {
+    this.pt_email = user.email
+    this.pt_senha = user.password
 };
 
-User.createUser = (Userdata,result) =>{
-    db.query("INSERT INTO colaborador SET ?",Userdata,(err,res)=>{
+User.createUser = (Userdata, result) => {
+    db.query("INSERT INTO perfil_temp SET ?", Userdata, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
-          }else{
-          console.log("Criado Usuário");
-          result(null, res);
-          }
+        } else {
+            console.log("Criado Usuário");
+            result(null, res);
+        }
     })
 }
 

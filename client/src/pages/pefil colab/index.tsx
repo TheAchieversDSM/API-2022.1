@@ -38,11 +38,11 @@ class PerfilColab extends Component {
                                 <h4 className="contrato">Contrato</h4>
                                     <div className="contrato-info">
                                         <p>
-                                            <ButtonMat class="waves-effect waves-light btn-large" name="Visualizar" iClass={""} />
+                                            <ButtonMat class="waves-effect waves-light btn-large" fname={""} name="Visualizar" iClass={""} />
                                         </p>
                                         <p id="p1">ou</p>
                                         <p id="p2">
-                                            <ButtonMat class="waves-effect waves-light btn-large" name="Baixar em PDF" iClass={""} />
+                                            <ButtonMat class="waves-effect waves-light btn-large" fname={""} name="Baixar em PDF" iClass={""} />
                                         </p>
                                     </div>
                             </div>
@@ -98,10 +98,10 @@ class PerfilColab extends Component {
                             <div className="teste4">
                                 <div className="botao-edicao">
                                     <p>
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Editar" iClass={""} />
+                                        <ButtonMat class="waves-effect waves-light btn-large" name="Editar" fname={""} iClass={""} />
                                     </p>
                                     <p>
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Excluir" iClass={""} />
+                                        <ButtonMat class="waves-effect waves-light btn-large" fname={""} name="Excluir" iClass={""} />
                                     </p>
                                 </div>
                             </div>
