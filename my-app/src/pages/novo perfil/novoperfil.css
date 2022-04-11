@@ -1,0 +1,43 @@
+h2{
+    background-color: #53C4CD;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    color: #414042 !important;
+}
+
+.teste1{
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    height: fit-content;
+    margin: 10px !important;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btn{
+    background-color: #53C4CD !important;
+    border-radius: 30px !important;
+    font-family: coolvetica, sans-serif !important;
+}
+
+.input-field > input{
+    border: 3px solid #53C4CD !important;
+    border-radius: 30px !important;
+}
+
+.input-field input[type=text].valid {
+    border: 3px solid #00e676 !important;
+}
+
+.input-field input[type=text].invalid {
+    border: 3px solid red !important;
+}
+
+.input-field > label{
+    margin-left: 20px !important;
+}
+
+label, select, option {
+    font-family: source-sans-pro, sans-serif !important;
+}
+
