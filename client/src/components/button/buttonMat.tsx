@@ -10,7 +10,7 @@ type props = {
 class ButtonMat extends Component<props> {
     render() {
         return (
-            <a className={this.props.class}  onClick={this.props.fname} >{this.props.name}<i className={this.props.iClass}></i></a>
+            <a className={this.props.class} onClick={this.props.fname} >{this.props.name}<i className={this.props.iClass}></i></a>
         )
     }
 }

@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 
 // LOCAL CSS
-import './style.css'
+//import './notificacao.css'
 
 // COMPONENTS
 import General from '../../components/general/index'
 import ButtonMat from "../../components/button/buttonMat";
+import Css from "../../assets/style/style";
 
 class Notificacao extends Component {
     render() {
         return (
             <>
                 <General />
+
+                <Css ref="./notificao.css" />
 
                 <div className="conteudo">
                     <h3>Notificações</h3>

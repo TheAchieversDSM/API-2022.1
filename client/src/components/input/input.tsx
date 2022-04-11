@@ -17,7 +17,7 @@ class Input extends Component<props> {
     render() {
         return (
             <div className={this.props.div} >
-                <input type={this.props.type} className={this.props.class} id={this.props.id} onChange={this.props.fname}/>
+                <input type={this.props.type} className={this.props.class} id={this.props.id} onChange={this.props.fname} />
                 <label htmlFor={this.props.id}>{this.props.name}</label>
             </div>
         );

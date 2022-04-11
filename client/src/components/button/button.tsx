@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 type props = {
     class: string,
-    name: string,
+    name: string
 }
 
 class Button extends Component<props> {

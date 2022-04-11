@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 
 // LOCAL CSS
-import './style2.css'
+//import './pc2.css'
 
 // COMPONENTS
 import ButtonMat from "../../components/button/buttonMat";
 import General from "../../components/general";
 import Input from "../../components/input/input";
 import Check from "../../components/input/check";
+import Css from "../../assets/style/style";
 
 
 class PreCadastro2 extends Component {
@@ -15,6 +17,8 @@ class PreCadastro2 extends Component {
         return (
             <>
                 <General />
+                
+                <Css ref="./pc2.css" />
 
                 <div className="conteudo">
                     <div className="row">
@@ -44,35 +48,13 @@ class PreCadastro2 extends Component {
                                 </form>
                             </div>
                         </div>
-
-                        <div className="col s12">
-                            <h5>Mais informações trabalhistas</h5>
-                            <div className="teste2">
-                                <div className="row">
-                                    <form className="col s12">
-                                        <div className="row">
-                                            <Input div="input-field col s6" type="text" id="departamento" class="validate" name="Departamento"/>
-                                            
-                                            <Input div="input-field col s6" type="text" id="cargo" class="validate" name="Cargo"/>
-                                        </div>
-
-                                        <Input div="input-field col s4" type="text" id="nivel" class="validate" name="Nível"/>
-
-                                        <Input div="input-field col s4" type="text" id="salario" class="validate" name="Faixa Salarial"/>
-
-                                        <Input div="input-field col s4" type="text" id="contratacao" class="validate" name="Contratação"/>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <ButtonMat class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" />
-                    <ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" />
+                    <Link to="/PreCad1"><ButtonMat class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
+                    <Link to="/PreCad3"><ButtonMat class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
                 </div>
             </>
         )
     }
 }
-
 export default PreCadastro2;
