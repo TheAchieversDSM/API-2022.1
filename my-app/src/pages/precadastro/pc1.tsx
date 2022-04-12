@@ -34,15 +34,14 @@ class PreCadastro1 extends Component {
                                             <Input div="input-field col s7" id="nome" class="validate" type="text" name="Nome Completo" />
 
                                             <Input div="input-field col s4" id="cpf" class="validate" type="text" name="CPF" />
-                                        </div>
 
-                                        <div className="row">
-                                            <Input div="input-field col s6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
 
-                                            <Input div="input-field col s6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
-                                        </div>
 
-                                        <div className="row">
+                                            <Input div="input-field col s5" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+
+                                            <Input div="input-field col s5" id="naturalidade" class="validate" type="text" name="Naturalidade" />
+
+
                                             <div className="input-field col s4">
                                                 <select className="browser-default">
                                                     <DisableOption disableValue="" disableNome="Raça" />
@@ -63,123 +62,122 @@ class PreCadastro1 extends Component {
                                             </div>
                                         </div>
 
-                                        <div className="row">
                                             <Input div="input-field col s5" id="data" class="datepicker" type="text" name="Data de Nascimento" />
 
                                             <Input div="input-field col s4" id="idade" class="validate" type="text" name="Idade" />
-                                        </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
 
-                    <div className="col s4">
-                        <div className="campo2">
-                            <form className="col s12">
-                                <div className="row">
-                                    <Input div="input-field col s12" id="email" class="validate" type="text" name="E-mail" />
-                                </div>
-
-                                <div className="row">
-                                    <Input div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="DDD" />
-                                </div>
-
-                                <div className="row">
-                                    <Input div="input-field col s12" id="icon_telephone" class="validate" type="tel" name="Telefone" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div className="col s8">
-                        <div className="campo2">
-                            <form className="col s12">
-                                <div className="row">
-                                    <Input div="input-field col s12 bla" id="endereco" class="validate" type="text" name="Endereço" />
-                                </div>
-
-                                <div className="row">
-                                    <Input div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
-
-                                    <Input div="input-field col s3 bla" id="complemento" class="validate" type="text" name="Complemento" />
-
-                                    <Input div="input-field col s3 bla" id="cep" class="validate" type="text" name="CEP" />
-                                </div>
-
-                                <div className="row">
-                                    <Input div="input-field col s6" id="cidade" class="validate" type="text" name="Cidade" />
-
-                                    <div className="input-field col s2">
-                                        <select className="browser-default">
-                                            <DisableOption disableValue="" disableNome="Estado" />
-                                            <Option value="1" name="AC" />
-                                            <Option value="2" name="AL" />
-                                            <Option value="3" name="AP" />
-                                            <Option value="4" name="AM" />
-                                            <Option value="5" name="BA" />
-                                            <Option value="6" name="CE" />
-                                            <Option value="7" name="DF" />
-                                            <Option value="8" name="ES" />
-                                            <Option value="9" name="GO" />
-                                            <Option value="10" name="MA" />
-                                            <Option value="11" name="MG" />
-                                            <Option value="12" name="MS" />
-                                            <Option value="13" name="MT" />
-                                            <Option value="14" name="PA" />
-                                            <Option value="15" name="PB" />
-                                            <Option value="16" name="PE" />
-                                            <Option value="17" name="PI" />
-                                            <Option value="18" name="PR" />
-                                            <Option value="19" name="RJ" />
-                                            <Option value="20" name="RN" />
-                                            <Option value="21" name="RO" />
-                                            <Option value="22" name="RS" />
-                                            <Option value="23" name="RR" />
-                                            <Option value="24" name="SC" />
-                                            <Option value="25" name="SE" />
-                                            <Option value="26" name="SP" />
-                                            <Option value="27" name="TO" />
-                                        </select>
+                        <div className="col s4">
+                            <div className="campo2">
+                                <form className="col s12">
+                                    <div className="row">
+                                        <Input div="input-field col s12" id="email" class="validate" type="text" name="E-mail" />
                                     </div>
 
-                                    <div className="input-field col s4">
-                                        <select className="browser-default">
-                                            <DisableOption disableValue="" disableNome="Região" />
-                                            <Option value="1" name="Norte" />
-                                            <Option value="2" name="Nordeste" />
-                                            <Option value="3" name="Centro-Oeste" />
-                                            <Option value="4" name="Sudeste" />
-                                            <Option value="5" name="Sul" />
-                                        </select>
+                                    <div className="row">
+                                        <Input div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="DDD" />
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
 
-                    <div className="col s6">
-                        <div className="campo3">
-                            <label>Estado Social</label>
-                            <select className="browser-default">
-                                <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option value="1" name="Solteiro(a)" />
-                                <Option value="2" name="Casado(a)" />
-                                <Option value="3" name="Divorciado(a)" />
-                                <Option value="4" name="Viúvo(a)" />
-                            </select>
+                                    <div className="row">
+                                        <Input div="input-field col s12" id="icon_telephone" class="validate" type="tel" name="Telefone" />
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="col s6">
-                        <div className="campo3">
-                            <label>Possui filhos?</label>
-                            <form action="#">
-                                <p>
-                                    <Check name="Sim" />
-                                    <Check name="Não" />
-                                </p>
-                            </form>
+                        <div className="col s8">
+                            <div className="campo2">
+                                <form className="col s12">
+                                    <div className="row">
+                                        <Input div="input-field col s12 bla" id="endereco" class="validate" type="text" name="Endereço" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+
+                                        <Input div="input-field col s3 bla" id="complemento" class="validate" type="text" name="Complemento" />
+
+                                        <Input div="input-field col s3 bla" id="cep" class="validate" type="text" name="CEP" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input div="input-field col s6" id="cidade" class="validate" type="text" name="Cidade" />
+
+                                        <div className="input-field col s2">
+                                            <select className="browser-default">
+                                                <DisableOption disableValue="" disableNome="Estado" />
+                                                <Option value="1" name="AC" />
+                                                <Option value="2" name="AL" />
+                                                <Option value="3" name="AP" />
+                                                <Option value="4" name="AM" />
+                                                <Option value="5" name="BA" />
+                                                <Option value="6" name="CE" />
+                                                <Option value="7" name="DF" />
+                                                <Option value="8" name="ES" />
+                                                <Option value="9" name="GO" />
+                                                <Option value="10" name="MA" />
+                                                <Option value="11" name="MG" />
+                                                <Option value="12" name="MS" />
+                                                <Option value="13" name="MT" />
+                                                <Option value="14" name="PA" />
+                                                <Option value="15" name="PB" />
+                                                <Option value="16" name="PE" />
+                                                <Option value="17" name="PI" />
+                                                <Option value="18" name="PR" />
+                                                <Option value="19" name="RJ" />
+                                                <Option value="20" name="RN" />
+                                                <Option value="21" name="RO" />
+                                                <Option value="22" name="RS" />
+                                                <Option value="23" name="RR" />
+                                                <Option value="24" name="SC" />
+                                                <Option value="25" name="SE" />
+                                                <Option value="26" name="SP" />
+                                                <Option value="27" name="TO" />
+                                            </select>
+                                        </div>
+
+                                        <div className="input-field col s4">
+                                            <select className="browser-default">
+                                                <DisableOption disableValue="" disableNome="Região" />
+                                                <Option value="1" name="Norte" />
+                                                <Option value="2" name="Nordeste" />
+                                                <Option value="3" name="Centro-Oeste" />
+                                                <Option value="4" name="Sudeste" />
+                                                <Option value="5" name="Sul" />
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className="col s4">
+                            <div className="campo3">
+                                <label>Estado Social</label>
+                                <select className="browser-default">
+                                    <DisableOption disableValue="" disableNome="Escolha uma das opções" />
+                                    <Option value="1" name="Solteiro(a)" />
+                                    <Option value="2" name="Casado(a)" />
+                                    <Option value="3" name="Divorciado(a)" />
+                                    <Option value="4" name="Viúvo(a)" />
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="col s4">
+                            <div className="campo3">
+                                <label>Possui filhos?</label>
+                                <form action="#">
+                                    <p>
+                                        <Check name="Sim" />
+                                        <Check name="Não" />
+                                    </p>
+                                </form>
+                            </div>
                         </div>
 
                         <div className="col s4">
@@ -191,7 +189,7 @@ class PreCadastro1 extends Component {
                                     <Option value="2" name="PJ" />
                                     <Option value="3" name="Estagiário(a)" />
                                     <Option value="4" name="Temporário" />
-                                </select>
+                                    </select>
                             </div>
                         </div>
                     </div>
