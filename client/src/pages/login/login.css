@@ -2,11 +2,6 @@
 
 @import url("https://fonts.adobe.com/fonts/coolvetica");
 
-body {
-    background-color: #414042 !important;
-    font-family: Source Sans Pro;
-}
-
 main {
     position: absolute;
     top: 25%;
@@ -20,28 +15,8 @@ main > img {
     margin-bottom: 20px;
 }
 
-#floatingInput, 
-#floatingPassword {
-    height: 50px;
-    background-color: #414042;
-    border: 2px solid #53C4CD;
-    border-radius: 20px;
-    width: 350px;
-    color: #fff;
-    text-indent: 8px;
-    font-size: 15px;
-}
-
-.form-floating.mb-3 > label{
-    color: #ffff;
-    position: absolute;
-    top: -5px;
-    left: 8px;
-    font-size: 17px;
-}
-
 span {
-    color: white;
+    color: white !important;
 }
 
 .opcao > a {
@@ -81,3 +56,10 @@ span {
     border: 2px solid #21ebe7;
     border-radius: 20px;
 }
+
+.bloco{
+    background-color: #414042;
+    padding: 10px 30px 10px 30px;
+    border-radius: 30px;
+}
+

@@ -1,7 +1,8 @@
-import React, { Component, useState,useEffect } from "react"
+import React, { Component } from "react";
 import axios from "axios";
+
 // LOCAL CSS
-//import './novoperfil.css'
+import './novoperfil.css'
 
 // COMPONENTS
 import Input from "../../components/input/input";
@@ -29,12 +30,32 @@ class NovoPerfil extends Component {
         console.log(this.state);
     };
 
+    handleChangeDepartamento = event => {
+        this.setState({
+            departamento: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeCargo = event => {
+        this.setState({
+            cargo: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeSalario = event => {
+        this.setState({
+            salario: event.target.value,
+        });
+        console.log(this.state);
+    };
+
     handleSubmit = async (event) => {
         event.preventDefault();
         const user = {
             email: this.state.email,
-            password: this.state.password,
-
+            password: this.state.password
         }
         await axios.post("http://localhost:5000/novocolaborador", user )
         alert("data foi")
@@ -43,19 +64,24 @@ class NovoPerfil extends Component {
         return (
             <>
                 <General />
+
                 <Css ref="./novoperfil.css" />
 
                 <div className="conteudo">
                     <div className="row">
                         <h2>Novo Perfil</h2>
-                        <div className="form col 6">
-                            <div className="teste1">
-                                <Input div="input-field" type="email" id="email" name="Email" class="validate" fname={this.handleChangeEmail} />
-                                <Input div="input-field" type="password" id="password" name="Senha" class="validate" fname={this.handleChangePassword} />
-                                <Input div="input-field col s6"  type="text" id="departamento" name="Departamento" class="validate" fname={""} />
-                                <Input div="input-field col s6"  type="text" id="cargo" name="Cargo" class="validate" fname={""} />
-                                <Input div="input-field col s12" type="text" id="salario" name="Salario" class="validate" fname={""}/>
-                                <ButtonMat class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" fname={this.handleSubmit} />
+                        <div className="form col s6">
+                            <div className="teste1 row">
+                                <Input fname={this.handleChangeEmail} div="input-field" type="email" id="email" name="E-mail" class="validate" />
+                                <Input fname={this.handleChangePassword} div="input-field" type="password" id="password" name="Senha" class="validate" />
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+                            </div>
+                        </div>
+                        <div className="form col s6">
+                            <div className="teste1 row">
+                                <Input fname={""} div="input-field col s6"  type="text" id="departamento" name="Departamento" class="validate" />
+                                <Input fname={""} div="input-field col s6"  type="text" id="cargo" name="Cargo" class="validate" />
+                                <Input fname={""} div="input-field col s12" type="text" id="salario" name="Salario" class="validate"/>
                             </div>
                         </div>
                     </div>

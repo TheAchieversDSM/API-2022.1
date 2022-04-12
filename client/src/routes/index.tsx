@@ -1,6 +1,7 @@
 import React from "react";
-import {Route,BrowserRouter,Routes as Switch} from "react-router-dom";
+import { Route, BrowserRouter, Routes as Switch } from "react-router-dom";
 
+import RotaProtegida from "../components/protectedRoute";
 import Login from "../pages/login";
 import PreCadastro1 from "../pages/precadastro/pc1";
 import PreCadastro2 from "../pages/precadastro/pc2";
@@ -10,21 +11,21 @@ import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
 
-function Routes(){
-    return(
+function Routes() {
+    return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" element ={<Login/>}/> 
-                <Route path="/PreCad1" element ={<PreCadastro1/>}/>
-                <Route path="/PreCad2" element ={<PreCadastro2/>}/>
-                <Route path="/PreCad3" element ={<PreCadastro3/>}/>
-                <Route path="/Notificacao" element ={<Notificacao/>}/>
-                <Route path="/NovoPerfil" element ={<NovoPerfil/>}/>
-                <Route path="/Organograma" element ={<Organograma/>}/>      
-                <Route path="/PerfilColaborador" element={<PerfilColab/>}/>
+                <Route path="/" element={<Login />} />
+                <Route path="/PreCad1" element={<PreCadastro1 />} />
+                <Route path="/PreCad2" element={<PreCadastro2 />} / >
+                <Route path="/PreCad3" element={<PreCadastro3 />} />
+                <Route path="/Notificacao" element={<Notificacao />} />
+                <Route path="/NovoPerfil" element={<NovoPerfil />} />
+                <Route path="/Organograma" element={<Organograma />} />
+                <RotaProtegida Path ="/PerfilColaborador" Element={<PerfilColab />} />
             </Switch>
         </BrowserRouter>
-        
+
     )
 }
 

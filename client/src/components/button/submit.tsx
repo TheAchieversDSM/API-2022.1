@@ -8,7 +8,7 @@ type props = {
 class Submit extends Component <props>{
     render() {
         return (
-            <button className="btn btn-primary" type="submit" onClick={this.props.fname} >{this.props.title}</button>
+            <button className="btn btn-primary" type="submit" onSubmit={this.props.fname} >{this.props.title}</button>
         )
     }
 }

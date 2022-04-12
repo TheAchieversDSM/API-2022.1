@@ -1,11 +1,11 @@
-.teste1{
+.campo1{
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
-.teste2{
+.campo2{
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
@@ -13,7 +13,7 @@
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
-.teste3{
+.campo3{
     background-color: #f4f4f4;
     border-radius: 30px;
     padding: 5px 15px 0px 15px !important;
@@ -43,7 +43,7 @@ p > label{
     font-family: coolvetica, sans-serif !important;
 }
 
-.input-field > input{
+.bla > input{
     border: 3px solid #53C4CD !important;
     border-radius: 30px !important;
 }
@@ -62,4 +62,8 @@ form > div{
 
 label, select, option {
     font-family: source-sans-pro, sans-serif !important;
+}
+
+span.character-counter{
+    display: none;
 }

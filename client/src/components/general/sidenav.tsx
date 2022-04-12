@@ -14,7 +14,7 @@ class SideNav extends Component<props> {
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
                 <script src="https://kit.fontawesome.com/4d3a0277e3.js" crossOrigin="anonymous"></script>
                 
-                <li><Link to={this.props.link}><a><i className={this.props.class}></i>{this.props.name}</a></Link></li>
+                <li><Link to={this.props.link}><a><i className={this.props.class}></i> {this.props.name}</a></Link></li>
             </>
         )
     }

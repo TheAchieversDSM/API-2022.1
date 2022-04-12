@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // LOCAL CSS
-//import './perfil.css'
+import './perfil.css'
 
 // COMPONENTS
 import ButtonMat from '../../components/button/buttonMat'
@@ -21,12 +21,12 @@ class PerfilColab extends Component {
                         <div className="col s7">
                             <div className="teste1">
                                 <div className="row" id="info">
-                                    <div className="col s4">
+                                    <div className="col s5">
                                         <div className="foto"></div>
                                     </div>
                                     <div className="col s6">
                                         <h5 className="name">Mariana Ayumi Tamay</h5>
-                                        <p className="info-colab">
+                                        <p>
                                             <p>CPF: 1234567890 </p>
                                             <p>Data de admissão: xx/yy/zzzz</p>
                                             <p>Data de desligamento: --/--/----</p>
@@ -38,14 +38,14 @@ class PerfilColab extends Component {
                         </div>
                         <div className="col s5">
                             <div className="teste1">
-                                <h4 className="contrato">Contrato</h4>
+                                <h4>Contrato</h4>
                                 <div className="contrato-info">
                                     <p>
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Visualizar" iClass="fa-solid fa-book-open-reader" />
+                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Visualizar" iClass="fa-solid fa-book-open-reader" />
                                     </p>
                                     <p id="p1">ou</p>
                                     <p id="p2">
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
+                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
                                     </p>
                                 </div>
                             </div>
@@ -90,13 +90,9 @@ class PerfilColab extends Component {
 
                                         <Check name="Vale Transporte" />
 
-                                        <div className="ajuste">
-                                            <Check name="Vale Refeição" />
-                                        </div>
+                                        <Check name="Vale Refeição" />
 
-                                        <div className="ajuste2">
-                                            <Check name="Auxílio Creche" />
-                                        </div>
+                                        <Check name="Auxílio Creche" />
                                     </p>
                                 </form>
                             </div>
@@ -106,10 +102,10 @@ class PerfilColab extends Component {
                             <div className="teste4">
                                 <div className="botao-edicao">
                                     <p>
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
+                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
                                     </p>
                                     <p>
-                                        <ButtonMat class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
+                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
                                     </p>
                                 </div>
                             </div>

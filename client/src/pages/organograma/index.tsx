@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // LOCAL CSS
-//import './organograma.css'
+import './organograma.css'
 
 // COMPONENTS
 
@@ -17,7 +17,6 @@ export default class Organograma extends Component {
                 <General />
 
                 <Css ref="./organograma.css" />
-           
                 <div className="conteudo">
                     <select className="browser-default">
                         <option value="" disabled selected>Escolha o departamento</option>

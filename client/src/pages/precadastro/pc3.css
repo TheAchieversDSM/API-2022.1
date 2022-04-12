@@ -1,4 +1,4 @@
-.conteudo {
+.mensagem {
     height: 710px;
     display: flex;
     flex-direction: row;
@@ -7,8 +7,9 @@
 }
 h1 {
     color: #f4f4f4;
+    text-align: center;
 }
 
 h4 {
-    color: #53C4CD;
+    color: #414042;
 }

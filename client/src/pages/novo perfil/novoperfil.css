@@ -10,7 +10,7 @@ h2{
     background-color: #f4f4f4;
     border-radius: 30px;
     height: fit-content;
-    padding: 40px;
+    margin: 10px !important;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 

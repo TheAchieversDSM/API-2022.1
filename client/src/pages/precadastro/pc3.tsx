@@ -3,7 +3,7 @@ import Css from '../../assets/style/style';
 import General from '../../components/general';
 
 // LOCAL CSS
-//import './pc3.css'
+import './pc3.css'
 
 class PreCadastro3 extends Component {
     render() {
@@ -14,9 +14,11 @@ class PreCadastro3 extends Component {
                 <Css ref="./pc3.css" />
 
                 <div className="conteudo">
-                    <div>
-                        <h1>INFORMAÇÕES COMPLETAS!</h1>
-                        <h4>Por favor, aguarde a aprovação do cadastro</h4>
+                    <div className="mensagem">
+                        <div>
+                            <h1>INFORMAÇÕES COMPLETAS!</h1>
+                            <h4>Por favor, aguarde a aprovação do cadastro</h4>
+                        </div>
                     </div>
                 </div>
             </>
