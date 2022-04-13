@@ -13,7 +13,7 @@ import ButtonMat from "../../components/button/buttonMat";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
-import { render } from "react-dom";
+
 
 class PreCadastro1 extends Component {
     state = {
@@ -210,7 +210,8 @@ class PreCadastro1 extends Component {
             regiao: this.state.regiao,
             estadoCivil: this.state.estadoCivil,
             filho: this.state.filho,
-            tipoContratacao: this.state.tipoContratacao
+            tipoContratacao: this.state.tipoContratacao,
+            id: localStorage.getItem("id"),
         }
         await axios.post("http://localhost:5000/precad1", user)
         alert("data foi")

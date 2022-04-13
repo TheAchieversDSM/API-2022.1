@@ -14,8 +14,9 @@ class PerfilColab extends Component {
     render() {
         return (
             <>
+             
                 <General />
-                <Css ref="./perfil.css"/>
+                <Css ref="./perfil.css" />
                 <div className="conteudo">
                     <div className="row">
                         <div className="col s7">

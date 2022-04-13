@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
+import LoginRoute from "../loginAuthRoute";
+
+
+
 
 // LOCAL CSS
 import './login.css'
@@ -11,6 +16,8 @@ import LogoLogin from "../../assets/img/logo_fundo_claro.svg"
 import Input from "../../components/input/input";
 import Check from "../../components/input/check";
 import Submit from "../../components/button/submit";
+
+
 
 class Login extends Component {
     state = {
@@ -40,18 +47,24 @@ class Login extends Component {
         }
         await axios.get(`http://localhost:5000/login/${user.email}/${user.password}`).then((response) => {
             console.log(response.data);
-            if(response.data.token){
-                localStorage.setItem("token",response.data.token)
+            if (response.data.token) {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("id", response.data.user[0].con_id)
                 console.log(localStorage.getItem("token"));
-                
-                
+                console.log(localStorage.getItem("id"));
+
             }
 
 
         })
-        alert("data foi")
+
+
+
     };
+
+
     render() {
+
         return (
             <>
                 <main>

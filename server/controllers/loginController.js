@@ -14,7 +14,7 @@ exports.getUserByEmail = (req, res) => {
                 var id = user[0].con_id
                 console.log(id);
                 const token = jwt.sign({ id }, SECRET = "Theachievers", {
-                    expiresIn: 86400
+                    expiresIn: 1000
                 });
                 res.send({
                     token: token,
