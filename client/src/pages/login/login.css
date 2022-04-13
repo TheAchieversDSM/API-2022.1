@@ -21,16 +21,17 @@ span {
 
 .opcao > a {
     position: absolute;
+    font-size: 17px;
     color: #EF4646;
     text-decoration: none;
+    margin-top: -2px;
     right: 0px;
     -webkit-transition: 0.5s
 }
 
 .opcao > a:hover {
     position: absolute;
-    color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
     -webkit-transition: 0.5s;
 }
 
@@ -41,7 +42,8 @@ span {
 }
 
 .col-12 > button {
-    margin-left: auto;
+    position: relative;
+    margin: auto !important;
     width: 300px;
     color: #000000;
     background-color: #53C4CD;
@@ -52,8 +54,8 @@ span {
 
 .col-12 > button:hover {
     color: #000000;
-    background-color: #21ebe7;
-    border: 2px solid #21ebe7;
+    background-color: #88e3e2 !important;
+    border: 2px solid #88e3e2 !important;
     border-radius: 20px;
 }
 
@@ -63,3 +65,6 @@ span {
     border-radius: 30px;
 }
 
+input {
+    text-indent: 15px;
+}

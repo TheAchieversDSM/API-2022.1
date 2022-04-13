@@ -28,7 +28,8 @@ class PreCadastro1 extends Component {
         email: String,
         ddd: Number,
         telefone: Number,
-        endereco: String,
+        rua: String,
+        numero: Number,
         bairro: String,
         complemento: Number,
         cep: Number,
@@ -117,9 +118,16 @@ class PreCadastro1 extends Component {
         console.log(this.state);
     };
 
-    handleChangeEndereco = event => {
+    handleChangeRua = event => {
         this.setState({
-            endereco: event.target.value,
+            rua: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeNumero = event => {
+        this.setState({
+            numero: event.target.value,
         });
         console.log(this.state);
     };
@@ -191,6 +199,22 @@ class PreCadastro1 extends Component {
         event.preventDefault();
         const user = {
             nome: this.state.nome,
+            email: this.state.email,
+            ddd: this.state.ddd,
+            telefone: this.state.telefone,
+            rua: this.state.rua,
+            numero: this.state.numero,
+            bairro: this.state.bairro,
+            complemento: this.state.complemento,
+            cep: this.state.cep,
+            cidade: this.state.cidade,
+            estado: this.state.estado,
+            regiao: this.state.regiao,
+            tipoContratacao: this.state.tipoContratacao,
+            id: localStorage.getItem("id"),
+        }
+
+        const pessoaFisica = {
             cpf: this.state.cpf,
             nacionalidade: this.state.nacionalidade,
             naturalidade: this.state.naturalidade,
@@ -198,23 +222,19 @@ class PreCadastro1 extends Component {
             genero: this.state.genero,
             data: this.state.data,
             idade: this.state.idade,
-            email: this.state.email,
-            ddd: this.state.ddd,
-            telefone: this.state.telefone,
-            endereco: this.state.endereco,
-            bairro: this.state.bairro,
-            complemento: this.state.complemento,
-            cep: this.state.cep,
-            cidade: this.state.cidade,
-            estado: this.state.estado,
-            regiao: this.state.regiao,
             estadoCivil: this.state.estadoCivil,
             filho: this.state.filho,
-            tipoContratacao: this.state.tipoContratacao,
             id: localStorage.getItem("id"),
         }
-        await axios.post("http://localhost:5000/precad1", user)
-        alert("data foi")
+
+
+        axios.put(`http://localhost:5000/precad1/updatecolaborador/${user.id}`, user); {
+            alert("data foi")
+        }
+
+        axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica); {
+            alert("data foi")
+        }
     }
 
 
@@ -300,10 +320,13 @@ class PreCadastro1 extends Component {
                         <div className="campo2">
                             <form className="col s12">
                                 <div className="row">
-                                    <Input fname={this.handleChangeEndereco} div="input-field col s12 bla" id="endereco" class="validate" type="text" name="Endereço" />
+                                    <Input fname={this.handleChangeRua} div="input-field col s6 bla" id="rua" class="validate" type="text" name="Rua" />
+
+                                    <Input fname={this.handleChangeNumero} div="input-field col s6 bla" id="numero" class="validate" type="number" name="Número" />
                                 </div>
 
                                 <div className="row">
+
                                     <Input fname={this.handleChangeBairro} div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
 
                                     <Input fname={this.handleChangeComplemento} div="input-field col s3 bla" id="complemento" class="validate" type="number" name="Complemento" />

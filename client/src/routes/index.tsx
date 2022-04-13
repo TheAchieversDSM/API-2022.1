@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter, Routes as Switch } from "react-router-dom";
 
-import PrivateRoute from "../components/protectedRoute";
+import PrivateRoute from "./protectedRoute";
 import Login from "../pages/login";
 import PreCadastro1 from "../pages/precadastro/pc1";
 import PreCadastro2 from "../pages/precadastro/pc2";

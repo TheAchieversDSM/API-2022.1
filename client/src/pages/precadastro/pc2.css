@@ -50,3 +50,7 @@ p > label{
 label, select, option {
     font-family: source-sans-pro, sans-serif !important;
 }
+
+input {
+    text-indent: 15px;
+}
