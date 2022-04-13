@@ -4,7 +4,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "api_ionic",
+    database: "ionic",
 }); 
 
 db.connect(function(error){

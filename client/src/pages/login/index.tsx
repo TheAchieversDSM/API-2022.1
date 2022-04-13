@@ -40,6 +40,13 @@ class Login extends Component {
         }
         await axios.get(`http://localhost:5000/login/${user.email}/${user.password}`).then((response) => {
             console.log(response.data);
+            if(response.data.token){
+                localStorage.setItem("token",response.data.token)
+                console.log(localStorage.getItem("token"));
+                
+                
+            }
+
 
         })
         alert("data foi")
