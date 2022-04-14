@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 // LOCAL CSS
 import './novoperfil.css'
@@ -8,10 +9,57 @@ import Input from "../../components/input/input";
 import General from "../../components/general";
 import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
-import DisableOption from "../../components/dropdown/disableOption";
-import Option from "../../components/dropdown";
 
 class NovoPerfil extends Component {
+    state = {
+        email: String,
+        password: String,
+    }
+
+    handleChangeEmail = event => {
+        this.setState({
+            email: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangePassword = event => {
+        this.setState({
+            password: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeDepartamento = event => {
+        this.setState({
+            departamento: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeCargo = event => {
+        this.setState({
+            cargo: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeSalario = event => {
+        this.setState({
+            salario: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleSubmit = async (event) => {
+        event.preventDefault();
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        await axios.post("http://localhost:5000/novocolaborador/create", user )
+        alert("data foi")
+    };
     render() {
         return (
             <>
@@ -23,33 +71,17 @@ class NovoPerfil extends Component {
                     <div className="row">
                         <h2>Novo Perfil</h2>
                         <div className="form col s6">
-                            <div className="quad1 row">
-                                <Input div="input-field" type="email" id="email" name="E-mail" class="validate" />
-                                <Input div="input-field" type="password" id="password" name="Senha" class="validate" />
-                                <ButtonMat class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+                            <div className="teste1 row">
+                                <Input fname={this.handleChangeEmail} div="input-field" type="email" id="email" name="E-mail" class="validate" />
+                                <Input fname={this.handleChangePassword} div="input-field" type="password" id="password" name="Senha" class="validate" />
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
                             </div>
                         </div>
                         <div className="form col s6">
-                            <div className="quad1 row">
-                                <select className="browser-default">
-                                    <DisableOption disableValue="" disableNome="Departamento" />
-                                    <Option value="1" name="TI" />
-                                    <Option value="2" name="RH" />
-                                </select>
-
-                                <select className="browser-default">
-                                    <DisableOption disableValue="" disableNome="Cargo" />
-                                    <Option value="1" name="CEO" />
-                                    <Option value="2" name="Administrador" />
-                                    <Option value="3" name="Estagiário" />
-                                </select>
-
-                                <select className="browser-default">
-                                    <DisableOption disableValue="" disableNome="Salário" />
-                                    <Option value="1" name="R$ 4.512,00" />
-                                    <Option value="2" name="R$ 3.094,00" />
-                                    <Option value="3" name="R$ 1.171,00" />
-                                </select>
+                            <div className="teste1 row">
+                                <Input fname={""} div="input-field col s6"  type="text" id="departamento" name="Departamento" class="validate" />
+                                <Input fname={""} div="input-field col s6"  type="text" id="cargo" name="Cargo" class="validate" />
+                                <Input fname={""} div="input-field col s12" type="text" id="salario" name="Salario" class="validate"/>
                             </div>
                         </div>
                     </div>
