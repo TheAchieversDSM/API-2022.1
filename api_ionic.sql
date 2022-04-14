@@ -14,9 +14,9 @@ USE `api_ionic` ;
 -- Table `api_ionic`.`departamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
-  `dep_id` INT NOT NULL AUTO_INCREMENT,
-  `dep_head` VARCHAR(40) NOT NULL,
-  `dep_base` VARCHAR(40) NOT NULL,
+	`dep_id` INT NOT NULL AUTO_INCREMENT,
+	`dep_descricao` VARCHAR(40),
+	`dep_head` VARCHAR(40),
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB;
 
@@ -36,14 +36,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
   `car_id` INT NOT NULL AUTO_INCREMENT,
-  `car_vale_transporte` FLOAT NOT NULL,
-  `car_vale_refeicao` FLOAT NOT NULL,
-  `car_auxilio_creche` FLOAT NOT NULL,
+  `car_vale_transporte` FLOAT,
+  `car_vale_refeicao` FLOAT,
+  `car_auxilio_creche` FLOAT,
   `car_nivel_acesso` INT NOT NULL,
-  `car_plano_saude` VARCHAR(40) NOT NULL,
-  `car_descricao` VARCHAR(40) NOT NULL,
-  `car_salario` FLOAT NOT NULL,
-  `nivel_niv_id` INT NOT NULL,
+  `car_plano_saude` VARCHAR(40),
+  `car_descricao` VARCHAR(60) NOT NULL,
+  `car_salario` FLOAT,
+  `nivel_niv_id` INT,
   `departamento_dep_id` INT NOT NULL,
   PRIMARY KEY (`car_id`),
   INDEX `cargo_departamento` (`departamento_dep_id` ASC) VISIBLE,
@@ -68,33 +68,22 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `api_ionic`.`perfil-temp`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`perfil_temp` (
-	`pt_email` VARCHAR(100) NOT NULL,
-    `pt_senha` VARCHAR(8) NOT NULL,
-	PRIMARY KEY (pt_email))
-    ENGINE = InnoDB;
-    
-
--- -----------------------------------------------------
 -- Table `api_ionic`.`colaborador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_email` VARCHAR(100) NOT NULL,
   `con_senha` VARCHAR(8) NOT NULL,
-  `con_nome` VARCHAR(100) ,
-  `con_ddd` INT , 
-  `con_telefone` INT ,
-  `con_endereco` VARCHAR(100) ,
-  `end_rua` VARCHAR(100) ,
-  `end_numero` INT ,
-  `end_bairro` VARCHAR(100) ,
-  `end_cep` INT ,
-  `end_estado` VARCHAR(100) ,
-  `end_complemento` VARCHAR(100) ,
-  `end_regiao` VARCHAR(100)
+  `con_nome` VARCHAR(100),
+  `con_ddd` INT, 
+  `con_telefone` INT,
+  `end_rua` VARCHAR(100),
+  `end_numero` INT,
+  `end_bairro` VARCHAR(100),
+  `end_cep` INT,
+  `end_estado` VARCHAR(100),
+  `end_complemento` VARCHAR(100),
+  `end_regiao` VARCHAR(100),
   `tipo_contratacao_cont_id` INT,
   `cargo_car_id` INT,
   `departamento_dep_id` INT,
@@ -167,15 +156,15 @@ ENGINE = InnoDB;
 -- Table `api_ionic`.`pessoa_fisica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`pessoa_fisica` (
-  `user_cpf` INT NOT NULL,
-  `user_data_nascimento` DATE NOT NULL,
-  `user_raca` VARCHAR(40) NOT NULL,
-  `user_naturalidade` VARCHAR(40) NOT NULL,
-  `user_genero` VARCHAR(40) NOT NULL,
-  `user_nacionalidade` VARCHAR(40) NOT NULL,
-  `user_estado_civil` VARCHAR(40) NOT NULL,
-  `user_filho` VARCHAR(2) NOT NULL,
-  `colaborador_con_id` INT NOT NULL,
+  `user_cpf` INT,
+  `user_data_nascimento` DATE,
+  `user_raca` VARCHAR(40),
+  `user_naturalidade` VARCHAR(40),
+  `user_genero` VARCHAR(40),
+  `user_nacionalidade` VARCHAR(40),
+  `user_estado_civil` VARCHAR(40),
+  `user_filho` VARCHAR(2),
+  `colaborador_con_id` INT,
   PRIMARY KEY (`colaborador_con_id`),
   CONSTRAINT `pessoa_fisica_contratado`
     FOREIGN KEY (`colaborador_con_id`)
@@ -224,9 +213,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
-  `qua_formacao` VARCHAR(40) NOT NULL,
-  `qua_curso` VARCHAR(40) NOT NULL,
-  `qua_lingua` VARCHAR(40) NOT NULL,
+  `qua_formacao` VARCHAR(40),
+  `qua_curso` VARCHAR(40),
+  `qua_lingua` VARCHAR(40),
   `colaborador_con_id` INT NOT NULL,
   PRIMARY KEY (`qua_id`),
   INDEX `qualificacao_pessoa_fisica` (`colaborador_con_id` ASC) VISIBLE,
