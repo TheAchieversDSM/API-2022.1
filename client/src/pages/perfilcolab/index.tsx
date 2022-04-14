@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 
 // LOCAL CSS
 import './perfil.css'
@@ -10,11 +12,26 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 
+
 class PerfilColab extends Component {
+    state = {
+        infos: [],
+        id: getCookie("id")
+    };
+
+    componentDidMount() {
+        axios.get(`http://localhost:3000/infocolab/${this.state.id}`)
+            .then(res => {
+                const infos = res.data;
+                this.setState({ infos });            
+            }
+        )
+    }
+
     render() {
         return (
             <>
-             
+
                 <General />
                 <Css ref="./perfil.css" />
                 <div className="conteudo">
@@ -28,7 +45,7 @@ class PerfilColab extends Component {
                                     <div className="col s6">
                                         <h5 className="name">Mariana Ayumi Tamay</h5>
                                         <p>
-                                            <p>CPF: 1234567890 </p>
+                                            <p>CPF: 444441  </p>
                                             <p>Data de admissão: xx/yy/zzzz</p>
                                             <p>Data de desligamento: --/--/----</p>
                                             <p>Tipo de contrato: ---</p>

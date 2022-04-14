@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
-import LoginRoute from "../loginAuthRoute";
-
+import { useNavigate } from "react-router-dom";
+import { setCookie, getCookie } from "../../utils/cookieUtil/cookieUtil";
 
 
 
@@ -48,10 +47,10 @@ class Login extends Component {
         await axios.get(`http://localhost:5000/login/${user.email}/${user.password}`).then((response) => {
             console.log(response.data);
             if (response.data.token) {
-                localStorage.setItem("token", response.data.token)
-                localStorage.setItem("id", response.data.user[0].con_id)
-                console.log(localStorage.getItem("token"));
-                console.log(localStorage.getItem("id"));
+                setCookie("token", response.data.token)
+                console.log(getCookie("token"));
+                setCookie("id", response.data.user[0].con_id)
+                console.log(getCookie("id"));
 
             }
 

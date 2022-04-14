@@ -10,13 +10,12 @@ Pf = function (pf) {
     this.user_estado_civil = pf.estadoCivil, // pessoa_fisica
     this.user_filho = pf.filho, // pessoa_fisica
     this.colaborador_con_id = pf.id
-}
+};
 
 Pf.createPessoaFisica = (Userdata, result) => {
     console.log(Userdata);
     db.query("INSERT INTO pessoa_fisica SET ?", Userdata, (err, res) => {
         if (err) {
-            console.log("DEU RUIM AAAAAAAAAAAAAAAAAAAAAAA");
             console.log("error: ", err);
             result(null, err);
         }
