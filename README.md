@@ -71,6 +71,6 @@ Dev Team | Rikio Anzai | [<img src="https://img.shields.io/badge/github%20-%2312
 
 Sprint ID | Data | Tag | Status
 ----------|------|-----|--------
-#1 | 25.03.22 - 14.04.22 | :construction: | :construction:
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | :heavy_check_mark:
 #2 | 25.04.22 - 15.05.22 | :stop_sign: | :stop_sign:
 #3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign:
