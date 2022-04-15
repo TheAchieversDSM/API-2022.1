@@ -52,20 +52,18 @@ Dev Team | Rikio Anzai | [<img src="https://img.shields.io/badge/github%20-%2312
  
  ID  | Tarefa | Prioridade | Status
  ----|--------|------------|---------- 
- #01 | Criação de User Stories | Alta | :white_square_button:
- #02 | Desenvolvimento de Wireframe | Alta | :white_square_button:
- #03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :white_square_button:
- #04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :white_square_button:
- #05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :white_square_button:
- #06 | Conexão do back-end com o Banco de Dados | Alta | :white_square_button:
- #07 | Desenvolvimento da interface de Login | Média | :white_square_button:
- #08 | Desenvolvimento da interface de Novo Colaborador | Alta | :white_square_button:
- #09 | Desenvolvimento da interface de Organograma | Alta | :white_square_button:
- #10 | Desenvolvimento da interface de Notificações | Média | :white_square_button:
- #11 | Desenvolvimento do back-end da interface de Login | Média | :white_square_button:
- #12 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :white_square_button:
- #13 | Desenvolvimento do back-end da interface de Organograma | Alta | :white_square_button:
- #14 | Desenvolvimento do back-end da interface de Notificações | Alta | :white_square_button:
+ #01 | Criação de User Stories | Alta | :heavy_check_mark:
+ #02 | Desenvolvimento de Wireframe | Alta | :heavy_check_mark:
+ #03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :heavy_check_mark:
+ #04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :heavy_check_mark:
+ #05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :heavy_check_mark:
+ #06 | Conexão do back-end com o Banco de Dados | Alta | :heavy_check_mark:
+ #07 | Desenvolvimento da interface de Login | Média | :heavy_check_mark:
+ #08 | Desenvolvimento da interface de Novo Colaborador | Alta | :heavy_check_mark:
+ #09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
+ #10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
+ #11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
+ #12 | Desenvolvimento do back-end da interface de Organograma | Alta | :heavy_check_mark:
    
 <span id="entregas">
 
