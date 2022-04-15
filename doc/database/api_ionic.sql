@@ -66,6 +66,17 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`tipo_contratacao` (
   PRIMARY KEY (`cont_id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `api_ionic`.`notificacao
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`notificacao`(
+  `notificacao_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`notificacao_id`),
+  FOREIGN KEY (`user_id`)
+    REFERENCES `api_ionic`.`colaborador` (`con_id`))
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`colaborador`
@@ -213,6 +224,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_nome_instituição` VARCHAR(80),
   `qua_formacao` VARCHAR(40),
   `qua_curso` VARCHAR(40),
   `qua_lingua` VARCHAR(40),
