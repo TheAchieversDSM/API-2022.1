@@ -1,10 +1,17 @@
 const novoColabRoute = require("./routes/novoColabRoute")
+
 const loginRoute = require("./routes/loginRoute")
+
 const precad1Route = require("./routes/preCad1Route")
+
 const precad2Route = require("./routes/preCad2Route")
+
 const userRoute = require("./routes/userRoutes")
+
 const departamentRoute = require("./routes/departamentRoutes")
+
 const cargosRoutes = require("./routes/cargosRoutes")
+
 const notificacaoRoutes = require("./routes/notificacaoRoutes")
 
 const cors = require("cors")
@@ -15,7 +22,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/novocolaborador", novoColabRoute)
+
 app.use("/login", loginRoute)
+
 app.use("/precad1", precad1Route)
 app.use("/precad2", precad2Route)
 app.use("/infocolab", userRoute)

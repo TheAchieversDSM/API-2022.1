@@ -6,11 +6,10 @@ import Caminho from "../../components/caminho/caminho";
 
 class Home extends Component {
 
-    render() {
-        console.log(getCookie("acesso"));
-        
-        const Auth = getCookie("acesso") == "0";
-        return Auth? (
+    render() { 
+        const firstAcess = getCookie("acesso") == "0";
+
+        return firstAcess? (
             <>
                 <General />
 

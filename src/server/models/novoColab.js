@@ -1,10 +1,11 @@
 const db = require("../config/dbconfig")
 
- Perfil = function(perfil) {
+Perfil = function(perfil) {
     this.con_email = perfil.email
     this.con_senha = perfil.password
     this.tipo_pessoa = perfil.tipoPessoa
 };
+
 
 Perfil.createUser = (Userdata, result) => {
     db.query("INSERT INTO colaborador SET ?", Userdata, (err, res)=>{
