@@ -40,7 +40,7 @@ User.getUserById = (id,result_colab,result_pessoa_fisica,result_qualificacao) =>
 }
 
 User.getAllUser = (result) => {
-    db.query("SELECT * FROM colaborador",(err,res)=>{
+    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep ON colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id ",(err,res)=>{
         if (err) {
             console.log("error: ", err);
             result(null, err);
