@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 
 type props = {
-    name: string
+    name: string,
+    value :string
 }
 
 class Check extends Component<props> {
     render() {
         return (
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" value={this.props.value} />
                 <span>{this.props.name}</span>
             </label>
         )

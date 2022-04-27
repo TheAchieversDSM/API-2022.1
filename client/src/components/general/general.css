@@ -1,5 +1,5 @@
 body {
-    background-color: #53C4CD !important;
+    background-color: #53C4CD;
     margin: 20px !important;
 }
 
@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5 {
     width: 260px !important;
     color: black !important;
     text-align: left;
+}
+
+.sidenav > li{
+    font-family: coolvetica, sans-serif !important;
 }
 
 a {

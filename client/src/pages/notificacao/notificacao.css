@@ -38,3 +38,16 @@ h5 {
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
+
+.collapsible-body{
+    background-color: #f4f4f4 !important;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.collapsible-header{
+    background-color: #ACD8DE !important;
+    border-radius: 30px !important;
+    font-size: 18px;
+    font-family: coolvetica, sans-serif !important;
+    border: 3px solid #53C4CD !important;
+}

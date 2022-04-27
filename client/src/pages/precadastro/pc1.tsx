@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import axios from "axios";
 
 // LOCAL CSS
@@ -25,7 +26,6 @@ class PreCadastro1 extends Component {
         genero: String,
         data: Date,
         idade: Number,
-        email: String,
         ddd: Number,
         telefone: Number,
         rua: String,
@@ -97,12 +97,6 @@ class PreCadastro1 extends Component {
         console.log(this.state);
     };
 
-    handleChangeEmail = event => {
-        this.setState({
-            email: event.target.value,
-        });
-        console.log(this.state);
-    };
 
     handleChangeDDD = event => {
         this.setState({
@@ -199,7 +193,6 @@ class PreCadastro1 extends Component {
         event.preventDefault();
         const user = {
             nome: this.state.nome,
-            email: this.state.email,
             ddd: this.state.ddd,
             telefone: this.state.telefone,
             rua: this.state.rua,
@@ -211,7 +204,7 @@ class PreCadastro1 extends Component {
             estado: this.state.estado,
             regiao: this.state.regiao,
             tipoContratacao: this.state.tipoContratacao,
-            id: localStorage.getItem("id"),
+            id: getCookie("id"),
         }
 
         const pessoaFisica = {
@@ -224,7 +217,7 @@ class PreCadastro1 extends Component {
             idade: this.state.idade,
             estadoCivil: this.state.estadoCivil,
             filho: this.state.filho,
-            id: localStorage.getItem("id"),
+            id: getCookie("id"),
         }
 
 
@@ -235,7 +228,7 @@ class PreCadastro1 extends Component {
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica); {
             alert("data foi")
         }
-    }
+    };
 
 
     render() {
@@ -296,137 +289,115 @@ class PreCadastro1 extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
+                    
 
-                    <div className="col s4">
-                        <div className="campo2">
-                            <form className="col s12">
-                                <div className="row">
-                                    <Input fname={this.handleChangeEmail} div="input-field col s12" id="email" class="validate" type="email" name="E-mail" />
-                                </div>
-
-                                <div className="row">
-                                    <Input fname={this.handleChangeDDD} div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="DDD" />
-                                </div>
-
-                                <div className="row">
-                                    <Input fname={this.handleChangeTelefone} div="input-field col s12" id="icon_telephone" class="validate" type="tel" name="Telefone" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div className="col s8">
-                        <div className="campo2">
-                            <form className="col s12">
-                                <div className="row">
-                                    <Input fname={this.handleChangeRua} div="input-field col s6 bla" id="rua" class="validate" type="text" name="Rua" />
-
-                                    <Input fname={this.handleChangeNumero} div="input-field col s6 bla" id="numero" class="validate" type="number" name="Número" />
-                                </div>
-
-                                <div className="row">
-
-                                    <Input fname={this.handleChangeBairro} div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
-
-                                    <Input fname={this.handleChangeComplemento} div="input-field col s3 bla" id="complemento" class="validate" type="number" name="Complemento" />
-
-                                    <Input fname={this.handleChangeCEP} div="input-field col s3 bla" id="cep" class="validate" type="number" name="CEP" />
-                                </div>
-
-                                <div className="row">
-                                    <Input fname={this.handleChangeCidade} div="input-field col s6" id="cidade" class="validate" type="text" name="Cidade" />
-
-                                    <div className="input-field col s2">
-                                        <select className="browser-default" id="estado" onChange={this.handleChangeEstado}>
-                                            <DisableOption disableValue="" disableNome="Estado" />
-                                            <Option value="Acre" name="AC" />
-                                            <Option value="Alagoas" name="AL" />
-                                            <Option value="Amapá" name="AP" />
-                                            <Option value="Amazonas" name="AM" />
-                                            <Option value="Bahia" name="BA" />
-                                            <Option value="Ceará" name="CE" />
-                                            <Option value="Distrito Federal" name="DF" />
-                                            <Option value="Espírito Santo" name="ES" />
-                                            <Option value="Goiás" name="GO" />
-                                            <Option value="Maranhão" name="MA" />
-                                            <Option value="Minas Gerais" name="MG" />
-                                            <Option value="Mato Grosso do Sul" name="MS" />
-                                            <Option value="Mato Grosso" name="MT" />
-                                            <Option value="Pará" name="PA" />
-                                            <Option value="Pernambuco" name="PB" />
-                                            <Option value="Pernambuco" name="PE" />
-                                            <Option value="Piauí" name="PI" />
-                                            <Option value="Paraná" name="PR" />
-                                            <Option value="Rio de Janeiro" name="RJ" />
-                                            <Option value="Rio Grande do Norte" name="RN" />
-                                            <Option value="Rondônia" name="RO" />
-                                            <Option value="Rio Grande do Sul" name="RS" />
-                                            <Option value="Roraima" name="RR" />
-                                            <Option value="Santa Catarina" name="SC" />
-                                            <Option value="Sergipe" name="SE" />
-                                            <Option value="São Paulo" name="SP" />
-                                            <Option value="Tocantins" name="TO" />
-                                        </select>
-                                    </div>
-
-                                    <div className="input-field col s4">
-                                        <select className="browser-default" id="regiao" onChange={this.handleChangeRegiao}>
-                                            <DisableOption disableValue="" disableNome="Região" />
-                                            <Option value="Norte" name="Norte" />
-                                            <Option value="Nordeste" name="Nordeste" />
-                                            <Option value="Centro-Oeste" name="Centro-Oeste" />
-                                            <Option value="Sudeste" name="Sudeste" />
-                                            <Option value="Sul" name="Sul" />
-                                        </select>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div className="col s6">
-                        <div className="campo3">
-                            <label>Estado Civil</label>
-                            <select className="browser-default" id="estadoCivil" onChange={this.handleChangeEstadoCivil}>
-                                <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option value="Solteiro(a)" name="Solteiro(a)" />
-                                <Option value="Casado(a)" name="Casado(a)" />
-                                <Option value="Divorciado(a)" name="Divorciado(a)" />
-                                <Option value="Viúvo(a)" name="Viúvo(a)" />
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className="col s6">
-                        <div className="campo3">
-                            <label>Possui filhos?</label>
-                            <form action="#" id="filho" onChange={this.handleChangeFilho}>
-                                <p>
-                                    <Check name="Sim" />
-                                    <Check name="Não" />
-                                </p>
-                            </form>
+                        <div className="col s12">
+                            <div className="campo2">
+                                <form className="row">
+                                        <Input fname={this.handleChangeDDD} div="input-field col s2" id="icon_telephone" class="validate" type="tel" name="DDD" />
+                                        <Input fname={this.handleChangeTelefone} div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
+                                </form>
+                            </div>
                         </div>
 
-                        <div className="col s4">
+                        <div className="col s12">
+                            <div className="campo4">
+                                <form className="col row">
+                                    
+                                        <Input fname={this.handleChangeRua} div="input-field col s8 bla" id="rua" class="validate" type="text" name="Rua" />
+
+                                        <Input fname={this.handleChangeNumero} div="input-field col s4 bla" id="numero" class="validate" type="number" name="Número" />
+
+                                        <Input fname={this.handleChangeBairro} div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+
+                                        <Input fname={this.handleChangeCidade} div="input-field col s6 bla" id="cidade" class="validate" type="text" name="Cidade" />
+
+                                        <Input fname={this.handleChangeComplemento} div="input-field col s3 bla" id="complemento" class="validate" type="number" name="Complemento" />
+
+                                        <Input fname={this.handleChangeCEP} div="input-field col s3 bla" id="cep" class="validate" type="number" name="CEP" />
+                                    
+                                        
+                            
+                                        <div className="input-field col s2 bla">
+                                            <select className="browser-default" id="estado" onChange={this.handleChangeEstado}>
+                                                <DisableOption disableValue="" disableNome="Estado" />
+                                                <Option value="Acre" name="AC" />
+                                                <Option value="Alagoas" name="AL" />
+                                                <Option value="Amapá" name="AP" />
+                                                <Option value="Amazonas" name="AM" />
+                                                <Option value="Bahia" name="BA" />
+                                                <Option value="Ceará" name="CE" />
+                                                <Option value="Distrito Federal" name="DF" />
+                                                <Option value="Espírito Santo" name="ES" />
+                                                <Option value="Goiás" name="GO" />
+                                                <Option value="Maranhão" name="MA" />
+                                                <Option value="Minas Gerais" name="MG" />
+                                                <Option value="Mato Grosso do Sul" name="MS" />
+                                                <Option value="Mato Grosso" name="MT" />
+                                                <Option value="Pará" name="PA" />
+                                                <Option value="Pernambuco" name="PB" />
+                                                <Option value="Pernambuco" name="PE" />
+                                                <Option value="Piauí" name="PI" />
+                                                <Option value="Paraná" name="PR" />
+                                                <Option value="Rio de Janeiro" name="RJ" />
+                                                <Option value="Rio Grande do Norte" name="RN" />
+                                                <Option value="Rondônia" name="RO" />
+                                                <Option value="Rio Grande do Sul" name="RS" />
+                                                <Option value="Roraima" name="RR" />
+                                                <Option value="Santa Catarina" name="SC" />
+                                                <Option value="Sergipe" name="SE" />
+                                                <Option value="São Paulo" name="SP" />
+                                                <Option value="Tocantins" name="TO" />
+                                            </select>
+                                        </div>
+
+                                        <div className="input-field col s4 bla">
+                                            <select className="browser-default" id="regiao" onChange={this.handleChangeRegiao}>
+                                                <DisableOption disableValue="" disableNome="Região" />
+                                                <Option value="Norte" name="Norte" />
+                                                <Option value="Nordeste" name="Nordeste" />
+                                                <Option value="Centro-Oeste" name="Centro-Oeste" />
+                                                <Option value="Sudeste" name="Sudeste" />
+                                                <Option value="Sul" name="Sul" />
+                                            </select>
+                                        </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div className="col s6">
                             <div className="campo3">
-                                <label>Contratação</label>
-                                <select className="browser-default" id="tipoContratacao" onChange={this.handleChangeTipoContratacao}>
+                                <label>Estado Civil</label>
+                                <select className="browser-default" id="estadoCivil" onChange={this.handleChangeEstadoCivil}>
                                     <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                    <Option value="CLT" name="CLT" />
-                                    <Option value="PJ" name="PJ" />
-                                    <Option value="Estagiário(a)" name="Estagiário(a)" />
-                                    <Option value="Temporário" name="Temporário" />
+                                    <Option value="Solteiro(a)" name="Solteiro(a)" />
+                                    <Option value="Casado(a)" name="Casado(a)" />
+                                    <Option value="Divorciado(a)" name="Divorciado(a)" />
+                                    <Option value="Viúvo(a)" name="Viúvo(a)" />
                                 </select>
                             </div>
                         </div>
-                    </div>
+                        
+                        
+                        <div className="col s6">
+                            <div className="campo3">
+                                <label>Possui filhos?</label>
+                                <form action="#" id="filho" onChange={this.handleChangeFilho}>
+                                    <p>
+                                        <Check value="si" name="Sim" />
+                                        <Check value="no" name="Não" />
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
 
-                    <Link to="/PreCad2"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+                        <Link to="/PreCad2"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+                    </div>
                 </div>
-            </>
+                </>    
         )
     }
-};
+}
 export default PreCadastro1;

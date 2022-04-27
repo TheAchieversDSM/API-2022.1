@@ -11,14 +11,16 @@ import NovoPerfil from "../pages/novo perfil";
 import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
+import Funcionario from "../pages/tabela";
+import LogoutRoute from "../utils/logoutRoute/logoutRoute";
 
 function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" element={<Login />} />
-
-                <Route path ="/home"element={<PrivateRoute redirectTo={"/"}>
+                <Route path="/" element= {<Login />} />
+                
+                <Route path ="/home" element= {<PrivateRoute redirectTo={"/"}>
                     <Home />
                 </PrivateRoute>} />
 
@@ -46,9 +48,15 @@ function Routes() {
                     <Organograma/>
                 </PrivateRoute>} />
 
-                <Route path ="/PerfilColaborador"element={<PrivateRoute redirectTo={"/"}>
+                <Route path ="/PerfilColaborador" element={<PrivateRoute redirectTo={"/"}>
                     <PerfilColab/>
                 </PrivateRoute>} />
+
+                <Route path ="/Funcionario" element={<PrivateRoute redirectTo={"/"}>
+                    <Funcionario/>
+                </PrivateRoute>} />
+
+                <Route path="/logout" element={<LogoutRoute redirectTo={"/"}/>} />
 
             </Switch>
         </BrowserRouter>

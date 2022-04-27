@@ -1,14 +1,15 @@
 import React ,{Component} from "react";
+import {Link} from "react-router-dom"
 
 type props = {
     title: string,
-    fname: any,
+    fname: any
 }
 
 class Submit extends Component <props>{
     render() {
         return (
-            <button className="btn btn-primary" type="submit" onClick={this.props.fname} >{this.props.title}</button>
+            <button id="" className="btn btn-primary" type="submit" onClick={this.props.fname} >{this.props.title}</button>
         )
     }
 }

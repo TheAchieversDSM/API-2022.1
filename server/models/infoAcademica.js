@@ -8,7 +8,6 @@ InfoAcademica = function (infoAcademica) {
 }
 
 InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
-    console.log(InfoAcademica);
     db.query("INSERT INTO qualificacao  SET ?", InfoAcademica, (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -18,7 +17,9 @@ InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
             console.log("Criado Usuário");
             result(null, res);
         }
-    })
+    });
+
+
 }
 
 module.exports = InfoAcademica;

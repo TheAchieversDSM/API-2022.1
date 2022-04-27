@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 
 // LOCAL CSS
 import './pc2.css'
@@ -49,10 +49,17 @@ class PreCadastro2 extends Component {
             formacao: this.state.formacao,
             cursos: this.state.cursos,
             linguas: this.state.linguas,
-            id: localStorage.getItem("id")
+            id: getCookie("id")
         }
+        const id= getCookie("id")
         axios.post("http://localhost:5000/precad2", infoAcademica);{
-            alert("data foi")
+            console.log("foi");
+            
+        }
+        
+        axios.post(`http://localhost:5000/notificacao/${infoAcademica.id}`);{
+            console.log("foi");
+            
         }
     }
 
@@ -78,23 +85,9 @@ class PreCadastro2 extends Component {
                             </div>
                         </div>
 
-                        {/*<div className="col s12">
-                            <h5 className="titulo">Benefícios</h5>
-                            <div className="bloco1">
-                                <form action="#">
-                                    <p>
-                                        <Check name="Plano de Saúde" />
-                                        <Check name="Vale Transporte" />
-                                        <Check name="Vale Refeição" />
-                                        <Check name="Auxílio Creche" />
-                                    </p>
-                                </form>
-                            </div>
-                        </div>*/}
                     </div>
-
-                    <Link to="/PreCad1"><ButtonMat fname={""} class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
-                    <Link to="/PreCad3"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+                    <Link to="/PreCad1"><ButtonMat  fname={""} class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
+                    <Link to="/PreCad3"><ButtonMat  fname={this.handleSubmit} class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
                 </div>
             </>
         )

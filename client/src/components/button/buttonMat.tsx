@@ -5,6 +5,7 @@ type props = {
     name: string,
     iClass: string,
     fname: any,
+
 }
 
 class ButtonMat extends Component<props> {
