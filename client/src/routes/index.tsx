@@ -1,7 +1,12 @@
 import React from "react";
 import { Route, BrowserRouter, Routes as Switch } from "react-router-dom";
 
+//IMPORT ROUTES
 import PrivateRoute from "../utils/protectedRoute";
+import LoggedinRoute from "../utils/login/LoggedinRoute";
+import LogoutRoute from "../utils/logoutRoute/logoutRoute";
+
+//IMPORT PAGES
 import Login from "../pages/login";
 import Home from "../pages/home"
 import PreCadastro1 from "../pages/precadastro/pc1";
@@ -12,13 +17,15 @@ import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
 import Funcionario from "../pages/tabela";
-import LogoutRoute from "../utils/logoutRoute/logoutRoute";
+
 
 function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" element= {<Login />} />
+                <Route path="/" element= {<LoggedinRoute>
+                    <Login/>
+                </LoggedinRoute>} />
                 
                 <Route path ="/home" element= {<PrivateRoute redirectTo={"/"}>
                     <Home />

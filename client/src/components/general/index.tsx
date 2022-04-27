@@ -14,9 +14,9 @@ import SideNav from "./sidenav";
 
 export default class General extends Component {
     componentDidMount() {
-        appendScript("https://code.jquery.com/jquery-2.1.1.min.js")
         appendScript("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")
-        appendScript("../../utils/Modal/modal.js")
+        appendScript("https://code.jquery.com/jquery-3.6.0.min.js")
+
     }
     render() {
         return (
@@ -30,7 +30,7 @@ export default class General extends Component {
                     {/*<SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />*/}
                     {/*<SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" />*/}
                     {/*<SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
-                    <SideNav link="/logout" class="fa-solid fa-arrow-right-from-bracket" name="Logout"/>
+                    <SideNav link="/logout" class="fa-solid fa-arrow-right-from-bracket" name="Sair"/>
                 </ul>
 
                 <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons"></i></a>

@@ -16,7 +16,6 @@ import Check from "../../components/input/check";
 import Submit from "../../components/button/submit";
 
 
-
 class Login extends Component {
 
 
@@ -77,26 +76,23 @@ class Login extends Component {
             <>
             <this.isLoggedin/>
                 <main>
-                    <img src={LogoLogin} />
-
-                <form onSubmit={this.isLoggedin} >
                     <div className="bloco">
-                        <Input div="input-field" fname={this.handleChangeEmail} type="email" id="email" name="E-mail" class="validate" />
-                        <Input div="input-field" fname={this.handleChangePassword} type="password" id="password" name="Senha" class="validate" />
+                        <img src={LogoLogin} />
+                        
+                        <form onSubmit={this.isLoggedin} >
+                            <Input div="input-field" fname={this.handleChangeEmail} type="email" id="email" name="E-mail" class="validate" />
+                            <Input div="input-field" fname={this.handleChangePassword} type="password" id="password" name="Senha" class="validate" />
+                            <div className="opcao row">
+                                <div className="col s6">
+                                    <Check value="" name="Lembrar de Mim" />
+                                </div>
+                                <a className="col s6" href="#">Esqueci a senha</a>
+                                <div className="col-12">
+                                    <Submit fname={this.handleSubmit} title="Log In" />
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
-                    <div className="opcao">
-                        <div className="col-12">
-                            <Check value="" name="Lembrar de Mim" />
-                        </div>
-
-                        <a href="#">Esqueci a senha</a>
-                    </div>
-
-                    <div className="col-12">
-                      <Submit fname={this.handleSubmit} title="Log In" />
-                    </div>
-                </form>
                 </main>
             </>
         )
