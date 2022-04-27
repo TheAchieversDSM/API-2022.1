@@ -8,7 +8,7 @@ import './notificacao.css'
 import General from '../../components/general/index'
 import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
-import Collaps from "../../components/collaps/collaps"
+import Modal from "../../components/modal/modal"
 
 class Notificacao extends Component {
     state = {
@@ -30,7 +30,7 @@ class Notificacao extends Component {
                 
                 this.setState({ info_colab }); 
                 this.setState({ info_pf });
-                this.setState({info_acad})   ;      
+                this.setState({ info_acad });      
             }
         )
     }
@@ -45,24 +45,21 @@ class Notificacao extends Component {
 
                 <div className="conteudo">
                     <h3>Notificações</h3>
-                    <ul className="collapsible popout" data-collapsible="accordion">
-                        <Collaps title="Rebeca preencheu o pre-cadastro!" 
-                        title2="Dados pessoais"
-                        desc1="Nome: " 
-                        desc2="CPF: " 
-                        desc3="Nacionalidade: " 
-                        desc4="Naturalidade: " 
-                        desc5="Raça: " 
-                        desc6="Gênero: "
-                        desc7="Data de Nascimento: "
-                        id=""
-                        class="validate"
-                        name1="Departamento"
-                        name2="Cargo"
-                        name3="Salário"
-                        type="text"
-                        fname=""
-                        />
+                    <div className="not row">
+                        <h5 className="col s6">Rebeca preencheu o cadastro!</h5>
+                        <a className="waves-effect waves-light btn modal-trigger col s6" data-target="modal1">Modal</a>
+                    </div>
+
+                    <ul>
+                            <Modal
+                            id=""
+                            class="validate"
+                            name1="Departamento"
+                            name2="Cargo"
+                            name3="Salário"
+                            type="text"
+                            fname=""
+                            />
                     </ul>
                     
                 </div>

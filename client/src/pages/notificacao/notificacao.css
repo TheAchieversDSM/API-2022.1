@@ -51,3 +51,10 @@ h5 {
     font-family: coolvetica, sans-serif !important;
     border: 3px solid #53C4CD !important;
 }
+
+.not{
+    background-color: #9BD9DE;
+    border-radius: 30px;
+    padding: 15px;
+    margin: 10px;
+}
