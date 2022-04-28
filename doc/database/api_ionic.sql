@@ -16,7 +16,7 @@ USE `api_ionic` ;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
 	`dep_id` INT NOT NULL AUTO_INCREMENT,
 	`dep_descricao` VARCHAR(40),
-	`dep_head` VARCHAR(40),
+	`dep_head` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB;
 
@@ -84,7 +84,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_email` VARCHAR(100) NOT NULL,
-  `con_senha` VARCHAR(8) NOT NULL,
+  `con_senha` VARCHAR(20) NOT NULL,
   `con_nome` VARCHAR(100),
   `con_ddd` INT, 
   `con_telefone` INT,
@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `tipo_contratacao_cont_id` INT,
   `cargo_car_id` INT,
   `departamento_dep_id` INT,
+  `head_id`INT, 
   `tipo_pessoa` VARCHAR(100),
   PRIMARY KEY (`con_id`),
   INDEX `contratado_cargo` (`cargo_car_id` ASC) VISIBLE,
@@ -174,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`pessoa_fisica` (
   `user_genero` VARCHAR(40),
   `user_nacionalidade` VARCHAR(40),
   `user_estado_civil` VARCHAR(40),
-  `user_filho` VARCHAR(2),
+  `user_filho` VARCHAR(3),
   `colaborador_con_id` INT,
   PRIMARY KEY (`colaborador_con_id`),
   CONSTRAINT `pessoa_fisica_contratado`

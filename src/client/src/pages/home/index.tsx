@@ -25,6 +25,7 @@ class Home extends Component {
                 </div>
             </>
         ) :
+        
         (
             <>
             <General />

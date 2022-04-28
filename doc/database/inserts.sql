@@ -108,7 +108,8 @@ INSERT INTO cargo (car_descricao, car_nivel_acesso, departamento_dep_id) VALUES 
 
 SELECT * FROM cargo;
 
---COLABORADOR --
+-- COLABORADOR --
+
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa) VALUES ("milla.moreira@ionic.health", "1234", "Milla Moreira", "12", "986571945", "Rua Ferdinando Lima", "47", "Alphaville", "17845134", "SP", "", "Sudeste", "1", "1", "1", "Física");
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa) VALUES ("anna.costa@ionic.health", "1234", "Anna Costa", "12", "986571735", "Rua Hortência Melo", "14", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "3", "1", "Física");
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa) VALUES ("joao.almeida@ionic.health", "1234", "João Almeida", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "3", "7", "1", "Física");
@@ -129,7 +130,7 @@ INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, 
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa) VALUES ("gabriel.telles@ionic.health", "1234", "Leonardo Salles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "76", "6  ", "Física");
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa) VALUES ("leonardo.salles@ionic.health", "1234", "Leonardo Salles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "80", "6  ", "Física");
 
-select * from cargo,
+select * from colaborador;
 
 -- ACESSO AO SISTEMA --
 INSERT INTO colaborador (con_email, con_senha)  VALUES ('maria@gmail.com', '1234'); 
