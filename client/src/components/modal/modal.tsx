@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
-import {modaljs} from "../../utils/modal"
+import {modaljs} from "../../utils/modal/modal"
 type props = {
     type: any,
     class: any,

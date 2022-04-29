@@ -7,8 +7,9 @@ import Caminho from "../../components/caminho/caminho";
 class Home extends Component {
 
     render() { 
-        const firstAcess = getCookie("acesso") == "0";
-
+        const firstAcess = getCookie("firstAcess") != null ;
+        console.log(firstAcess);
+        
         return firstAcess? (
             <>
                 <General />
@@ -24,7 +25,7 @@ class Home extends Component {
                     </div>
                 </div>
             </>
-        ) :
+        ) : 
         (
             <>
             <General />
