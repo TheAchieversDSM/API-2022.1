@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
-
+import axios from 'axios';
 // LOCAL CSS
 import './organoStruct.css'
+import OrganoNode from '../organoNode';
 
 export default class extends Component {
+    state = {
+        colaboradores: []
+    }
     constructor(props) {
         super(props);
         this.divRef = React.createRef();
@@ -15,6 +19,11 @@ export default class extends Component {
     }
 
 componentDidMount() {
+    axios.get("http://localhost:5000/infocolab/getAll").then((response)=>{
+        const colaboradores = response.data
+        this.setState({ colaboradores }); 
+        console.log(this.state.colaboradores);
+})
     OrgChart.templates.polina.menuButton =
     '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer;" data-ctrl-menu="">'
     + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
@@ -42,10 +51,13 @@ componentDidMount() {
             pdf: { text: "Exportar para PDF" },
             png: { text: "Exportar para PNG" },
             svg: { text: "Exportar para SVG" },
-                    csv: { text: "Exportar para CSV" }
+            csv: { text: "Exportar para CSV" }
         },
+        
 
-        nodes: this.props.nodes,
+        nodes: [
+            this.state.colaboradores.map(colaborador => <OrganoNode  id={colaborador.con_id} name={colaborador.con_nome} pid={''} title={colaborador.car_descricao} img={""} />)
+        ],
 
         });
     }

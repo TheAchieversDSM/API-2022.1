@@ -50,14 +50,16 @@ class Login extends Component {
             console.log(response.data);
             if (response.data.token) {
                 setCookie("token", response.data.token);
-                setCookie("acesso", response.data.user[0].con_precad)
                 setCookie("id", response.data.user[0].con_id);
+
+                if (response.data.user[0].cargo_car_id == null){
+                    setCookie("firstAcess", true)
+                }
                 this.setState({
                     loggedin: true
                 })
                 console.log(getCookie("token"));
                 console.log(getCookie("id"));
-                console.log(getCookie("acesso"));
             }
         })
     };

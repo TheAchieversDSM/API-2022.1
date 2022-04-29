@@ -6,7 +6,7 @@ import { getCookie, deleteCookie } from "../cookieUtil/cookieUtil";
 const LogoutRoute = ({redirectTo}) => {
     deleteCookie("token")
     deleteCookie("id")
-    deleteCookie("acesso")
+    deleteCookie("firstAcess")
     return <Navigate to={redirectTo}/>
 }
 

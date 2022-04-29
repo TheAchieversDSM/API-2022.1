@@ -12,7 +12,8 @@ import Css from "../../assets/style/style";
 
 export default class Organograma extends Component {
     state={
-        departamentos: []
+        departamentos: [],
+        colaboradores: []
     }
     componentDidMount(){
         axios.get("http://localhost:5000/departamentos").then((response)=>{
@@ -36,7 +37,8 @@ export default class Organograma extends Component {
                     <Button class="inativos" name="Inativos" />
                     <Button class="novodep" name="Novo Departamento" />
 
-                    <OrganoChart />
+                    <OrganoChart/>
+
                 </div>
             </>
         )

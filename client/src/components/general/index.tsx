@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { appendScript } from "../../utils/appendScript";
+import { appendScript } from "../../utils/append/appendScript";
 
 
 
