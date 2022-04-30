@@ -1,40 +1,23 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
-import axios from 'axios';
+
+
 // LOCAL CSS
 import './organoStruct.css'
 
-import organoNode from '../../utils/organoNode/organoNode';
+
 
 export default class extends Component {
-    state = {
-        colaboradores: []
-    }
     constructor(props) {
         super(props);
         this.divRef = React.createRef();
     }
 
     shouldComponentUpdate() {
-        return false;
+        return true;
     }
 
-    componentDidMount() {
-        axios.get("http://localhost:5000/infocolab/getAll").then((response) => {
-            const colaboradores = response.data
-            this.setState({ colaboradores });
-            console.log(this.state.colaboradores);
-        })
-
-
-        function nodeCreate() {
-            console.log("ffinaalmentte");
-            for (let index = 0; index < this.state.colaboradores.length; index++) {
-                const node = { id: this.state.colaboradores[index].con_id, name: this.state.colaboradores[index].con_nome, pid: "", title: this.state.colaboradores[index].car_descricao, img: "" }
-                return (node)
-            }
-        }
-
+    componentDidUpdate() {
         OrgChart.templates.polina.menuButton =
             '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer;" data-ctrl-menu="">'
             + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
@@ -68,10 +51,13 @@ export default class extends Component {
 
 
             nodes: this.props.node
-
-
+            
+            
         });
+        console.log(this.chart.nodes);
+
     }
+
 
     render() {
         return (
