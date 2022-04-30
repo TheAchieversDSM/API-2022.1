@@ -42,10 +42,22 @@ export default class extends Component {
                 img_0: "img"
             },
             menu: {
-                pdf: { text: "Exportar para PDF" },
-                png: { text: "Exportar para PNG" },
-                svg: { text: "Exportar para SVG" },
-                csv: { text: "Exportar para CSV" }
+                pdf: { 
+                    text: "Exportar para PDF",
+                    icon: OrgChart.icon.pdf(24, 24, "#53C4CD"),
+                },
+                png: { 
+                    text: "Exportar para PNG",
+                    icon: OrgChart.icon.png(24, 24, "#53C4CD")
+                 },
+                svg: { 
+                    text: "Exportar para SVG",
+                    icon: OrgChart.icon.svg(24, 24, "#53C4CD") 
+                },
+                csv: { 
+                    text: "Exportar para CSV",
+                    icon: OrgChart.icon.csv(24, 24, "#53C4CD") 
+                }
             },
 
 
