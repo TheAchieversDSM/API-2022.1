@@ -3,7 +3,19 @@
     height:100%;
     background-color: #414042;
   }
+
+  .fa-solid.fa-bars.fa-3x{
+    position: relative;
+    color: #3AC6C4;
+    top: 15px;
+  }
   
+.fa-solid.fa-info.fa-2x{
+    position: relative;
+    color: #ffff;
+    top: 8px;
+}
+
   [data-n-id='1'] rect {
     fill: #B2C1BD;
     stroke:#3AC6C4;

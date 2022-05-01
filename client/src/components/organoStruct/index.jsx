@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
+import { Navigate } from 'react-router-dom';
 
 
 // LOCAL CSS
@@ -20,43 +21,52 @@ export default class extends Component {
     componentDidUpdate() {
         OrgChart.templates.polina.menuButton =
             '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer" data-ctrl-menu="rect">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;  fill="#039BE5">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;  fill="#039BE5">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none; fill="#039BE5">'
+            + '<i class="fa-solid fa-bars fa-3x"/>'
             + '</div>';
         OrgChart.SEARCH_PLACEHOLDER = "Pesquisar";
+        OrgChart.SEARCH_RESULT_LIMIT = 5;
         OrgChart.templates.polina.link = '<path stroke-linejoin="round" stroke="#aeaeae" stroke-width="1px" fill="none" d="{edge}" />';
         OrgChart.templates.polina.node = '<rect x="0" y="0" height="80" width="300" fill="#039BE5" stroke-width="4" stroke="#3AC6C4" rx="40" ry="40"></rect>';
         OrgChart.templates.polina.field_0 = '<text width="130" style="font-size: 18px;" fill="#000000" x="150" y="45" text-anchor="middle" class="field_0">{val}</text>';
         OrgChart.templates.polina.field_1 = '<text width="130" text-overflow="multiline" style="font-size: 12px;" fill="#ffffff" x="270" y="20" text-anchor="end" class="field_1">{val}</text>';
         OrgChart.templates.polina.editFormHeaderColor = '#53C4CD';
 
+        var viewIcon = `<i class="fa-solid fa-info fa-2x"></i>`
+     
         this.chart = new OrgChart(this.divRef.current, {
             template: "polina",
             layout: OrgChart.treeLeftOffset,
-            enableSearch: false,
+            enableSearch: true,
             mouseScrool: OrgChart.action.none,
             
             toolbar: {
                 zoom: true,
                 expandAll: true
             },
+            
+            searchFieldsWeight: {
+                "Nome": 100, //percent
+                "Cargo": 50 //percent
+            },
             nodeBinding: {
                 field_0: "Nome",
                 field_1: "Cargo",
                 field_2: "Email",
                 field_3: "Departamento",
+                field_4: "Telefone",
                 img_0: "foto"
             },
             editForm: {
                 titleBinding: "Nome",
                 buttons: {
+                    view: {icon: viewIcon ,text: "Mais Informações" },
                     pdf: {text: "Exportar para PDF" },
-                    share: {text: "Compartilhar" },
+                    share: null,
                     edit: null,
                     remove: null
                 }
             },
+        
             menu: {
                 pdf: { 
                     text: "Exportar para PDF",
@@ -83,6 +93,11 @@ export default class extends Component {
             
         });
         console.log(this.chart.nodes);
+        this.chart.editUI.on('button-click', function (sender, args) {
+            if (args.name == 'view') {
+                
+            }
+        });
 
     }
 
