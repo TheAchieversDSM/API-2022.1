@@ -168,7 +168,7 @@ ENGINE = InnoDB;
 -- Table `api_ionic`.`pessoa_fisica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`pessoa_fisica` (
-  `user_cpf` INT,
+  `user_cpf` BIGINT,
   `user_data_nascimento` DATE,
   `user_raca` VARCHAR(40),
   `user_naturalidade` VARCHAR(40),

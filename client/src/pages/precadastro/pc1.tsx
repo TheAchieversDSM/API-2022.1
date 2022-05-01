@@ -87,7 +87,7 @@ class PreCadastro1 extends Component {
         this.setState({
             data: event.target.value,
         });
-        console.log(this.state);
+        console.log(this.state.data);
     };
 
     handleChangeIdade = event => {
