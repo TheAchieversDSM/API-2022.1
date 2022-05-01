@@ -17,6 +17,7 @@ import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
 import Funcionario from "../pages/tabela";
+import UploadMateriais from "../pages/upload_materiais"
 
 
 function Routes() {
@@ -29,6 +30,10 @@ function Routes() {
                 
                 <Route path ="/home" element= {<PrivateRoute redirectTo={"/"}>
                     <Home />
+                </PrivateRoute>} />
+
+                <Route path ="/uploadMateriais" element= {<PrivateRoute redirectTo={"/"}>
+                    <UploadMateriais />
                 </PrivateRoute>} />
 
                 <Route path="/PreCad1" element={<PrivateRoute redirectTo={"/"}>
