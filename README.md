@@ -11,27 +11,11 @@
      <a href="#entregas">Entregas 
 </p>
 
-<span id="equipe">
-
-### :busts_in_silhouette: Equipe:
-Função | Nome | GitHub & LinkedIn
--------|------|------------------
-Scrum Master | Maria Clara Alves de Faria | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/mclaralvs) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/mclaralvs/)
-Product Owner | Gizeli Martins Fonseca | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/gizelifonseca)
-Dev Team | Evora de Castro | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/MinEvora) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/evora-castro-704911133/)
-Dev Team | Mariana Ayumi Tamay | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/Mariayumi) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/mariana-ayumi-159582222/)
-Dev Team | Matheus Henrique Lemes Sakuragui | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/MatheusSakuragui) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/matheus-henrique-lemes-sakuragui/)
-Dev Team | Rikio Anzai | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/rikioanzai) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/rikio-anzai-053ba921b/)
-Dev Team | Rodrigo de Andrade | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/RodrigodeAndrade90) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/rodrigo-de-andrade-a34605104/)
-
-> Instituição: Fatec São José dos Campos - Prof. Jessen Vidal
-> 
-> Curso: Desenvolvimento de Software Multiplataforma/2º Semestre
-
 <span id="sobre">
 
 ### :mag_right: Sobre o projeto:
 <p>Em conjunto à àrea de Recursos Humanos e Departamento Pessoal, deve-se desenvolver uma plataforma para controle de todos os talentos da empresa, ou seja, funcionários. O sistema deve conter a parte de cadastro de colaboradores, seja ele CLT ou PJ, trazendo, assim, informações sobre a sua contratação, controle de documenttos, dados, entre outros recursos, levando sempre em consideração a Lei Geral de Proteção de Dados Pessoais, LGPD, para acesso restrito de informações confidenciais.</p>
+<p>A ideia do sistema, definida entre a equipe em conjunto a cliente, é uma unificação de processos importantes, não só ao departamento de Recursos Humanos, mas sim para a empresa como um todo. Assim como descrito no backlog, a aplicação tem como objetivo facilitar o processo de contratação, ficando nas mãos do Administrador de RH apenas a criação inicial do novo colaborador e, depois que ele fizer todo o processo de auto-cadastro, o administrador tem a possibilidade de ver as informações enviadas e aprovar ou não. Além disso, cada colaborador terá um perfil próprio com todas as informações, acesso a um organograma separado por departamento, lista de usuários e acesso a uma Trilha de Aprendizagem, na qual é possível fazer envio de materiais a um curso e destinar este a um colaborador.</p>
  
  <span id="status">
 
@@ -64,7 +48,7 @@ Dev Team | Rodrigo de Andrade | [<img src="https://img.shields.io/badge/github%2
  #09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
  #10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
  #11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
- #12 | Desenvolvimento do back-end da interface de Organograma | Alta | :heavy_check_mark:
+ #12 | Desenvolvimento do back-end da interface de Organograma | Baixa | :x:
    
 <span id="entregas">
 
@@ -75,3 +59,20 @@ Sprint ID | Data | Tag | Status
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | :heavy_check_mark:
 #2 | 25.04.22 - 15.05.22 | :stop_sign: | :stop_sign:
 #3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign:
+
+<span id="equipe">
+
+### :busts_in_silhouette: Equipe:
+Função | Nome | GitHub & LinkedIn
+-------|------|-------------------
+Scrum Master | Maria Clara Alves de Faria | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/mclaralvs) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/mclaralvs/)
+Product Owner | Gizeli Martins Fonseca | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/gizelifonseca)
+Dev Team | Evora de Castro | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/MinEvora) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/evora-castro-704911133/)
+Dev Team | Mariana Ayumi Tamay | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/Mariayumi) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/mariana-ayumi-159582222/)
+Dev Team | Matheus Henrique Lemes Sakuragui | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/MatheusSakuragui) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/matheus-henrique-lemes-sakuragui/)
+Dev Team | Rikio Anzai | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/rikioanzai) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/rikio-anzai-053ba921b/)
+Dev Team | Rodrigo de Andrade | [<img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=54C5CE&color=292A2D"/>](https://github.com/RodrigodeAndrade90) [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=54C5CE&color=292A2D" />](https://www.linkedin.com/in/rodrigo-de-andrade-a34605104/)
+
+> Instituição: Fatec São José dos Campos - Prof. Jessen Vidal
+> 
+> Curso: Desenvolvimento de Software Multiplataforma/2º Semestre
