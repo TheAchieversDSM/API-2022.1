@@ -1,0 +1,26 @@
+.mensagem img{
+    width: 100%;
+}
+
+.mensagem h5{
+    text-align: center;
+    color: #f4f4f4;
+}
+
+.redes-texto h5{
+    text-align: center;
+    color: #f4f4f4; 
+}
+
+.redes-icons{
+    text-align: center;
+}
+
+.redes-icons i{
+    margin: 20px;
+    cursor:pointer;
+}
+
+.redes-icons i:hover{
+    background-color: white;
+}
