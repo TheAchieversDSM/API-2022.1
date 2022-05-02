@@ -56,7 +56,7 @@ class PerfilColab extends Component {
                                             {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
                                             <p>Data de admissão: xx/yy/zzzz</p>
                                             <p>Data de desligamento: --/--/----</p>
-                                            <p>Tipo de contrato: ---</p>
+                                            {this.state.colaborador.map(info => <p key={info.con_id}>Tipo de Contratação: {info.cont_descricao}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.con_id}>E-mail: {info.con_email}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.con_id}>Tel: ({info.con_ddd}) {info.con_telefone}</p>)}
                                         </p>
