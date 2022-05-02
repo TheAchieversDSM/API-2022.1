@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter, Routes as Switch } from "react-router-dom";
 
 //IMPORT ROUTES
-import PrivateRoute from "../utils/protectedRoute";
+import {ProtectedRoute , AdmPrivateRoute} from "../utils/protectedRoute";
 import LoggedinRoute from "../utils/login/LoggedinRoute";
 import LogoutRoute from "../utils/logoutRoute/logoutRoute";
 
@@ -27,41 +27,47 @@ function Routes() {
                     <Login/>
                 </LoggedinRoute>} />
                 
-                <Route path ="/home" element= {<PrivateRoute redirectTo={"/"}>
+                <Route path ="/home" element= {<ProtectedRoute redirectTo={"/"}>
                     <Home />
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path="/PreCad1" element={<PrivateRoute redirectTo={"/"}>
+                <Route path="/PreCad1" element={<ProtectedRoute redirectTo={"/"}>
                     <PreCadastro1/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path="/PreCad2" element={<PrivateRoute redirectTo={"/"}>
+                <Route path="/PreCad2" element={<ProtectedRoute redirectTo={"/"}>
                     <PreCadastro2/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path="/PreCad3" element={<PrivateRoute redirectTo={"/"}>
+                <Route path="/PreCad3" element={<ProtectedRoute redirectTo={"/"}>
                     <PreCadastro3/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path="/Notificacao" element={<PrivateRoute redirectTo={"/"}>
+                <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path="/NovoPerfil" element={<PrivateRoute redirectTo={"/"}>
-                    <NovoPerfil/>
-                </PrivateRoute>} />
+                <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
 
-                <Route path="/Organograma" element={<PrivateRoute redirectTo={"/"}>
+                        <NovoPerfil/>
+                        
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                <Route path="/Organograma" element={<ProtectedRoute redirectTo={"/"}>
                     <Organograma/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path ="/PerfilColaborador" element={<PrivateRoute redirectTo={"/"}>
+                <Route path ="/PerfilColaborador" element={<ProtectedRoute redirectTo={"/"}>
                     <PerfilColab/>
-                </PrivateRoute>} />
+                </ProtectedRoute>} />
 
-                <Route path ="/Funcionario" element={<PrivateRoute redirectTo={"/"}>
-                    <Funcionario/>
-                </PrivateRoute>} />
+                <Route path ="/Funcionario" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
+                        <Funcionario/>
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
 
                 <Route path="/logout" element={<LogoutRoute redirectTo={"/"}/>} />
 
