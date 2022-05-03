@@ -29,7 +29,7 @@ export default class General extends Component {
                     <SideNav link="/PerfilColaborador" class="fa-solid fa-user" name="Meu Perfil" />
 
                     <SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" />
-                    <SideNav link="/NovoPerfil" class="fa-solid fa-id-badge" name="Novo Perfil" />
+                    <SideNav link="/NovoPerfil" class="fa-solid fa-id-badge" name="Novo Perfil" /> <span className="new badge red lighten-2" data-badge-caption= "" >4</span>
                     <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
                     <SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" />
                     {/*<SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
