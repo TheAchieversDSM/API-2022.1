@@ -3,12 +3,12 @@
 
 <h1 align="center">API 2022.01 - The Achievers & Ionic Health :microscope:</h1>
  <p align="center">
-     <a href="#equipe">Equipe</a> • 
      <a href="#sobre">Sobre</a> • 
      <a href="#status">Status</a> •
      <a href="#techtools">Ferramentas e Tecnologias</a> •
      <a href="#backlog-sprint">Backlog das Sprints</a> •
-     <a href="#entregas">Entregas 
+     <a href="#entregas">Entregas • 
+     <a href="#equipe">Equipe</a> 
 </p>
 
 <span id="sobre">
