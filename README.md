@@ -90,6 +90,7 @@ ID  | Tarefa | Prioridade | Status
 #23 | Ajustes nas rotas de navegação | Alta | :black_square_button:
 #24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | :black_square_button:
 #25 | Desenvolvimento do back-end da interface de Listagem de Colaboradores | Média | :black_square_button:
+#26 |	Ajustes no Manual do Usuário	| Média | :black_square_button:
  
 
 ### :clipboard: Estruturação das pastas
