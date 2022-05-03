@@ -31,25 +31,81 @@
   
 <span id="backlog-sprint"> 
 
- ### :bar_chart: Backlog das Sprints
+ ### :bar_chart: Backlog
  
- #### Sprint #1
+ #### Produto
+ID  | Tarefa | Prioridade | Status
+----|--------|------------|---------- 
+#01 | Criação de User Stories | Alta | :heavy_check_mark:
+#02 | Desenvolvimento de Wireframe | Alta | :heavy_check_mark:
+#03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :heavy_check_mark:
+#04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :heavy_check_mark:
+#05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :heavy_check_mark:
+#06 | Conexão do back-end com o Banco de Dados | Alta | :heavy_check_mark:
+#07 | Desenvolvimento da interface de Login | Média | :heavy_check_mark:
+#08 | Desenvolvimento da interface de Novo Colaborador | Alta | :heavy_check_mark:
+#09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
+#10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
+#11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
+#12 | Desenvolvimento do back-end da interface de Organograma | Alta | :black_square_button:
+#13 |	Desenvolvimento da interface de Notificações | Alta | :black_square_button:
+#14 | Desenvolvimento da interface de Trilha de Aprendizado | Média | :black_square_button:
+#15 |	Desenvolvimento da interface de Documentos da Empresa | Baixa | :black_square_button:
+#16 |	Desenvolvimento do back-end da interface de Notificações |  Alta | :black_square_button:
+#17 |	Desenvolvimento do back-end da interface de Trilha de Aprendizagem | Média | :black_square_button:
+#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | :black_square_button:
+#19 | Definir acessos dos usuários através de níveis | Alta | :black_square_button:
+#20 |	Criar o Manual do Usuário | Média | :black_square_button:
  
- ID  | Tarefa | Prioridade | Status
- ----|--------|------------|---------- 
- #01 | Criação de User Stories | Alta | :heavy_check_mark:
- #02 | Desenvolvimento de Wireframe | Alta | :heavy_check_mark:
- #03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :heavy_check_mark:
- #04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :heavy_check_mark:
- #05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :heavy_check_mark:
- #06 | Conexão do back-end com o Banco de Dados | Alta | :heavy_check_mark:
- #07 | Desenvolvimento da interface de Login | Média | :heavy_check_mark:
- #08 | Desenvolvimento da interface de Novo Colaborador | Alta | :heavy_check_mark:
- #09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
- #10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
- #11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
- #12 | Desenvolvimento do back-end da interface de Organograma | Baixa | :x:
-   
+#### Sprint #1
+ 
+ID  | Tarefa | Prioridade | Status
+----|--------|------------|---------- 
+#01 | Criação de User Stories | Alta | :heavy_check_mark:
+#02 | Desenvolvimento de Wireframe | Alta | :heavy_check_mark:
+#03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :heavy_check_mark:
+#04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :heavy_check_mark:
+#05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :heavy_check_mark:
+#06 | Conexão do back-end com o Banco de Dados | Alta | :heavy_check_mark:
+#07 | Desenvolvimento da interface de Login | Média | :heavy_check_mark:
+#08 | Desenvolvimento da interface de Novo Colaborador | Alta | :heavy_check_mark:
+#09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
+#10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
+#11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
+#12 | Desenvolvimento do back-end da interface de Organograma | Baixa | :x:
+#20 |	Criar o Manual do Usuário | Média | :heavy_check_mark:
+ 
+#### Sprint #2
+ID  | Tarefa | Prioridade | Status
+----|--------|------------|---------- 
+#12 | Desenvolvimento do back-end da interface de Organograma | Alta | :black_square_button:
+#13 |	Desenvolvimento da interface de Notificações | Alta | :black_square_button:
+#15 |	Desenvolvimento da interface de Documentos da Empresa | Baixa | :black_square_button:
+#16 |	Desenvolvimento do back-end da interface de Notificações |  Alta | :black_square_button:
+#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | :black_square_button:
+#19 | Definir acessos dos usuários através de níveis | Alta | :black_square_button:
+#20 |	Criar o Manual do Usuário | Média | :black_square_button:
+#21 | Ajustes no banco de dados | Alta | :black_square_button:
+#22 | Ajustes na página do colaborador | Alta | :black_square_button:
+#23 | Ajustes nas rotas de navegação | Alta | :black_square_button:
+#24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | :black_square_button:
+#25 | Desenvolvimento do back-end da interface de Listagem de Colaboradores | Média | :black_square_button:
+ 
+
+### :clipboard: Estruturação das pastas
+
+<p>:file_folder: <strong>DOC</strong> - Pasta que contém artefatos de processos importantes para o desenvolvimento da equipe;</p>
+<p> | - :open_file_folder: <strong>burndown</strong> - pasta que contém o quanto de esforço foi desempenhado na sprint;</p>
+<p> | - :open_file_folder: <strong>database</strong> - pasta que contém todos os modelos de dados desenvolvidos, seja conceitual, lógico ou físico;</p>
+<p> | - :open_file_folder: <strong>manual</strong> - pasta que contém o manual de software produzido para auxiliar na utilização do sistema;</p>
+<p> | - :open_file_folder: <strong>user stories</strong> - pasta que contém os user stories criados para um maior entendimento de como desenvolver o software para que realmente ajude a cliente;</p>
+<p> | - :open_file_folder: <strong>wireframe</strong> - pasta que contém o wireframe das telas a serem desenvolvidas no sistema;</p>
+ 
+<p>:file_folder: <strong>SRC</strong> - Pasta que contém os códigos desenvolvidos separados em mais duas pastas;</p>
+<p> | - :open_file_folder: <strong>client</strong> - pasta que contém os códigos referente à parte do <em>front-end</em>;</p>
+<p> | - :open_file_folder: <strong>server</strong> - pasta que contém os códigos referente à parte do <em>back-end</em>;</p>
+ 
+ 
 <span id="entregas">
 
 ### :dart: Entregas
