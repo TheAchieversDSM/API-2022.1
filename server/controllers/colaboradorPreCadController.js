@@ -1,4 +1,4 @@
-const Colaborador = require("../models/colaborador");
+const Colaborador = require("../models/colaboradorPreCad");
 
 exports.updateUser = (req, res) => {
     const Userdata = new Colaborador(req.body)

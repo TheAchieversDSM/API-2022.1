@@ -22,8 +22,11 @@ export default class General extends Component {
     }
     render() {
         let Navs
-        if(getCookie("nivel") == '1' ){
+        if(getCookie("nivel") == '1'){
             Navs = <><SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" /><SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" /><SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" /><SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" /></>
+        }
+        if (getCookie("firstAcess") == 'false'){
+            Navs = null
         }
         return (
             <>

@@ -1,5 +1,5 @@
 const express = require('express');
-const colaboradorController = require("../controllers/colaboradorController");
+const colaboradorController = require("../controllers/colaboradorPreCadController");
 const pessoaFisicaController = require("../controllers/pessoaFisicaController")
 const router = require("express").Router()
 

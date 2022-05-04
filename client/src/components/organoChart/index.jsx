@@ -22,10 +22,6 @@ export default class OrganoChart extends Component {
 
     render() {
         const nodesCreate = nodeCreate(this.state.colaboradores.length,this.state.colaboradores)
-        console.log(nodesCreate[0]);
-        console.log(
-            <OrgStruct node={[nodesCreate]} />);
-            
         return (
             <div style={{ height: '100%' }}>
                 <OrgStruct node={nodesCreate} />
