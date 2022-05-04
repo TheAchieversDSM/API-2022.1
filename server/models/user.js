@@ -29,7 +29,7 @@ User.getUserById = (id, result, head_result) => {
 }
 
 User.getAllUser = (result) => {
-    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep ON colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id ", (err, res) => {
+    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN pessoa_fisica pf INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id AND pf.colaborador_con_id = colab.con_id AND qual.colaborador_con_id = colab.con_id AND colab.tipo_contratacao_cont_id = tc.cont_id ", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
