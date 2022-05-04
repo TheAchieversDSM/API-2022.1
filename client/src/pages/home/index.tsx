@@ -4,6 +4,10 @@ import General from '../../components/general';
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
 import Caminho from "../../components/caminho/caminho";
 
+// LOCAL CSS
+import './home.css'
+
+
 class Home extends Component {
 
     render() { 

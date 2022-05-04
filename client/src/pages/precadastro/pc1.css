@@ -6,11 +6,18 @@
     padding: 6px;
 }
 
+.campo1{
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    padding: 6px;
+}
+
 .campo2{
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    height: fit-content;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 10px;
 }
@@ -20,23 +27,21 @@
     border-radius: 30px;
     padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
-    height: 100px;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 6px;
 }
 
-.campo4{
+.campo4, .campo5, .campo6{
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    height: 270px;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 10px;
 }
 
-.s6{
+/*.s6{
     padding: 10px 10px 20px 10px !important;
-}
+}*/
 
 p > label{
     margin: 10px;

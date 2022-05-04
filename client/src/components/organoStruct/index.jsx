@@ -33,15 +33,16 @@ export default class extends Component {
 
         var viewIcon = `<i class="fa-solid fa-info fa-2x"></i>`
      
-        this.chart = new OrgChart(this.divRef.current, {
+        this.chart = new OrgChart(this.divRef.current, {   
             template: "polina",
             layout: OrgChart.treeLeftOffset,
             enableSearch: true,
             mouseScrool: OrgChart.action.none,
-            
+            scaleInitial: OrgChart.match.width,
             toolbar: {
                 zoom: true,
-                expandAll: true
+                expandAll: true,
+                fullScreen: true,
             },
             
             searchFieldsWeight: {
@@ -54,6 +55,11 @@ export default class extends Component {
                 field_2: "Email",
                 field_3: "Departamento",
                 field_4: "Telefone",
+                field_5: "Contratação",
+                field_6: "Endereço",
+                field_7: "Raça",
+                field_8: "Nacionalidade",
+                field_9: "CPF",
                 img_0: "foto"
             },
             editForm: {
@@ -66,7 +72,7 @@ export default class extends Component {
                     remove: null
                 }
             },
-        
+            
             menu: {
                 pdf: { 
                     text: "Exportar para PDF",

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 
@@ -11,6 +11,7 @@ import Check from "../../components/input/check";
 import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
+import React from "react";
 
 
 class PerfilColab extends Component {
@@ -56,7 +57,7 @@ class PerfilColab extends Component {
                                             {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
                                             <p>Data de admissão: xx/yy/zzzz</p>
                                             <p>Data de desligamento: --/--/----</p>
-                                            <p>Tipo de contrato: ---</p>
+                                            {this.state.colaborador.map(info => <p key={info.con_id}>Tipo de Contratação: {info.cont_descricao}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.con_id}>E-mail: {info.con_email}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.con_id}>Tel: ({info.con_ddd}) {info.con_telefone}</p>)}
                                         </p>
@@ -101,10 +102,10 @@ class PerfilColab extends Component {
                                         desc2={this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Nacionalidade: {info.user_nacionalidade}</p>)}
                                         desc3={this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Naturalidade: {info.user_naturalidade}</p>)}
                                         desc4={this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Raça: {info.user_raca}</p>)}
-                                        desc5={this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Data de Nascimento: {info.user_data_nascimento}</p>)}
+                                        desc5={this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Data de Nascimento: {info.data_nascimento} <em>({info.idade} Anos)</em></p>)}
                                         desc6={null} />
 
-                                    <Collapse title="Informações do Endereço" desc1={this.state.colaborador.map(info => <p key={info.con_id}>Endereço: {info.end_rua},n° {info.end_numero}, {info.end_bairro} </p>)}
+                                    <Collapse title="Informações do Endereço" desc1={this.state.colaborador.map(info => <p key={info.con_id}>Endereço: {info.end_rua}, n° {info.end_numero}, {info.end_bairro} </p>)}
                                         desc2={this.state.colaborador.map(info => <p key={info.con_id}>Estado: {info.end_estado}</p>)}
                                         desc3={this.state.colaborador.map(info => <p key={info.con_id}>CEP: {info.end_cep}</p>)}
                                         desc4={this.state.colaborador.map(info => <p key={info.con_id}>Região: {info.end_regiao}</p>)}
