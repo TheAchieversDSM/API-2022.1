@@ -17,6 +17,10 @@ export function nodeCreate(lenArray, colaboradores) {
                         Nacionalidade: colaboradores[index].user_nacionalidade ,
                         CPF: colaboradores[index].user_cpf,
                         foto: "" }
+
+        if (colaboradores[index].head_id == '1'){
+            node.tags = ["assistant"]
+        }
         nodes.push(node)
     }
     return (nodes)

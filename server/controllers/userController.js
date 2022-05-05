@@ -28,3 +28,12 @@ exports.getAllUser = (req, res) => {
         res.send(users)
     })
 }
+
+exports.getAllUserByDep = (req,res) => {
+    User.getAllUserByDep(req.params.dep_id,(err,user)=>{
+        if (err)
+            res.send(err)
+        console.log("Encontrado usuários do departamento", user);
+        res.send(user)
+    })
+}

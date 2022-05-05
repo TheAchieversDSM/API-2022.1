@@ -33,12 +33,14 @@ export default class extends Component {
 
         var viewIcon = `<i class="fa-solid fa-info fa-2x"></i>`
      
-        this.chart = new OrgChart(this.divRef.current, {   
+        this.chart = new OrgChart(this.divRef.current, {  
+            collapse: {
+                level: 2
+            }, 
             template: "polina",
             layout: OrgChart.treeLeftOffset,
             enableSearch: true,
             mouseScrool: OrgChart.action.none,
-            scaleInitial: OrgChart.match.width,
             toolbar: {
                 zoom: true,
                 expandAll: true,
@@ -98,7 +100,6 @@ export default class extends Component {
             
             
         });
-        console.log(this.chart.nodes);
         this.chart.editUI.on('button-click', function (sender, args) {
             if (args.name == 'view') {
                 

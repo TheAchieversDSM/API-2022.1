@@ -35,6 +35,12 @@
 [data-n-id] rect {
   fill: #F2F2F2;
 }
+
+.boc-input {
+  position: relative;
+  bottom: 7px;
+  
+}
 .field_0 {
   fill: #000000;
 }
