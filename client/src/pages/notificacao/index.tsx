@@ -9,6 +9,7 @@ import General from '../../components/general/index'
 import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
 import Modal from "../../components/modal/modal"
+import { modaljs } from "../../utils/modal/modal";
 
 class Notificacao extends Component {
     state = {
@@ -17,6 +18,7 @@ class Notificacao extends Component {
         info_acad: [],
     };
     componentDidMount() {
+        modaljs()
         console.log("indo");
         axios.get(`http://localhost:5000/infocolab/`)
             .then((res) => {
@@ -51,7 +53,7 @@ class Notificacao extends Component {
                     </div>
 
                     <ul>
-                            <Modal
+                        <Modal
                             id=""
                             class="validate"
                             name1="Departamento"
@@ -59,9 +61,8 @@ class Notificacao extends Component {
                             name3="Salário"
                             type="text"
                             fname=""
-                            />
+                        />
                     </ul>
-                    
                 </div>
             </>
         );

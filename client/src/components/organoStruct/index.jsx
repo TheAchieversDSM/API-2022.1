@@ -1,71 +1,113 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
-import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+
+
 // LOCAL CSS
 import './organoStruct.css'
 
-import organoNode from '../../utils/organoNode/organoNode';
+
 
 export default class extends Component {
-    state = {
-        colaboradores: []
-    }
     constructor(props) {
         super(props);
         this.divRef = React.createRef();
     }
 
     shouldComponentUpdate() {
-        return false;
+        return true;
     }
 
-    componentDidMount() {
-        axios.get("http://localhost:5000/infocolab/getAll").then((response) => {
-            const colaboradores = response.data
-            this.setState({ colaboradores });
-            console.log(this.state.colaboradores);
-        })
-
-
-       
-
+    componentDidUpdate() {
         OrgChart.templates.polina.menuButton =
-            '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer;" data-ctrl-menu="">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
-            + '<hr style="background-color: #3AC6C4 ;opacity: 1; height: 3px; width: 40px; border: none;">'
+            '<div style="position:absolute;right:{p}px;top: 10px; width:40px;height:30px;cursor:pointer" data-ctrl-menu="rect">'
+            + '<i class="fa-solid fa-bars fa-3x"/>'
             + '</div>';
         OrgChart.SEARCH_PLACEHOLDER = "Pesquisar";
+        OrgChart.SEARCH_RESULT_LIMIT = 5;
         OrgChart.templates.polina.link = '<path stroke-linejoin="round" stroke="#aeaeae" stroke-width="1px" fill="none" d="{edge}" />';
         OrgChart.templates.polina.node = '<rect x="0" y="0" height="80" width="300" fill="#039BE5" stroke-width="4" stroke="#3AC6C4" rx="40" ry="40"></rect>';
         OrgChart.templates.polina.field_0 = '<text width="130" style="font-size: 18px;" fill="#000000" x="150" y="45" text-anchor="middle" class="field_0">{val}</text>';
         OrgChart.templates.polina.field_1 = '<text width="130" text-overflow="multiline" style="font-size: 12px;" fill="#ffffff" x="270" y="20" text-anchor="end" class="field_1">{val}</text>';
+        OrgChart.templates.polina.editFormHeaderColor = '#53C4CD';
 
-        this.chart = new OrgChart(this.divRef.current, {
-            mode: "dark",
+        var viewIcon = `<i class="fa-solid fa-info fa-2x"></i>`
+     
+        this.chart = new OrgChart(this.divRef.current, {  
+            collapse: {
+                level: 2
+            }, 
             template: "polina",
             layout: OrgChart.treeLeftOffset,
-            enableSearch: false,
+            enableSearch: true,
             mouseScrool: OrgChart.action.none,
-            nodeBinding: {
-                field_0: "name",
-                field_1: "title",
-                img_0: "img"
+            toolbar: {
+                zoom: true,
+                expandAll: true,
+                fullScreen: true,
             },
+            
+            searchFieldsWeight: {
+                "Nome": 100, //percent
+                "Cargo": 50 //percent
+            },
+            nodeBinding: {
+                field_0: "Nome",
+                field_1: "Cargo",
+                field_2: "Email",
+                field_3: "Departamento",
+                field_4: "Telefone",
+                field_5: "Contratação",
+                field_6: "Endereço",
+                field_7: "Raça",
+                field_8: "Nacionalidade",
+                field_9: "CPF",
+                img_0: "foto"
+            },
+            editForm: {
+                titleBinding: "Nome",
+                buttons: {
+                    view: {icon: viewIcon ,text: "Mais Informações" },
+                    pdf: {text: "Exportar para PDF" },
+                    share: null,
+                    edit: null,
+                    remove: null
+                }
+            },
+            
             menu: {
-                pdf: { text: "Exportar para PDF" },
-                png: { text: "Exportar para PNG" },
-                svg: { text: "Exportar para SVG" },
-                csv: { text: "Exportar para CSV" }
+                pdf: { 
+                    text: "Exportar para PDF",
+                    icon: OrgChart.icon.pdf(24, 24, "#53C4CD"),
+                },
+                png: { 
+                    text: "Exportar para PNG",
+                    icon: OrgChart.icon.png(24, 24, "#53C4CD")
+                 },
+                svg: { 
+                    text: "Exportar para SVG",
+                    icon: OrgChart.icon.svg(24, 24, "#53C4CD") 
+                },
+                csv: { 
+                    text: "Exportar para CSV" ,
+                    icon: OrgChart.icon.csv(24, 24, "#53C4CD") 
+                }
             },
 
 
 
             nodes: this.props.node
-
-
+            
+            
         });
+        this.chart.editUI.on('button-click', function (sender, args) {
+            if (args.name == 'view') {
+                
+            }
+        });
+
     }
+
 
     render() {
         return (

@@ -54,12 +54,20 @@ class Login extends Component {
 
                 if (response.data.user[0].cargo_car_id == null){
                     setCookie("firstAcess", true)
+                    setCookie("tipoPessoa",response.data.user[0].tipo_pessoa )
+                } else{
+                    setCookie("nivel", response.data.nivel_id[0].car_nivel_acesso);
                 }
+  
                 this.setState({
                     loggedin: true
                 })
+
+                console.log(getCookie("tipoPessoa"));
                 console.log(getCookie("token"));
                 console.log(getCookie("id"));
+                console.log(getCookie("nivel"));
+                
             }
         })
     };

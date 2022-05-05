@@ -7,6 +7,8 @@ const LogoutRoute = ({redirectTo}) => {
     deleteCookie("token")
     deleteCookie("id")
     deleteCookie("firstAcess")
+    deleteCookie("nivel")
+    deleteCookie("tipoPessoa")
     return <Navigate to={redirectTo}/>
 }
 

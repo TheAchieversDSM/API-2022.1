@@ -1,41 +1,59 @@
 import React, { Component } from 'react';
 import OrgStruct from '../organoStruct/';
-import OrganoNode from '../organoNode';
 import axios from 'axios';
+import { nodeCreate } from '../../utils/organoNode/organoNode';
 
 export default class OrganoChart extends Component {
 
     state = {
-        colaboradores: []
+        selectDep: this.props.dep,
+        departamentos: [],
+        colaboradores: [],
     }
-    componentDidMount() {
+    
 
+    componentWillMount() {   
         axios.get("http://localhost:5000/infocolab/getAll").then((response) => {
             const colaboradores = response.data
             this.setState({ colaboradores });
             console.log(this.state.colaboradores);
+            console.log(this.state.colaboradores.length);
+
+          }
+          
+        )
+        axios.get("http://localhost:5000/departamentos").then((response)=>{
+            const departamentos = response.data
+            this.setState({ departamentos }); 
         })
+    }
 
-
-
+    handleChangeDep = event =>{
+        let dep_id  = event.target.value
+        axios.get(`http://localhost:5000/infocolab/getAllByDep/${dep_id}`).then((response)=>{
+            console.log(response.data);
+            const colaboradores = response.data
+            this.setState({ colaboradores });
+            this.forceUpdate();
+         })
     }
 
     render() {
-        function nodeCreate() {
-            console.log("ffinaalmentte");
-            for (let index = 0; index < this.state.colaboradores.length; index++) {
-                const node = { id: this.state.colaboradores[index].con_id, name: this.state.colaboradores[index].con_nome, pid: "", title: this.state.colaboradores[index].car_descricao, img: "" }
-                return (node)
-            }
-        }
+        const nodesCreate = nodeCreate(this.state.colaboradores.length,this.state.colaboradores)
         return (
-            <div style={{ height: '100%' }}>
+            <div>
 
-                <OrgStruct node = {[
-                    nodeCreate()
-                ]
-                } />
+                <select className="browser-default" onChange={this.handleChangeDep}>
+                    <option value="" disabled selected>Escolha o departamento</option>
+                    {this.state.departamentos.map(departamento => <option key={departamento.dep_id} value={departamento.dep_id}>{departamento.dep_descricao}</option>)}
+                </select>
+                <div style={{ height: '100%' }}>
+
+                    <OrgStruct node={nodesCreate} />
+             </div>
+                  
             </div>
         );
+
     }
 }

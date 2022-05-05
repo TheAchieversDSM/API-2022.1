@@ -14,7 +14,7 @@ class Home extends Component {
             <>
                 <General />
 
-                <Css ref="./home.css" />
+                {/*<Css ref="./home.css" />*/}
 
                 <div className="conteudo">
                     <div className="mensagem">

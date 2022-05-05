@@ -24,10 +24,13 @@ h1, h2, h3, h4, h5 {
 
 .sidenav > li{
     font-family: coolvetica, sans-serif !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 a {
     color: #414042 !important;
+    font-size: 18px;
 }
 
 .conteudo {
