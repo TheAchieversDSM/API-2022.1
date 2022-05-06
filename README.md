@@ -37,8 +37,8 @@
 ![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/backlog-timeline.png)
  
  #### Backlog do Produto
-Requisitos  | Tarefa | Prioridade | Status
-------------|--------|------------|---------- 
+Tipos  | Requisitos | Prioridade | Status
+-------|------------|------------|---------- 
 Funcional | Cadastros de Colaboradores | Alta | :heavy_check_mark:
 Funcional | Repositório para documentos dos colaboradores | Alta | :black_square_button:
 Funcional | Cadastros de Trilha de Aprendizado e Status de Realização | Alta | :black_square_button:
