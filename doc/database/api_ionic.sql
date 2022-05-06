@@ -7,54 +7,47 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema api_ionic
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `api_ionic`;
+
+-- -----------------------------------------------------
+-- Schema api_ionic
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `api_ionic` DEFAULT CHARACTER SET utf8 ;
 USE `api_ionic` ;
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`departamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
-	`dep_id` INT NOT NULL AUTO_INCREMENT,
-	`dep_descricao` VARCHAR(40),
-	`dep_head` VARCHAR(50) NOT NULL,
+  `dep_id` INT NOT NULL AUTO_INCREMENT,
+  `dep_head` VARCHAR(40) NOT NULL,
+  `dep_base` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`dep_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
-
--- -----------------------------------------------------
--- Table `api_ionic`.`nivel`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`nivel` (
-  `niv_id` INT NOT NULL AUTO_INCREMENT,
-  `niv_acesso` INT NOT NULL,
-  `niv_descricao` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`niv_id`))
-ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`cargo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
   `car_id` INT NOT NULL AUTO_INCREMENT,
-  `car_vale_transporte` FLOAT,
-  `car_vale_refeicao` FLOAT,
-  `car_auxilio_creche` FLOAT,
+  `car_vale_transporte` FLOAT NOT NULL,
+  `car_vale_refeicao` FLOAT NOT NULL,
+  `car_auxilio_creche` FLOAT NOT NULL,
   `car_nivel_acesso` INT NOT NULL,
-  `car_plano_saude` VARCHAR(40),
-  `car_descricao` VARCHAR(60) NOT NULL,
-  `car_salario` FLOAT,
-  `nivel_niv_id` INT,
+  `car_plano_saude` VARCHAR(40) NOT NULL,
+  `car_descricao` VARCHAR(40) NOT NULL,
+  `car_salario` FLOAT NOT NULL,
+  `nivel_niv_id` INT NOT NULL,
   `departamento_dep_id` INT NOT NULL,
   PRIMARY KEY (`car_id`),
   INDEX `cargo_departamento` (`departamento_dep_id` ASC) VISIBLE,
-  INDEX `cargo_nivel` (`nivel_niv_id` ASC) VISIBLE,
   CONSTRAINT `cargo_departamento`
     FOREIGN KEY (`departamento_dep_id`)
-    REFERENCES `api_ionic`.`departamento` (`dep_id`),
-  CONSTRAINT `cargo_nivel`
-    FOREIGN KEY (`nivel_niv_id`)
-    REFERENCES `api_ionic`.`nivel` (`niv_id`))
-ENGINE = InnoDB;
+    REFERENCES `api_ionic`.`departamento` (`dep_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Esta tabela contém informações do cargo e seus benefícios.';
 
 
 -- -----------------------------------------------------
@@ -64,43 +57,44 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`tipo_contratacao` (
   `cont_id` INT NOT NULL AUTO_INCREMENT,
   `cont_descricao` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`cont_id`))
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `api_ionic`.`notificacao
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`notificacao`(
-  `notificacao_id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`notificacao_id`),
-  FOREIGN KEY (`user_id`)
-    REFERENCES `api_ionic`.`colaborador` (`con_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Esta tabela armazenará informações sobre a contratação do colaborador, se foi interna ou externa.';
 
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`colaborador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
-  `con_id` INT NOT NULL AUTO_INCREMENT,
-  `con_email` VARCHAR(100) NOT NULL,
-  `con_senha` VARCHAR(20) NOT NULL,
-  `con_nome` VARCHAR(100),
-  `con_ddd` INT, 
-  `con_telefone` INT,
-  `end_rua` VARCHAR(100),
-  `end_numero` INT,
-  `end_bairro` VARCHAR(100),
-  `end_cep` INT,
-  `end_estado` VARCHAR(100),
-  `end_complemento` VARCHAR(100),
-  `end_regiao` VARCHAR(100),
-  `tipo_contratacao_cont_id` INT,
-  `cargo_car_id` INT,
-  `departamento_dep_id` INT,
-  `head_id`INT, 
-  `tipo_pessoa` VARCHAR(100),
-  PRIMARY KEY (`con_id`),
+  `col_id` INT NOT NULL AUTO_INCREMENT,
+  `col_email` VARCHAR(100) NOT NULL,
+  `col_senha` VARCHAR(20) NOT NULL,
+  `col_nome` VARCHAR(100) NULL,
+  `col_telefone` INT NULL,
+  `col_end` VARCHAR(100) NULL,
+  `col_end_numero` INT NULL,
+  `col_end_bairro` VARCHAR(100) NULL,
+  `col_end_cep` INT NULL,
+  `col_end_estado` VARCHAR(20) NULL,
+  `col_end_complemento` VARCHAR(100) NULL,
+  `col_end_regiao` VARCHAR(100) NULL,
+  `tipo_contratacao_cont_id` INT NULL,
+  `cargo_car_id` INT NULL,
+  `departamento_dep_id` INT NULL,
+  `col_tipo_pessoa` VARCHAR(100) NULL,
+  `col_emp_tempo_formalizacao` FLOAT NULL,
+  `col_emp_natureza_juridica` VARCHAR(40) NULL,
+  `col_data_fundacao` INT NULL,
+  `col_emp_nome` VARCHAR(45) NULL,
+  `col_emp_cnpj` INT NULL,
+  `col_user_cpf` INT NULL,
+  `col_user_data_nascimento` DATE NULL,
+  `col_user_raca` VARCHAR(45) NULL,
+  `col_user_naturalidade` VARCHAR(45) NULL,
+  `col_user_genero` VARCHAR(45) NULL,
+  `col_user_nacionalidade` VARCHAR(45) NULL,
+  `col_user_estado_civil` VARCHAR(45) NULL,
+  PRIMARY KEY (`col_id`),
   INDEX `contratado_cargo` (`cargo_car_id` ASC) VISIBLE,
   INDEX `contratado_departamento` (`departamento_dep_id` ASC) VISIBLE,
   INDEX `contratado_tipo_contratacao` (`tipo_contratacao_cont_id` ASC) VISIBLE,
@@ -113,7 +107,9 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   CONSTRAINT `contratado_tipo_contratacao`
     FOREIGN KEY (`tipo_contratacao_cont_id`)
     REFERENCES `api_ionic`.`tipo_contratacao` (`cont_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Cadastro dos colaboradores	';
 
 
 -- -----------------------------------------------------
@@ -123,13 +119,17 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`documentos` (
   `doc_id` INT NOT NULL AUTO_INCREMENT,
   `doc_link` VARCHAR(40) NOT NULL,
   `doc_tipo` VARCHAR(40) NOT NULL,
-  `contratado_con_id` INT NOT NULL,
-  PRIMARY KEY (`doc_id`),
-  INDEX `documentos_contratado` (`contratado_con_id` ASC) VISIBLE,
-  CONSTRAINT `documentos_contratado`
-    FOREIGN KEY (`contratado_con_id`)
-    REFERENCES `api_ionic`.`colaborador` (`con_id`))
-ENGINE = InnoDB;
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`doc_id`, `colaborador_col_id`),
+  INDEX `fk_documentos_colaborador1_idx` (`colaborador_col_id` ASC) VISIBLE,
+  CONSTRAINT `fk_documentos_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Repositório dos documentos dos colaboradores\n';
 
 
 -- -----------------------------------------------------
@@ -144,13 +144,17 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_pesquisa_desligamento` VARCHAR(400) NOT NULL,
   `his_desligamento_descricao` VARCHAR(100) NOT NULL,
   `his_distrato` VARCHAR(100) NOT NULL,
-  `colaborador_con_id` INT NOT NULL,
-  PRIMARY KEY (`his_id`),
-  INDEX `historico_colaborador` (`colaborador_con_id` ASC) VISIBLE,
-  CONSTRAINT `historico_colaborador`
-    FOREIGN KEY (`colaborador_con_id`)
-    REFERENCES `api_ionic`.`colaborador` (`con_id`))
-ENGINE = InnoDB;
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`his_id`, `colaborador_col_id`),
+  INDEX `fk_historico_colaborador1_idx` (`colaborador_col_id` ASC) VISIBLE,
+  CONSTRAINT `fk_historico_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Esta tabela armazenará informações sobre a trajetória dos colaboradores durante a sua fase laboral. Tanto de Pessoa Jurídica quanto da Pessoa Física.';
 
 
 -- -----------------------------------------------------
@@ -161,27 +165,9 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_aprendizagem` (
   `tri_status` VARCHAR(40) NOT NULL,
   `tri_curso` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`tri_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `api_ionic`.`pessoa_fisica`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`pessoa_fisica` (
-  `user_cpf` INT,
-  `user_data_nascimento` DATE,
-  `user_raca` VARCHAR(40),
-  `user_naturalidade` VARCHAR(40),
-  `user_genero` VARCHAR(40),
-  `user_nacionalidade` VARCHAR(40),
-  `user_estado_civil` VARCHAR(40),
-  `user_filho` VARCHAR(3),
-  `colaborador_con_id` INT,
-  PRIMARY KEY (`colaborador_con_id`),
-  CONSTRAINT `pessoa_fisica_contratado`
-    FOREIGN KEY (`colaborador_con_id`)
-    REFERENCES `api_ionic`.`colaborador` (`con_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Cadastros de Trilha de Aprendizado e Status de Realização';
 
 
 -- -----------------------------------------------------
@@ -190,34 +176,23 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`item_aprendizado` (
   `data_inicio_trilha` DATE NOT NULL,
   `data_termino_trilha` DATE NOT NULL,
-  `colaborador_con_id` INT NOT NULL,
-  `trilha_apr_tri_id` INT NOT NULL,
-  PRIMARY KEY (`trilha_apr_tri_id`, `colaborador_con_id`),
-  INDEX `item_aprendizado_pessoa_fisica` (`colaborador_con_id` ASC) VISIBLE,
-  CONSTRAINT `item_apr_trilha_apr`
-    FOREIGN KEY (`trilha_apr_tri_id`)
-    REFERENCES `api_ionic`.`trilha_aprendizagem` (`tri_id`),
-  CONSTRAINT `item_aprendizado_pessoa_fisica`
-    FOREIGN KEY (`colaborador_con_id`)
-    REFERENCES `api_ionic`.`pessoa_fisica` (`colaborador_con_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `api_ionic`.`pessoa_juridica`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`pessoa_juridica` (
-  `emp_tempo_formalizacao` FLOAT NOT NULL,
-  `emp_natureza_juridica` VARCHAR(40) NOT NULL,
-  `data_fundacao` DATE NOT NULL,
-  `emp_nome` VARCHAR(40) NOT NULL,
-  `emp_cnpj` INT NOT NULL,
-  `colaborador_con_id` INT NOT NULL,
-  PRIMARY KEY (`colaborador_con_id`),
-  CONSTRAINT `pessoa_juridica_contratado`
-    FOREIGN KEY (`colaborador_con_id`)
-    REFERENCES `api_ionic`.`colaborador` (`con_id`))
-ENGINE = InnoDB;
+  `colaborador_col_id` INT NOT NULL,
+  `trilha_aprendizagem_tri_id` INT NOT NULL,
+  PRIMARY KEY (`colaborador_col_id`, `trilha_aprendizagem_tri_id`),
+  INDEX `fk_item_aprendizado_trilha_aprendizagem1_idx` (`trilha_aprendizagem_tri_id` ASC) VISIBLE,
+  CONSTRAINT `fk_item_aprendizado_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_item_aprendizado_trilha_aprendizagem1`
+    FOREIGN KEY (`trilha_aprendizagem_tri_id`)
+    REFERENCES `api_ionic`.`trilha_aprendizagem` (`tri_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Esta tabela conecta a pessoa física a trilha de aprendizagem correspondente.';
 
 
 -- -----------------------------------------------------
@@ -225,18 +200,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
-  `qua_nome_instituição` VARCHAR(80),
-  `qua_formacao` VARCHAR(40),
-  `qua_curso` VARCHAR(40),
-  `qua_lingua` VARCHAR(40),
-  `colaborador_con_id` INT NOT NULL,
-  PRIMARY KEY (`qua_id`),
-  INDEX `qualificacao_pessoa_fisica` (`colaborador_con_id` ASC) VISIBLE,
-  CONSTRAINT `qualificacao_pessoa_fisica`
-    FOREIGN KEY (`colaborador_con_id`)
-    REFERENCES `api_ionic`.`pessoa_fisica` (`colaborador_con_id`))
-ENGINE = InnoDB;
+  `qua_formacao` VARCHAR(40) NOT NULL,
+  `qua_curso` VARCHAR(40) NOT NULL,
+  `qua_lingua` VARCHAR(40) NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`qua_id`, `colaborador_col_id`),
+  INDEX `fk_qualificacao_colaborador1_idx` (`colaborador_col_id` ASC) VISIBLE,
+  CONSTRAINT `fk_qualificacao_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3
+COMMENT = 'Esta tabela armazenará informações curriculares.';
 
 
+SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
