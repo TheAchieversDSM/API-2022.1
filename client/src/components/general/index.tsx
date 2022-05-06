@@ -18,7 +18,6 @@ export default class General extends Component {
         appendScript("https://code.jquery.com/jquery-3.6.0.min.js")
 
 
-
     }
     render() {
         let Navs
@@ -31,6 +30,7 @@ export default class General extends Component {
                     <img className="logo" src={LogoMenu} />
                     <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
                     <SideNav link="/PerfilColaborador" class="fa-solid fa-user" name="Meu Perfil" />
+                    <SideNav link="/precad1" class="fa-solid fa-address-book" name="Precad" />
                     {Navs}
                     {/*<SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
                     <SideNav link="/logout" class="fa-solid fa-arrow-right-from-bracket" name="Sair" />
