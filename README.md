@@ -34,7 +34,7 @@
  ### :bar_chart: Backlog
  
 #### Timeline Backlog 
-![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/Timeline.png)
+![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/backlog-timeline.png)
  
  #### Backlog do Produto
 Requisitos  | Tarefa | Prioridade | Status
