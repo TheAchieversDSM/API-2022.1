@@ -34,6 +34,7 @@ export default class General extends Component {
                     <img className="logo" src={LogoMenu} />
                     <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
                     <SideNav link="/PerfilColaborador" class="fa-solid fa-user" name="Meu Perfil" />
+                    <SideNav link="/uploadMateriais" class="fa-solid fa-file" name="Upload de Materiais" />
                     {Navs}
                     {/*<SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
                     <SideNav link="/logout" class="fa-solid fa-arrow-right-from-bracket" name="Sair" />

@@ -17,6 +17,7 @@ import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
 import Funcionario from "../pages/tabela";
+import UploadMateriais from "../pages/uploadMat";
 
 
 function Routes() {
@@ -45,6 +46,11 @@ function Routes() {
 
                 <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao/>
+                </ProtectedRoute>} />
+
+                
+                <Route path="//uploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
+                    <UploadMateriais/>
                 </ProtectedRoute>} />
 
                 <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>

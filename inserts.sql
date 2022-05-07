@@ -131,7 +131,7 @@ INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, 
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa, head_id) VALUES ("gabriel.telles@ionic.health", "1234", "Gabriel Telles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "76", "6  ", "Física", 6);
 INSERT INTO colaborador (con_email, con_senha, con_nome, con_ddd, con_telefone, end_rua, end_numero, end_bairro, end_cep, end_estado, end_complemento, end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, tipo_pessoa, head_id) VALUES ("leonardo.salles@ionic.health", "1234", "Leonardo Salles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "80", "6  ", "Física", 19);
 
-SELECT con_id,con_nome,head_id FROM colaborador;
+SELECT * FROM colaborador;
 
 
 -- PESSOA FÍSICA --
