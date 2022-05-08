@@ -14,6 +14,7 @@ import Css from "../../assets/style/style";
 import React from "react";
 
 
+
 class PerfilColab extends Component {
     state = {
         colaborador: [],
@@ -45,13 +46,15 @@ class PerfilColab extends Component {
                 <Css ref="./perfil.css" />
                 <div className="conteudo">
                     <div className="row">
-                        <div className="col s7">
+                        <div className="col s12 m12 l7">
                             <div className="teste1">
                                 <div className="row" id="info">
-                                    <div className="col s5">
-                                        <div className="foto"></div>
+                                    <div className="col col s12 m12 l5 center-align">
+                                        <div className="foto">
+                                            <i className="fa-regular fa-user fa-10x"></i> 
+                                        </div>
                                     </div>
-                                    <div className="col s6">
+                                    <div className="col s12 m12 l7">
                                         {this.state.colaborador.map(info => <h5 key={info.con_id} className="name">{info.con_nome}</h5>)}
                                         <p>
                                             {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
@@ -65,7 +68,7 @@ class PerfilColab extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col s5">
+                        <div className="col s12 m12 l5">
                             <div className="teste1">
                                 <h4>Contrato</h4>
                                 <div className="contrato-info">
@@ -94,7 +97,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s8">
+                        <div className="col col s12 m12 l8">
                             <div className="teste3">
                                 <ul className="collapsible popout" data-collapsible="accordion">
 
@@ -150,7 +153,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s4">
+                        <div className="col col s12 m12 l4">
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
@@ -167,7 +170,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s4">
+                        <div className="col col s12 m12 l4">
                             <div className="teste4">
                                 <div className="botao-edicao">
                                     <p>
@@ -179,6 +182,7 @@ class PerfilColab extends Component {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </>

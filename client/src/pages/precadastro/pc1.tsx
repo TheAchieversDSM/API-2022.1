@@ -38,7 +38,10 @@ class PreCadastro1 extends Component {
         regiao: String,
         estadoCivil: String,
         filho: String,
-        tipoContratacao: String
+        tipoContratacao: String,
+        formacao: String,
+        cursos: String,
+        linguas: String
     }
 
     handleChangeNome = event => {
@@ -87,7 +90,7 @@ class PreCadastro1 extends Component {
         this.setState({
             data: event.target.value,
         });
-        console.log(this.state.data);
+        console.log(this.state);
     };
 
     handleChangeIdade = event => {
@@ -189,6 +192,29 @@ class PreCadastro1 extends Component {
         console.log(this.state);
     };
 
+    handleChangeFormacao = event => {
+        this.setState({
+            formacao: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeCursos = event => {
+        this.setState({
+            cursos: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+    handleChangeLinguas = event => {
+        this.setState({
+            linguas: event.target.value,
+        });
+        console.log(this.state);
+    };
+
+
+
     handleSubmit = async (event) => {
         event.preventDefault();
         const user = {
@@ -220,6 +246,13 @@ class PreCadastro1 extends Component {
             id: getCookie("id"),
         }
 
+        const infoAcademica = {
+            formacao: this.state.formacao,
+            cursos: this.state.cursos,
+            linguas: this.state.linguas,
+            id: getCookie("id")
+        }
+        const id = getCookie("id")
 
         axios.put(`http://localhost:5000/precad1/updatecolaborador/${user.id}`, user); {
             alert("data foi")
@@ -243,83 +276,78 @@ class PreCadastro1 extends Component {
 
                 <div className="conteudo">
                     <div className="row">
-                        <div className="col s12">
-                            <div className="campo1">
-                                <div className="row">
-                                    <form className="col s12">
-                                        <div className="row">
-                                            <Input fname={this.handleChangeNome} div="input-field col s7" id="nome" class="validate" type="text" name="Nome Completo" />
 
-                                            <Input fname={this.handleChangeCPF} div="input-field col s4" id="cpf" class="validate" type="text" name="CPF" />
+                        <div className="campo1">
+                            <div className="row">
+                                <h5 className="titulo">Dados Pessoais</h5>
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNome} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeCPF} div="input-field col col s12 m12 l7" id="cpf" class="validate" type="text" name="CPF" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col col s12 m12 l7" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l5" id="naturalidade" class="validate" type="text" name="Naturalidade" />
+                                    </div>
+
+                                    <div className="row">
+
+                                        <div className="input-field col s12 m12 l5">
+                                            <select className="browser-default" id="genero" onChange={this.handleChangeGenero}>
+                                                <DisableOption disableValue="" disableNome="Gênero" />
+                                                <Option value="Feminino" name="Feminino" />
+                                                <Option value="Masculino" name="Masculino" />
+                                                <Option value="Outro" name="Outro" />
+                                            </select>
                                         </div>
 
-                                        <div className="row">
-                                            <Input fname={this.handleChangeNacionalidade} div="input-field col s6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
-
-                                            <Input fname={this.handleChangeNaturalidade} div="input-field col s6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
+                                        <div className="input-field col s12 m12 l7">
+                                            <select className="browser-default" id="raca" onChange={this.handleChangeRaca}>
+                                                <DisableOption disableValue="" disableNome="Raça" />
+                                                <Option value="Branco(a)" name="Branco(a)" />
+                                                <Option value="Preto(a)" name="Preto(a)" />
+                                                <Option value="Amarelo(a)" name="Amarelo(a)" />
+                                                <Option value="Indígena" name="Indígena" />
+                                            </select>
                                         </div>
+                                    </div>
 
-                                        <div className="row">
-                                            <div className="input-field col s4">
-                                                <select className="browser-default" id="raca" onChange={this.handleChangeRaca}>
-                                                    <DisableOption disableValue="" disableNome="Raça" />
-                                                    <Option value="Branco(a)" name="Branco(a)" />
-                                                    <Option value="Preto(a)" name="Preto(a)" />
-                                                    <Option value="Amarelo(a)" name="Amarelo(a)" />
-                                                    <Option value="Indígena" name="Indígena" />
-                                                </select>
-                                            </div>
+                                    <div className="row">
+                                        <Input fname={this.handleChangeData} div="input-field col s12 m12 l6" id="data" class="datepicker" type="date" name="Data de Nascimento" />
+                                    </div>
 
-                                            <div className="input-field col s4">
-                                                <select className="browser-default" id="genero" onChange={this.handleChangeGenero}>
-                                                    <DisableOption disableValue="" disableNome="Gênero" />
-                                                    <Option value="Feminino" name="Feminino" />
-                                                    <Option value="Masculino" name="Masculino" />
-                                                    <Option value="Outro" name="Outro" />
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <div className="row">
+                                        <Input fname={this.handleChangeTelefone} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
+                                    </div>
 
-                                        <div className="row">
-                                            <Input fname={this.handleChangeData} div="input-field col s5" id="data" class="datepicker" type="date" name="Data de Nascimento" />
-
-                                            <Input fname={this.handleChangeIdade} div="input-field col s4" id="idade" class="validate" type="number" name="Idade" />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    
-
-                        <div className="col s12">
-                            <div className="campo2">
-                                <form className="row">
-                                        <Input fname={this.handleChangeDDD} div="input-field col s2" id="icon_telephone" class="validate" type="tel" name="DDD" />
-                                        <Input fname={this.handleChangeTelefone} div="input-field col s6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
                                 </form>
                             </div>
                         </div>
 
-                        <div className="col s12">
-                            <div className="campo4">
-                                <form className="col row">
-                                    
-                                        <Input fname={this.handleChangeRua} div="input-field col s8 bla" id="rua" class="validate" type="text" name="Rua" />
+                        <div className="campo1">
+                            <div className="row">
+                                <form className="col s12">
 
-                                        <Input fname={this.handleChangeNumero} div="input-field col s4 bla" id="numero" class="validate" type="number" name="Número" />
+                                    <div className="row">
+                                        <Input fname={this.handleChangeRua} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
+                                        <Input fname={this.handleChangeNumero} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
+                                    </div>
 
-                                        <Input fname={this.handleChangeBairro} div="input-field col s6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+                                    <div className="row">
+                                        <Input fname={this.handleChangeBairro} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+                                        <Input fname={this.handleChangeComplemento} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
+                                        <Input fname={this.handleChangeCEP} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
+                                    </div>
 
-                                        <Input fname={this.handleChangeCidade} div="input-field col s6 bla" id="cidade" class="validate" type="text" name="Cidade" />
+                                    <div className="row">
+                                        <Input fname={this.handleChangeCidade} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
 
-                                        <Input fname={this.handleChangeComplemento} div="input-field col s3 bla" id="complemento" class="validate" type="number" name="Complemento" />
-
-                                        <Input fname={this.handleChangeCEP} div="input-field col s3 bla" id="cep" class="validate" type="number" name="CEP" />
-                                    
-                                        
-                            
-                                        <div className="input-field col s2 bla">
+                                        <div className="input-field col s12 m12 l3 bla">
                                             <select className="browser-default" id="estado" onChange={this.handleChangeEstado}>
                                                 <DisableOption disableValue="" disableNome="Estado" />
                                                 <Option value="Acre" name="AC" />
@@ -352,7 +380,7 @@ class PreCadastro1 extends Component {
                                             </select>
                                         </div>
 
-                                        <div className="input-field col s4 bla">
+                                        <div className="input-field col s12 m12 l3 bla">
                                             <select className="browser-default" id="regiao" onChange={this.handleChangeRegiao}>
                                                 <DisableOption disableValue="" disableNome="Região" />
                                                 <Option value="Norte" name="Norte" />
@@ -362,41 +390,220 @@ class PreCadastro1 extends Component {
                                                 <Option value="Sul" name="Sul" />
                                             </select>
                                         </div>
-                                    
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <div className="col s6">
-                            <div className="campo3">
-                                <label>Estado Civil</label>
-                                <select className="browser-default" id="estadoCivil" onChange={this.handleChangeEstadoCivil}>
-                                    <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                    <Option value="Solteiro(a)" name="Solteiro(a)" />
-                                    <Option value="Casado(a)" name="Casado(a)" />
-                                    <Option value="Divorciado(a)" name="Divorciado(a)" />
-                                    <Option value="Viúvo(a)" name="Viúvo(a)" />
-                                </select>
-                            </div>
-                        </div>
-                        
-                        
-                        <div className="col s6">
-                            <div className="campo3">
-                                <label>Possui filhos?</label>
-                                <form action="#" id="filho" onChange={this.handleChangeFilho}>
-                                    <p>
-                                        <Check value="si" name="Sim" />
-                                        <Check value="no" name="Não" />
-                                    </p>
+                                    </div>
                                 </form>
                             </div>
                         </div>
 
-                        <Link to="/PreCad2"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+                        <div className="campo1">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <label>Estado Civil</label>
+                                    <select className="browser-default" id="estadoCivil" onChange={this.handleChangeEstadoCivil}>
+                                        <DisableOption disableValue="" disableNome="Escolha uma das opções" />
+                                        <Option value="Solteiro(a)" name="Solteiro(a)" />
+                                        <Option value="Casado(a)" name="Casado(a)" />
+                                        <Option value="Divorciado(a)" name="Divorciado(a)" />
+                                        <Option value="Viúvo(a)" name="Viúvo(a)" />
+                                    </select>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className="campo1">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <label>Possui filhos?</label>
+                                    <form action="#" id="filho" onChange={this.handleChangeFilho}>
+                                        <p>
+                                            <Check value="si" name="Sim" />
+                                        </p>
+
+                                        <p>
+                                            <Check value="no" name="Não" />
+                                        </p>
+                                    </form>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className="campo1">
+                            <div className="row">
+                                <form className="col s12">
+                                    <h5 className="titulo">Dados Acadêmicos</h5>
+                                    <div className="row">
+                                        <Input fname={this.handleChangeFormacao} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
+
+                                        <Input fname={this.handleChangeCursos} div="input-field col s12 m12 l7 bla" id="cursos" type="text" class="validate" name="Cursos" />
+
+
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeLinguas} div="input-field col s12 bla" id="linguas" type="text" class="validate" name="Línguas" />
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className=" campo2">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="rg" class="validate" type="text" name="RG" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="carteiradetrabalho" class="validate" type="text" name="Carteira de Trabalho" />
+
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="cpf" class="validate" type="text" name="CPF" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="cnh" class="validate" type="text" name="CNH" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="foto" class="validate" type="text" name="Foto(3x4)" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="titulodeeleitor" class="validate" type="text" name="Título de Eleitor" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="comprovantederesidencia" class="validate" type="text" name="Comprovante de Residência" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="copiadocartao" class="validate" type="text" name="Copia do Cartão do Banco" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="Comprovante de Escolaridade" class="validate" type="text" name="Comprovante de Escolaridade" />
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className=" campo3">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="ensinofundamental" class="validate" type="text" name="Ensino Fundamental" />
+
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="ensinomedio" class="validate" type="text" name="Ensino Médio" />
+
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12" id="ensinosuperior" class="validate" type="text" name="Ensino Superior" />
+                                    </div>
+
+
+
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className="campo4">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="comtrubuicao" class="validate" type="text" name="Contribução Sindical" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="termo" class="validate" type="text" name="Termo de PI" />
+
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l5" id="pis" class="validate" type="text" name="Cartão do PIS" />
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12 m12 l7" id="reservista" class="validate" type="text" name="Certificado de Reservista" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12 m12 l6" id="atestadosaude" class="validate" type="text" name="Atestado de Saúde Ocupacional" />
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className=" campo5">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12" id="certidaocasamento" class="validate" type="text" name="Certidão de Casamento" />
+
+                                    </div>
+
+                                    <div className="row">
+
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12" id="rgconjuge" class="validate" type="text" name="RG do Conjuge" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="cpfconjuge" class="validate" type="text" name="CPF do Conjuge" />
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className="campo6">
+                            <div className="row">
+                                <form className="col s12">
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12" id="certidaonascfilho" class="validate" type="text" name="Certidão de Nascimento" />
+
+                                    </div>
+
+                                    <div className="row">
+
+                                        <Input fname={this.handleChangeNaturalidade} div="input-field col s12" id="vacinacao" class="validate" type="text" name="Certidao de Vacinação" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="comproescolar" class="validate" type="text" name="Comprovante de Frequência Escolar" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChangeNacionalidade} div="input-field col s12" id="pensao" class="validate" type="text" name="Pensão Alimentícia" />
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                        <Link to="/Home"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long" /></Link>
                     </div>
                 </div>
-                </>    
+
+
+
+            </>
         )
     }
 }

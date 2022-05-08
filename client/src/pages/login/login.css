@@ -3,17 +3,17 @@
 @import url("https://fonts.adobe.com/fonts/coolvetica");
 
 main {
-    position: absolute;
-    top: 25%;
-    left: 40%;
-    display: grid;
-    grid-gap: 1.5em;
+      position: absolute;
+    top: 15%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-main > img {
-    margin-left: 23px;
-    margin-bottom: 20px;
-}
+
 
 span {
     color: white !important;
@@ -23,7 +23,6 @@ span {
     position: absolute;
     color: #EF4646;
     text-decoration: none;
-    right: 0px;
     -webkit-transition: 0.5s
 }
 
@@ -58,8 +57,8 @@ span {
 }
 
 .bloco{
-    background-color: #DEE8E7;
     padding: 30px;
+    width: 500px;
     border-radius: 30px;
 }
 
