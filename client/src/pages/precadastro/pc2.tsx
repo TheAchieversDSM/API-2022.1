@@ -22,27 +22,13 @@ class PreCadastro2 extends Component {
         linguas: String
     }
 
-    handleChangeFormacao = event => {
+    handleChange = event => {
         this.setState({
-            formacao: event.target.value,
-        });
-        console.log(this.state);
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
     };
-
-    handleChangeCursos = event => {
-        this.setState({
-            cursos: event.target.value,
-        });
-        console.log(this.state);
-    };
-
-    handleChangeLinguas = event => {
-        this.setState({
-            linguas: event.target.value,
-        });
-        console.log(this.state);
-    };
-
     handleSubmit = async(event)  => {
         event.preventDefault();
         const infoAcademica = {
@@ -76,11 +62,11 @@ class PreCadastro2 extends Component {
                             <h5 className="titulo">Dados Acadêmicos</h5>
                             <div className="bloco1">
                                 <div className="row">
-                                    <Input fname={this.handleChangeFormacao} div="input-field col s4 bla" id="formacao" type="text" class="validate" name="Formação" />
+                                    <Input stateName="formacao" fname={this.handleChange} div="input-field col s4 bla" id="formacao" type="text" class="validate" name="Formação" />
 
-                                    <Input fname={this.handleChangeCursos} div="input-field col s4 bla" id="cursos" type="text" class="validate" name="Cursos" />
+                                    <Input stateName="cursos" fname={this.handleChange} div="input-field col s4 bla" id="cursos" type="text" class="validate" name="Cursos" />
 
-                                    <Input fname={this.handleChangeLinguas} div="input-field col s4 bla" id="linguas" type="text" class="validate" name="Línguas" />
+                                    <Input stateName="linguas" fname={this.handleChange} div="input-field col s4 bla" id="linguas" type="text" class="validate" name="Línguas" />
                                 </div>
                             </div>
                         </div>

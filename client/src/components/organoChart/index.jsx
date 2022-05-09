@@ -6,7 +6,6 @@ import { nodeCreate } from '../../utils/organoNode/organoNode';
 export default class OrganoChart extends Component {
 
     state = {
-        selectDep: this.props.dep,
         departamentos: [],
         colaboradores: [],
     }

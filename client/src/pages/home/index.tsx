@@ -17,6 +17,7 @@ class Home extends Component {
                 {/*<Css ref="./home.css" />*/}
 
                 <div className="conteudo">
+          
                     <div className="mensagem">
                         <div>
                             <h1>BEM-VINDO, COLABORADOR!</h1>

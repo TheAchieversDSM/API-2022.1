@@ -102,7 +102,7 @@ export default class extends Component {
         });
         this.chart.editUI.on('button-click', function (sender, args) {
             if (args.name == 'view') {
-                
+                window.open("/usuario")   
             }
         });
 

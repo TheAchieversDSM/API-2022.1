@@ -25,20 +25,14 @@ class Login extends Component {
         loggedin: false
     };
 
-    handleChangeEmail = event => {
+    handleChange = event => {
         this.setState({
-            email: event.target.value,
-        });
-        console.log(this.state);
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
     };
 
-    handleChangePassword = event => {
-        this.setState({
-            password: event.target.value,
-        });
-        console.log(this.state);
-    };
- 
     handleSubmit = async (event) => {
         event.preventDefault();
         const user = {
@@ -58,16 +52,15 @@ class Login extends Component {
                 } else{
                     setCookie("nivel", response.data.nivel_id[0].car_nivel_acesso);
                 }
-  
+
                 this.setState({
                     loggedin: true
                 })
-
+                
                 console.log(getCookie("tipoPessoa"));
                 console.log(getCookie("token"));
                 console.log(getCookie("id"));
-                console.log(getCookie("nivel"));
-                
+                console.log(getCookie("nivel"));      
             }
         })
     };
@@ -90,8 +83,8 @@ class Login extends Component {
                         <img src={LogoLogin} />
                         
                         <form onSubmit={this.isLoggedin} >
-                            <Input div="input-field" fname={this.handleChangeEmail} type="email" id="email" name="E-mail" class="validate" />
-                            <Input div="input-field" fname={this.handleChangePassword} type="password" id="password" name="Senha" class="validate" />
+                            <Input div="input-field" fname={this.handleChange} stateName = "email" type="email" id="email" name="E-mail" class="validate" />
+                            <Input div="input-field" fname={this.handleChange} stateName = "password" type="password" id="password" name="Senha" class="validate" />
                             <div className="opcao row">
                                 <div className="col s6">
                                     <Check value="" name="Lembrar de Mim" />
