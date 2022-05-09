@@ -49,12 +49,12 @@ class PerfilColab extends Component {
                         <div className="col s12 m12 l7">
                             <div className="teste1">
                                 <div className="row" id="info">
-                                    <div className="col col s12 m12 l5 center-align">
-                                        <div className="foto">
-                                            <i className="fa-regular fa-user fa-10x"></i> 
+                                    <div className="col s12 m12 l5 center-align">
+                                        <div className="foto center-align">
+                                            <i className="fa-regular fa-user fa-7x"></i>
                                         </div>
                                     </div>
-                                    <div className="col s12 m12 l7">
+                                    <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.con_id} className="name">{info.con_nome}</h5>)}
                                         <p>
                                             {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
@@ -71,13 +71,13 @@ class PerfilColab extends Component {
                         <div className="col s12 m12 l5">
                             <div className="teste1">
                                 <h4>Contrato</h4>
-                                <div className="contrato-info">
+                                <div className="contrato-info center-align">
                                     <p>
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large" name="Visualizar" iClass="fa-solid fa-book-open-reader" />
+                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align " name="Visualizar" iClass="fa-solid fa-book-open-reader" />
                                     </p>
                                     <p id="p1">ou</p>
                                     <p id="p2">
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
+                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
                                     </p>
                                 </div>
                             </div>
@@ -86,9 +86,9 @@ class PerfilColab extends Component {
                         <div className="col s12">
                             <div className="teste2">
                                 <h4>Informações</h4>
-                                <div className="teste2-info">
+                                <div className="teste2-info ">
                                     {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Departamento: {info.dep_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Cargo: {info.car_descricao}</p>)}
+                                    {this.state.colaborador.map(info => <p  key={info.colaborador_con_id}>Cargo: {info.car_descricao}</p>)}
                                     <p>Status: ----</p>
                                     {this.state.head_colaborador.map(info => <p key={info.con_id}>Head: {info.con_nome} - {info.car_descricao}</p>)}
                                     <p>Faixa Salarial: ----</p>
@@ -172,7 +172,7 @@ class PerfilColab extends Component {
 
                         <div className="col col s12 m12 l4">
                             <div className="teste4">
-                                <div className="botao-edicao">
+                                <div className="botao-edicao center-align">
                                     <p>
                                         <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
                                     </p>

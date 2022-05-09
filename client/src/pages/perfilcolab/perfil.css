@@ -54,18 +54,18 @@ h4{
 
 #p1{
     position: relative;
-    left: 160px;
 }
 
 .btn-large{
     position: relative;
-    left: 70px;
 }
 
 .foto{
-    margin-left: 20px;
-    border-radius: 30px !important;
-    background-color: #8BC2C2;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 0 0 1em black;
     
 }
 
