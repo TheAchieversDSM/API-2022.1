@@ -276,7 +276,7 @@ class PreCadastro1 extends Component {
 
                 <div className="conteudo">
                     <div className="row">
-
+                    <div className="collapsible-header">Formulário</div>
                         <div className="campo1">
                             <div className="row">
                                 <h5 className="titulo">Dados Pessoais</h5>
@@ -453,7 +453,7 @@ class PreCadastro1 extends Component {
 
 
 
-
+                        <div className="collapsible-header">Documentos Pessoais</div>
                         <div className=" campo2">
                             <div className="row">
                                 <form className="col s12">
@@ -489,7 +489,7 @@ class PreCadastro1 extends Component {
 
 
 
-
+                        <div className="collapsible-header">certificados</div>
                         <div className=" campo3">
                             <div className="row">
                                 <form className="col s12">
@@ -517,7 +517,7 @@ class PreCadastro1 extends Component {
 
 
 
-
+                        <div className="collapsible-header">Documentos Profissionais</div>
                         <div className="campo4">
                             <div className="row">
                                 <form className="col s12">
@@ -543,7 +543,7 @@ class PreCadastro1 extends Component {
 
 
 
-
+                        <div className="collapsible-header">Estado Civil</div>
                         <div className=" campo5">
                             <div className="row">
                                 <form className="col s12">
@@ -568,7 +568,7 @@ class PreCadastro1 extends Component {
 
 
 
-
+                        <div className="collapsible-header">Filhos</div>
                         <div className="campo6">
                             <div className="row">
                                 <form className="col s12">
@@ -597,7 +597,7 @@ class PreCadastro1 extends Component {
 
 
 
-                        <Link to="/Home"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long" /></Link>
+                        <Link to="/PreCad2"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long" /></Link>
                     </div>
                 </div>
 

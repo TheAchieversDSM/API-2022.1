@@ -3,13 +3,14 @@
 }
 
 .logo1{
-    width: 250px;
+    width: 150px;
     margin: 10px 0px 20px 20px;
 }
 
 .mensagem {
     height: 210px;
     display: flex;
+    margin-top: 20px;
     flex-direction: row;
     justify-content: center;
     align-items: center
@@ -30,7 +31,7 @@ h4 {
 }
 
 .redes-sociais{
-    margin-top: 70px;
+    margin-top: 80px;
 }
 
 .redes-texto h5{
@@ -43,12 +44,13 @@ h4 {
 }
 
 .redes-icons i{
-    margin: 20px;
+    margin: 10px;
     cursor:pointer;
 }
 
 .redes-icons i:hover{
-    background-color: white;
+    background-color: #ACD8DE;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 @media only screen and (max-width : 992px) {
