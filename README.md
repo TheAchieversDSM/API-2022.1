@@ -37,23 +37,34 @@
 ![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/backlog-timeline.png)
  
  #### Backlog do Produto
-Tipos  | Requisitos | Prioridade | Status
--------|------------|------------|---------- 
-Funcional | Cadastros de Colaboradores | Alta | :heavy_check_mark:
-Funcional | Repositório para documentos dos colaboradores | Alta | :black_square_button:
-Funcional | Cadastros de Trilha de Aprendizado e Status de Realização | Alta | :black_square_button:
-Funcional | Usuários devem ter perfis diferentes (administrador, gestor, consultor, colaborador) | Alta | :heavy_check_mark:
-Funcional | Charts com os organogramas em diversos níveis e de fácil manutenção (inclusões, exclusões e adaptações) | Alta | :black_square_button: 
-Funcional | Repositório de documentos da empresa (políticas, normas, regras, etc) | Média | :black_square_button: 
-Funcional | Trabalhar com: admissão, cargos e salários & trilha de aprendizado | Alta | :black_square_button:
-Funcional | Dossiê gerado em PDF por colaborador para consulta do administrador e gestor | Média | :black_square_button:  
-Não Funcional | Linguagens NodeJS, TypeScript, Javascript | Alta | :heavy_check_mark:
-Não Funcional | Utilização de SGBD MySQL | Alta | :heavy_check_mark:
-Não Funcional | Utilização da biblioteca React | Alta | :heavy_check_mark:
-Não Funcional | Banco de Dados Relacional (EXIGIDO Fatec) | Alta | :heavy_check_mark:
-Não Funcional | Documentação de testes funcionais | Baixa | :black_square_button:  
-Não Funcional | Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | :heavy_check_mark:
-Não Funcional | Manual do usuário para navegação | Média | :heavy_check_mark:
+ 
+##### Requisitos Funcionais
+Requisitos | Prioridade | Status | Previsão de Sprint
+-----------|------------|--------|--------------------  
+Cadastros de Colaboradores | Alta | :heavy_check_mark: | #1
+Trabalhar com admissão | Alta  | :heavy_check_mark: | #1
+Perfil para visualização de informações do colaborador | Alta | :heavy_check_mark: | #1 & #2
+Charts com os organogramas em diversos níveis e de fácil manutenção (inclusões, exclusões e adaptações) | Alta | :heavy_check_mark: | #1 & #2
+Dossiê gerado em PDF por colaborador para consulta do administrador e gestor | Média | :heavy_check_mark: | #1 & #2
+Trabalhar com cargos e salários | Alta | :heavy_check_mark: | #2
+Usuários devem ter perfis diferentes (administrador, gestor, consultor, colaborador) | Alta | :heavy_check_mark: | #2
+Avaliação de cadastro por parte dos administradores | Alta | :heavy_check_mark: | #2
+Repositório para documentos dos colaboradores | Alta | :black_square_button: | #2
+Visualização de todos os colaboradores em forma de tabela | Alta | :heavy_check_mark: | #2
+Cadastros de Trilha de Aprendizado e Status de Realização | Alta | :black_square_button: | #3
+Repositório de documentos da empresa (políticas, normas, regras, etc) | Média | :black_square_button: | #3
+Aplicação adaptável para diferentes dispositivos | Média | :black_square_button: | #3
+ 
+##### Requisitos Não Funcionais
+Requisitos | Prioridade | Status
+-----------|------------|-------
+Linguagens NodeJS, TypeScript, Javascript | Alta | :heavy_check_mark:
+Utilização de SGBD MySQL | Alta | :heavy_check_mark:
+Utilização da biblioteca React | Alta | :heavy_check_mark:
+Banco de Dados Relacional | Alta | :heavy_check_mark:
+Documentação de testes funcionais | Baixa | :black_square_button:  
+Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | :heavy_check_mark:
+Manual do usuário para navegação | Média | :heavy_check_mark:
  
 #### Sprint #1
  
@@ -77,15 +88,14 @@ ID  | Tarefa | Prioridade | Status
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
 #12 | Desenvolvimento do back-end da interface de Organograma | Alta | :heavy_check_mark:
-#13 |	Desenvolvimento da interface de Notificações | Alta | :black_square_button:
+#13 |	Desenvolvimento da interface de Notificações | Alta | :heavy_check_mark:
 #16 |	Desenvolvimento do back-end da interface de Notificações |  Alta | :black_square_button:
-#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | :black_square_button:
-#19 | Definir acessos dos usuários através de níveis | Alta | :black_square_button:
-#20 |	Criar o Manual do Usuário | Média | :black_square_button:
-#21 | Ajustes no banco de dados | Alta | :black_square_button:
-#22 | Ajustes na página do colaborador | Alta | :black_square_button:
+#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | :heavy_check_mark:
+#19 | Definir acessos dos usuários através de níveis | Alta | :heavy_check_mark:
+#21 | Ajustes no banco de dados | Alta | :heavy_check_mark:
+#22 | Ajustes na página do colaborador | Alta | :heavy_check_mark:
 #23 | Ajustes nas rotas de navegação | Alta | :heavy_check_mark:
-#24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | :black_square_button:
+#24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | :heavy_check_mark:
 #25 | Desenvolvimento do back-end da interface de Listagem de Colaboradores | Média | :heavy_check_mark:
 #26 |	Ajustes no Manual do Usuário	| Média | :black_square_button:
  
@@ -109,11 +119,11 @@ ID  | Tarefa | Prioridade | Status
 
 ### :dart: Entregas
 
-Sprint ID | Data | Tag | Status
-----------|------|-----|--------
-#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | :heavy_check_mark:
-#2 | 25.04.22 - 15.05.22 | :stop_sign: | :stop_sign:
-#3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign:
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
+#2 | 25.04.22 - 15.05.22 | :stop_sign: | :stop_sign: | :stop_sign:
+#3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign: | :stop_sign:
 
 <span id="equipe">
 
