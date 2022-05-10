@@ -25,18 +25,12 @@ class Login extends Component {
         loggedin: false
     };
 
-    handleChangeEmail = event => {
+    handleChange = event => {
         this.setState({
-            email: event.target.value,
-        });
-        console.log(this.state);
-    };
-
-    handleChangePassword = event => {
-        this.setState({
-            password: event.target.value,
-        });
-        console.log(this.state);
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
     };
 
     handleSubmit = async (event) => {
@@ -89,10 +83,10 @@ class Login extends Component {
                         <img src={LogoLogin} />
                         <form onSubmit={this.isLoggedin} >
                             <div className="row">
-                                <Input div="input-field" fname={this.handleChangeEmail} type="email" id="email" name="E-mail" class="validate" />
+                                <Input stateName="email" div="input-field" fname={this.handleChange} type="email" id="email" name="E-mail" class="validate" />
                             </div>
                             <div className="row">
-                                <Input div="input-field" fname={this.handleChangePassword} type="password" id="password" name="Senha" class="validate" />
+                                <Input stateName="password" div="input-field" fname={this.handleChange} type="password" id="password" name="Senha" class="validate" />
                             </div>
 
 
