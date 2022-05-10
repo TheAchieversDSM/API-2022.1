@@ -1,0 +1,49 @@
+body {
+    background-color: #F2F2F2;
+    margin: 20px !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: coolvetica, sans-serif;
+    font-weight: 550 !important;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+    margin: 10px 0px 20px 20px;
+}
+
+.sidenav {
+    background-color: #ACD8DE !important;
+    box-shadow: none !important;
+    width:20% !important;
+    color: black !important;
+    text-align: left;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.sidenav > li{
+    font-family: coolvetica, sans-serif !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.sidenav > li:hover{
+    background-color: white;
+    border-radius: 20px;
+}
+
+a {
+    color: #414042 !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.conteudo {
+    width: 80%;
+    height: fit-content;
+    float: right;
+    padding: 50px;
+    margin-bottom: 20px;
+}

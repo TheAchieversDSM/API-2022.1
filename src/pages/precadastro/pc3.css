@@ -1,0 +1,15 @@
+.mensagem {
+    height: 210px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+h1 {
+    color: #3C3E3F;
+    text-align: center;
+}
+
+h4 {
+    color: #414042;
+}

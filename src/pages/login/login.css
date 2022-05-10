@@ -1,0 +1,67 @@
+@import url("https://fonts.google.com/specimen/Source+Sans+Pro?query=source+sans+pro");
+
+@import url("https://fonts.adobe.com/fonts/coolvetica");
+
+main {
+      position: absolute;
+    top: 15%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+span {
+    color: white !important;
+}
+
+.opcao > a {
+    position: absolute;
+    color: #EF4646;
+    text-decoration: none;
+    -webkit-transition: 0.5s
+}
+
+.opcao > a:hover {
+    position: absolute;
+    color: #fff;
+    text-decoration: none;
+    -webkit-transition: 0.5s;
+}
+
+.opcao {
+    display: grid;
+    grid-gap: 1.5em;
+    grid-template-columns: 1fr 1fr;
+}
+
+.col-12 > button {
+    margin-left: auto;
+    width: 300px;
+    color: #000000;
+    background-color: #53C4CD;
+    border: 2px solid #53C4CD;
+    border-radius: 20px;
+    -webkit-transition: 1s;
+}
+
+.col-12 > button:hover {
+    color: #000000;
+    background-color: #21ebe7;
+    border: 2px solid #21ebe7;
+    border-radius: 20px;
+}
+
+.bloco{
+    padding: 30px;
+    width: 500px;
+    border-radius: 30px;
+}
+
+input { 
+    text-indent: 15px !important;
+}
