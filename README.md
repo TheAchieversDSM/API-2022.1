@@ -34,7 +34,7 @@
  ### :bar_chart: Backlog
  
 #### Timeline Backlog 
-![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/requisitos(1).png)
+![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/timeline_total.png)
  
  #### Backlog do Produto
  
