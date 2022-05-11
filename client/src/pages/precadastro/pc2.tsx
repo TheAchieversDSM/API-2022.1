@@ -1,82 +1,38 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+import React, { Component } from 'react';
+import Css from '../../assets/style/style';
+import General from '../../components/general';
 
 // LOCAL CSS
 import './pc2.css'
 
-// COMPONENTS
-import Css from "../../assets/style/style";
-import ButtonMat from "../../components/button/buttonMat";
-import General from "../../components/general";
-import Input from "../../components/input/input";
-{/*import Check from "../../components/input/check";*/}
+// IMAGE
+import Icone from "../../assets/img/icone_azul.svg"
 
-
-
-class PreCadastro2 extends Component {
-    state = {
-        formacao: String,
-        cursos: String,
-        linguas: String
-    }
-
-    handleChange = event => {
-        this.setState({
-            ...this.state,
-            [event.target.name]: event.target.value
-          });
-          console.log(this.state);
-    };
-    handleSubmit = async(event)  => {
-        event.preventDefault();
-        const infoAcademica = {
-            formacao: this.state.formacao,
-            cursos: this.state.cursos,
-            linguas: this.state.linguas,
-            id: getCookie("id")
-        }
-        const id= getCookie("id")
-        axios.post("http://localhost:5000/precad2", infoAcademica);{
-            console.log("foi");
-            
-        }
-        
-        axios.post(`http://localhost:5000/notificacao/${infoAcademica.id}`);{
-            console.log("foi");
-            
-        }
-    }
-
+class PreCadastro3 extends Component {
     render() {
         return (
             <>
                 <General />
-                
-                <Css ref="./pc2.css" />
+
+                <Css ref="./pc3.css" />
 
                 <div className="conteudo">
-                    <div className="row">
-                        <div className="col s12">
-                            <h5 className="titulo">Dados Acadêmicos</h5>
-                            <div className="bloco1">
-                                <div className="row">
-                                    <Input stateName="formacao" fname={this.handleChange} div="input-field col s4 bla" id="formacao" type="text" class="validate" name="Formação" />
 
-                                    <Input stateName="cursos" fname={this.handleChange} div="input-field col s4 bla" id="cursos" type="text" class="validate" name="Cursos" />
-
-                                    <Input stateName="linguas" fname={this.handleChange} div="input-field col s4 bla" id="linguas" type="text" class="validate" name="Línguas" />
-                                </div>
-                            </div>
-                        </div>
-
+                    <div className="imagem">
+                        <img className="logo1" src={Icone} />
                     </div>
-                    <Link to="/PreCad1"><ButtonMat  fname={""} class="waves-effect waves-light btn" name="Voltar" iClass="fa-solid fa-arrow-left-long" /></Link>
-                    <Link to="/PreCad3"><ButtonMat  fname={this.handleSubmit} class="waves-effect waves-light btn" name="Próximo" iClass="fa-solid fa-arrow-right-long" /></Link>
+
+                    <div className="mensagem">
+                        <div>
+                            <h1>INFORMAÇÕES COMPLETAS!</h1>
+                            <h4>Por favor, aguarde a aprovação do cadastro</h4>
+                        </div>
+                    </div>
                 </div>
             </>
         )
     }
+
 }
-export default PreCadastro2;
+
+export default PreCadastro3;

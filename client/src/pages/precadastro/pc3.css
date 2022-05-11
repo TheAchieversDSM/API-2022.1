@@ -1,12 +1,12 @@
 .mensagem {
-    height: 710px;
+    height: 210px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center
 }
 h1 {
-    color: #f4f4f4;
+    color: #3C3E3F;
     text-align: center;
 }
 

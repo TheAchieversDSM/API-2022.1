@@ -1,7 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
-
 // LOCAL CSS
 import './perfil.css'
 
@@ -14,7 +13,9 @@ import Css from "../../assets/style/style";
 import React from "react";
 
 
+
 class PerfilColab extends Component {
+    
     state = {
         colaborador: [],
         head_colaborador: [],
@@ -22,7 +23,10 @@ class PerfilColab extends Component {
     };
 
     componentDidMount() {
-        console.log("indo");
+        let url = window.location.href.split("/")
+        if (url[3] == "PerfilColaborador"){ 
+            this.state.id = url[4]
+        }
         axios.get(`http://localhost:5000/infocolab/${this.state.id}`)
             .then((res) => {
                 console.log(res.data);
@@ -35,23 +39,26 @@ class PerfilColab extends Component {
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
             }
-            )
+        )
     }
 
     render() {
+
         return (
             <>
                 <General />
                 <Css ref="./perfil.css" />
                 <div className="conteudo">
                     <div className="row">
-                        <div className="col s7">
+                        <div className="col s12 m12 l7">
                             <div className="teste1">
                                 <div className="row" id="info">
-                                    <div className="col s5">
-                                        <div className="foto"></div>
+                                    <div className="col s12 m12 l5 center-align">
+                                        <div className="foto center-align">
+                                            <i className="fa-regular fa-user fa-7x"></i>
+                                        </div>
                                     </div>
-                                    <div className="col s6">
+                                    <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.con_id} className="name">{info.con_nome}</h5>)}
                                         <p>
                                             {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
@@ -65,16 +72,16 @@ class PerfilColab extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col s5">
+                        <div className="col s12 m12 l5">
                             <div className="teste1">
                                 <h4>Contrato</h4>
-                                <div className="contrato-info">
+                                <div className="contrato-info center-align">
                                     <p>
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large" name="Visualizar" iClass="fa-solid fa-book-open-reader" />
+                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align " name="Visualizar" iClass="fa-solid fa-book-open-reader" />
                                     </p>
                                     <p id="p1">ou</p>
                                     <p id="p2">
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
+                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
                                     </p>
                                 </div>
                             </div>
@@ -83,9 +90,9 @@ class PerfilColab extends Component {
                         <div className="col s12">
                             <div className="teste2">
                                 <h4>Informações</h4>
-                                <div className="teste2-info">
+                                <div className="teste2-info ">
                                     {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Departamento: {info.dep_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Cargo: {info.car_descricao}</p>)}
+                                    {this.state.colaborador.map(info => <p  key={info.colaborador_con_id}>Cargo: {info.car_descricao}</p>)}
                                     <p>Status: ----</p>
                                     {this.state.head_colaborador.map(info => <p key={info.con_id}>Head: {info.con_nome} - {info.car_descricao}</p>)}
                                     <p>Faixa Salarial: ----</p>
@@ -94,7 +101,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s8">
+                        <div className="col col s12 m12 l8">
                             <div className="teste3">
                                 <ul className="collapsible popout" data-collapsible="accordion">
 
@@ -150,7 +157,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s4">
+                        <div className="col col s12 m12 l4">
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
@@ -167,9 +174,9 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col s4">
+                        <div className="col col s12 m12 l4">
                             <div className="teste4">
-                                <div className="botao-edicao">
+                                <div className="botao-edicao center-align">
                                     <p>
                                         <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
                                     </p>
@@ -179,6 +186,7 @@ class PerfilColab extends Component {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </>

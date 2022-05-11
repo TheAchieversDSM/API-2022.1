@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 
 // LOCAL CSS
@@ -94,20 +94,25 @@ export default class extends Component {
                 }
             },
 
-
-
             nodes: this.props.node
             
-            
         });
+        
+
+
+        const Redirect = () =>{
+            <Navigate to="/home"/>
+        }
+        
         this.chart.editUI.on('button-click', function (sender, args) {
             if (args.name == 'view') {
-                window.open("/usuario")   
+                var data = args.nodeId
+                window.open(`/PerfilColaborador/${data}`)
+                
             }
         });
 
     }
-
 
     render() {
         return (

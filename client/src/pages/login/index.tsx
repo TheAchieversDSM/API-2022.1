@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { setCookie, getCookie} from "../../utils/cookieUtil/cookieUtil";
+import { setCookie, getCookie } from "../../utils/cookieUtil/cookieUtil";
 import LoginRoute from "../../utils/login/loginAuth";
 
 // LOCAL CSS
@@ -46,53 +46,62 @@ class Login extends Component {
                 setCookie("token", response.data.token);
                 setCookie("id", response.data.user[0].con_id);
 
-                if (response.data.user[0].cargo_car_id == null){
+
+                if (response.data.user[0].cargo_car_id == null) {
                     setCookie("firstAcess", true)
-                    setCookie("tipoPessoa",response.data.user[0].tipo_pessoa )
-                } else{
+                } else {
                     setCookie("nivel", response.data.nivel_id[0].car_nivel_acesso);
                 }
 
                 this.setState({
                     loggedin: true
                 })
-                
-                console.log(getCookie("tipoPessoa"));
                 console.log(getCookie("token"));
                 console.log(getCookie("id"));
-                console.log(getCookie("nivel"));      
+                console.log(getCookie("nivel"));
+
             }
         })
     };
 
-    isLoggedin = () =>{
-        if(this.state.loggedin == true){
-            return <LoginRoute redirect="/home"/>
+    isLoggedin = () => {
+        if (this.state.loggedin == true) {
+            return <LoginRoute redirect="/home" />
         }
-        else{
-            return(null)
+        else {
+            return (null)
         }
     }
 
-    render() {    
+    render() {
         return (
             <>
-            <this.isLoggedin/>
+                <this.isLoggedin />
                 <main>
                     <div className="bloco">
+
                         <img src={LogoLogin} />
-                        
                         <form onSubmit={this.isLoggedin} >
-                            <Input div="input-field" fname={this.handleChange} stateName = "email" type="email" id="email" name="E-mail" class="validate" />
-                            <Input div="input-field" fname={this.handleChange} stateName = "password" type="password" id="password" name="Senha" class="validate" />
-                            <div className="opcao row">
+                            <div className="row">
+                                <Input stateName="email" div="input-field" fname={this.handleChange} type="email" id="email" name="E-mail" class="validate" />
+                            </div>
+                            <div className="row">
+                                <Input stateName="password" div="input-field" fname={this.handleChange} type="password" id="password" name="Senha" class="validate" />
+                            </div>
+
+
+                            <div className="row">
                                 <div className="col s6">
                                     <Check value="" name="Lembrar de Mim" />
                                 </div>
-                                <a className="col s6" href="#">Esqueci a senha</a>
-                                <div className="col-12">
-                                    <Submit fname={this.handleSubmit} title="Log In" />
+
+                                <div className="opcao col s6 right-align">
+                                    <a href="#">Esqueci a senha</a>
                                 </div>
+                            </div>
+
+                            <div className="row col-12 center-align">
+                                <Submit fname={this.handleSubmit} title="Log In" />
                             </div>
                         </form>
                     </div>

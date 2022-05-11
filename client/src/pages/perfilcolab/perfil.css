@@ -54,20 +54,25 @@ h4{
 
 #p1{
     position: relative;
-    left: 160px;
 }
 
 .btn-large{
     position: relative;
-    left: 70px;
 }
 
 .foto{
-    margin-left: 20px;
-    border-radius: 30px !important;
-    background-color: #58595B;
-    height: 250px;
-    width: 225px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #ACD8DE !important;
+
+    
+}
+
+.foto > i{
+    margin-top: 20px;
+    color: #53C4CD;
+    background-color: #ACD8DE !important;
 }
 
 p, span{

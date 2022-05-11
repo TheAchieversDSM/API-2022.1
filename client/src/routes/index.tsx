@@ -10,8 +10,6 @@ import LogoutRoute from "../utils/logoutRoute/logoutRoute";
 import Login from "../pages/login";
 import Home from "../pages/home"
 import PreCadastro1 from "../pages/precadastro/pc1";
-import PreCadastro2 from "../pages/precadastro/pc2";
-import PreCadastro3 from "../pages/precadastro/pc3";
 import NovoPerfil from "../pages/novo perfil";
 import Notificacao from "../pages/notificacao";
 import Organograma from "../pages/organograma";
@@ -32,40 +30,35 @@ function Routes() {
                     <Home />
                 </ProtectedRoute>} />
 
-                <Route path="/PreCad1" element={<ProtectedRoute redirectTo={"/"}>
+                <Route path="/CompletarCadastro" element={<ProtectedRoute redirectTo={"/"}>
                     <PreCadastro1/>
-                </ProtectedRoute>} />
-
-                <Route path="/PreCad2" element={<ProtectedRoute redirectTo={"/"}>
-                    <PreCadastro2/>
-                </ProtectedRoute>} />
-
-                <Route path="/PreCad3" element={<ProtectedRoute redirectTo={"/"}>
-                    <PreCadastro3/>
                 </ProtectedRoute>} />
 
                 <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao/>
                 </ProtectedRoute>} />
-
                 
-                <Route path="//uploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
+                <Route path="/uploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
                     <UploadMateriais/>
                 </ProtectedRoute>} />
 
                 <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>
-                    <AdmPrivateRoute redirectTo={"/home"} >
-
-                        <NovoPerfil/>
-                        
-                    </AdmPrivateRoute>
+                        <NovoPerfil/>                      
                 </ProtectedRoute>} />
 
                 <Route path="/Organograma" element={<ProtectedRoute redirectTo={"/"}>
                     <Organograma/>
                 </ProtectedRoute>} />
+                
+                <Route path="/PerfilColaborador/:id" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
 
-                <Route path ="/PerfilColaborador" element={<ProtectedRoute redirectTo={"/"}>
+                        <PerfilColab/>
+
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} /> 
+
+                <Route path ="/MeuPerfil" element={<ProtectedRoute redirectTo={"/"}>
                     <PerfilColab/>
                 </ProtectedRoute>} />
 

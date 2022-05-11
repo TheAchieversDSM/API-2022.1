@@ -47,14 +47,14 @@ class UploadMateriais extends Component {
        
         
         return (
-        
+            
             <>
             <General />
 
             <Css ref="./home.css" />
             <div className="conteudo">
                     <h2>Upload de Materiais</h2>
-                    <a href='uploads/ionic.png' download><button>a</button></a>
+
                     <div className="form">
                         <div className="teste1 row">
 

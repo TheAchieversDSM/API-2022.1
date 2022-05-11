@@ -51,9 +51,9 @@ class NovoPerfil extends Component {
 
                     <div className="form">
                         <div className="teste1 row">
-                            <Input stateName = "email" fname={this.handleChange} div="input-field" type="email" id="email" name="E-mail" class="validate" />
+                            <Input stateName="email" fname={this.handleChange} div="input-field" type="email" id="email" name="E-mail" class="validate" />
 
-                            <Input stateName = "password" fname={this.handleChange} div="input-field" type="password" id="password" name="Senha" class="validate" />
+                            <Input stateName="password" fname={this.handleChange} div="input-field" type="password" id="password" name="Senha" class="validate" />
 
                             <label>Pessoa</label>
                             <select name="tipoPessoa" className="browser-default" id="tipoPessoa" onChange={this.handleChange}>
