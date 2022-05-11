@@ -14,7 +14,7 @@ class Funcionario extends Component {
         axios.get('http://localhost:5000/infocolab/getAll')
             .then((res) => {
                 const colaboradores = res.data;
-
+                
                 this.setState({colaboradores})                
             }
         )
@@ -37,7 +37,7 @@ class Funcionario extends Component {
 
                             <tbody>
                      
-                                    {this.state.colaboradores.map(colaborador => <TR key={colaborador.con_id} nome={colaborador.con_nome} departamento={colaborador.dep_descricao} cargo={colaborador.car_descricao} />)}
+                                    {this.state.colaboradores.map(colaborador => <TR key={colaborador.con_id} url={`/PerfilColaborador/${colaborador.con_id}`} nome={colaborador.con_nome} departamento={colaborador.dep_descricao} cargo={colaborador.car_descricao} />)}
             
                             </tbody>
                         </table>
