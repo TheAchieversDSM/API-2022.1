@@ -31,42 +31,55 @@
   
 <span id="backlog-sprint"> 
 
- ### :bar_chart: Backlog
+### :bar_chart: Backlog
  
 #### Timeline Backlog 
 ![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/timeline_total.png)
  
- #### Backlog do Produto
+#### Backlog do Produto
  
 ##### Requisitos Funcionais
-Requisitos | Prioridade | Status | Previsão de Sprint
------------|------------|--------|--------------------  
-Cadastros de Colaboradores | Alta | :heavy_check_mark: | #1
-Trabalhar com admissão | Alta  | :heavy_check_mark: | #1
-Perfil para visualização de informações do colaborador | Alta | :heavy_check_mark: | #1 & #2
-Charts com os organogramas em diversos níveis e de fácil manutenção (inclusões, exclusões e adaptações) | Alta | :heavy_check_mark: | #1 & #2
-Dossiê gerado em PDF por colaborador para consulta do administrador e gestor | Média | :heavy_check_mark: | #1 & #2
-Trabalhar com cargos e salários | Alta | :heavy_check_mark: | #2
-Usuários devem ter perfis diferentes (administrador, gestor, consultor, colaborador) | Alta | :heavy_check_mark: | #2
-Avaliação de cadastro por parte dos administradores | Alta | :heavy_check_mark: | #2
-Repositório para documentos dos colaboradores | Alta | :black_square_button: | #2
-Visualização de todos os colaboradores em forma de tabela | Alta | :heavy_check_mark: | #2
-Cadastros de Trilha de Aprendizado e Status de Realização | Alta | :black_square_button: | #3
-Repositório de documentos da empresa (políticas, normas, regras, etc) | Média | :black_square_button: | #3
-Aplicação adaptável para diferentes dispositivos | Média | :black_square_button: | #3
- 
+ID | User Story | Sprint | Requisitos | Prioridade | Status 
+---|------------|--------|------------|------------|--------
+RF-1 | US-1 | 1 | Cadastro do colaborador | Alta | ✔️
+RF-2 | US-1 | 1 | Completar cadastro do colaborador | Alta | ✔️
+RF-3 | US-2 | 1 | Visualizar informações fornecidas pelo colaborador | Alta | ✔️
+RF-4 | US-2 | 1 | Atualização das informações do colaborador | Média | 🔲
+RF-5 | US-2 | 1 | Exclusão de colaboradores | Baixa | 🔲
+RF-6 | US-3 | 2 | Visualizar diferentes níveis de cargo por um organograma | Alta | ✔️
+RF-7 | US-4 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | 🔲
+RF-8 | US-5 | 2 | Visualizar e realizar download de relatórios com informações dos colaboradores | Média | ✔️
+RF-9 | US-6 | 3 | Acesso às documentações e normas da empresa | Baixa | 🔲
+RF-10 | US-7 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | 🔲
+RF-11 | US-8 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | 🔲
+RF-12 | US-8 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | 🔲
+RF-13 | US-9 | 3 | Visualização do progresso individual dos cursos de Onboarding cadastrados na Trilha de Aprendizagem | Média | 🔲
+RF-14 | US-10 | 3 | Cadastro de possíveis novos cargos | Baixa | 🔲
+
+
 ##### Requisitos Não Funcionais
-Requisitos | Prioridade | Status
------------|------------|-------
-Linguagens NodeJS, TypeScript, Javascript | Alta | :heavy_check_mark:
-Utilização de SGBD MySQL | Alta | :heavy_check_mark:
-Utilização da biblioteca React | Alta | :heavy_check_mark:
-Banco de Dados Relacional | Alta | :heavy_check_mark:
-Documentação de testes funcionais | Baixa | :black_square_button:  
-Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | :heavy_check_mark:
-Manual do usuário para navegação | Média | :heavy_check_mark:
+ID | User Story | Sprint | Requisitos | Prioridade | Status 
+---|------------|--------|------------|------------|--------
+RNF-1 | US-1 | 1 | Desenvolvimento de banco de dados *MySQL* para armazenamento de dados | Alta | ✔️
+RNF-2 | US-1 | 1 | Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | ✔️
+RNF-2 | US-1 | 1 | Conexão do banco de dados ao sistema | Alta | ✔️
+RNF-3 | US-1 | 1 | Utilizar *Node.JS*, *TypesScript* e *JavaScript* | Alta | ✔️
+RNF-4 | US-1 | 1 | Utilizar a biblioteca *React.js* | Alta | ✔️
+RNF-5 | US-1 | 1 | Limitar acesso de não-colaboradores ao sistema | Média | ✔️
+RNF-6 | US-2 | 1 | Diferentes níveis de acesso no sistema | Alta | ✔️
+RNF-7 | US-2 | 1 | Display de informações gravadas no banco de dados | Alta | ✔️
+RNF-8 | US-2 | 1 | Criação das funções _Delete_ e _Update_ em Node.js | Alta | 🔲
+RNF-9 | US-2 | 2 | Armazenar documentos dos colaboradores em um repositório específico | Alta | ✔️
+RNF-10 | US-3 | 2 | Completar organograma com informações do banco de dados | Alta | ✔️
+RNF-11 | US-4 | 2 | Gerar notificação ao cadastro ter sido completo | Alta | ✔️
+RNF-12 | US-5 | 2 | Puxar informações do banco de dados e passar para um _.pdf_ para possíveis relatórios | Média | ✔️
+RNF-13 | US-6 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Baixa | 🔲
+RNF-14 | US-7 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | 🔲
+RNF-15 | US-8 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
+RNF-16 | US-9 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
+RNF-17 | - | - | Manual do usuário para navegação | Média | ✔️
  
-#### Sprint #1
+#### Backlog da Sprint #1
  
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
@@ -84,7 +97,7 @@ ID  | Tarefa | Prioridade | Status
 #12 | Desenvolvimento do back-end da interface de Organograma | Baixa | :x:
 #20 |	Criar o Manual do Usuário | Média | :heavy_check_mark:
  
-#### Sprint #2
+#### Backlog da Sprint #2
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
 #12 | Desenvolvimento do back-end da interface de Organograma | Alta | :heavy_check_mark:
