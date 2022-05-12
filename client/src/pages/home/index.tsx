@@ -14,7 +14,6 @@ class Home extends Component {
 
     render() {
         const firstAcess = getCookie("firstAcess") != null;
-        console.log(firstAcess);
 
         return firstAcess ? (
             <>
@@ -32,7 +31,7 @@ class Home extends Component {
                             <h1>BEM-VINDO, COLABORADOR!</h1>
                             <h5>Aqui você tem acesso as suas informações da empresa, podendo ser mais prático 
                                 na organização de arquivos, de notificações e atualizações do seu perfil.</h5>
-                            <Caminho link="/PreCad1" name="Complete as informações para continuar!" />
+                            <Caminho link="/CompletarCadastro" name="Complete as informações para continuar!" />
                         </div>
                     </div>
 

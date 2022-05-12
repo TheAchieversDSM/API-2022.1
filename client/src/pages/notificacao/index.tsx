@@ -13,26 +13,21 @@ import { modaljs } from "../../utils/modal/modal";
 
 class Notificacao extends Component {
     state = {
+        notificacao:[],
         info_colab: [],
         info_pf: [],
         info_acad: [],
     };
     componentDidMount() {
         modaljs()
-        console.log("indo");
-        axios.get(`http://localhost:5000/infocolab/`)
+        axios.get(`http://localhost:5000/notificacao/getAll`)
             .then((res) => {
                 console.log(res.data);
                 
-                const info_colab = res.data.colab;
-                const info_pf = res.data.pf;
-                const info_acad = res.data.acad;
-
-                console.log(info_colab[0].con_id);
-                
-                this.setState({ info_colab }); 
-                this.setState({ info_pf });
-                this.setState({ info_acad });      
+                const notificacao = res.data;
+   
+                this.setState({ notificacao }); 
+        
             }
         )
     }
@@ -44,25 +39,24 @@ class Notificacao extends Component {
                 <General />
 
                 <Css ref="./notificao.css" />
-
+                
                 <div className="conteudo">
                     <h3>Notificações</h3>
-                    <div className="not row">
+                    {this.state.notificacao.map(notif => <><div key={notif.notificacao_id} className="not row">
+
                         <h5 className="col s6">Rebeca preencheu o cadastro!</h5>
                         <a className="waves-effect waves-light btn modal-trigger col s6" data-target="modal1">Modal</a>
-                    </div>
-
-                    <ul>
-                        <Modal
-                            id=""
-                            class="validate"
-                            name1="Departamento"
-                            name2="Cargo"
-                            name3="Salário"
-                            type="text"
-                            fname=""
-                        />
-                    </ul>
+                    </div><ul>
+                            <Modal
+                                id=""
+                                class="validate"
+                                name1="Departamento"
+                                name2="Cargo"
+                                name3="Salário"
+                                type="text"
+                                fname="" />
+                        </ul></>
+                    )}
                 </div>
             </>
         );

@@ -34,8 +34,6 @@ class PerfilColab extends Component {
                 const colaborador = res.data.user;
 
                 const head_colaborador = res.data.head_user;
-
-
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
             }

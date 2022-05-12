@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
-import { Navigate, Link } from 'react-router-dom';
+import { getCookie } from '../../utils/cookieUtil/cookieUtil';
 
 
 // LOCAL CSS
@@ -32,7 +32,10 @@ export default class extends Component {
         OrgChart.templates.polina.editFormHeaderColor = '#53C4CD';
 
         var viewIcon = `<i class="fa-solid fa-info fa-2x"></i>`
-     
+        if (getCookie("nivel") == "acessoTotal" ) {
+            var perm = true
+        }
+
         this.chart = new OrgChart(this.divRef.current, {  
             collapse: {
                 level: 2
@@ -67,14 +70,14 @@ export default class extends Component {
             editForm: {
                 titleBinding: "Nome",
                 buttons: {
-                    view: {icon: viewIcon ,text: "Mais Informações" },
-                    pdf: {text: "Exportar para PDF" },
+                    view: perm? {icon: viewIcon ,text: "Mais Informações" } : null,
+                    pdf: perm? {text: "Exportar para PDF" }:null,
                     share: null,
                     edit: null,
                     remove: null
                 }
-            },
-            
+            },            
+
             menu: {
                 pdf: { 
                     text: "Exportar para PDF",
@@ -97,18 +100,10 @@ export default class extends Component {
             nodes: this.props.node
             
         });
-        
-
-
-        const Redirect = () =>{
-            <Navigate to="/home"/>
-        }
-        
         this.chart.editUI.on('button-click', function (sender, args) {
             if (args.name == 'view') {
                 var data = args.nodeId
                 window.open(`/PerfilColaborador/${data}`)
-                
             }
         });
 

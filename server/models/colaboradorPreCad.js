@@ -15,8 +15,6 @@ Colaborador = function (colaborador) {
 }
 
 Colaborador.updateUser = (Userdata, Userid, result) => {
-    console.log(Userdata);
-    console.log(Userid);
     db.query("UPDATE colaborador SET ?  WHERE con_id = ?", [Userdata, Userid], (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -27,7 +25,18 @@ Colaborador.updateUser = (Userdata, Userid, result) => {
             result(null, res);
         }
     })
+    db.query("INSERT INTO notificacao SET user_id = ?",Userid,(err,res)=>{
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else {
+            console.log("Criado Notificacao");
+            result(null, res);
+        }   
+    } )
 }
+
 
 
 

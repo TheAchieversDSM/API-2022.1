@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { setCookie, getCookie } from "../../utils/cookieUtil/cookieUtil";
 import LoginRoute from "../../utils/login/loginAuth";
+import nivelCheck from "../../utils/nivelCheck/nivelCheck";
 
 // LOCAL CSS
 import './login.css'
@@ -45,12 +46,10 @@ class Login extends Component {
             if (response.data.token) {
                 setCookie("token", response.data.token);
                 setCookie("id", response.data.user[0].con_id);
-
-
                 if (response.data.user[0].cargo_car_id == null) {
                     setCookie("firstAcess", true)
                 } else {
-                    setCookie("nivel", response.data.nivel_id[0].car_nivel_acesso);
+                    setCookie("nivel",nivelCheck(response.data.nivel_id[0].car_nivel_acesso));
                 }
 
                 this.setState({

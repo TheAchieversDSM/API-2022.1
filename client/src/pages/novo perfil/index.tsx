@@ -34,10 +34,8 @@ class NovoPerfil extends Component {
             password: this.state.password,
             tipoPessoa: this.state.tipoPessoa
         }
-        
-        await axios.post("http://localhost:5000/novocolaborador/create", user )
-        
-        alert("data foi")
+        axios.post("http://localhost:5000/novocolaborador/create", user )
+            
     };
     render() {
         return (

@@ -5,14 +5,14 @@ Notificacao = function (notificacao){
     this.user_id = notificacao.id
 }
 
-Notificacao.createNotifi = (id,result) =>{
-      db.query('INSERT INTO notificacao SET ?',id,(err,res) => {
+Notificacao.getAll = (result) =>{
+      db.query('SELECT * FROM notificacao',(err,res) => {
         if (err) {
             console.log("error: ", err);
             result(null,err);
         }
         else {
-            console.log("Criado Usuário");
+            console.log("Encontrado as Notificações");
             result(null, res);
         }
     })
