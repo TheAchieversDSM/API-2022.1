@@ -33,9 +33,6 @@
 
 ### :bar_chart: Backlog
  
-#### Timeline Backlog 
-![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/backlog/timeline_total.png)
- 
 #### Backlog do Produto
  
 ##### Requisitos Funcionais
@@ -68,7 +65,7 @@ RNF-4 | US-1 | 1 | Utilizar a biblioteca *React.js* | Alta | ✔️
 RNF-5 | US-1 | 1 | Limitar acesso de não-colaboradores ao sistema | Média | ✔️
 RNF-6 | US-2 | 1 | Diferentes níveis de acesso no sistema | Alta | ✔️
 RNF-7 | US-2 | 1 | Display de informações gravadas no banco de dados | Alta | ✔️
-RNF-8 | US-2 | 1 | Criação das funções _Delete_ e _Update_ em Node.js | Alta | 🔲
+RNF-8 | US-2 | 1 | Criação das funções _Delete_ e _Update_ | Alta | 🔲
 RNF-9 | US-2 | 2 | Armazenar documentos dos colaboradores em um repositório específico | Alta | ✔️
 RNF-10 | US-3 | 2 | Completar organograma com informações do banco de dados | Alta | ✔️
 RNF-11 | US-4 | 2 | Gerar notificação ao cadastro ter sido completo | Alta | ✔️
