@@ -9,6 +9,6 @@ export const ProtectedRoute = ({ children, redirectTo }) => {
 }
 
 export const AdmPrivateRoute = ({children,redirectTo}) => {
-    const adm = getCookie("nivel") == "1"
+    const adm = getCookie("nivel") == "acessoTotal"
     return adm ? children : <Navigate to={redirectTo}/>
 }

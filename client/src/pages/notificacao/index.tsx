@@ -6,7 +6,6 @@ import './notificacao.css'
 
 // COMPONENTS
 import General from '../../components/general/index'
-import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
 import Modal from "../../components/modal/modal"
 import { modaljs } from "../../utils/modal/modal";
