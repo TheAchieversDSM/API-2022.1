@@ -54,8 +54,6 @@ class PreCadastro1 extends Component {
           console.log(this.state);
     };
 
-
-
     handleSubmit = async (event) => {
         event.preventDefault();
         const user = {
@@ -275,6 +273,7 @@ class PreCadastro1 extends Component {
                             <div className="row">
                                 <form className="col s12">
                                     <h5 className="titulo">Dados Acadêmicos</h5>
+                                    
                                     <div className="row">
                                         <Input stateName="formacao" fname={this.handleChange} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
 
@@ -298,7 +297,6 @@ class PreCadastro1 extends Component {
                         <div className=" campo2">
                             <div className="row">
                                 <form className="col s12">
-
                                     <div className="row">
                                         <InputFile stateName="rg" fname={this.handleChange} name="Anexar RG"/>
                                         <InputFile stateName="carteiraTrabalho" fname={this.handleChange} name="Anexar Carteira de Trabalho"/>
@@ -316,25 +314,23 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <InputFile stateName="compResidencia" fname={this.handleChange} name="Anexar Comprovante de Residencia"/>
-                                        <Input stateName="copiadocartao"  fname={this.handleChange} div="input-field col s12 m12 l7" id="copiadocartao" class="validate" type="text" name="Copia do Cartão do Banco" />
+                                        <InputFile stateName="copiadocartao"  fname={this.handleChange} name="Copia do Cartão do Banco" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="ComprovanteEscolaridade"  fname={this.handleChange} div="input-field col s12" id="ComprovanteEscolaridade" class="validate" type="text" name="Comprovante de Escolaridade" />
+                                        <InputFile stateName="ComprovanteEscolaridade"  fname={this.handleChange} name="Comprovante de Escolaridade" />
 
                                     </div>
-
                                 </form>
                             </div>
                         </div>
 
 
 
-                        <div className="collapsible-header">certificados</div>
+                        <div className="collapsible-header">Certificados</div>
                         <div className=" campo3">
                             <div className="row">
                                 <form className="col s12">
-
                                     <div className="row">
                                         <Input stateName="ensinoFundamental" fname={this.handleChange} div="input-field col s12" id="ensinoFundamental" class="validate" type="text" name="Ensino Fundamental" />
 
@@ -348,10 +344,6 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <Input stateName="ensinoSuperior" fname={this.handleChange} div="input-field col s12" id="ensinoSuperior" class="validate" type="text" name="Ensino Superior" />
                                     </div>
-
-
-
-
                                 </form>
                             </div>
                         </div>

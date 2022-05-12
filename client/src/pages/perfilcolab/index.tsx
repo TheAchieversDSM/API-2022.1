@@ -12,8 +12,6 @@ import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
 
-
-
 class PerfilColab extends Component {
     
     state = {

@@ -52,9 +52,7 @@ function Routes() {
                 
                 <Route path="/PerfilColaborador/:id" element={<ProtectedRoute redirectTo={"/"}>
                     <AdmPrivateRoute redirectTo={"/home"} >
-
                         <PerfilColab/>
-
                     </AdmPrivateRoute>
                 </ProtectedRoute>} /> 
 
