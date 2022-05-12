@@ -83,35 +83,35 @@ RNF-17 | - | - | Manual do usuário para navegação | Média | ✔️
  
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
-#01 | Criação de User Stories | Alta | :heavy_check_mark:
-#02 | Desenvolvimento de Wireframe | Alta | :heavy_check_mark:
-#03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | :heavy_check_mark:
-#04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | :heavy_check_mark:
-#05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | :heavy_check_mark:
-#06 | Conexão do back-end com o Banco de Dados | Alta | :heavy_check_mark:
-#07 | Desenvolvimento da interface de Login | Média | :heavy_check_mark:
-#08 | Desenvolvimento da interface de Novo Colaborador | Alta | :heavy_check_mark:
-#09 | Desenvolvimento da interface de Organograma | Alta | :heavy_check_mark:
-#10 | Desenvolvimento do back-end da interface de Login | Média | :heavy_check_mark:
-#11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | :heavy_check_mark:
-#12 | Desenvolvimento do back-end da interface de Organograma | Baixa | :x:
-#20 |	Criar o Manual do Usuário | Média | :heavy_check_mark:
+#01 | Criação de User Stories | Alta | ✔️
+#02 | Desenvolvimento de Wireframe | Alta | ✔️
+#03 | Desenvolvimento do modelo conceitual do Banco de Dados | Média | ✔️
+#04 | Desenvolvimento do modelo lógico do Banco de Dados | Média | ✔️
+#05 | Desenvolvimento do modelo físico do Banco de Dados | Alta | ✔️
+#06 | Conexão do back-end com o Banco de Dados | Alta | ✔️
+#07 | Desenvolvimento da interface de Login | Média | ✔️
+#08 | Desenvolvimento da interface de Novo Colaborador | Alta | ✔️
+#09 | Desenvolvimento da interface de Organograma | Alta | ✔️
+#10 | Desenvolvimento do back-end da interface de Login | Média | ✔️
+#11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | ✔️
+#12 | Desenvolvimento do back-end da interface de Organograma | Baixa | ❌
+#20 |	Criar o Manual do Usuário | Média | ✔️
  
 #### Backlog da Sprint #2
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
-#12 | Desenvolvimento do back-end da interface de Organograma | Alta | :heavy_check_mark:
-#13 |	Desenvolvimento da interface de Notificações | Alta | :heavy_check_mark:
+#12 | Desenvolvimento do back-end da interface de Organograma | Alta | ✔️
+#13 |	Desenvolvimento da interface de Notificações | Alta | ✔️
 #16 |	Desenvolvimento do back-end da interface de Notificações |  Alta | :black_square_button:
-#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | :heavy_check_mark:
-#19 | Definir acessos dos usuários através de níveis | Alta | :heavy_check_mark:
-#21 | Ajustes no banco de dados | Alta | :heavy_check_mark:
-#22 | Ajustes na página do colaborador | Alta | :heavy_check_mark:
-#23 | Ajustes nas rotas de navegação | Alta | :heavy_check_mark:
-#24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | :heavy_check_mark:
-#25 | Desenvolvimento do back-end da interface de Listagem de Colaboradores | Média | :heavy_check_mark:
-#26 | Redirecionar para a página do colaborador ao clicar em seu nome | Alta | :heavy_check_mark:
-#27 |	Ajustes no Manual do Usuário	| Média | :black_square_button:
+#18 |	Anexar documentos na área de Cadastro do Colaborador | Alta | ✔️
+#19 | Definir acessos dos usuários através de níveis | Alta | ✔️
+#21 | Ajustes no banco de dados | Alta | ✔️
+#22 | Ajustes na página do colaborador | Alta | ✔️
+#23 | Ajustes nas rotas de navegação | Alta | ✔️
+#24 | Desenvolvimento da interface de Listagem de Colaboradores | Média | ✔️
+#25 | Desenvolvimento do back-end da interface de Listagem de Colaboradores | Média | ✔️
+#26 | Redirecionar para a página do colaborador ao clicar em seu nome | Alta | ✔️
+#27 |	Ajustes no Manual do Usuário	| Média | 🔲
  
 
 ### :clipboard: Estruturação das pastas
