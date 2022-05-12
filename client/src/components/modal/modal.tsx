@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
 import { modaljs } from "../../utils/modal/modal"
+
 type props = {
     type: any,
     class: any,
@@ -17,11 +18,10 @@ class Modal extends Component<props> {
         cargo: [],
         colaboradores: []
     };
-    componentDidMount() {
 
+    componentDidMount() {
         modaljs()
 
-        
         axios.get("http://localhost:5000/infocolab/getAll")
             .then((res) => {
                 console.log(res.data)
@@ -39,7 +39,8 @@ class Modal extends Component<props> {
 
                 this.setState({ departamento })
             }
-            )
+        )
+
         axios.get(`http://localhost:5000/cargos/`)
             .then((res) => {
                 console.log(res.data);
@@ -48,13 +49,8 @@ class Modal extends Component<props> {
 
                 this.setState({ cargo })
             }
-            )
-
-    }
-
-
-
-
+        )  
+    }   
 
     render() {
         return (

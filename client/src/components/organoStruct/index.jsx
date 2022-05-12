@@ -6,8 +6,6 @@ import { getCookie } from '../../utils/cookieUtil/cookieUtil';
 // LOCAL CSS
 import './organoStruct.css'
 
-
-
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -54,6 +52,7 @@ export default class extends Component {
                 "Nome": 100, //percent
                 "Cargo": 50 //percent
             },
+
             nodeBinding: {
                 field_0: "Nome",
                 field_1: "Cargo",
@@ -67,6 +66,7 @@ export default class extends Component {
                 field_9: "CPF",
                 img_0: "foto"
             },
+
             editForm: {
                 titleBinding: "Nome",
                 buttons: {
@@ -100,13 +100,13 @@ export default class extends Component {
             nodes: this.props.node
             
         });
+
         this.chart.editUI.on('button-click', function (sender, args) {
             if (args.name == 'view') {
                 var data = args.nodeId
                 window.open(`/PerfilColaborador/${data}`)
             }
         });
-
     }
 
     render() {
