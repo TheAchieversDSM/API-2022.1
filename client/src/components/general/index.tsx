@@ -26,7 +26,7 @@ export default class General extends Component {
        else if (getCookie("nivel") == 'acessoTotal') {
             Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" /><SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" /><SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" /><SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" /><SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" /></>
         }
-        if (getCookie("firstAcess") == 'true') {
+        if (getCookie("firstAcess") == 'true' || getCookie("aguardoConfirmacao") == 'true' ) {
            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="" class="fa-solid fa-lock" name="Meu Perfil" /><SideNav link="" class="fa-solid fa-lock" name="Organograma" /></>
         }
         return (
@@ -34,9 +34,9 @@ export default class General extends Component {
                 <ul id="slide-out" className="sidenav sidenav-fixed">
                     <img className="logo" src={LogoMenu} />
                     {Navs}
-                    <SideNav link="/CompletarCadastro" class="fa-solid fa-address-book" name="Completar Cadastro" />
+                    {/*<SideNav link="/CompletarCadastro" class="fa-solid fa-address-book" name="Completar Cadastro" />
                     <SideNav link="/uploadMateriais" class="fa-solid fa-file" name="Upload de Materiais" />
-                    {/*<SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
+                    <SideNav link="" class="fa-solid fa-file" name="Documentos" />*/}
                     <SideNav link="/logout" class="fa-solid fa-arrow-right-from-bracket" name="Sair" />
                 </ul>
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
-import { modaljs } from "../../utils/modal/modal"
+import M from 'materialize-css'
+
 
 type props = {
     type: any,
@@ -20,8 +21,8 @@ class Modal extends Component<props> {
     };
 
     componentDidMount() {
-        modaljs()
 
+        
         axios.get("http://localhost:5000/infocolab/getAll")
             .then((res) => {
                 console.log(res.data)
