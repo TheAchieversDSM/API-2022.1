@@ -316,7 +316,7 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <InputFile stateName="compResidencia" fname={this.handleChange} name="Anexar Comprovante de Residencia"/>
-                                        <Input stateName="copiadocartao"  fname={this.handleChange} div="input-field col s12 m12 l7" id="copiadocartao" class="validate" type="text" name="Copia do Cartão do Banco" />
+                                        <Input stateName="copiadocartao"  fname={this.handleChange} div="input-field col s12 m12 l7" id="copiadocartao" class="validate" type="text" name="Número da Conta Bancária" />
                                     </div>
 
                                     <div className="row">
@@ -330,7 +330,7 @@ class PreCadastro1 extends Component {
 
 
 
-                        <div className="collapsible-header">certificados</div>
+                        <div className="collapsible-header">Certificados</div>
                         <div className=" campo3">
                             <div className="row">
                                 <form className="col s12">
