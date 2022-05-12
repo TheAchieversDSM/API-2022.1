@@ -6,7 +6,7 @@
      <a href="#sobre">Sobre</a> • 
      <a href="#status">Status</a> •
      <a href="#techtools">Ferramentas e Tecnologias</a> •
-     <a href="#backlog-sprint">Backlog das Sprints</a> •
+     <a href="#backlog-sprint">Backlog</a> •
      <a href="#entregas">Entregas • 
      <a href="#equipe">Equipe</a> 
 </p>
@@ -76,7 +76,7 @@ RNF-15 | US-8 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Tr
 RNF-16 | US-9 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
 RNF-17 | - | - | Manual do usuário para navegação | Média | ✔️
  
-#### Backlog da Sprint #1
+#### Backlog - Sprint #1
  
 ID  | Tarefa | Prioridade | Status
 ----|--------|------------|---------- 
@@ -93,6 +93,28 @@ ID  | Tarefa | Prioridade | Status
 #11 | Desenvolvimento do back-end da interface de Novo Colaborador | Alta | ✔️
 #12 | Desenvolvimento do back-end da interface de Organograma | Baixa | ❌
 #20 |	Criar o Manual do Usuário | Média | ✔️
+ 
+##### Requisitos - Sprint #1
+ID | User Story | Sprint | Requisitos | Prioridade | Status 
+---|------------|--------|------------|------------|--------
+RF-1 | US-1 | 1 | Cadastro do colaborador | Alta | ✔️
+RF-2 | US-1 | 1 | Completar cadastro do colaborador | Alta | ✔️
+RF-3 | US-2 | 1 | Visualizar informações fornecidas pelo colaborador | Alta | ✔️
+RF-4 | US-2 | 1 | Atualização das informações do colaborador | Média | 🔲
+RF-5 | US-2 | 1 | Exclusão de colaboradores | Baixa | 🔲
+RNF-1 | US-1 | 1 | Desenvolvimento de banco de dados *MySQL* para armazenamento de dados | Alta | ✔️
+RNF-2 | US-1 | 1 | Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | ✔️
+RNF-2 | US-1 | 1 | Conexão do banco de dados ao sistema | Alta | ✔️
+RNF-3 | US-1 | 1 | Utilizar *Node.JS*, *TypesScript* e *JavaScript* | Alta | ✔️
+RNF-4 | US-1 | 1 | Utilizar a biblioteca *React.js* | Alta | ✔️
+RNF-5 | US-1 | 1 | Limitar acesso de não-colaboradores ao sistema | Média | ✔️
+RNF-6 | US-2 | 1 | Diferentes níveis de acesso no sistema | Alta | ✔️
+RNF-7 | US-2 | 1 | Display de informações gravadas no banco de dados | Alta | ✔️
+RNF-8 | US-2 | 1 | Criação das funções _Delete_ e _Update_ | Alta | 🔲
+ 
+##### User Stories - Sprint #1 
+![US-1](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/user%20stories/us-1.jpg)
+![US-2](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/user%20stories/us-2.jpg)
  
 #### Backlog da Sprint #2
 ID  | Tarefa | Prioridade | Status
