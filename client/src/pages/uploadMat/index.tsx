@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Css from '../../assets/style/style';
 import General from '../../components/general';
 import DisableOption from "../../components/dropdown/disableOption";
@@ -10,6 +11,7 @@ import ButtonMat from "../../components/button/buttonMat";
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
 import Caminho from "../../components/caminho/caminho";
 import Submit from '../../components/button/submit';
+import InputFile from "../../components/input/file";
 
 class UploadMateriais extends Component {
     state = {
@@ -43,6 +45,14 @@ class UploadMateriais extends Component {
         uploadFile(this.state.file)
     }
 
+    handleChange = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
+    };
+
     render() { 
        
         
@@ -72,8 +82,8 @@ class UploadMateriais extends Component {
                                 <Option value="Diretor financeiro" name="Diretor financeiro" />
                             </select>
                                 <form  onSubmit={this.handleSubmit} datatype='multipart/form-data' >
-                                    <input type='file' name='file' onChange={this.handleChangeFile}/>
-                                    <input type = 'submit'/>
+                                <InputFile stateName="rg" fname={this.handleChange} name="Anexar Arquivo"/>  
+                                    <Link to=""><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Enviar" iClass="fa-solid fa-arrow-right-long" /></Link>
                                 </form>
 
                         </div>

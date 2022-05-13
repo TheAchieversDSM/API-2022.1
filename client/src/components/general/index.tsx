@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { appendScript } from "../../utils/append/appendScript";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
-
+import Navbar from "../navbar/Navbar";
 
 // LOCAL CSS
 import './general.css'
@@ -32,6 +32,7 @@ export default class General extends Component {
         }
         return (
             <>
+                <Navbar />
                 <ul id="slide-out" className="sidenav sidenav-fixed">
                     <img className="logo" src={LogoMenu} />
                     {Navs}

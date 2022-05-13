@@ -392,7 +392,11 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
+
+                                  
+
                                         <InputFile stateName="comprovanteResidencia" fname={this.handleChange} name="Anexar Comprovante de Residencia"/>
+
                                     </div>
 
                                     <div className="row">
