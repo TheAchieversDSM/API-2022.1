@@ -88,13 +88,14 @@ label, select, option {
     font-family: source-sans-pro, sans-serif !important;
 }
 
+button > .button-add {
+    background-color: turquoise !important;
+}
+
 span.character-counter{
     display: none;
 }
 
-@media only screen and (max-width : 992px) {
-   
-    
-    
+@media only screen and (max-width : 992px) {    
  }
 

@@ -1,4 +1,4 @@
-import M from 'materialize-css'
+
 export const modaljs = () => {
     console.log("preciso de ajuda.")
     document.addEventListener('DOMContentLoaded', function() {

@@ -5,7 +5,7 @@ User = function (user) {
     this.dep_id = dep_id
 }
 
-User.getUserById = (id, result, head_result) => {
+User.getAllUserInfoById = (id, result, head_result) => {
     db.query("SELECT *, DATE_FORMAT(user_data_nascimento ,'%d/%m/%Y')  AS data_nascimento , YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(user_data_nascimento))) AS idade FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN pessoa_fisica pf INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.con_id = ? AND colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id AND pf.colaborador_con_id = colab.con_id AND qual.colaborador_con_id = colab.con_id AND colab.tipo_contratacao_cont_id = tc.cont_id  ", id, (err, res) => {
         if (err) {
             console.log("error: ", err);

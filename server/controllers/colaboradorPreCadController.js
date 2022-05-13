@@ -10,3 +10,16 @@ exports.updateUser = (req, res) => {
             res.send(err);
     });
 };
+
+exports.insertDocuments = (req,res)=>{
+    Object.keys(req.files).map(file =>{
+  
+    Colaborador.insertDocuments(req.params.id,req.files[file][0].path,req.files[file][0].fieldname,(err,data)=>{
+        if (err){
+            res.send(err)
+        }else{
+            res.send(data)
+        }
+    });
+})
+};

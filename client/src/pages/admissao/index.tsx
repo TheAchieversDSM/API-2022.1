@@ -1,21 +1,24 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import Css from '../../assets/style/style';
+import General from '../../components/general';
+import { getCookie } from '../../utils/cookieUtil/cookieUtil';
+import Caminho from "../../components/caminho/caminho";
 import axios from "axios"
 import M from 'materialize-css'
 
+// IMAGE
+import Icone from "../../assets/img/icone_azul.svg"
 
-type props = {
-    type: any,
-    class: any,
-    id: any,
-    name1: any,
-    name2: any,
-    name3: any,
-    fname: any
-}
+import Input from "../../components/input/input";
+import Check from "../../components/input/check";
+import ButtonMat from "../../components/button/buttonMat";
+import DisableOption from "../../components/dropdown/disableOption";
+import Option from "../../components/dropdown";
+import InputFile from "../../components/input/file";
 
-class Modal extends Component<props> {
+class Admissao extends Component {
+
     state = {
-        departamento: [],
         cargo: [],
         colaboradores: []
     };
@@ -32,15 +35,6 @@ class Modal extends Component<props> {
                 this.setState({colaboradores})
             })
 
-        axios.get(`http://localhost:5000/departamentos/`)
-            .then((res) => {
-                console.log(res.data);
-
-                const departamento = res.data
-
-                this.setState({ departamento })
-            }
-        )
 
         axios.get(`http://localhost:5000/cargos/`)
             .then((res) => {
@@ -53,17 +47,11 @@ class Modal extends Component<props> {
         )  
     }   
 
-    render() {
-        return (
-
+    render(){
+        return(
             <>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
-                <li>
-
-                    <div id="modal1" className="modal modal-fixed-footer">
-                        <div className="modal-content">
+            <General/>
+                    <div className="conteudo">
                             <h4>Dados pessoais</h4>
                             <p>Nome: </p>
                             <p>CPF: </p>
@@ -93,10 +81,7 @@ class Modal extends Component<props> {
 
                             <hr />
 
-                            <select className="browser-default" id="departamento">
-                                <option value="" disabled selected>Departamento</option>
-                                {this.state.departamento.map(departamento => <option key={departamento.dep_id} value={departamento.dep_id}>{departamento.dep_descricao}</option>)}
-                            </select>
+                        <div className="aceitar">
                             <select className="browser-default" id="departamento">
                                 <option value="" disabled selected>Cargo</option>
                                 {this.state.cargo.map(car => <option key={car.car_id} value={car.dep_id}>{car.car_descricao}</option>)}
@@ -105,18 +90,18 @@ class Modal extends Component<props> {
                                 <option value="" disabled selected>Superior</option>
                                 {this.state.colaboradores.map(colaborador => <option key={colaborador.con_id} value={colaborador.con_id}> {colaborador.con_nome} - {colaborador.car_descricao} </option> )} 
                             </select>
+                        
+                        
+                            <a href="#!" className="modal-close waves-effect waves-green btn-flat" >Aceitar</a>
                         </div>
-                        <div className="modal-footer">
-                            <a href="#!" className="modal-close waves-effect waves-green btn-flat">Aceitar</a>
+
+                        <div className="rejeitar">
                             <a href="#!" className="modal-close waves-effect waves-green btn-flat">Rejeitar</a>
                         </div>
-                    </div>
-                </li>
+                    </div> 
             </>
-
         )
     }
 }
 
-
-export default Modal;
+export default Admissao;

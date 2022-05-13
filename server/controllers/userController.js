@@ -1,11 +1,11 @@
 const User = require("../models/user")
 
-exports.getUserById = (req, res) => {
+exports.getAllUserInfoById = (req, res) => {
     const resposta = {
         user: [],
         head_user: []
     }
-    User.getUserById(req.params.id, (err, user) => {
+    User.getAllUserInfoById(req.params.id, (err, user) => {
         if (err)
             res.send(err);
         console.log('Resultado encontrado', user);

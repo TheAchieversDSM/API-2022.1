@@ -14,6 +14,7 @@ import SideNav from "./sidenav";
 
 export default class General extends Component {
     componentDidMount() {
+        appendScript("https://code.jquery.com/jquery-2.1.1.min.js")
         appendScript("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")
         appendScript("https://code.jquery.com/jquery-3.6.0.min.js")
     }
