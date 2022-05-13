@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import "./navbar.css";
 
@@ -32,18 +33,37 @@ export default function Navbar() {
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
+  
         }
       >
         <ul>
           <li>
-            <a href="/home">Home</a>
+            <a href="/Home"><i className="fa-solid fa-house"></i> Home</a>
           </li>
           <li>
-            <a href="/about">Meu Perfil</a>
+            <a href="/MeuPerfil"><i className="fa-solid fa-user"></i> Meu Perfil</a>
           </li>
           <li>
-            <a href="/contact">Cadastro</a>
+            <a href="/Organograma"><i className= "fa-solid fa-location-crosshairs"></i> Organograma</a>
           </li>
+          <li>
+            <a href="/NovoPerfil"><i className="fa-solid fa-user"></i> Novo Perfil</a>
+          </li>
+          <li>
+            <a href="/Notificacao"><i className= "fa-solid fa-message"></i> Notificações</a>
+          </li>
+          <li>
+            <a href="/Funcionario"><i className= "fa-solid fa-people-group"></i> Funcionário</a>
+          </li>
+          <li>
+            <a href="/CompletarCadastro"><i className="fa-solid fa-address-book"></i> Completar</a>
+          </li>
+          <li>
+            <a href="/logout"><i className= "fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+          </li>
+          
+
+
         </ul>
       </div>
     </nav>
