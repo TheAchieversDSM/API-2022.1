@@ -6,7 +6,7 @@
      <a href="#sobre">Sobre</a> • 
      <a href="#status">Status</a> •
      <a href="#techtools">Ferramentas e Tecnologias</a> •
-     <a href="#backlog-sprint">Backlog</a> •
+     <a href="#backlog">Backlog</a> •
      <a href="#entregas">Entregas • 
      <a href="#equipe">Equipe</a> 
 </p>
@@ -29,7 +29,7 @@
  <img src="https://img.shields.io/badge/Slack-292A2D?style=for-the-badge&logo=slack&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Discord-292A2D?style=for-the-badge&logo=discord&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Trello-292A2D?style=for-the-badge&logo=trello&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Figma-292A2D?style=for-the-badge&logo=figma&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/CSS3-292A2D?style=for-the-badge&logo=css3&logoColor=54C5CE"/> <br> <img src="https://img.shields.io/badge/JavaScript-292A2D?style=for-the-badge&logo=javascript&logoColor=54C5CE"/>  <img src="https://img.shields.io/badge/TypeScript-292A2D?style=for-the-badge&logo=typescript&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Node.js-292A2D?style=for-the-badge&logo=nodedotjs&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/React-292A2D?style=for-the-badge&logo=react&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/MySQL-292A2D?style=for-the-badge&logo=mysql&logoColor=54C5CE"/>
 </p>
   
-<span id="backlog-sprint"> 
+<span id="backlog"> 
 
 ### :bar_chart: Backlog
  
@@ -57,7 +57,7 @@ RF-14 | 3 | Cadastro de possíveis novos cargos | Baixa | 🔲
 ID | Sprint | Requisitos | Prioridade | Status 
 ---|--------|------------|------------|--------
 RNF-1 | 1 | Desenvolvimento de banco de dados *MySQL* para armazenamento de dados | Alta | ✔️
-RNF-2 | 1 | Desenho da arquitetura da solução (<a href="https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/wireframe/wireframe%20-%20Ionic%20Health.pdf">Wireframe</a>) | Alta | ✔️
+RNF-2 | 1 | Desenho da arquitetura da solução | Alta | ✔️
 RNF-2 | 1 | Conexão do banco de dados ao sistema | Alta | ✔️
 RNF-3 | 1 | Utilizar *Node.JS*, *TypesScript* e *JavaScript* | Alta | ✔️
 RNF-4 | 1 | Utilizar a biblioteca *React.js* | Alta | ✔️
@@ -76,18 +76,36 @@ RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Tri
 RNF-17 | - | Manual do usuário para navegação | Média | ✔️
  
 ### :clipboard: Estruturação das pastas
-
-<p>:file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc"><strong>DOC</strong></a> - Pasta que contém artefatos de processos importantes para o desenvolvimento da equipe;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/backlog"><strong>backlog</strong></a> - pasta que contém o quanto de esforço foi desempenhado na sprint;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/burndown"><strong>burndown</strong></a> - pasta que contém o quanto de esforço foi desempenhado na sprint;</p>
- <p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/database"><strong>database</strong></a> - pasta que contém todos os modelos de dados desenvolvidos, seja conceitual, lógico ou físico;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/manual"><strong>manual</strong></a> - pasta que contém o manual de software produzido para auxiliar na utilização do sistema;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/user%20stories"><strong>user stories</strong></a> - pasta que contém os user stories criados para um maior entendimento de como desenvolver o software para que realmente ajude a cliente;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/doc/wireframe"><strong>wireframe</strong></a> - pasta que contém o wireframe das telas a serem desenvolvidas no sistema;</p>
- 
-<p>:file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/src"><strong>SRC</strong></a> - Pasta que contém os códigos desenvolvidos separados em mais duas pastas;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/src/client"><strong>client</strong></a> - pasta que contém os códigos referente à parte do <em>front-end</em>;</p>
-<p> | - :open_file_folder: <a href="https://github.com/TheAchieversDSM/API-2022.1/tree/main/src/server"><strong>server</strong></a> - pasta que contém os códigos referente à parte do <em>back-end</em>;</p>
+```bash
+├───doc
+│   ├───sprint 1
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint 2
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint 3
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   └───total
+│       ├───backlog
+│       └───user stories
+└───src
+    ├───client
+    └───server
+```
  
  
 <span id="entregas">
@@ -97,7 +115,7 @@ RNF-17 | - | Manual do usuário para navegação | Média | ✔️
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
-#2 | 25.04.22 - 15.05.22 | :stop_sign: | :stop_sign: | :stop_sign:
+#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | :heavy_check_mark:
 #3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign: | :stop_sign:
 
 <span id="equipe">
