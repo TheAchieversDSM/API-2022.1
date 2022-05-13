@@ -16,6 +16,7 @@ import Organograma from "../pages/organograma";
 import PerfilColab from "../pages/perfilcolab";
 import Funcionario from "../pages/tabela";
 import UploadMateriais from "../pages/uploadMat";
+import Admissao from "../pages/admissao";
 
 
 function Routes() {
@@ -52,9 +53,7 @@ function Routes() {
                 
                 <Route path="/PerfilColaborador/:id" element={<ProtectedRoute redirectTo={"/"}>
                     <AdmPrivateRoute redirectTo={"/home"} >
-
                         <PerfilColab/>
-
                     </AdmPrivateRoute>
                 </ProtectedRoute>} /> 
 
@@ -69,6 +68,10 @@ function Routes() {
                 </ProtectedRoute>} />
 
                 <Route path="/logout" element={<LogoutRoute redirectTo={"/"}/>} />
+
+                <Route path ="/Admissao" element={<ProtectedRoute redirectTo={"/"}>
+                    <Admissao/>
+                </ProtectedRoute>} />
 
             </Switch>
         </BrowserRouter>

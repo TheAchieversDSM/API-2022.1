@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import axios from "axios";
-
 
 // LOCAL CSS
 import './pc1.css'
@@ -16,10 +15,11 @@ import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
 import InputFile from "../../components/input/file";
-
+import InputAdd from "../../utils/inputAdd/inputAdd";
 
 class PreCadastro1 extends Component {
     state = {
+        // INFORMAÇÕES
         nome: String,
         cpf: Number,
         nacionalidade: String,
@@ -43,9 +43,49 @@ class PreCadastro1 extends Component {
         tipoContratacao: String,
         formacao: String,
         cursos: String,
-        linguas: String
+        linguas: String,
+
+        // ANEXOS
+        // DOCUMENTOS PESSOAIS
+        rg: File,
+        carteiraTrabalho: File,
+        cpfFile: File,
+        cnh: File,
+        foto: File,
+        tituloEleitor: File,
+        comprovanteResidencia: File,
+        comprovanteEscolaridade: File,
+
+        // DOCUMENTOS PROFISSIONAIS
+        ensinoFundamental: File,
+        ensinoMedio: File,
+        ensinoSuperior: File,
+        contribuicaoSindical: File,
+        termoPi: File,
+        cartaoPis: File,
+        certificadoReservista: File,
+        atestadoOcupacional: File,
+
+        // DOCUMENTOS DO CÔNJUGE SE CASADO
+        certidaoCasamento: File,
+        rgConjuge: File,
+        cpfConjuge: File,
+
+        // DOCUMENTOS DOS FILHOS SE FOR PAI/MÃE    
+        cerNasc: File,
+        cerVaci: File,
+        comprovanteEscolarFilho: File,
+    
+        // DOCUMENTO SE FORNECER PENSAO
+        pensaoAlimenticia: File
     }
 
+    handleChangeFile = event => {
+        this.setState({
+            [event.target.name]: event.target.files[0],
+        });
+        console.log(this.state);
+    };
     handleChange = event => {
         this.setState({
             ...this.state,
@@ -54,10 +94,9 @@ class PreCadastro1 extends Component {
           console.log(this.state);
     };
 
-
-
     handleSubmit = async (event) => {
         event.preventDefault();
+
         const user = {
             nome: this.state.nome,
             ddd: this.state.ddd,
@@ -93,17 +132,53 @@ class PreCadastro1 extends Component {
             linguas: this.state.linguas,
             id: getCookie("id")
         }
+
+        const anexos = {
+            rg: this.state.rg,
+            carteiraTrabalho: this.state.carteiraTrabalho,
+            cpfFile: this.state.cpfFile,
+            cnh: this.state.cnh,
+            foto: this.state.foto,
+            tituloEleitor: this.state.tituloEleitor,
+            compResidencia: this.state.comprovanteResidencia,
+            compEscolaridade: this.state.comprovanteEscolaridade,
+
+            // DOCUMENTOS PROFISSIONAIS
+            ensinoFundamental: this.state.ensinoFundamental,
+            ensinoMedio: this.state.ensinoMedio,
+            ensinoSuperior: this.state.ensinoSuperior,
+            contribuicaoSindical: this.state.contribuicaoSindical,
+            termoPi: this.state.termoPi,
+            cartaoPis: this.state.cartaoPis,
+            certificadoReservista: this.state.certificadoReservista,
+            atestadoOcupacional: this.state.atestadoOcupacional,
+
+            // DOCUMENTOS DO CÔNJUGE SE CASADO
+            certidaoCasamento: this.state.certidaoCasamento,
+            rgConjuge: this.state.rgConjuge,
+            cpfConjuge: this.state.cpfConjuge,
+
+            // DOCUMENTOS DOS FILHOS SE FOR PAI/MÃE    
+            cerNasc: File,
+            cerVaci: File,
+            comprovanteEscolarFilho: File,
+        
+            // DOCUMENTO SE FORNECER PENSAO
+            pensaoAlimenticia: File
+        }
+        
         const id = getCookie("id")
 
-        axios.put(`http://localhost:5000/precad1/updatecolaborador/${user.id}`, user); {
-            alert("data foi")
+        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
+        
         }
-
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica); {
-            alert("data foi")
-        }
+        
+        } 
+        axios.post(`http://localhost:5000/precad1/insertArquivos/${id}`, anexos); {
+        
+        } 
     };
-
 
     render() {
         return (
@@ -125,6 +200,8 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <Input stateName="nome" fname={this.handleChange} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
+
+                                        <InputAdd label="TESTE"/>
                                     </div>
 
                                     <div className="row">
@@ -165,7 +242,6 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <Input stateName="telefone"  fname={this.handleChange} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -275,11 +351,13 @@ class PreCadastro1 extends Component {
                             <div className="row">
                                 <form className="col s12">
                                     <h5 className="titulo">Dados Acadêmicos</h5>
+                                    
                                     <div className="row">
+                                        
                                         <Input stateName="formacao" fname={this.handleChange} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
+                                        
 
                                         <Input stateName="cursos" fname={this.handleChange} div="input-field col s12 m12 l7 bla" id="cursos" type="text" class="validate" name="Cursos" />
-
 
                                     </div>
 
@@ -298,14 +376,13 @@ class PreCadastro1 extends Component {
                         <div className=" campo2">
                             <div className="row">
                                 <form className="col s12">
-
                                     <div className="row">
                                         <InputFile stateName="rg" fname={this.handleChange} name="Anexar RG"/>
                                         <InputFile stateName="carteiraTrabalho" fname={this.handleChange} name="Anexar Carteira de Trabalho"/>
                                     </div>
-
+     
                                     <div className="row">
-                                        <InputFile stateName="cpf" fname={this.handleChange} name="Anexar CPF"/>
+                                        <InputFile stateName="cpfFile" fname={this.handleChange} name="Anexar CPF"/>
                                         <InputFile stateName="cnh" fname={this.handleChange} name="Anexar CNH"/>
                                     </div>
 
@@ -315,15 +392,17 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <InputFile stateName="compResidencia" fname={this.handleChange} name="Anexar Comprovante de Residencia"/>
-                                        <Input stateName="copiadocartao"  fname={this.handleChange} div="input-field col s12 m12 l7" id="copiadocartao" class="validate" type="text" name="Número da Conta Bancária" />
+
+                                  
+
+                                        <InputFile stateName="comprovanteResidencia" fname={this.handleChange} name="Anexar Comprovante de Residencia"/>
+
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="ComprovanteEscolaridade"  fname={this.handleChange} div="input-field col s12" id="ComprovanteEscolaridade" class="validate" type="text" name="Comprovante de Escolaridade" />
+                                        <InputFile stateName="comprovanteEscolaridade"  fname={this.handleChange} name="Comprovante de Escolaridade" />
 
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -334,7 +413,6 @@ class PreCadastro1 extends Component {
                         <div className=" campo3">
                             <div className="row">
                                 <form className="col s12">
-
                                     <div className="row">
                                         <Input stateName="ensinoFundamental" fname={this.handleChange} div="input-field col s12" id="ensinoFundamental" class="validate" type="text" name="Ensino Fundamental" />
 
@@ -348,10 +426,6 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <Input stateName="ensinoSuperior" fname={this.handleChange} div="input-field col s12" id="ensinoSuperior" class="validate" type="text" name="Ensino Superior" />
                                     </div>
-
-
-
-
                                 </form>
                             </div>
                         </div>

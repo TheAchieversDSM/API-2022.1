@@ -5,9 +5,6 @@ Arquivo = function(arquivo){
     this.doc_link = arquivo.link
 }
 
-
-
-
 Arquivo.insertArquivo = (id,path,result) =>{
 
     db.query(`INSERT INTO documentos(contratado_con_id,doc_link,doc_tipo) VALUES (?,?,'adad')`,[id,path],(err,res)=>{

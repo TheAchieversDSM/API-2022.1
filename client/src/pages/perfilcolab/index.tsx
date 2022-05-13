@@ -12,8 +12,6 @@ import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
 
-
-
 class PerfilColab extends Component {
     
     state = {
@@ -27,7 +25,7 @@ class PerfilColab extends Component {
         if (url[3] == "PerfilColaborador"){ 
             this.state.id = url[4]
         }
-        axios.get(`http://localhost:5000/infocolab/${this.state.id}`)
+        axios.get(`http://localhost:5000/infocolab/allUserInfo/${this.state.id}`)
             .then((res) => {
                 console.log(res.data);
 

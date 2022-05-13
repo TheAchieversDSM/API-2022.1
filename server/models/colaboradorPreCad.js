@@ -1,4 +1,5 @@
 const db = require("../config/dbconfig")
+const { use } = require("../routes/colaboradorPreCadRoute")
 
 Colaborador = function (colaborador) {
         this.con_nome = colaborador.nome,
@@ -13,6 +14,7 @@ Colaborador = function (colaborador) {
         this.end_regiao = colaborador.regiao,
         this.tipo_pessoa = colaborador.tipoContratacao
 }
+
 
 Colaborador.updateUser = (Userdata, Userid, result) => {
     db.query("UPDATE colaborador SET ?  WHERE con_id = ?", [Userdata, Userid], (err, res) => {
@@ -35,6 +37,23 @@ Colaborador.updateUser = (Userdata, Userid, result) => {
             result(null, res);
         }   
     } )
+}
+Colaborador.insertDocuments = (user_id,path,name,result) =>{
+    const data = {
+        contratado_con_id: user_id,
+        doc_link: path,
+        doc_tipo: name,
+    }
+    db.query("INSERT INTO documentos SET ?",data,(err,res)=>{
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else {
+            console.log("Inserido documento");
+            result(null);
+        }  
+    })
 }
 
 
