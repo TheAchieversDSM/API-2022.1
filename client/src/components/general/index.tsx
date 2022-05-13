@@ -33,7 +33,7 @@ export default class General extends Component {
         }
         return (
             <>
-                 <Navbar />
+                <Navbar />
                 <ul id="slide-out" className="sidenav sidenav-fixed">
                     <img className="logo" src={LogoMenu} />
                     {Navs}
