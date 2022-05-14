@@ -37,3 +37,12 @@ exports.getAllUserByDep = (req,res) => {
         res.send(user)
     })
 }
+
+exports.getInfoById = (req,res) => {
+    User.getInfoById(req.params.id,(err,user)=>{
+        if (err)
+            res.send(err)
+        console.log("Encontrado infos", user);
+        res.send(user)
+    })
+}

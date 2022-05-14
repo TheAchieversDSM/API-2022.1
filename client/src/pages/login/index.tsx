@@ -18,8 +18,6 @@ import Submit from "../../components/button/submit";
 
 
 class Login extends Component {
-
-
     state = {
         email: String,
         password: String,
@@ -99,7 +97,7 @@ class Login extends Component {
                             </div>
 
                             <div className="row col-12 center-align">
-                                <Submit fname={this.handleSubmit} title="Log In" />
+                                <Submit id="" fname={this.handleSubmit} title="Log In" />
                             </div>
                         </form>
                     </div>

@@ -1,5 +1,5 @@
 h2{
-    background-color: #53C4CD;
+    background-color: #ACD8DE;
     padding: 5px;
     border-radius: 10px;
     text-align: center;
@@ -16,13 +16,13 @@ h2{
 }
 
 .btn{
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     font-family: coolvetica, sans-serif !important;
 }
 
 .input-field > input{
-    border: 3px solid #53C4CD !important;
+    border: 3px solid #ACD8DE !important;
     border-radius: 30px !important;
 }
 
@@ -42,6 +42,12 @@ label, select, option {
     font-family: source-sans-pro, sans-serif !important;
 }
 
+.waves-effect.waves-light.btn:hover {
+    background-color: #53C4CD !important;
+    cursor: pointer;
+    -webkit-transition: 0.5s !important;
+}
+
 .browser-default{
     margin-bottom: 20px;
 }
@@ -49,5 +55,8 @@ label, select, option {
 .waves-effect.waves-light.btn{
     bottom: 5%;
     left: 40%;
+    background-color: #ACD8DE !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    -webkit-transition: 0.5s;
 }
-

@@ -55,5 +55,26 @@ User.getAllUserByDep = (id,result) => {
     })
 }
 
+User.getInfoById = (id,result) =>{
+    db.query(`SELECT *,DATE_FORMAT(user_data_nascimento ,'%d/%m/%Y') AS data_nascimento FROM colaborador colab INNER JOIN pessoa_fisica pf INNER JOIN qualificacao qual ON colab.con_id =${id} AND pf.colaborador_con_id = colab.con_id AND qual.colaborador_con_id = colab.con_id`,(err,res)=>{
+        if(err){
+            result(null,err)
+        }  
+        else{
+            result(null,res)
+        }
+    } )
+}
+
+User.getDocsById = (id, result) => {
+    db.query(`SELECT * FROM documentos docs WHERE contrado_con_id = ${id}`, (err, res) => {
+        if(err){
+            result(null,err)
+        }  
+        else{
+            result(null,res)
+        }
+    })
+}
 module.exports = User
 

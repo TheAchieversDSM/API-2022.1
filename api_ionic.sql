@@ -84,13 +84,14 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_email` VARCHAR(100) NOT NULL,
-  `con_senha` VARCHAR(20) NOT NULL,
+  `con_senha` VARCHAR(40) NOT NULL,
   `con_nome` VARCHAR(100),
   `con_ddd` INT, 
   `con_telefone` INT,
   `end_rua` VARCHAR(100),
   `end_numero` INT,
   `end_bairro` VARCHAR(100),
+  `end_cidade` VARCHAR(100),
   `end_cep` INT,
   `end_estado` VARCHAR(100),
   `end_complemento` VARCHAR(100),
@@ -121,7 +122,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`documentos` (
   `doc_id` INT NOT NULL AUTO_INCREMENT,
-  `doc_link` VARCHAR(40) NOT NULL,
+  `doc_link` VARCHAR(100) NOT NULL,
   `doc_tipo` VARCHAR(40) NOT NULL,
   `contratado_con_id` INT NOT NULL,
   PRIMARY KEY (`doc_id`),

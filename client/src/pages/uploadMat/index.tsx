@@ -41,9 +41,7 @@ class UploadMateriais extends Component {
         console.log(this.state);
     };
     
-    handleSubmit = async (event) => {
-        uploadFile(this.state.file,"rg")
-    }
+
 
     handleChange = event => {
         this.setState({
@@ -83,7 +81,7 @@ class UploadMateriais extends Component {
                             </select>
                                 <form   datatype='multipart/form-data' >
                                     <input type='file' name='file' onChange={this.handleChangeFile}/>
-                                    <input onClick={this.handleSubmit} type="button"/>
+                                    <input type="button"/>
                                 </form>
 
                         </div>

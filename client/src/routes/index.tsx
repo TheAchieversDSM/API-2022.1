@@ -69,7 +69,7 @@ function Routes() {
 
                 <Route path="/logout" element={<LogoutRoute redirectTo={"/"}/>} />
 
-                <Route path ="/Admissao" element={<ProtectedRoute redirectTo={"/"}>
+                <Route path ="/admissao/:id" element={<ProtectedRoute redirectTo={"/"}>
                     <Admissao/>
                 </ProtectedRoute>} />
 

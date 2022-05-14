@@ -3,6 +3,7 @@ const { use } = require("../routes/colaboradorPreCadRoute")
 
 Colaborador = function (colaborador) {
         this.con_nome = colaborador.nome,
+        this.con_senha = colaborador.novaSenha,
         this.con_ddd = colaborador.ddd,
         this.con_telefone = colaborador.telefone,
         this.end_numero = colaborador.numero,

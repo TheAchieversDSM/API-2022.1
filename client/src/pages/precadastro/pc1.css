@@ -1,5 +1,5 @@
 .titulo {
-    background-color: #53C4CD;
+    background-color: #ACD8DE;
     color: #414042;
     border-radius: 30px;
     padding: 5px 10px 5px 10px;
@@ -62,7 +62,7 @@ p>label {
 }
 
 .btn {
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
@@ -112,6 +112,7 @@ input[type=file]::file-selector-button {
     height: 30px;
     font-weight: bold;
     margin-top: 15px;
+    -webkit-transition: 0.5s;
 }
   
 input[type=file]::file-selector-button:hover {
@@ -120,6 +121,11 @@ input[type=file]::file-selector-button:hover {
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
     cursor: pointer;
+    -webkit-transition: 0.5s;
+}
+
+#vac {
+    margin-left: 10.4px !important;
 }
 
 label,
@@ -128,8 +134,17 @@ option {
     font-family: source-sans-pro, sans-serif !important;
 }
 
-button {
-    background-color: turquoise !important;
+.botao-precad > a {
+    background-color: #ACD8DE !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    -webkit-transition: 0.5s;
+}
+
+.botao-precad > a:hover {
+    background-color: #53C4CD !important;
+    cursor: pointer;
+    -webkit-transition: 0.5s !important;
 }
 
 span.character-counter {

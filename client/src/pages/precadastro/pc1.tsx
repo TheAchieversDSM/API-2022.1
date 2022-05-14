@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import axios from "axios";
 import uploadFile from "../../utils/uploadFiles/uploadFile";
@@ -10,8 +10,11 @@ import './pc1.css'
 // COMPONENTS
 import General from "../../components/general";
 import Input from "../../components/input/input";
+import PessoaJuridicaForm from "../../components/preCadPessoaForm/pessoaJurídica";
 import Check from "../../components/input/check";
 import ButtonMat from "../../components/button/buttonMat";
+import LoginRoute from "../../utils/login/loginAuth";
+import ButtonLink from "../../components/button/buttonLink";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
@@ -21,8 +24,11 @@ class PreCadastro1 extends Component {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
 
+        fomularioEnviado: false,
+        
         // INFORMAÇÕES
         nome: String,
+        novaSenha: String,
         cpf: Number,
         nacionalidade: String,
         naturalidade: String,
@@ -85,7 +91,8 @@ class PreCadastro1 extends Component {
         comprovanteEscolarFilho: File,
 
         // DOCUMENTO SE FORNECER PENSAO
-        pensaoAlimenticia: File
+        pensaoAlimenticia: File,
+
     }
 
     handleChangeFile = event => {
@@ -108,6 +115,7 @@ class PreCadastro1 extends Component {
 
         const user = {
             nome: this.state.nome,
+            novaSenha: this.state.novaSenha,
             ddd: this.state.ddd,
             telefone: this.state.telefone,
             rua: this.state.rua,
@@ -141,6 +149,20 @@ class PreCadastro1 extends Component {
             id: getCookie("id")
         }
 
+        if(getCookie("tipoPessoa") == "Juridica"){
+            const pessoaJuridica={
+                nomeEmpresa: this.state.nomeEmpresa,
+                cnpj: this.state.cnpj,
+                naturezajuridica: this.state.naturezajuridica,
+                dataFundacao: this.state.dataFundacao,
+                tempoFormalizacao: this.state.tempoFormalizacao,
+                id: getCookie("id")
+            }
+             axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
+
+             }  
+        }
+
         const anexos = {
             rg: this.state.rg,
             carteiraTrabalho: this.state.carteiraTrabalho,
@@ -148,8 +170,8 @@ class PreCadastro1 extends Component {
             cnh: this.state.cnh,
             foto: this.state.foto,
             tituloEleitor: this.state.tituloEleitor,
-            compResidencia: this.state.comprovanteResidencia,
-            compEscolaridade: this.state.comprovanteEscolaridade,
+            comprovanteResidencia: this.state.comprovanteResidencia,
+            comprovanteEscolaridade: this.state.comprovanteEscolaridade,
 
             // DOCUMENTOS PROFISSIONAIS
             ensinoFundamental: this.state.ensinoFundamental,
@@ -174,32 +196,44 @@ class PreCadastro1 extends Component {
             // DOCUMENTO SE FORNECER PENSAO
             pensaoAlimenticia: File
         }
-
+            
         const id = getCookie("id")
 
-        // axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
+        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
 
-        // }
-        // axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica); {
-
-        // }    
-        //axios.post("http://localhost:5000/precad1/insertInfoAcademica",infoAcademica){
-
-        //}
-
-        Object.keys(anexos).map(anexo => {
-            console.log(anexos[anexo]);
-            console.log(anexo);
-            if (anexos[anexo] != null || anexos[anexo] != undefined) {
-                uploadFile(anexos[anexo], anexo)
-            }
+        }
+        axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res)=>{
+            
         })
+        axios.post("http://localhost:5000/precad1/insertInfoAcademica",infoAcademica).then((res)=>{
+            
+        })
+         
+        uploadFile(anexos)
+
+        window.open("/home")
+        window.close()
+        
     };
 
+    redirect = () => {
+        if (this.state.fomularioEnviado == true) {
+            return <Navigate to="/home"/>
+        }
+        else {
+            return (null)
+        }
+    }
+
     render() {
-        let tipoPessoa = getCookie("tipoPessoa")
+       
+        let form
+        if(getCookie("tipoPessoa") == "Juridica"){
+            form = <PessoaJuridicaForm fname={this.handleChange}/>
+        }
         return (
             <>
+             
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
                 <script src="https://kit.fontawesome.com/4d3a0277e3.js" />
 
@@ -212,11 +246,16 @@ class PreCadastro1 extends Component {
                         <div className="collapsible-header"><h6>Formulário</h6></div>
                         <div className="campo1">
                             <div className="row">
+                                {form}
                                 <h5 className="titulo">Dados Pessoais</h5>
                                 <form className="col s12">
 
                                     <div className="row">
                                         <Input stateName="nome" fname={this.handleChange} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input stateName="novaSenha" fname={this.handleChange} div="input-field col s12" id="novaSenha" class="validate" type="password" name="Nova Senha" />
                                     </div>
 
                                     <div className="row">
@@ -255,6 +294,7 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
+                                        <Input stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="DDD" />
                                         <Input stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
                                     </div>
                                 </form>
@@ -530,8 +570,6 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-
-
                         <div className="collapsible-header"><h6>Filhos</h6></div>
                         <div className="campo6">
                             <div className="row">
@@ -544,7 +582,7 @@ class PreCadastro1 extends Component {
                                         </div>
                                             
                                         <div className="row">
-                                            <div className="file">
+                                            <div className="file" id="vac">
                                                 <label>Certidão de Vacinação</label>
                                                 <input type="file" name="certidaoVacFilho" onChange={this.handleChangeFile} />
                                             </div>
@@ -564,19 +602,13 @@ class PreCadastro1 extends Component {
                                             <input type="file" name="pensao" onChange={this.handleChangeFile} />
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
 
-
-
-                        <Link to="/PreCad2"><ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long" /></Link>
+                        <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
                     </div>
                 </div>
-
-
-
             </>
         )
     }

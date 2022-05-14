@@ -59,8 +59,11 @@ class NovoPerfil extends Component {
                                 <Option value="Fisica" name="Pessoa Física" />
                                 <Option value="Juridica" name="Pessoa Jurídica" />
                             </select>
+    
+                            <div className="botao-novoperfil">
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+                            </div>
 
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
                         </div>
                     </div>
                 </div>

@@ -17,15 +17,28 @@ import Option from "../../components/dropdown";
 import InputFile from "../../components/input/file";
 import Submit from "../../components/button/submit";
 import Text from "../../components/textarea/index"
+import './admissao.css'
 
 class Admissao extends Component {
 
     state = {
         cargo: [],
+        colaborador: [],
         colaboradores: []
     };
 
     componentDidMount() {
+        let url = window.location.href.split("/")
+        var id = url[4]
+
+        axios.get(`http://localhost:5000/infocolab/getInfoById/${id}`)
+        .then((res)=>{
+                const colaborador = res.data
+                console.log( res.data);
+                
+
+                this.setState({colaborador})
+        })
         axios.get("http://localhost:5000/infocolab/getAll")
             .then((res) => {
                 console.log(res.data)
@@ -49,36 +62,38 @@ class Admissao extends Component {
         return(
             <>
             <General/>
-                    <div className="conteudo">
+          <div className="conteudo">
+          {this.state.colaborador.map(info => <div key={info.colaborador_con_id }>
                             <h4>Dados pessoais</h4>
-                            <p>Nome: </p>
-                            <p>CPF: </p>
-                            <p>Nacionalidade: </p>
-                            <p>Naturalidade: </p>
-                            <p>Raça: </p>
-                            <p>Gênero:</p>
-                            <p>Data de Nascimento: </p>
+                            <p><label>  Nome:</label> {info.con_nome} </p>
+                            <p><label htmlFor="">CPF:</label> {info.user_cpf} </p>
+                            <p><label htmlFor="">Nacionalidade:</label> {info.user_nacionalidade}</p>
+                            <p><label htmlFor="">Naturalidade:</label> {info.user_naturalidade}</p>
+                            <p><label htmlFor="">Raça:</label> {info.user_raca}</p>
+                            <p><label htmlFor="">Gênero:</label> {info.user_genero}</p>
+                            <p><label htmlFor="">Data de</label> Nascimento: {info.data_nascimento}</p>
 
                             <hr />
 
                             <h4>Contato</h4>
-                            <p>E-mail: </p>
-                            <p>DDD: </p>
-                            <p>Telefone: </p>
+                            <p><label htmlFor="">E-mail</label>: {info.con_email}</p>
+                            <p><label htmlFor="">DDD:</label> {info.con_ddd}</p>
+                            <p><label htmlFor="">Telefone:</label> {info.con_telefone}</p>
 
                             <hr />
 
                             <h4>Endereço</h4>
-                            <p>Rua: </p>
-                            <p>Complemento: </p>
-                            <p>Bairro: </p>
-                            <p>CEP: </p>
-                            <p>Cidade: </p>
-                            <p>Estado: </p>
-                            <p>Região: </p>
-
+                            <p><label htmlFor="">Rua:</label> {info.end_rua}</p>
+                            <p><label htmlFor="">Complemento:</label> {info.end_complemento}</p>
+                            <p><label htmlFor="">Bairro:</label> {info.end_bairro}</p>
+                            <p><label htmlFor="">CEP:</label> {info.end_cep}</p>
+                            <p><label htmlFor="">Cidade:</label> {info.end_cidade}</p>
+                            <p><label htmlFor="">Estado:</label> {info.end_estado}</p>
+                            <p><label htmlFor="">Região:</label> {info.end_regiao}</p>
                             <hr />
-
+                            
+                            </div>
+                            )}
                         <div className="aceitar">
                             <div className="row">
                                 <div className="col s12">
@@ -108,15 +123,16 @@ class Admissao extends Component {
                                     <Check value="4" name="Auxílio Creche"/>
                                     </div> */}    
                             </div>
-                            <Submit title="Aceitar" fname=""/>
+                            <Submit id="res" title="Aceitar" fname=""/>
                         </div>
 
                         <div className="rejeitar">
 
-                            <Text id=""/>            
-                            <Submit title="Rejeitar" fname=""/>
+                            {/*<Text id=""/>*/}
+                            <Submit id="rejeitar" title="Rejeitar" fname=""/>
                             
                         </div>
+                     
                     </div> 
             </>
         )

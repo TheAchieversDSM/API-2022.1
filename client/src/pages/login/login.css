@@ -13,8 +13,6 @@ main {
     align-items: center;
 }
 
-
-
 span {
     color: white !important;
 }
@@ -39,21 +37,22 @@ span {
     grid-template-columns: 1fr 1fr;
 }
 
-.col-12 > button {
+.btn.btn-primary {
     margin-left: auto;
     width: 300px;
-    color: #000000;
-    background-color: #53C4CD;
-    border: 2px solid #53C4CD;
+    color: #414042 ;
+    background-color: #ACD8DE;
+    border: 2px solid #ACD8DE;
     border-radius: 20px;
-    -webkit-transition: 1s;
+    -webkit-transition: 0.5s;
 }
 
-.col-12 > button:hover {
-    color: #000000;
-    background-color: #21ebe7;
-    border: 2px solid #21ebe7;
+.btn.btn-primary:hover {
+    color: #414042 ;
+    background-color: #ACD8DE;
+    border: 2px solid #ACD8DE;
     border-radius: 20px;
+    -webkit-transition: 0.5s;
 }
 
 .bloco{

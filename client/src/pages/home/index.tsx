@@ -93,21 +93,21 @@ class Home extends Component {
         }
         else {
            return(
-           <>
-                <General />
+                <>
+                    <General />
 
-                <Css ref="./home.css" />
-                <div className="conteudo">
-                <div className="imagem">
-                            <img className="logo1" src={Icone} />
-                        </div>
+                    <Css ref="./home.css" />
+                    <div className="conteudo">
+                    <div className="imagem">
+                                <img className="logo1" src={Icone} />
+                            </div>
 
-                    <div className="mensagem">
-                        <div>
-                            <h1>BEM-VINDO, COLABORADOR!</h1>
+                        <div className="mensagem">
+                            <div>
+                                <h1>BEM-VINDO, COLABORADOR!</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div className='redes-sociais'>
+                        <div className='redes-sociais'>
                             <div className='redes-texto'>
                                 <h5>SIGA AS REDES SOCIAS</h5>
                             </div>
@@ -120,8 +120,8 @@ class Home extends Component {
                             </div>
 
                         </div>
-                </div>
-            </>
+                    </div>
+                </>
            )
         }
     }

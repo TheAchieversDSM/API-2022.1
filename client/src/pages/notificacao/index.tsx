@@ -53,15 +53,13 @@ class Notificacao extends Component {
                     <h3>Notificações</h3>
                     {this.state.notificacao.map(notif => 
                     <>
-                    <div key={notif.notificacao_id} className="not row">
+                        <div key={notif.notificacao_id} className="not row">
 
-                        <h5 className="col s6">{this.axiosget(notif.user_id)}</h5>
-                        
-                        <Link to="/admissao"><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6" name="Visualizar!" iClass="" /></Link>
-                    </div><ul>
-                         
-                        </ul>
-                        </>
+                            <h5 className="col s6">{notif.con_nome}</h5>
+                            
+                            <Link to={`/admissao/${notif.con_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
+                        </div>
+                    </>
                     )}
                 </div>
             </>

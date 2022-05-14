@@ -12,9 +12,9 @@ exports.getUserByEmail = (req, res) => {
             res.send(err);
         } else {
             console.log(user);
-            if (Object.keys(user).length === 0) {
+            if (user.length === 0) {
                 res.send("Usuário Inválido!")
-                console.log("error");
+                console.log("Usuario invalido");
             } else {
                 var id = user[0].con_id
                 console.log(id);
