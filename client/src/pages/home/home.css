@@ -49,8 +49,7 @@ h4 {
 }
 
 .redes-icons i:hover{
-    background-color: #ACD8DE;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+    color: #53C4CD;
 }
 
 @media only screen and (max-width : 992px) {

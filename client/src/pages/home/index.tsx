@@ -44,10 +44,10 @@ class Home extends Component {
                             </div>
 
                             <div className='redes-icons'>
-                                <i className="fa-brands fa-facebook fa-3x"></i>
-                                <i className="fa-brands fa-instagram fa-3x"></i>
-                                <i className="fa-brands fa-youtube fa-3x"></i>
-                                <i className="fa-brands fa-linkedin fa-3x"></i>
+                                <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
+                                <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 
                         </div>
@@ -80,10 +80,10 @@ class Home extends Component {
                             </div>
 
                             <div className='redes-icons'>
-                                <i className="fa-brands fa-facebook fa-3x"></i>
-                                <i className="fa-brands fa-instagram fa-3x"></i>
-                                <i className="fa-brands fa-youtube fa-3x"></i>
-                                <i className="fa-brands fa-linkedin fa-3x"></i>
+                            <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
+                                <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 
                         </div>
@@ -113,10 +113,10 @@ class Home extends Component {
                             </div>
 
                             <div className='redes-icons'>
-                                <i className="fa-brands fa-facebook fa-3x"></i>
-                                <i className="fa-brands fa-instagram fa-3x"></i>
-                                <i className="fa-brands fa-youtube fa-3x"></i>
-                                <i className="fa-brands fa-linkedin fa-3x"></i>
+                                <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
+                                <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 
                         </div>

@@ -30,8 +30,8 @@ class Login extends Component {
         this.setState({
             ...this.state,
             [event.target.name]: event.target.value
-          });
-          console.log(this.state);
+        });
+        console.log(this.state);
     };
 
     handleSubmit = async (event) => {
@@ -48,11 +48,12 @@ class Login extends Component {
                 setCookie("id", response.data.user[0].con_id);
                 if (response.data.user[0].con_nome == null) {
                     setCookie("firstAcess", true)
-                }else if(response.data.user[0].cargo_car_id == null){
+                    setCookie("tipoPessoa", response.data.user[0].tipo_pessoa)
+                } else if (response.data.user[0].cargo_car_id == null) {
                     setCookie("aguardoConfirmacao", true)
-                } 
+                }
                 else {
-                    setCookie("nivel",nivelCheck(response.data.nivel_id[0].car_nivel_acesso));
+                    setCookie("nivel", nivelCheck(response.data.nivel_id[0].car_nivel_acesso));
                 }
                 this.setState({
                     loggedin: true
