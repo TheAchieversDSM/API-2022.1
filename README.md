@@ -7,7 +7,8 @@
      <a href="#status">Status</a> •
      <a href="#techtools">Ferramentas e Tecnologias</a> •
      <a href="#backlog">Backlog</a> •
-     <a href="#entregas">Entregas • 
+     <a href="#entregas">Entregas</a> • 
+     <a href="estrutura-pastas">Estruturação das Pastas</a> • 
      <a href="#equipe">Equipe</a> 
 </p>
 
@@ -74,6 +75,9 @@ RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding 
 RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
 RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
 RNF-17 | - | Manual do usuário para navegação | Média | ✔️
+ 
+ 
+<span id="estrutura-pastas">
  
 ### :clipboard: Estruturação das pastas
 ```bash
