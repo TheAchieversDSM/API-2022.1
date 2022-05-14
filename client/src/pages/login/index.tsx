@@ -9,7 +9,7 @@ import nivelCheck from "../../utils/nivelCheck/nivelCheck";
 import './login.css'
 
 // IMAGE
-import LogoLogin from "../../assets/img/logo_fundo_claro.svg"
+import LogoLogin from "../../assets/img/logo_para_fundo_claro.svg"
 
 // COMPONENTS
 import Input from "../../components/input/input";
