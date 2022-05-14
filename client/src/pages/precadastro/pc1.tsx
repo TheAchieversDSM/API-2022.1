@@ -15,8 +15,6 @@ import ButtonMat from "../../components/button/buttonMat";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
-import InputFile from "../../components/input/file";
-import InputAdd from "../../utils/inputAdd/inputAdd";
 
 class PreCadastro1 extends Component {
     state = {
@@ -44,10 +42,16 @@ class PreCadastro1 extends Component {
         regiao: String,
         estadoCivil: String,
         filho: String,
-        tipoContratacao: String,
         formacao: String,
         cursos: String,
         linguas: String,
+
+        // INFORMAÇÕES SE PESSOA JURÍDICA
+        nomeEmpresa: String,
+        cnpj: Number,
+        naturezajuridica: String,
+        dataFundacao: Date,
+        tempoFormalizacao: Number,
 
         // ANEXOS
         // DOCUMENTOS PESSOAIS
@@ -114,7 +118,6 @@ class PreCadastro1 extends Component {
             cidade: this.state.cidade,
             estado: this.state.estado,
             regiao: this.state.regiao,
-            tipoContratacao: this.state.tipoContratacao,
             id: getCookie("id"),
         }
 
@@ -195,7 +198,6 @@ class PreCadastro1 extends Component {
 
     render() {
         let tipoPessoa = getCookie("tipoPessoa")
-        if (tipoPessoa == "Física" )
         return (
             <>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -207,7 +209,7 @@ class PreCadastro1 extends Component {
 
                 <div className="conteudo">
                     <div className="row">
-                        <div className="collapsible-header">Formulário</div>
+                        <div className="collapsible-header"><h6>Formulário</h6></div>
                         <div className="campo1">
                             <div className="row">
                                 <h5 className="titulo">Dados Pessoais</h5>
@@ -215,8 +217,6 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <Input stateName="nome" fname={this.handleChange} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
-
-                                        <InputAdd label="TESTE" />
                                     </div>
 
                                     <div className="row">
@@ -385,95 +385,114 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-                        <div className="collapsible-header">Documentos Pessoais</div>
+                        <div className="collapsible-header"><h6>Documentos Pessoais</h6></div>
                         <div className=" campo2">
                             <div className="row">
                                 <form className="col s12" datatype='multipart/form-data'>
                                     <div className="row">
-                                        <label>RG</label>
-                                        <input type="file" name="rg" onChange={this.handleChangeFile} />
-
-                                        <label>Carteira de Trabalho</label>
-                                        <input type="file" name="carteiraTrabalho" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>RG</label>
+                                            <input type="file" name="rg" onChange={this.handleChangeFile} />
+                                            <label>Carteira de Trabalho</label>
+                                            <input type="file" name="carteiraTrabalho" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>CPF</label>
-                                        <input type="file" name="cpfFile" onChange={this.handleChangeFile} />
-
-                                        <label>Carteira de Motorista</label>
-                                        <input type="file" name="cnh" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>CPF</label>
+                                            <input type="file" name="cpfFile" onChange={this.handleChangeFile} />
+                                            <label>Carteira de Motorista</label>
+                                            <input type="file" name="cnh" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
-                                    <div className="row">
-                                        <label>Foto 3x4</label>
-                                        <input type="file" name="foto" onChange={this.handleChangeFile} />
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Foto 3x4</label>
+                                                <input type="file" name="foto" onChange={this.handleChangeFile} />
+                                                <label>Título de Eleitor</label>
+                                                <input type="file" name="tituloEleitor" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
 
-                                        <label>Título de Eleitor</label>
-                                        <input type="file" name="tituloEleitor" onChange={this.handleChangeFile} />
-                                    </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Comprovante de Residência</label>
+                                                <input type="file" name="comprovanteResidencia" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
 
-                                    <div className="row">
-                                        <label>Comprovante de Residência</label>
-                                        <input type="file" name="comprovanteResidencia" onChange={this.handleChangeFile} />
-                                    </div>
-
-                                    <div className="row">
-                                        <label>Comprovante de Escolaridade</label>
-                                        <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
-                                    </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Comprovante de Escolaridade</label>
+                                                <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
                                 </form>
                             </div>
                         </div>
 
 
 
-                        <div className="collapsible-header">Certificados</div>
+                        <div className="collapsible-header"><h6>Certificados</h6></div>
                         <div className=" campo3">
                             <div className="row">
                                 <form className="col s12" datatype='multipart/form-data'>
                                     <div className="row">
-                                        <label>Ensino Fundamental</label>
-                                        <input type="file" name="ensinoFundamental" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Ensino Fundamental</label>
+                                            <input type="file" name="ensinoFundamental" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Ensino Médio</label>
-                                        <input type="file" name="ensinoMedio" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Ensino Médio</label>
+                                            <input type="file" name="ensinoMedio" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Ensino Superior</label>
-                                        <input type="file" name="ensinoSuperior" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Ensino Superior</label>
+                                            <input type="file" name="ensinoSuperior" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
 
-                        <div className="collapsible-header">Documentos Profissionais</div>
+                        <div className="collapsible-header"><h6>Documentos Profissionais</h6></div>
                         <div className="campo4">
                             <div className="row">
                                 <form className="col s12" datatype='multipart/form-data'>
 
                                     <div className="row">
-                                        <label>Contribuição Sindical</label>
-                                        <input type="file" name="contribuicao" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Contribuição Sindical</label>
+                                            <input type="file" name="contribuicao" onChange={this.handleChangeFile} />
+                                        
 
                                         <label>Termo de PI</label>
                                         <input type="file" name="termo" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Cartão do PIS</label>
-                                        <input type="file" name="pis" onChange={this.handleChangeFile} />
-
-                                        <label>Certificado de Reservista</label>
-                                        <input type="file" name="reservista" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Cartão do PIS</label>
+                                            <input type="file" name="pis" onChange={this.handleChangeFile} />
+                                            <label>Certificado de Reservista</label>
+                                            <input type="file" name="reservista" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Atestado de Saúde Ocupacional</label>
-                                        <input type="file" name="atestadoSaude" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Atestado de Saúde Ocupacional</label>
+                                            <input type="file" name="atestadoSaude" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                 </form>
@@ -482,24 +501,30 @@ class PreCadastro1 extends Component {
 
 
 
-                        <div className="collapsible-header">Estado Civil</div>
+                        <div className="collapsible-header"><h6>Estado Civil</h6></div>
                         <div className=" campo5">
                             <div className="row">
                                 <form className="col s12" datatype='multipart/form-data'>
 
                                     <div className="row">
-                                        <label>Certidao de Casamento</label>
-                                        <input type="file" name="certidaoCasamento" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Certidao de Casamento</label>
+                                            <input type="file" name="certidaoCasamento" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>RG do Cônjuge</label>
-                                        <input type="file" name="rgConjuge" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>RG do Cônjuge</label>
+                                            <input type="file" name="rgConjuge" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>CPF do Cônjuge</label>
-                                        <input type="file" name="cpfConjuge" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>CPF do Cônjuge</label>
+                                            <input type="file" name="cpfConjuge" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -507,29 +532,37 @@ class PreCadastro1 extends Component {
 
 
 
-                        <div className="collapsible-header">Filhos</div>
+                        <div className="collapsible-header"><h6>Filhos</h6></div>
                         <div className="campo6">
                             <div className="row">
                                 <form className="col s12" datatype='multipart/form-data'>
 
                                     <div className="row">
-                                        <label>Certidão de Nascimento</label>
-                                        <input type="file" name="certidaoNascFilho" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Certidão de Nascimento</label>
+                                            <input type="file" name="certidaoNascFilho" onChange={this.handleChangeFile} />
+                                        </div>
+                                            
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Certidão de Vacinação</label>
+                                                <input type="file" name="certidaoVacFilho" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Certidão de Vacinação</label>
-                                        <input type="file" name="certidaoVacFilho" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Comprovante de Frequência Escolar</label>
+                                            <input type="file" name="comproEscolar" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <label>Comprovante de Frequência Escolar</label>
-                                        <input type="file" name="comproEscolar" onChange={this.handleChangeFile} />
-                                    </div>
-
-                                    <div className="row">
-                                        <label>Pensão Alimentícia</label>
-                                        <input type="file" name="pensao" onChange={this.handleChangeFile} />
+                                        <div className="file">
+                                            <label>Pensão Alimentícia</label>
+                                            <input type="file" name="pensao" onChange={this.handleChangeFile} />
+                                        </div>
                                     </div>
 
                                 </form>

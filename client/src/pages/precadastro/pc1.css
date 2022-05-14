@@ -81,8 +81,45 @@ form>div {
     margin: 0px !important;
 }
 
+.collapsible-header > h6 {
+    font-weight: bold;
+    font-size: 35px;
+}
+
 .input-field input[type=text].valid {
     border: 3px solid #00e676 !important;
+}
+
+.file {
+    display: grid;
+    grid: 1fr
+}
+
+.file > label {
+    color: #414042;
+    font-size: 18px;
+}
+
+.file > input {
+    margin-bottom: 25px;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #ACD8DE !important;
+    border-radius: 5px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+  
+input[type=file]::file-selector-button:hover {
+    background-color: #53C4CD !important;
+    border-radius: 5px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    cursor: pointer;
 }
 
 label,
@@ -93,13 +130,6 @@ option {
 
 button {
     background-color: turquoise !important;
-}
-
-form>.row>input[type=file] {
-    display: grid;
-    grid-template-columns: 1fr 1fr !important;
-    margin-bottom: 15px !important;
-    border-radius: 30px !important;
 }
 
 span.character-counter {
