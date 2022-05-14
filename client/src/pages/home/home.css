@@ -56,11 +56,19 @@ h4 {
     .conteudo{
         width: 100%;
         padding: 0;
+        
     
     }
 
     .mensagem{
         width: 100%;
-    
+    }
+    h1{
+        font-size: 200%;
+    }
+
+    .redes-icons i{
+        width: 40%;
+        display: inline;
     }
  }

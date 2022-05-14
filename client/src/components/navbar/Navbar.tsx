@@ -4,6 +4,10 @@ import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import SideNav from "../general/sidenav";
 import "./navbar.css";
 
+
+// IMAGE 
+import LogoMenu from "../../assets/img/logo_correto_geral.svg"
+
 export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     let Navs
@@ -21,25 +25,15 @@ export default function Navbar() {
             <a href="/" className="brand-name">
 
             </a>
+
+            <img className="logo" src={LogoMenu} />
             <button
                 className="hamburger"
                 onClick={() => {
                     setIsNavExpanded(!isNavExpanded);
                 }}
             >
-                {/* icon from Heroicons.com */}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="white"
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                        clipRule="evenodd"
-                    />
-                </svg>
+               <i className="fa-solid fa-bars"></i>
             </button>
             <div
                 className={
