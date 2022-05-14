@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Css from '../../assets/style/style';
 import General from '../../components/general';
 import DisableOption from "../../components/dropdown/disableOption";
@@ -10,6 +11,7 @@ import ButtonMat from "../../components/button/buttonMat";
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
 import Caminho from "../../components/caminho/caminho";
 import Submit from '../../components/button/submit';
+import InputFile from "../../components/input/file";
 
 class UploadMateriais extends Component {
     state = {
@@ -42,6 +44,14 @@ class UploadMateriais extends Component {
     handleSubmit = async (event) => {
         uploadFile(this.state.file,"rg")
     }
+
+    handleChange = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
+    };
 
     render() { 
        
