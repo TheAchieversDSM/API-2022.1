@@ -56,8 +56,7 @@ p > label{
 
 .file-field.input-field > .btn{
     border-radius: 0px !important ; 
-    border: 0px !important;
-    
+    border: 0px !important;  
 }
 
 .btn{
@@ -88,8 +87,24 @@ label, select, option {
     font-family: source-sans-pro, sans-serif !important;
 }
 
-button > .button-add {
+button {
     background-color: turquoise !important;
+}
+
+form > .row > input[type=file] {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+    margin-bottom: 15px !important;
+    border-radius: 30px !important;
+}
+
+label[type=file] {
+    display: block !important;
+    margin-bottom: 1em !important;
+    font-size: 1em !important;
+    color: #fff !important;
+    opacity: .9 !important;
+    font-weight: bold !important;
 }
 
 span.character-counter{

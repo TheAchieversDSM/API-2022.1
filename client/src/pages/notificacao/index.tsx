@@ -57,7 +57,7 @@ class Notificacao extends Component {
 
                         <h5 className="col s6">{this.axiosget(notif.user_id)}</h5>
                         
-                        <Link to="/Admissão"><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6" name="Visualizar!" iClass="" /></Link>
+                        <Link to="/admissao"><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6" name="Visualizar!" iClass="" /></Link>
                     </div><ul>
                          
                         </ul>

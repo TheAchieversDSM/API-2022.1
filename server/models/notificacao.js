@@ -12,7 +12,6 @@ Notificacao.getAll = (result) =>{
             result(null,err);
         }
         else {
-            console.log("Encontrado as Notificações");
             result(null, res);
         }
     })

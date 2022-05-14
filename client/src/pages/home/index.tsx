@@ -13,8 +13,10 @@ import Icone from "../../assets/img/icone_azul.svg"
 class Home extends Component {
 
     render() {
+
         const firstAcess = getCookie("firstAcess") != null;
         const aguardoConfirmacao = getCookie("aguardoConfirmacao") != null;
+        
         if (firstAcess == true){
             return (
                 <>
@@ -62,11 +64,28 @@ class Home extends Component {
                     <Css ref="./pc3.css" />
 
                     <div className="conteudo">
+                    <div className="imagem">
+                            <img className="logo1" src={Icone} />
+                        </div>
+
                         <div className="mensagem">
                             <div>
                                 <h1>INFORMAÇÕES COMPLETAS!</h1>
                                 <h4>Por favor, aguarde a aprovação do cadastro</h4>
                             </div>
+                        </div>
+                        <div className='redes-sociais'>
+                            <div className='redes-texto'>
+                                <h5>SIGA AS REDES SOCIAS</h5>
+                            </div>
+
+                            <div className='redes-icons'>
+                                <i className="fa-brands fa-facebook fa-3x"></i>
+                                <i className="fa-brands fa-instagram fa-3x"></i>
+                                <i className="fa-brands fa-youtube fa-3x"></i>
+                                <i className="fa-brands fa-linkedin fa-3x"></i>
+                            </div>
+
                         </div>
                     </div>
                 </>
@@ -79,11 +98,28 @@ class Home extends Component {
 
                 <Css ref="./home.css" />
                 <div className="conteudo">
+                <div className="imagem">
+                            <img className="logo1" src={Icone} />
+                        </div>
+
                     <div className="mensagem">
                         <div>
                             <h1>BEM-VINDO, COLABORADOR!</h1>
                         </div>
                     </div>
+                    <div className='redes-sociais'>
+                            <div className='redes-texto'>
+                                <h5>SIGA AS REDES SOCIAS</h5>
+                            </div>
+
+                            <div className='redes-icons'>
+                                <i className="fa-brands fa-facebook fa-3x"></i>
+                                <i className="fa-brands fa-instagram fa-3x"></i>
+                                <i className="fa-brands fa-youtube fa-3x"></i>
+                                <i className="fa-brands fa-linkedin fa-3x"></i>
+                            </div>
+
+                        </div>
                 </div>
             </>
            )

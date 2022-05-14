@@ -40,7 +40,7 @@ class UploadMateriais extends Component {
     };
     
     handleSubmit = async (event) => {
-        uploadFile(this.state.file)
+        uploadFile(this.state.file,"rg")
     }
 
     render() { 
@@ -71,9 +71,9 @@ class UploadMateriais extends Component {
                                 <Option value="Diretor de Marketing" name="Diretor de Marketing" />
                                 <Option value="Diretor financeiro" name="Diretor financeiro" />
                             </select>
-                                <form  onSubmit={this.handleSubmit} datatype='multipart/form-data' >
+                                <form   datatype='multipart/form-data' >
                                     <input type='file' name='file' onChange={this.handleChangeFile}/>
-                                    <input type = 'submit'/>
+                                    <input onClick={this.handleSubmit} type="button"/>
                                 </form>
 
                         </div>

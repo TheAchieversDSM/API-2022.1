@@ -1,6 +1,7 @@
 const express = require('express');
 const colaboradorController = require("../controllers/colaboradorPreCadController");
 const pessoaFisicaController = require("../controllers/pessoaFisicaController")
+const infoAcademica = require("../controllers/infoAcademicaController")
 const router = require("express").Router()
 const multer = require("multer")
 
@@ -52,7 +53,7 @@ router.post('/insertArquivos/:id',upload.fields([
 ]),colaboradorController.insertDocuments)
 
 router.put('/updatecolaborador/:id', colaboradorController.updateUser)
-
+router.post('/insertInfoAcademica',infoAcademica.createInfoAcademica )
 router.post('/insertpessoafisica', pessoaFisicaController.createPessoaFisica)
 
 module.exports = router

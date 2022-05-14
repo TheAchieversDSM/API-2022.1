@@ -13,7 +13,7 @@ exports.updateUser = (req, res) => {
 
 exports.insertDocuments = (req,res)=>{
     Object.keys(req.files).map(file =>{
-  
+        console.log(file);
     Colaborador.insertDocuments(req.params.id,req.files[file][0].path,req.files[file][0].fieldname,(err,data)=>{
         if (err){
             res.send(err)

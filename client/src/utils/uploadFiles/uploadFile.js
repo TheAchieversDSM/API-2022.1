@@ -1,15 +1,13 @@
 import axios from "axios"
 import { getCookie } from "../cookieUtil/cookieUtil"
-function uploadFile(file){
+function uploadFile(file,fileName){
     var dado = new FormData()
+    console.log(file);
     let id = getCookie('id')
-    dado.append('file', file)
-    
-    axios.post(`http://localhost:5000/upload/${id}`,dado, {headers: {
+    dado.append(fileName, file)
+    axios.post(`http://localhost:5000/precad1/insertArquivos/${id}`,dado, {headers: {
         "content-type": "multipart/form-data",
       }}).then((res)=>{
-        console.log(res.data);
-        console.log("foi");
     })
 }
 
