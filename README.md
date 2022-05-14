@@ -8,7 +8,7 @@
      <a href="#techtools">Ferramentas e Tecnologias</a> •
      <a href="#backlog">Backlog</a> •
      <a href="#entregas">Entregas</a> • 
-     <a href="estrutura-pastas">Estruturação das Pastas</a> • 
+     <a href="#estrutura-pastas">Estruturação das Pastas</a> • 
      <a href="#equipe">Equipe</a> 
 </p>
 
