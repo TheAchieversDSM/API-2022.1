@@ -1,125 +1,118 @@
 .navigation {
-    position: relative;
-    display: none;
-    align-items: center;
-    height: 150px;
-    width: 100%;
-    padding: 0.5rem 0rem;
-    background-color:  #ACD8DE !important;
-    color: black;
-    box-shadow: 0;
-  }
-  
-  .brand-name {
-    text-decoration: none;
-    color: black;
-    font-size: 1.3rem;
-    margin-left: 1rem;
-  }
-  
-  .navigation-menu {
-    z-index: 5;
-    margin-left: auto;
-    height: fit-content;
-  }
+  position: relative;
+  display: none;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  background-color:  #ACD8DE !important;
+  color: black;
+  box-shadow: 0;
+  border-radius: 30px;
+}
 
-  .navigation-menu ul {
-    display: flex;
-    padding: 0;
-  }
+.brand-name {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
 
-  .navigation-menu i {
-    margin-right: 10px;
-  }
-  
-  .navigation-menu li {
-    list-style-type: none;
-    margin: 0 0;
-  }
-  
-  .navigation-menu li a {
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .hamburger {
-    border: 0;
-    height: 40px;
-    width: 40px;
-    padding: 0.5rem;
-    border-radius: 50%;
-    background-color: #C5DFE2;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    transform: translateY(-50%);
-    display: none;
-  }
-  
-  .hamburger:hover {
-    background-color: #ACD8DE;
-  }
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #C5DFE2;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
 
-  @media screen and (max-width: 992px) {
-    .navigation{
-        display: flex;
-    }
+.hamburger:hover {
+  background-color: #ACD8DE;
+}
 
-    .hamburger {
-      display: grid;
-    }
-  
-    .navigation-menu ul {
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      height: calc(100vh - 60px);
-      background-color: white;
-      border-top: 1px solid black;
-      display: none;
-      margin-top: 93px;
-    }
-  
-    .navigation-menu li {
-      font-family: coolvetica, sans-serif !important;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      border-radius: 20px;
-    }
-  
-    .navigation-menu li a {
-      color: black;
-      width: 100%;
-      padding: 0;
-      border-radius: 20px;
-    }
-  
-    .navigation-menu li:hover {
-      background-color: white!important;
-      border-radius: 20px;
-      text-align: center;
-    }
-  
-    .navigation-menu.expanded ul {
+.menuNav{
+  z-index: 5;
+  margin-left: auto;
+  height: fit-content;
+}
+
+.menuNav ul {
+  display: flex;
+  padding: 0;
+}
+
+.menuNav i {
+  margin-right: 10px;
+}
+
+.menuNav li {
+  list-style-type: none;
+  margin: 0 0;
+}
+
+.menuNav li a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 992px) {
+  .navigation{
       display: flex;
-      background-color: #ddebed !important;
-      box-shadow: none !important;
-      width:100% !important;
-      color: black !important;
-      text-align: center;
-      border-radius: 0px 30px 30px 0px;
-      border:none
-    }
+  }
 
-    .navigation-menu.expanded a:hover {
-        background-color: white!important;
-    }
+  .hamburger {
+    display: grid;
+  }
+
+  .menuNav {
+    overflow-y: scroll;
+    position: absolute;
+    flex-direction: column;
+    top: 160px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #ddebed !important;
+    width: 0;
+    z-index: 9;
   }
   
-  
+  .menuNav.showMenu {
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .menuNav li{
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: coolvetica, sans-serif !important;
+    text-align: center;
+  }
+
+  .menuNav li a {
+    color: black;
+    width: 100%;
+    padding: 0;
+    border-radius: 20px;
+  }
+
+  .menuNav li:hover {
+    background-color: white!important;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .menuNav a:hover {
+    background-color: white!important;
+  }
+}
