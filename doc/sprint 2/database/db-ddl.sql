@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
   `nivel_niv_id` INT,
   `departamento_dep_id` INT NOT NULL,
   PRIMARY KEY (`car_id`),
-  INDEX `cargo_departamento` (`departamento_dep_id` ASC) VISIBLE,
-  INDEX `cargo_nivel` (`nivel_niv_id` ASC) VISIBLE,
+  INDEX `cargo_departamento` (`departamento_dep_id` ASC),
+  INDEX `cargo_nivel` (`nivel_niv_id` ASC),
   CONSTRAINT `cargo_departamento`
     FOREIGN KEY (`departamento_dep_id`)
     REFERENCES `api_ionic`.`departamento` (`dep_id`),
@@ -84,13 +84,14 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_email` VARCHAR(100) NOT NULL,
-  `con_senha` VARCHAR(20) NOT NULL,
+  `con_senha` VARCHAR(40) NOT NULL,
   `con_nome` VARCHAR(100),
   `con_ddd` INT, 
   `con_telefone` INT,
   `end_rua` VARCHAR(100),
   `end_numero` INT,
   `end_bairro` VARCHAR(100),
+  `end_cidade` VARCHAR(100),
   `end_cep` INT,
   `end_estado` VARCHAR(100),
   `end_complemento` VARCHAR(100),
@@ -101,9 +102,9 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `head_id`INT, 
   `tipo_pessoa` VARCHAR(100),
   PRIMARY KEY (`con_id`),
-  INDEX `contratado_cargo` (`cargo_car_id` ASC) VISIBLE,
-  INDEX `contratado_departamento` (`departamento_dep_id` ASC) VISIBLE,
-  INDEX `contratado_tipo_contratacao` (`tipo_contratacao_cont_id` ASC) VISIBLE,
+  INDEX `contratado_cargo` (`cargo_car_id` ASC),
+  INDEX `contratado_departamento` (`departamento_dep_id` ASC),
+  INDEX `contratado_tipo_contratacao` (`tipo_contratacao_cont_id` ASC),
   CONSTRAINT `contratado_cargo`
     FOREIGN KEY (`cargo_car_id`)
     REFERENCES `api_ionic`.`cargo` (`car_id`),
@@ -121,11 +122,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`documentos` (
   `doc_id` INT NOT NULL AUTO_INCREMENT,
-  `doc_link` VARCHAR(40) NOT NULL,
+  `doc_link` VARCHAR(100) NOT NULL,
   `doc_tipo` VARCHAR(40) NOT NULL,
   `contratado_con_id` INT NOT NULL,
   PRIMARY KEY (`doc_id`),
-  INDEX `documentos_contratado` (`contratado_con_id` ASC) VISIBLE,
+  INDEX `documentos_contratado` (`contratado_con_id` ASC),
   CONSTRAINT `documentos_contratado`
     FOREIGN KEY (`contratado_con_id`)
     REFERENCES `api_ionic`.`colaborador` (`con_id`))
@@ -137,16 +138,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_id` INT NOT NULL AUTO_INCREMENT,
-  `his_data_desligamento` DATE NOT NULL,
+  `his_data_desligamento` DATE,
   `his_data_admissao` DATE NOT NULL,
   `his_cargo` VARCHAR(400) NOT NULL,
   `his_salario` FLOAT NOT NULL,
-  `his_pesquisa_desligamento` VARCHAR(400) NOT NULL,
-  `his_desligamento_descricao` VARCHAR(100) NOT NULL,
-  `his_distrato` VARCHAR(100) NOT NULL,
+  `his_pesquisa_desligamento` VARCHAR(400),
+  `his_desligamento_descricao` VARCHAR(100),
+  `his_distrato` VARCHAR(100),
   `colaborador_con_id` INT NOT NULL,
   PRIMARY KEY (`his_id`),
-  INDEX `historico_colaborador` (`colaborador_con_id` ASC) VISIBLE,
+  INDEX `historico_colaborador` (`colaborador_con_id` ASC),
   CONSTRAINT `historico_colaborador`
     FOREIGN KEY (`colaborador_con_id`)
     REFERENCES `api_ionic`.`colaborador` (`con_id`))
@@ -193,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`item_aprendizado` (
   `colaborador_con_id` INT NOT NULL,
   `trilha_apr_tri_id` INT NOT NULL,
   PRIMARY KEY (`trilha_apr_tri_id`, `colaborador_con_id`),
-  INDEX `item_aprendizado_pessoa_fisica` (`colaborador_con_id` ASC) VISIBLE,
+  INDEX `item_aprendizado_pessoa_fisica` (`colaborador_con_id` ASC),
   CONSTRAINT `item_apr_trilha_apr`
     FOREIGN KEY (`trilha_apr_tri_id`)
     REFERENCES `api_ionic`.`trilha_aprendizagem` (`tri_id`),
@@ -231,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_lingua` VARCHAR(40),
   `colaborador_con_id` INT NOT NULL,
   PRIMARY KEY (`qua_id`),
-  INDEX `qualificacao_pessoa_fisica` (`colaborador_con_id` ASC) VISIBLE,
+  INDEX `qualificacao_pessoa_fisica` (`colaborador_con_id` ASC),
   CONSTRAINT `qualificacao_pessoa_fisica`
     FOREIGN KEY (`colaborador_con_id`)
     REFERENCES `api_ionic`.`pessoa_fisica` (`colaborador_con_id`))
