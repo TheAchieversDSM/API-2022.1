@@ -109,3 +109,9 @@ p, span{
 .s6 > p{
     color: #ACD8DE;
 }
+
+@media only screen and (max-width : 992px) {
+    .teste2-info {
+        grid-template-columns: 1fr;
+    }
+}
