@@ -54,9 +54,12 @@ label, select, option {
 
 .waves-effect.waves-light.btn{
     bottom: 5%;
-    left: 40%;
     background-color: #ACD8DE !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
     -webkit-transition: 0.5s;
+}
+
+.botao-novoperfil{
+    text-align: center;    
 }
