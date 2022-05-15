@@ -46,7 +46,7 @@ class Home extends Component {
                             <div className='redes-icons'>
                                 <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
                                 <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
-                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
                                 <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 
@@ -82,7 +82,7 @@ class Home extends Component {
                             <div className='redes-icons'>
                             <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
                                 <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
-                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
                                 <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 
@@ -115,7 +115,7 @@ class Home extends Component {
                             <div className='redes-icons'>
                                 <a href="https://www.facebook.com/ionic.health/" target="_blank"><i className="fa-brands fa-facebook fa-3x"></i></a>
                                 <a href="https://www.instagram.com/ionic.health/" target="_blank"><i className="fa-brands fa-instagram fa-3x"></i></a>
-                                <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
+                                <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank"><i className="fa-brands fa-youtube fa-3x"></i></a>
                                 <a href="https://www.linkedin.com/company/ionichealth/" target="_blank"><i className="fa-brands fa-linkedin fa-3x"></i></a>
                             </div>
 

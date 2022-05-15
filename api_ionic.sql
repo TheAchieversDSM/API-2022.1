@@ -138,13 +138,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_id` INT NOT NULL AUTO_INCREMENT,
-  `his_data_desligamento` DATE NOT NULL,
+  `his_data_desligamento` DATE,
   `his_data_admissao` DATE NOT NULL,
   `his_cargo` VARCHAR(400) NOT NULL,
   `his_salario` FLOAT NOT NULL,
-  `his_pesquisa_desligamento` VARCHAR(400) NOT NULL,
-  `his_desligamento_descricao` VARCHAR(100) NOT NULL,
-  `his_distrato` VARCHAR(100) NOT NULL,
+  `his_pesquisa_desligamento` VARCHAR(400),
+  `his_desligamento_descricao` VARCHAR(100),
+  `his_distrato` VARCHAR(100),
   `colaborador_con_id` INT NOT NULL,
   PRIMARY KEY (`his_id`),
   INDEX `historico_colaborador` (`colaborador_con_id` ASC) VISIBLE,

@@ -3,3 +3,7 @@ p > label {
     font-size: 18px !important;
     color: #414042;
 }
+
+p > a {
+    font-weight:normal
+}

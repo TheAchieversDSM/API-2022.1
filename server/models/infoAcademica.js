@@ -4,7 +4,8 @@ InfoAcademica = function (infoAcademica) {
     this.qua_formacao = infoAcademica.formacao,
     this.qua_curso = infoAcademica.cursos,
     this.qua_lingua = infoAcademica.linguas,
-    this.colaborador_con_id = infoAcademica.id
+    this.colaborador_con_id = infoAcademica.id,
+    this.qua_nome_instituição = infoAcademica.instituicao
 }
 
 InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
@@ -18,8 +19,6 @@ InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
             result(null, res);
         }
     });
-
-
 }
 
 module.exports = InfoAcademica;

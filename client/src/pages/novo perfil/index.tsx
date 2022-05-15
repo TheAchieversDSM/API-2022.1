@@ -35,7 +35,8 @@ class NovoPerfil extends Component {
             tipoPessoa: this.state.tipoPessoa
         }
         axios.post("http://localhost:5000/novocolaborador/create", user )
-            
+
+        alert('Usuário Criado.')
     };
     render() {
         return (
@@ -45,7 +46,7 @@ class NovoPerfil extends Component {
                 <Css ref="./novoperfil.css" />
 
                 <div className="conteudo">
-                    <h2>Novo Perfil</h2>
+                    <h3>Novo Perfil</h3>
 
                     <div className="form">
                         <div className="teste1 row">
@@ -63,7 +64,6 @@ class NovoPerfil extends Component {
                             <div className="botao-novoperfil">
                                 <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
                             </div>
-
                         </div>
                     </div>
                 </div>

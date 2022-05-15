@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+import { getCookie, setCookie, deleteCookie } from "../../utils/cookieUtil/cookieUtil";
 import axios from "axios";
 import uploadFile from "../../utils/uploadFiles/uploadFile";
 
@@ -25,7 +25,7 @@ class PreCadastro1 extends Component {
         arqInseridos: [],
 
         fomularioEnviado: false,
-        
+
         // INFORMAÇÕES
         nome: String,
         novaSenha: String,
@@ -48,9 +48,12 @@ class PreCadastro1 extends Component {
         regiao: String,
         estadoCivil: String,
         filho: String,
+
+        // INFO ACADEMICAS
         formacao: String,
         cursos: String,
         linguas: String,
+        instituicao: String,
 
         // INFORMAÇÕES SE PESSOA JURÍDICA
         nomeEmpresa: String,
@@ -146,11 +149,12 @@ class PreCadastro1 extends Component {
             formacao: this.state.formacao,
             cursos: this.state.cursos,
             linguas: this.state.linguas,
+            instituicao: this.state.instituicao,
             id: getCookie("id")
         }
 
-        if(getCookie("tipoPessoa") == "Juridica"){
-            const pessoaJuridica={
+        if (getCookie("tipoPessoa") == "Juridica") {
+            const pessoaJuridica = {
                 nomeEmpresa: this.state.nomeEmpresa,
                 cnpj: this.state.cnpj,
                 naturezajuridica: this.state.naturezajuridica,
@@ -158,9 +162,9 @@ class PreCadastro1 extends Component {
                 tempoFormalizacao: this.state.tempoFormalizacao,
                 id: getCookie("id")
             }
-             axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
+            axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
 
-             }  
+            }
         }
 
         const anexos = {
@@ -196,29 +200,30 @@ class PreCadastro1 extends Component {
             // DOCUMENTO SE FORNECER PENSAO
             pensaoAlimenticia: File
         }
-            
+
         const id = getCookie("id")
 
         axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
 
         }
-        axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res)=>{
-            
-        })
-        axios.post("http://localhost:5000/precad1/insertInfoAcademica",infoAcademica).then((res)=>{
-            
-        })
-         
-        uploadFile(anexos)
+        axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
 
-        window.open("/home")
-        window.close()
+        })
+        axios.post("http://localhost:5000/precad1/insertInfoAcademica", infoAcademica).then((res) => {
+
+        })
         
+        deleteCookie("firstAcess")
+        setCookie("aguardoConfirmacao", true)
+        
+        uploadFile(anexos)
+        window.close()
+        window.open("/home")
     };
 
     redirect = () => {
         if (this.state.fomularioEnviado == true) {
-            return <Navigate to="/home"/>
+            return <Navigate to="/home" />
         }
         else {
             return (null)
@@ -226,14 +231,13 @@ class PreCadastro1 extends Component {
     }
 
     render() {
-       
         let form
-        if(getCookie("tipoPessoa") == "Juridica"){
-            form = <PessoaJuridicaForm fname={this.handleChange}/>
+        if (getCookie("tipoPessoa") == "Juridica") {
+            form = <PessoaJuridicaForm fname={this.handleChange} />
         }
         return (
             <>
-             
+
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
                 <script src="https://kit.fontawesome.com/4d3a0277e3.js" />
 
@@ -282,6 +286,7 @@ class PreCadastro1 extends Component {
                                             <select name="raca" className="browser-default" id="raca" onChange={this.handleChange}>
                                                 <DisableOption disableValue="" disableNome="Raça" />
                                                 <Option value="Branco(a)" name="Branco(a)" />
+                                                <Option value="Pardo(a)" name="Pardo(a)" />
                                                 <Option value="Preto(a)" name="Preto(a)" />
                                                 <Option value="Amarelo(a)" name="Amarelo(a)" />
                                                 <Option value="Indígena" name="Indígena" />
@@ -420,6 +425,9 @@ class PreCadastro1 extends Component {
                                         <Input stateName="linguas" fname={this.handleChange} div="input-field col s12 bla" id="linguas" type="text" class="validate" name="Línguas" />
                                     </div>
 
+                                    <div className="row">
+                                        <Input stateName="instituicao" fname={this.handleChange} div="input-field col s12 bla" id="instituicao" type="text" class="validate" name="Instituição" />
+                                    </div>
 
                                 </form>
                             </div>
@@ -447,28 +455,28 @@ class PreCadastro1 extends Component {
                                         </div>
                                     </div>
 
-                                        <div className="row">
-                                            <div className="file">
-                                                <label>Foto 3x4</label>
-                                                <input type="file" name="foto" onChange={this.handleChangeFile} />
-                                                <label>Título de Eleitor</label>
-                                                <input type="file" name="tituloEleitor" onChange={this.handleChangeFile} />
-                                            </div>
+                                    <div className="row">
+                                        <div className="file">
+                                            <label>Foto 3x4</label>
+                                            <input type="file" name="foto" onChange={this.handleChangeFile} />
+                                            <label>Título de Eleitor</label>
+                                            <input type="file" name="tituloEleitor" onChange={this.handleChangeFile} />
                                         </div>
+                                    </div>
 
-                                        <div className="row">
-                                            <div className="file">
-                                                <label>Comprovante de Residência</label>
-                                                <input type="file" name="comprovanteResidencia" onChange={this.handleChangeFile} />
-                                            </div>
+                                    <div className="row">
+                                        <div className="file">
+                                            <label>Comprovante de Residência</label>
+                                            <input type="file" name="comprovanteResidencia" onChange={this.handleChangeFile} />
                                         </div>
+                                    </div>
 
-                                        <div className="row">
-                                            <div className="file">
-                                                <label>Comprovante de Escolaridade</label>
-                                                <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
-                                            </div>
+                                    <div className="row">
+                                        <div className="file">
+                                            <label>Comprovante de Escolaridade</label>
+                                            <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -512,10 +520,10 @@ class PreCadastro1 extends Component {
                                         <div className="file">
                                             <label>Contribuição Sindical</label>
                                             <input type="file" name="contribuicao" onChange={this.handleChangeFile} />
-                                        
 
-                                        <label>Termo de PI</label>
-                                        <input type="file" name="termo" onChange={this.handleChangeFile} />
+
+                                            <label>Termo de PI</label>
+                                            <input type="file" name="termo" onChange={this.handleChangeFile} />
                                         </div>
                                     </div>
 
@@ -580,7 +588,7 @@ class PreCadastro1 extends Component {
                                             <label>Certidão de Nascimento</label>
                                             <input type="file" name="certidaoNascFilho" onChange={this.handleChangeFile} />
                                         </div>
-                                            
+
                                         <div className="row">
                                             <div className="file" id="vac">
                                                 <label>Certidão de Vacinação</label>

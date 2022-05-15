@@ -18,6 +18,7 @@ class Notificacao extends Component {
         info_pf: [],
         info_acad: [],
     };
+
     componentDidMount() {
         axios.get(`http://localhost:5000/notificacao/getAll`)
             .then((res) => {
@@ -26,20 +27,16 @@ class Notificacao extends Component {
                 this.setState({ notificacao }); 
             }
         )
-  
     }
-    axiosget= (id)=>{
+    axiosget = (id)=>{
         let nome =  String
           axios.get(`http://localhost:5000/infocolab/${id}`) .then((res) => {
               nome = res.data.user.con_nome
               console.log(res.data);
               
-          })
-          
-          
-          return (nome)
-        }
-
+        })  
+        return (nome)
+    }
 
     render() {
 
@@ -59,8 +56,7 @@ class Notificacao extends Component {
                             
                             <Link to={`/admissao/${notif.con_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
                         </div>
-                    </>
-                    )}
+                    </>)}
                 </div>
             </>
         );
