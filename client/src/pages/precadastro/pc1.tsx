@@ -614,7 +614,9 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-                        <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
+                        <div className="Buttom">
+                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
+                        </div>
                     </div>
                 </div>
             </>

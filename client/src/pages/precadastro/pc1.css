@@ -151,4 +151,8 @@ span.character-counter {
     display: none;
 }
 
+.Buttom{
+    text-align: center;
+}
+
 @media only screen and (max-width : 992px) {}

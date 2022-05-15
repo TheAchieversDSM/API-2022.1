@@ -20,6 +20,14 @@ export default function Navbar() {
     if (getCookie("firstAcess") == 'true' || getCookie("aguardoConfirmacao") == 'true') {
         Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="" class="fa-solid fa-lock" name="Meu Perfil" /><SideNav link="" class="fa-solid fa-lock" name="Organograma" /></>
     }
+
+    const [navbarOpen, setNavbarOpen] = useState(false)
+
+    const handleToggle = () => {
+        setNavbarOpen(!navbarOpen)
+    }
+
+
     return (
         <nav className="navigation">
             <a href="/" className="brand-name">
@@ -27,21 +35,17 @@ export default function Navbar() {
             </a>
 
             <img className="logo" src={LogoMenu} />
-            <button
-                className="hamburger"
-                onClick={() => {
-                    setIsNavExpanded(!isNavExpanded);
-                }}
-            >
-               <i className="fa-solid fa-bars"></i>
-            </button>
+
+            <button className="hamburger"
+            onClick={handleToggle}>{navbarOpen ? <i className="fa-solid fa-x"></i> :  <i className="fa-solid fa-bars"></i>}</button>
+            
             <div
                 className={
                     isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
 
                 }
             >
-                <ul>
+                <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
                    {Navs}
                     <li>
                         <a href="/logout"><i className="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
