@@ -1,0 +1,78 @@
+.imagem {
+    text-align: center;
+}
+
+.logo1{
+    width: 150px;
+    margin: 10px 0px 20px 20px;
+}
+
+.mensagem {
+    height: 210px;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+h1 {
+    color: #3C3E3F;
+    text-align: center;
+}
+
+h4 {
+    color: #414042;
+}
+
+.mensagem h5{
+    text-align: center;
+    color: #3C3E3F;
+}
+
+.redes-sociais{
+    margin-top: 80px;
+}
+
+.redes-texto h5{
+    text-align: center;
+    color: #3C3E3F;
+}
+
+.redes-icons{
+    text-align: center;
+}
+
+.redes-icons i{
+    margin: 10px;
+    cursor:pointer;
+}
+
+.redes-icons i:hover{
+    color: #53C4CD;
+}
+
+@media only screen and (max-width : 992px) {
+    .conteudo{
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;    
+    }
+
+    .mensagem{
+        width: 100%;
+    }
+    h1{
+        font-size: 200%;
+    }
+
+    .mensagem h5{
+        font-size: 120%;
+        
+    }
+
+    .redes-icons i{
+        width: 40%;
+        display: inline;
+    }
+ }

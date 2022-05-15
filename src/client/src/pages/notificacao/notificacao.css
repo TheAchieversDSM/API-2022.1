@@ -17,7 +17,7 @@
 }
 
 h3 {
-    background-color: #53C4CD;
+    background-color: #CAECF0;
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
     color: #414042;
@@ -30,13 +30,6 @@ h5 {
 
 .row {
     margin-top: 20px;
-    margin-right: 60px;
-}
-
-.grid-button {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
 }
 
 .collapsible-body{
@@ -50,4 +43,17 @@ h5 {
     font-size: 18px;
     font-family: coolvetica, sans-serif !important;
     border: 3px solid #53C4CD !important;
+}
+
+.not{
+    background-color: #CAECF0;
+    border-radius: 30px;
+    padding: 15px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.not h5 {
+    margin-left: 15px !important;
 }

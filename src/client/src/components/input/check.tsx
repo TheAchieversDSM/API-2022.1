@@ -9,7 +9,7 @@ class Check extends Component<props> {
     render() {
         return (
             <label>
-                <input type="checkbox" value={this.props.value} />
+                <input type="checkbox"  value={this.props.value} />
                 <span>{this.props.name}</span>
             </label>
         )

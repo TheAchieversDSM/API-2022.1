@@ -7,8 +7,18 @@
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
-.teste1 {
-    height: 310px;
+p > label {
+    font-weight: bolder !important;
+    font-size: 18px !important;
+    color: #414042;
+}
+
+#info {
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 10px !important;
+    margin: 10px;
+    height: fit-content;
 }
 
 .teste2-info {
@@ -16,11 +26,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-h4{
-    background-color: #53C4CD;
+h5, h4 {
+    background-color: #CAECF0;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
-    text-align: center;
+    text-align: center !important;
 }
 
 .grid-check {
@@ -34,7 +44,7 @@ h4{
     border-radius: 30px !important;
     font-size: 18px;
     font-family: coolvetica, sans-serif !important;
-    border: 3px solid #53C4CD !important;
+    border: 3px solid #ACD8DE !important;
 }
 
 .popout > li{
@@ -46,7 +56,7 @@ h4{
 }
 
 .btn, .btn-large {
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
@@ -54,32 +64,35 @@ h4{
 
 #p1{
     position: relative;
-    left: 160px;
 }
 
 .btn-large{
     position: relative;
-    left: 70px;
 }
 
 .foto{
-    margin-left: 20px;
-    border-radius: 30px !important;
-    background-color: #58595B;
-    height: 250px;
-    width: 225px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #ACD8DE !important;      
+    border-radius: 25px!important;
+}
+
+.foto > i{
+    margin-top: 20px;
+    color: #53C4CD;
+    background-color: #ACD8DE !important;
+
 }
 
 p, span{
     font-size: 16px !important;
-    margin-left: 10px;
     font-family: source-sans-pro, sans-serif !important;
     color: #414042 !important;
     line-height: 15px;
 }
 
 .name{
-    margin-left: 20px;
     color:#53C4CD ;
 }
 
@@ -89,9 +102,19 @@ p, span{
 
 .inform > p{
     margin: 6px;
-    color: #53C4CD;
+    color: #ACD8DE;
 }
 
 .s6 > p{
-    color: #53C4CD;
+    color: #ACD8DE;
+}
+
+@media only screen and (max-width : 992px) {
+    .teste2-info {
+        grid-template-columns: 1fr;
+    }
+
+    .collapsible-header{
+        font-size: 100%;
+    }
 }

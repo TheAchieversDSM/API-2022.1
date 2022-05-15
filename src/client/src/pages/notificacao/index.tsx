@@ -1,70 +1,62 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 // LOCAL CSS
 import './notificacao.css'
 
 // COMPONENTS
 import General from '../../components/general/index'
-import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
-import Collaps from "../../components/collaps/collaps"
+import ButtonMat from "../../components/button/buttonMat";
 
 class Notificacao extends Component {
     state = {
+        notificacao:[],
+        colab:[],
         info_colab: [],
         info_pf: [],
         info_acad: [],
     };
+
     componentDidMount() {
-        console.log("indo");
-        axios.get(`http://localhost:5000/infocolab/`)
+        axios.get(`http://localhost:5000/notificacao/getAll`)
             .then((res) => {
                 console.log(res.data);
-                
-                const info_colab = res.data.colab;
-                const info_pf = res.data.pf;
-                const info_acad = res.data.acad;
-
-                console.log(info_colab[0].con_id);
-                
-                this.setState({ info_colab }); 
-                this.setState({ info_pf });
-                this.setState({info_acad})   ;      
+                const notificacao = res.data;
+                this.setState({ notificacao }); 
             }
         )
     }
-
+    axiosget = (id)=>{
+        let nome =  String
+          axios.get(`http://localhost:5000/infocolab/${id}`) .then((res) => {
+              nome = res.data.user.con_nome
+              console.log(res.data);
+              
+        })  
+        return (nome)
+    }
 
     render() {
+
         return (
             <>
                 <General />
 
                 <Css ref="./notificao.css" />
-
+                
                 <div className="conteudo">
                     <h3>Notificações</h3>
-                    <ul className="collapsible popout" data-collapsible="accordion">
-                        <Collaps title="Rebeca preencheu o pre-cadastro!" 
-                        title2="Dados pessoais"
-                        desc1="Nome: " 
-                        desc2="CPF: " 
-                        desc3="Nacionalidade: " 
-                        desc4="Naturalidade: " 
-                        desc5="Raça: " 
-                        desc6="Gênero: "
-                        desc7="Data de Nascimento: "
-                        id=""
-                        class="validate"
-                        name1="Departamento"
-                        name2="Cargo"
-                        name3="Salário"
-                        type="text"
-                        fname=""
-                        />
-                    </ul>
-                    
+                    {this.state.notificacao.map(notif => 
+                    <>
+                        <div key={notif.notificacao_id} className="not row">
+
+                            <h5 className="col s6">{notif.con_nome}</h5>
+                            
+                            <Link to={`/admissao/${notif.con_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
+                        </div>
+                    </>)}
                 </div>
             </>
         );

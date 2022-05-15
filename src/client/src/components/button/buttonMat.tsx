@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
+import {Link } from "react-router-dom"
+ 
 type props = {
     class: string,
     name: string,
     iClass: string,
     fname: any,
-
 }
 
 class ButtonMat extends Component<props> {

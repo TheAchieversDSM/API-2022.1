@@ -1,5 +1,5 @@
 body {
-    background-color: #53C4CD;
+    background-color: #F2F2F2;
     margin: 20px !important;
 }
 
@@ -15,27 +15,41 @@ h1, h2, h3, h4, h5 {
 }
 
 .sidenav {
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     box-shadow: none !important;
-    width: 260px !important;
+    width:20% !important;
     color: black !important;
     text-align: left;
+    border-radius: 0px 30px 30px 0px;
 }
 
 .sidenav > li{
     font-family: coolvetica, sans-serif !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.sidenav > li:hover{
+    background-color: white;
+    border-radius: 20px;
 }
 
 a {
     color: #414042 !important;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .conteudo {
-    background-color: #414042 !important;
-    border-radius: 30px;
-    width: 82%;
+    width: 80%;
     height: fit-content;
     float: right;
     padding: 50px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .body{
+        margin: 0 auto !important;
+   }
 }

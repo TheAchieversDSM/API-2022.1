@@ -1,11 +1,14 @@
 import React from "react";
-import { Navigate, Route } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import { getCookie } from "../cookieUtil/cookieUtil";
 
 
-const PrivateRoute = ({children,redirectTo}) => {
+export const ProtectedRoute = ({ children, redirectTo }) => {
     const Auth = getCookie("token") != null
-    return Auth ?  children : <Navigate to={redirectTo}/>
+    return Auth ? children : <Navigate to={redirectTo} />
 }
 
-export default PrivateRoute;
+export const AdmPrivateRoute = ({children,redirectTo}) => {
+    const adm = getCookie("nivel") == "acessoTotal"
+    return adm ? children : <Navigate to={redirectTo}/>
+}

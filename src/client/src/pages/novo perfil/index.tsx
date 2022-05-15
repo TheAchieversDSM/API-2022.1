@@ -19,27 +19,12 @@ class NovoPerfil extends Component {
         tipoPessoa: String
     }
 
-    handleChangeEmail = event => {
-
+    handleChange = event => {
         this.setState({
-            email: event.target.value,
-        });
-
-        console.log(this.state);
-    };
-
-    handleChangePassword = event => {
-        this.setState({
-            password: event.target.value,
-        });
-        console.log(this.state);
-    };
-
-    handleChangeTipoPessoa = event => {
-        this.setState({
-            tipoPessoa: event.target.value,
-        });
-        console.log(this.state);
+            ...this.state,
+            [event.target.name]: event.target.value
+          });
+          console.log(this.state);
     };
 
     handleSubmit = async (event) => {
@@ -49,10 +34,9 @@ class NovoPerfil extends Component {
             password: this.state.password,
             tipoPessoa: this.state.tipoPessoa
         }
-        
-        await axios.post("http://localhost:5000/novocolaborador/create", user )
-        
-        alert("data foi")
+        axios.post("http://localhost:5000/novocolaborador/create", user )
+
+        alert('Usuário Criado.')
     };
     render() {
         return (
@@ -62,22 +46,24 @@ class NovoPerfil extends Component {
                 <Css ref="./novoperfil.css" />
 
                 <div className="conteudo">
-                    <h2>Novo Perfil</h2>
+                    <h3>Novo Perfil</h3>
 
                     <div className="form">
                         <div className="teste1 row">
-                            <Input fname={this.handleChangeEmail} div="input-field" type="email" id="email" name="E-mail" class="validate" />
+                            <Input stateName="email" fname={this.handleChange} div="input-field" type="email" id="email" name="E-mail" class="validate" />
 
-                            <Input fname={this.handleChangePassword} div="input-field" type="password" id="password" name="Senha" class="validate" />
+                            <Input stateName="password" fname={this.handleChange} div="input-field" type="password" id="password" name="Senha" class="validate" />
 
                             <label>Pessoa</label>
-                            <select className="browser-default" id="tipoPessoa" onChange={this.handleChangeTipoPessoa}>
+                            <select name="tipoPessoa" className="browser-default" id="tipoPessoa" onChange={this.handleChange}>
                                 <DisableOption disableValue="" disableNome="Escolha uma das opções" />
                                 <Option value="Fisica" name="Pessoa Física" />
                                 <Option value="Juridica" name="Pessoa Jurídica" />
                             </select>
-
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+    
+                            <div className="botao-novoperfil">
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+                            </div>
                         </div>
                     </div>
                 </div>

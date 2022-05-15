@@ -1,4 +1,13 @@
-.campo1{
+.titulo {
+    background-color: #ACD8DE;
+    color: #414042;
+    border-radius: 30px;
+    padding: 5px 10px 5px 10px;
+    width: fit-content;
+    text-align: center;
+}
+
+.campo1 {
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
@@ -6,76 +15,144 @@
     padding: 6px;
 }
 
-.campo2{
+.campo2 {
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    height: fit-content;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 10px;
 }
 
-.campo3{
+.campo3 {
     background-color: #f4f4f4;
     border-radius: 30px;
     padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
-    height: 100px;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 6px;
 }
 
-.campo4{
+.campo4,
+.campo5,
+.campo6 {
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    height: 270px;
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
     padding: 10px;
 }
 
-.s6{
+/*.s6{
     padding: 10px 10px 20px 10px !important;
-}
+}*/
 
-p > label{
+p>label {
     margin: 10px;
 }
 
-.browser-default{
+.browser-default {
     border-radius: 30px !important;
     border: 3px solid #53C4CD !important;
     background-color: #f4f4f4 !important;
 }
 
-.btn{
-    background-color: #53C4CD !important;
+.file-field.input-field>.btn {
+    border-radius: 0px !important;
+    border: 0px !important;
+}
+
+.btn {
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
 }
 
-.bla > input{
+.bla>input {
     border: 3px solid #53C4CD !important;
     border-radius: 30px !important;
 }
 
-.input-field > label{
+.input-field>label {
     margin-left: 20px !important;
 }
 
-form > div{
+form>div {
     margin: 0px !important;
+}
+
+.collapsible-header > h6 {
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .input-field input[type=text].valid {
     border: 3px solid #00e676 !important;
 }
 
-label, select, option {
+.file {
+    display: grid;
+    grid: 1fr
+}
+
+.file > label {
+    color: #414042;
+    font-size: 18px;
+}
+
+.file > input {
+    margin-bottom: 25px;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #ACD8DE !important;
+    border-radius: 5px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 15px;
+    -webkit-transition: 0.5s;
+}
+  
+input[type=file]::file-selector-button:hover {
+    background-color: #53C4CD !important;
+    border-radius: 5px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    cursor: pointer;
+    -webkit-transition: 0.5s;
+}
+
+#vac {
+    margin-left: 10.4px !important;
+}
+
+label,
+select,
+option {
     font-family: source-sans-pro, sans-serif !important;
 }
 
-span.character-counter{
+.botao-precad > a {
+    background-color: #ACD8DE !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+    -webkit-transition: 0.5s;
+}
+
+.botao-precad > a:hover {
+    background-color: #53C4CD !important;
+    cursor: pointer;
+    -webkit-transition: 0.5s !important;
+}
+
+span.character-counter {
     display: none;
 }
+
+.Buttom{
+    text-align: center;
+}
+
+@media only screen and (max-width : 992px) {}

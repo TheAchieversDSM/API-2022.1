@@ -1,0 +1,118 @@
+.navigation {
+  position: relative;
+  display: none;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  background-color:  #ACD8DE !important;
+  color: black;
+  box-shadow: 0;
+  border-radius: 30px;
+}
+
+.brand-name {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #C5DFE2;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.hamburger:hover {
+  background-color: #ACD8DE;
+}
+
+.menuNav{
+  z-index: 5;
+  margin-left: auto;
+  height: fit-content;
+}
+
+.menuNav ul {
+  display: flex;
+  padding: 0;
+}
+
+.menuNav i {
+  margin-right: 10px;
+}
+
+.menuNav li {
+  list-style-type: none;
+  margin: 0 0;
+}
+
+.menuNav li a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 992px) {
+  .navigation{
+      display: flex;
+  }
+
+  .hamburger {
+    display: grid;
+  }
+
+  .menuNav {
+    overflow-y: scroll;
+    position: absolute;
+    flex-direction: column;
+    top: 160px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #ddebed !important;
+    width: 0;
+    z-index: 9;
+  }
+  
+  .menuNav.showMenu {
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .menuNav li{
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: coolvetica, sans-serif !important;
+    text-align: center;
+  }
+
+  .menuNav li a {
+    color: black;
+    width: 100%;
+    padding: 0;
+    border-radius: 20px;
+  }
+
+  .menuNav li:hover {
+    background-color: white!important;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .menuNav a:hover {
+    background-color: white!important;
+  }
+}
