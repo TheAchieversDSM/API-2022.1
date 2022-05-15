@@ -7,6 +7,7 @@ import './perfil.css'
 // COMPONENTS
 import ButtonMat from '../../components/button/buttonMat'
 import Check from "../../components/input/check";
+import CheckChecked from "../../components/input/checkChecked";
 import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
@@ -57,12 +58,12 @@ class PerfilColab extends Component {
                                     <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.con_id} className="name">{info.con_nome}</h5>)}
                                         <p>
-                                            {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>CPF: {info.user_cpf}</p>)}
-                                            <p>Data de admissão: xx/yy/zzzz</p>
-                                            <p>Data de desligamento: --/--/----</p>
-                                            {this.state.colaborador.map(info => <p key={info.con_id}>Tipo de Contratação: {info.cont_descricao}</p>)}
-                                            {this.state.colaborador.map(info => <p key={info.con_id}>E-mail: {info.con_email}</p>)}
-                                            {this.state.colaborador.map(info => <p key={info.con_id}>Tel: ({info.con_ddd}) {info.con_telefone}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label htmlFor="">CPF:</label> {info.user_cpf}</p>)}
+                                            <p><label htmlFor="">Data de admissão:</label> xx/yy/zzzz</p>
+                                            <p><label htmlFor="">Data de desligamento:</label> --/--/----</p>
+                                            {this.state.colaborador.map(info => <p key={info.con_id}><label htmlFor="">Tipo de Contratação:</label> {info.cont_descricao}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.con_id}><label htmlFor="">E-mail:</label> {info.con_email}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.con_id}><label htmlFor="">Tel:</label> ({info.con_ddd}) {info.con_telefone}</p>)}
                                         </p>
                                     </div>
                                 </div>
@@ -91,7 +92,7 @@ class PerfilColab extends Component {
                                     {this.state.colaborador.map(info => <p  key={info.colaborador_con_id}>Cargo: {info.car_descricao}</p>)}
                                     <p>Status: ----</p>
                                     {this.state.head_colaborador.map(info => <p key={info.con_id}>Head: {info.con_nome} - {info.car_descricao}</p>)}
-                                    <p>Faixa Salarial: ----</p>
+                                    {this.state.colaborador.map(info => <p key={info.colaborador_con_id}>Salário: R${info.car_salario}</p>)}
                                     <p>Tempo de casa: ----</p>
                                 </div>
                             </div>
@@ -157,7 +158,8 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
-                                    <p className="grid-check">
+                                  {this.state.colaborador.map(info=> 
+                                    <p key={info.colaborador_con_id} className="grid-check">
                                         <Check value="" name="Plano de Saúde" />
 
                                         <Check value="" name="Vale Transporte" />
@@ -166,6 +168,7 @@ class PerfilColab extends Component {
 
                                         <Check value="" name="Auxílio Creche" />
                                     </p>
+                                    )}
                                 </form>
                             </div>
                         </div>

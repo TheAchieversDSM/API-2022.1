@@ -15,10 +15,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-
-
-
-
 router.post(`/:id` ,upload.single("file"),uploadArquivoController.insertArquivo)
 
 module.exports = router

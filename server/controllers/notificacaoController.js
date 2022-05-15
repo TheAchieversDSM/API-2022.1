@@ -8,3 +8,10 @@ exports.getAll = (req,res) => {
         res.send(result)
     })
 }
+exports.deleteNotificacao = (req,res) =>{
+    Notificacao.deleteNotificacao(req.params.id,(err,result)=>{
+        if (err){
+            res.send(err);
+        }
+    })
+}

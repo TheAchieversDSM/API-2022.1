@@ -8,3 +8,13 @@ exports.getAllDepart = (req,res) =>{
         res.send(departamentos)
     })
 }
+
+exports.getDepartByCargo = (req,res) =>{
+    Departamento.getDepartByCargo(req.params.id,(err,departamento)=>{
+        if(err){
+            res.send(err);
+        }else{
+            res.send(departamento)
+        }
+    })
+}

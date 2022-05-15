@@ -1,8 +1,10 @@
 const db = require("../config/dbconfig");
-
+const fs = require('fs')
 User = function (user) {
-    this.con_id = user.id
-    this.dep_id = dep_id
+    this.departamento_dep_id = user.dep_id,
+    this.cargo_car_id = user.car_id,
+    this.head_id = user.head_id,
+    this.tipo_contratacao_cont_id = user.tipo_contratacao
 }
 
 User.getAllUserInfoById = (id, result, head_result) => {
@@ -67,7 +69,7 @@ User.getInfoById = (id,result) =>{
 }
 
 User.getDocsById = (id, result) => {
-    db.query(`SELECT * FROM documentos docs WHERE contrado_con_id = ${id}`, (err, res) => {
+    db.query(`SELECT * FROM documentos docs WHERE contratado_con_id = ${id}`, (err, res) => {
         if(err){
             result(null,err)
         }  
@@ -76,5 +78,17 @@ User.getDocsById = (id, result) => {
         }
     })
 }
+
+User.setWorkInfoUser = (data,id,result)=>{
+    db.query("UPDATE colaborador SET ?  WHERE con_id = ?",[data,id],(err,res)=>{
+        if(err){
+            result(null,err)
+        }  
+        else{
+            result(null,res)
+        }
+    })
+}
+
 module.exports = User
 

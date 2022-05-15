@@ -30,6 +30,5 @@ app.use("/cargos", cargosRoutes)
 app.use("/upload", uploadRoutes)
 app.use("/notificacao", notificacaoRoutes)
 
-
 // DEFININDO PORTA
 app.listen(5000, () => console.log('Servidor rodando'))

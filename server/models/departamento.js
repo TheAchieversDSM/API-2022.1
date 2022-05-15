@@ -15,6 +15,18 @@ Departamento.getAllDepart = (result) =>{
         }
     })
 }
+Departamento.getDepartByCargo = (id,result) =>{
+    console.log(id);
+    db.query(`SELECT dep_id FROM departamento,cargo WHERE car_id = ${id} AND dep_id =departamento_dep_id `,(err,res)=>{
+        if(err){
+            console.log('Erro ao puxar os departamentos', err);
+            result(null,err);
+        }else{
+            console.log('Departamentos Puxados',res);
+            result(res);
+        }
+    })
+}
 
 Departamento.getAllOfficefromDep = (result) =>{
     const departamentos = db.query('SELECT * FROM departamento', (err, res)=>{

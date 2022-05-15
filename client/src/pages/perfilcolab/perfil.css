@@ -7,6 +7,12 @@
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
+p > label {
+    font-weight: bolder !important;
+    font-size: 18px !important;
+    color: #414042;
+}
+
 #info {
     background-color: #f4f4f4;
     border-radius: 30px;

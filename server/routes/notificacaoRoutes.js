@@ -4,6 +4,7 @@ const router = require("express").Router()
 
 
 router.get("/getAll",notificacaoController.getAll)
+router.delete("/deleteNotificacao/:id",notificacaoController.deleteNotificacao)
 //router.get("/:id",notificacaoController.createNotifi)
 
 
