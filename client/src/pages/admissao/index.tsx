@@ -17,6 +17,7 @@ import InputFile from "../../components/input/file";
 import Submit from "../../components/button/submit";
 import Text from "../../components/textarea/index";
 import './admissao.css'
+import uploadFile from '../../utils/uploadFiles/uploadFile';
 
 class Admissao extends Component {
 
@@ -73,7 +74,7 @@ class Admissao extends Component {
 
                 this.setState({ cargo })
             }
-            )
+        )
     }
 
     handleDownload = (filePath) => {
@@ -96,8 +97,9 @@ class Admissao extends Component {
         console.log(this.state);
     };
 
-    handleSubmit = (event) => {
+   
 
+    handleSubmit = (event) => {
         axios.get(`http://localhost:5000/departamentos/getDepByCar/${this.state.cargoSelecionado}`).then((res) => {
             const carDep = res.data
             this.setState({ carDep })
@@ -140,6 +142,8 @@ class Admissao extends Component {
     }
 
     handleRejeitado = (event) => {
+        axios.delete(`http://localhost:5000/notificacao/deleteNotificacao/${this.state.id}`)
+
         alert('Cadastro rejeitado.\nEnviado aviso ao usuário para atualização de informação.')
     }
 

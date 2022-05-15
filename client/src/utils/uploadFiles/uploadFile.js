@@ -1,6 +1,7 @@
 import axios from "axios"
 import { getCookie } from "../cookieUtil/cookieUtil"
-function uploadFile(files){
+
+function uploadFile(files) {
     Object.keys(files).map(file => {
         var dado = new FormData()
         let id = getCookie('id')

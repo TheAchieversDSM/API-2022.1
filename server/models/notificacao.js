@@ -17,7 +17,7 @@ Notificacao.getAll = (result) =>{
 }
 
 Notificacao.deleteNotificacao = (id,result) =>{
-    db.query(`DELETE FROM notificacao WHERE user_id =${id}`,(err,res) => {
+    db.query(`DELETE FROM notificacao WHERE user_id = ${id}`,(err,res) => {
         if (err) {
             console.log("error: ", err);
             result(null,err);

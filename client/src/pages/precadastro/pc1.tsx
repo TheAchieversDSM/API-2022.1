@@ -217,6 +217,7 @@ class PreCadastro1 extends Component {
         setCookie("aguardoConfirmacao", true)
         
         uploadFile(anexos)
+        alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
         window.close()
         window.open("/home")
     };
