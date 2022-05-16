@@ -119,7 +119,7 @@ RNF-17 | - | Manual do usuário para navegação | Média | ✔️
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
-#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | :heavy_check_mark:
+#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%232">Aqui</a> | <a href="">Link</a> | :heavy_check_mark:
 #3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign: | :stop_sign:
 
 <span id="equipe">
