@@ -45,7 +45,7 @@ RF-3 | 1 | Visualizar informações fornecidas pelo colaborador | Alta | ✔️
 RF-4 | 1 | Atualização das informações do colaborador | Média | 🔲
 RF-5 | 1 | Exclusão de colaboradores | Baixa | 🔲
 RF-6 | 2 | Visualizar diferentes níveis de cargo por um organograma | Alta | ✔️
-RF-7 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | 🔲
+RF-7 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | ✔️
 RF-8 | 2 | Visualizar e realizar download de relatórios com informações dos colaboradores | Média | ✔️
 RF-9 | 3 | Acesso às documentações e normas da empresa | Baixa | 🔲
 RF-10 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | 🔲
