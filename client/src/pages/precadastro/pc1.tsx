@@ -18,6 +18,7 @@ import ButtonLink from "../../components/button/buttonLink";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
+import InputValue from "../../components/input/inputValue";
 
 class PreCadastro1 extends Component {
     state = {
@@ -38,13 +39,13 @@ class PreCadastro1 extends Component {
         idade: Number,
         ddd: Number,
         telefone: Number,
-        rua: String,
+        rua: "",
         numero: Number,
-        bairro: String,
-        complemento: Number,
+        bairro: "",
+        complemento: "",
         cep: Number,
-        cidade: String,
-        estado: String,
+        cidade: "",
+        estado: "",
         regiao: String,
         estadoCivil: String,
         filho: String,
@@ -111,12 +112,20 @@ class PreCadastro1 extends Component {
             [event.target.name]: event.target.value
         });
         console.log(this.state);
-    }; 
+    };
 
-    buscarCep = () =>{
-        axios.get(`http://localhost:5000/consultarCEP/${this.state.cep}`).then(res=>{
+    buscarCep = () => {
+        axios.get(`http://localhost:5000/consultarCEP/${this.state.cep}`).then(res => {
             console.log(res.data);
-            
+            const rua = res.data.logradouro
+            const bairro = res.data.bairro
+            const cidade = res.data.localidade
+            const estado = res.data.uf
+            this.setState({ rua })
+            this.setState({ bairro })
+            this.setState({ cidade })
+            this.setState({ estado })
+
         })
     }
 
@@ -219,10 +228,10 @@ class PreCadastro1 extends Component {
         axios.post("http://localhost:5000/precad1/insertInfoAcademica", infoAcademica).then((res) => {
 
         })
-        
+
         deleteCookie("firstAcess")
         setCookie("aguardoConfirmacao", true)
-        
+
         uploadFile(anexos)
         alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
         window.close()
@@ -319,22 +328,22 @@ class PreCadastro1 extends Component {
                                 <form className="col s12">
 
                                     <div className="row">
-                                        <Input stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
+                                        <InputValue value={this.state.rua} stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
                                         <Input stateName="numero" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="bairro" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
-                                        <Input stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
+                                        <InputValue value={this.state.bairro} stateName="bairro" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+                                        <InputValue value={this.state.complemento} stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
                                         <Input stateName="cep" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
-                                        <ButtonMat fname={this.buscarCep} class="waves-effect waves-light btn center-align" name="Buscar!" iClass="fa-solid fa-arrow-right-long"/>
+                                        <ButtonMat fname={this.buscarCep} class="waves-effect waves-light btn center-align" name="Buscar!" iClass="fa-solid fa-arrow-right-long" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="cidade" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
+                                        <InputValue value={this.state.cidade} stateName="cidade" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
 
                                         <div className="input-field col s12 m12 l3 bla">
-                                            <select name="estado" className="browser-default" id="estado" onChange={this.handleChange}>
+                                            <select name="estado" value={this.state.estado} className="browser-default" id="estado" onChange={this.handleChange}>
                                                 <DisableOption disableValue="" disableNome="Estado" />
                                                 <Option value="Acre" name="AC" />
                                                 <Option value="Alagoas" name="AL" />
