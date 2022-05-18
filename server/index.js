@@ -7,13 +7,14 @@ const departamentRoute = require("./routes/departamentRoutes")
 const cargosRoutes = require("./routes/cargosRoutes")
 const notificacaoRoutes = require("./routes/notificacaoRoutes")
 const uploadRoutes = require("./routes/uploadRoutes")
-const historicoRoutes = require("./routes/historicoRoutes")
+const cepRoute = require("./routes/cepRoute")
 
 
 // IMPORTANDO BIBLIOTECAS
 const cors = require("cors")
 const express = require("express");
 const app = express();
+
 
 // CONFIGURANDO BIBLIOTECAS
 app.use(cors());
@@ -28,8 +29,8 @@ app.use("/infocolab", userRoute)
 app.use("/departamentos", departamentRoute)
 app.use("/cargos", cargosRoutes)
 app.use("/upload", uploadRoutes)
+app.use("/consultarCEP", cepRoute)
 app.use("/notificacao", notificacaoRoutes)
-app.use("/historico",historicoRoutes)
 
 // DEFININDO PORTA
 app.listen(5000, () => console.log('Servidor rodando'))

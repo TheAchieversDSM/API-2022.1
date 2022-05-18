@@ -111,7 +111,14 @@ class PreCadastro1 extends Component {
             [event.target.name]: event.target.value
         });
         console.log(this.state);
-    };
+    }; 
+
+    buscarCep = () =>{
+        axios.get(`http://localhost:5000/consultarCEP/${this.state.cep}`).then(res=>{
+            console.log(res.data);
+            
+        })
+    }
 
     handleSubmit = async (event) => {
         event.preventDefault();
@@ -320,6 +327,7 @@ class PreCadastro1 extends Component {
                                         <Input stateName="bairro" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
                                         <Input stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
                                         <Input stateName="cep" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
+                                        <ButtonMat fname={this.buscarCep} class="waves-effect waves-light btn center-align" name="Buscar!" iClass="fa-solid fa-arrow-right-long"/>
                                     </div>
 
                                     <div className="row">
