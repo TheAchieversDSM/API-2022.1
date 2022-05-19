@@ -47,11 +47,11 @@ export default class OrganoChart extends Component {
                     <option value="" disabled selected>Escolha o departamento</option>
                     {this.state.departamentos.map(departamento => <option key={departamento.dep_id} value={departamento.dep_id}>{departamento.dep_descricao}</option>)}
                 </select>
+
                 <div style={{ height: '100%' }}>
 
                     <OrgStruct node={nodesCreate} />
-             </div>
-                  
+                </div>
             </div>
         );
 

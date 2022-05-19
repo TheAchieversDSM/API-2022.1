@@ -1,13 +1,13 @@
 export function nodeCreate(lenArray, colaboradores) {
     var nodes = []
     for (let index = 0; index < lenArray; index++) {
-        let Telefone = `(${colaboradores[index].con_ddd}) ${colaboradores[index].con_telefone} `
+        let Telefone = `(${colaboradores[index].col_ddd}) ${colaboradores[index].col_telefone} `
         let Endereco = `${colaboradores[index].end_rua}, N°${colaboradores[index].end_numero},${colaboradores[index].end_bairro} - ${colaboradores[index].end_estado}`
 
-        const node = {  id: colaboradores[index].con_id,
-                        Nome: colaboradores[index].con_nome,
-                        pid: colaboradores[index].head_id,
-                        Email:colaboradores[index].con_email,
+        const node = {  id: colaboradores[index].col_id,
+                        Nome: colaboradores[index].col_nome,
+                        pid: colaboradores[index].col_head_id,
+                        Email:colaboradores[index].col_email,
                         Departamento:colaboradores[index].dep_descricao  ,
                         Cargo:colaboradores[index].car_descricao,
                         Telefone: Telefone,

@@ -16,6 +16,18 @@ Cargos.getAllCargos = (result) =>{
     })
 }
 
+Cargos.getUserCargo = (id,result) =>{
+    db.query('SELECT * FROM cargo WHERE car_id = ?',id,(err,res)=>{
+        if(err){
+            console.log('Erro ao Encontrar o cargo do usuário', err);
+            result(null,err);
+        }else{
+            console.log('Encontrado o cargo do usuário');
+            result(null,res);
+        }
+    })
+}
+
 
 
 module.exports = Cargos

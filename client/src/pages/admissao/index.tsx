@@ -153,34 +153,34 @@ class Admissao extends Component {
                 <General />
                 <div className="conteudo">
                     {this.state.colaborador.map(info =>
-                        <div key={info.colaborador_con_id}>
+                        <div key={info.colaborador_col_id}>
                             <h4>Dados pessoais</h4>
-                            <p><label>Nome:</label> {info.con_nome} </p>
-                            <p><label>CPF:</label> {info.user_cpf} </p>
-                            <p><label>Nacionalidade:</label> {info.user_nacionalidade}</p>
-                            <p><label>Naturalidade:</label> {info.user_naturalidade}</p>
-                            <p><label>Raça:</label> {info.user_raca}</p>
-                            <p><label>Gênero:</label> {info.user_genero}</p>
-                            <p><label>Data de Nascimento:</label>  {info.data_nascimento}</p>
-                            <p><label>Estado Civil:</label>  {info.user_estado_civil}</p>
-                            <p><label>Dependentes:</label>  {info.user_filho}</p>
+                            <p><label>Nome:</label> {info.col_nome} </p>
+                            <p><label>CPF:</label> {info.col_cpf} </p>
+                            <p><label>Nacionalidade:</label> {info.col_nacionalidade}</p>
+                            <p><label>Naturalidade:</label> {info.col_naturalidade}</p>
+                            <p><label>Raça:</label> {info.col_raca}</p>
+                            <p><label>Gênero:</label> {info.col_genero}</p>
+                            <p><label>Data de Nascimento:</label>  {info.col_nascimento}</p>
+                            <p><label>Estado Civil:</label>  {info.col_estado_civil}</p>
+                            <p><label>Dependentes:</label>  {info.col_filho}</p>
                             <hr />
 
                             <h4>Contato</h4>
-                            <p><label>E-mail:</label> {info.con_email}</p>
-                            <p><label>DDD:</label> {info.con_ddd}</p>
-                            <p><label>Telefone:</label> {info.con_telefone}</p>
+                            <p><label>E-mail:</label> {info.col_email}</p>
+                            <p><label>DDD:</label> {info.col_ddd}</p>
+                            <p><label>Telefone:</label> {info.col_telefone}</p>
                             <hr />
 
                             <h4>Endereço</h4>
-                            <p><label>Rua:</label> {info.end_rua}</p>
-                            <p><label>Complemento:</label> {info.end_complemento}</p>
-                            <p><label>Bairro:</label> {info.end_bairro}</p>
-                            <p><label>CEP:</label> {info.end_cep}</p>
-                            <p><label>Cidade:</label> {info.end_cidade}</p>
-                            <p><label>Estado:</label> {info.end_estado}</p>
+                            <p><label>Rua:</label> {info.col_end_rua}</p>
+                            <p><label>Complemento:</label> {info.col_end_complemento}</p>
+                            <p><label>Bairro:</label> {info.col_end_bairro}</p>
+                            <p><label>CEP:</label> {info.col_end_cep}</p>
+                            <p><label>Cidade:</label> {info.col_end_cidade}</p>
+                            <p><label>Estado:</label> {info.col_end_estado}</p>
                             <p
-                            ><label>Região:</label> {info.end_regiao}</p>
+                            ><label>Região:</label> {info.col_end_regiao}</p>
                             <hr />
 
                             <h4>Informações Acadêmicas</h4>
@@ -192,7 +192,7 @@ class Admissao extends Component {
                     )}
 
                     <h4>Documentos</h4>
-                    {this.state.documentos.map(doc => <div key={doc.contratado_con_id}>
+                    {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>
 
                         <p><label>{doc.doc_tipo.toUpperCase()}:</label><a href={this.state.arquivo} onClick={() => this.handleDownload(doc.doc_link)} download>{doc.doc_link}</a></p>
 
@@ -209,7 +209,7 @@ class Admissao extends Component {
 
                                 <select className="browser-default" name='superiorSelecionado' id="superior" onChange={this.handleChange}>
                                     <option value="" disabled selected>Superior</option>
-                                    {this.state.colaboradores.map(colaborador => <option key={colaborador.con_id} value={colaborador.con_id}> {colaborador.con_nome} - {colaborador.car_descricao} </option>)}
+                                    {this.state.colaboradores.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option>)}
                                 </select>
 
                                 <select className="browser-default" name='tipoContratacao' id="contratacao" onChange={this.handleChange} >
@@ -218,7 +218,7 @@ class Admissao extends Component {
                                     <option value="2" >PJ</option>
                                     <option value="3" >Estagiário</option>
                                     <option value="4" >Temporário</option>
-                                    {/*this.state.contratacao.map(colaborador => <option key={colaborador.con_id} value={colaborador.con_id}> {colaborador.con_nome} - {colaborador.car_descricao} </option> )*/}
+                                    {/*this.state.contratacao.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option> )*/}
                                 </select>
                             </div>
                             {/* <div className="col s6">

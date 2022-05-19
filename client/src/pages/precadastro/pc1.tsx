@@ -99,8 +99,8 @@ class PreCadastro1 extends Component {
 
         // DOCUMENTO SE FORNECER PENSAO
         pensaoAlimenticia: File,
-
     }
+
     cnpjVerify = event => {
         let cnpj = validarCnpj(event.target.value)
         console.log(cnpj);
@@ -112,6 +112,7 @@ class PreCadastro1 extends Component {
             console.log(this.state);
         };
     }
+
     cpfVerify = event => {
         let cpf = validarCpf(event.target.value)
         console.log(cpf);
@@ -127,6 +128,7 @@ class PreCadastro1 extends Component {
             
         }
     }
+
     handleChangeFile = event => {
         this.setState({
             [event.target.name]: event.target.files[0],
@@ -134,6 +136,7 @@ class PreCadastro1 extends Component {
 
         console.log(this.state);
     };
+
     handleChange = event => {
         this.setState({
             ...this.state,
@@ -149,11 +152,11 @@ class PreCadastro1 extends Component {
             const bairro = res.data.bairro
             const cidade = res.data.localidade
             const estado = res.data.uf
+            
             this.setState({ rua })
             this.setState({ bairro })
             this.setState({ cidade })
             this.setState({ estado })
-
         })
     }
 
@@ -183,7 +186,6 @@ class PreCadastro1 extends Component {
             raca: this.state.raca,
             genero: this.state.genero,
             data: this.state.data,
-            idade: this.state.idade,
             estadoCivil: this.state.estadoCivil,
             filho: this.state.filho,
             id: getCookie("id"),
@@ -206,8 +208,8 @@ class PreCadastro1 extends Component {
                 tempoFormalizacao: this.state.tempoFormalizacao,
                 id: getCookie("id")
             }
-            axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
 
+            axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
             }
         }
 
@@ -250,9 +252,11 @@ class PreCadastro1 extends Component {
         axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
 
         }
+
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
 
         })
+
         axios.post("http://localhost:5000/precad1/insertInfoAcademica", infoAcademica).then((res) => {
 
         })
@@ -345,8 +349,8 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="DDD" />
-                                        <Input stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icon_telephone" class="validate" type="tel" name="Telefone" />
+                                        <Input stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="DDD" />
+                                        <Input stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="Telefone" />
                                     </div>
                                 </form>
                             </div>

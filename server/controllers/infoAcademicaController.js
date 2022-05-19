@@ -10,3 +10,13 @@ exports.createInfoAcademica = (req, res) => {
             res.send(err);
     });
 };
+exports.getInfoAcademica = (req,res) => {
+    InfoAcademica.getInfoAcademica(req.params.id,(err,data) => {
+        if(err){
+            res.send(err)
+        }else{
+            res.send(data)
+        }
+
+    })
+}

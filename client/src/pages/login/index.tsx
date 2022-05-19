@@ -43,8 +43,8 @@ class Login extends Component {
             console.log(response.data);
             if (response.data.token) {
                 setCookie("token", response.data.token);
-                setCookie("id", response.data.user[0].con_id);
-                if (response.data.user[0].con_nome == null) {
+                setCookie("id", response.data.user[0].col_id);
+                if (response.data.user[0].col_nome == null) {
                     setCookie("firstAcess", true)
                     setCookie("tipoPessoa", response.data.user[0].tipo_pessoa)
                 } else if (response.data.user[0].cargo_car_id == null) {

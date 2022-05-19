@@ -31,7 +31,7 @@ class Notificacao extends Component {
     axiosget = (id)=>{
         let nome =  String
           axios.get(`http://localhost:5000/infocolab/${id}`) .then((res) => {
-              nome = res.data.user.con_nome
+              nome = res.data.user.col_nome
               console.log(res.data);
               
         })  
@@ -52,9 +52,9 @@ class Notificacao extends Component {
                     <>
                         <div key={notif.notificacao_id} className="not row">
 
-                            <h5 className="col s6">{notif.con_nome}</h5>
+                            <h5 className="col s6">{notif.col_nome}</h5>
                             
-                            <Link to={`/admissao/${notif.con_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
+                            <Link to={`/admissao/${notif.col_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
                         </div>
                     </>)}
                 </div>

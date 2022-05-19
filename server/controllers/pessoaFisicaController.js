@@ -5,7 +5,7 @@ exports.createPessoaFisica = (req, res) => {
     console.log("Pessoa Física: ", Userdata)
 
     // Save Tutorial in the database
-    Pf.createPessoaFisica(Userdata,(err, data) => {
+    Pf.createPessoaFisica(Userdata,req.body.id,(err, data) => {
         if (err)
             res.send(err);
     });

@@ -2,7 +2,6 @@ const express = require('express');
 const colaboradorController = require("../controllers/colaboradorPreCadController");
 const pessoaFisicaController = require("../controllers/pessoaFisicaController")
 const pessoaJuridicaController = require("../controllers/pessoaJuridicaController")
-const infoAcademica = require("../controllers/infoAcademicaController")
 const router = require("express").Router()
 const multer = require("multer")
 
@@ -21,7 +20,6 @@ const upload = multer({storage})
 
 
 router.put('/updatecolaborador/:id', colaboradorController.updateUser)
-router.post('/insertInfoAcademica',infoAcademica.createInfoAcademica )
 router.post('/insertpessoafisica', pessoaFisicaController.createPessoaFisica)
 router.post('/insertpessoajuridica', pessoaJuridicaController.createPessoaJuridica)
 

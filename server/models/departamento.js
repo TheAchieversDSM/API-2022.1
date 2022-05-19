@@ -8,13 +8,26 @@ Departamento.getAllDepart = (result) =>{
     db.query('SELECT * FROM departamento', (err, res)=>{
         if(err){
             console.log('Erro ao puxar os departamentos', err);
-            result(null,err);
+            result(null, err);
         }else{
             console.log('Departamentos Puxados');
-            result(null,res);
+            result(null, res);
         }
     })
 }
+
+Departamento.getUserDepart = (id,result) => {
+    db.query('SELECT * FROM departamento WHERE dep_id = ?',id,(err,res)=>{
+        if(err) {
+            console.log("Erro ao encontrar o departamento do usuário")
+            result(null, err);
+        } else{
+            console.log('Encontrado o departamento do usuário');
+            result(null, res);
+        }
+    })     
+}
+
 Departamento.getDepartByCargo = (id,result) =>{
     console.log(id);
     db.query(`SELECT dep_id FROM departamento,cargo WHERE car_id = ${id} AND dep_id =departamento_dep_id `,(err,res)=>{

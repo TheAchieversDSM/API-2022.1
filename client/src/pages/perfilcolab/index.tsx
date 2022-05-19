@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+
 // LOCAL CSS
 import './perfil.css'
 
@@ -14,7 +15,6 @@ import Css from "../../assets/style/style";
 import React from "react";
 
 class PerfilColab extends Component {
-    
     state = {
         colaborador: [],
         head_colaborador: [],
@@ -23,9 +23,10 @@ class PerfilColab extends Component {
 
     componentDidMount() {
         let url = window.location.href.split("/")
-        if (url[3] == "PerfilColaborador"){ 
+        if (url[3] == "PerfilColaborador") { 
             this.state.id = url[4]
         }
+
         axios.get(`http://localhost:5000/infocolab/allUserInfo/${this.state.id}`)
             .then((res) => {
                 console.log(res.data);
@@ -55,15 +56,16 @@ class PerfilColab extends Component {
                                             <i className="fa-regular fa-user fa-7x"></i>
                                         </div>
                                     </div>
+
                                     <div className="col s12 m12 l7 center-align">
-                                        {this.state.colaborador.map(info => <h5 key={info.con_id} className="name">{info.con_nome}</h5>)}
+                                        {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
-                                            {this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>CPF:</label> {info.user_cpf}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {info.col_cpf}</p>)}
                                             <p><label>Data de admissão:</label> xx/yy/zzzz</p>
                                             <p><label>Data de desligamento:</label> --/--/----</p>
-                                            {this.state.colaborador.map(info => <p key={info.con_id}><label>Tipo de Contratação:</label> {info.cont_descricao}</p>)}
-                                            {this.state.colaborador.map(info => <p key={info.con_id}><label>E-mail:</label> {info.con_email}</p>)}
-                                            {this.state.colaborador.map(info => <p key={info.con_id}><label>Tel:</label> ({info.con_ddd}) {info.con_telefone}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>Tipo de Contratação:</label> {info.cont_descricao}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>E-mail:</label> {info.col_email}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>Tel:</label> ({info.col_ddd}) {info.col_telefone}</p>)}
                                         </p>
                                     </div>
                                 </div>
@@ -88,11 +90,11 @@ class PerfilColab extends Component {
                             <div className="teste2">
                                 <h4>Informações</h4>
                                 <div className="teste2-info ">
-                                    {this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p  key={info.colaborador_con_id}><label>Cargo:</label> {info.car_descricao}</p>)}
+                                    {this.state.colaborador.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
+                                    {this.state.colaborador.map(info => <p  key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
                                     <p><label>Status:</label> ----</p>
-                                    {this.state.head_colaborador.map(info => <p key={info.con_id}><label>Head:</label> {info.con_nome} - {info.car_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Salário:</label> R${info.car_salario}</p>)}
+                                    {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
+                                    {this.state.colaborador.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
                                     <p><label>Tempo de casa:</label> ----</p>
                                 </div>
                             </div>
@@ -102,26 +104,26 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <ul className="collapsible popout" data-collapsible="accordion">
 
-                                    <Collapse title="Informações Pessoais" desc1={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Gênero:</label> {info.user_genero}</p>)}
-                                        desc2={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Nacionalidade:</label> {info.user_nacionalidade}</p>)}
-                                        desc3={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Naturalidade:</label> {info.user_naturalidade}</p>)}
-                                        desc4={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Raça:</label> {info.user_raca}</p>)}
-                                        desc5={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Data de Nascimento:</label> {info.data_nascimento} <em>({info.idade} Anos)</em></p>)}
+                                    <Collapse title="Informações Pessoais" desc1={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Gênero:</label> {info.col_genero}</p>)}
+                                        desc2={this.state.colaborador.map(info => <p key={info.col_id}><label>Nacionalidade:</label> {info.user_nacionalidade}</p>)}
+                                        desc3={this.state.colaborador.map(info => <p key={info.col_id}><label>Naturalidade:</label> {info.user_naturalidade}</p>)}
+                                        desc4={this.state.colaborador.map(info => <p key={info.col_id}><label>Raça:</label> {info.col_raca}</p>)}
+                                        desc5={this.state.colaborador.map(info => <p key={info.col_id}><label>Data de Nascimento:</label> {info.col_data_nascimento} <em>({info.idade} Anos)</em></p>)}
                                         desc6={null} />
 
-                                    <Collapse title="Informações do Endereço" desc1={this.state.colaborador.map(info => <p key={info.con_id}><label>Endereço:</label> {info.end_rua}, n° {info.end_numero}, {info.end_bairro} </p>)}
-                                        desc2={this.state.colaborador.map(info => <p key={info.con_id}><label>Estado:</label> {info.end_estado}</p>)}
-                                        desc3={this.state.colaborador.map(info => <p key={info.con_id}><label>CEP:</label> {info.end_cep}</p>)}
-                                        desc4={this.state.colaborador.map(info => <p key={info.con_id}><label>Região:</label> {info.end_regiao}</p>)}
-                                        desc5={this.state.colaborador.map(info => <p key={info.con_id}><label>Complemento:</label> {info.end_complemento}</p>)}
+                                    <Collapse title="Informações do Endereço" desc1={this.state.colaborador.map(info => <p key={info.col_id}><label>Endereço:</label> {info.col_end_rua}, n° {info.col_end_numero}, {info.col_end_bairro} </p>)}
+                                        desc2={this.state.colaborador.map(info => <p key={info.col_id}><label>Estado:</label> {info.col_end_estado}</p>)}
+                                        desc3={this.state.colaborador.map(info => <p key={info.col_id}><label>CEP:</label> {info.col_end_cep}</p>)}
+                                        desc4={this.state.colaborador.map(info => <p key={info.col_id}><label>Região:</label> {info.col_end_regiao}</p>)}
+                                        desc5={this.state.colaborador.map(info => <p key={info.col_id}><label>Complemento:</label> {info.col_end_complemento}</p>)}
                                         desc6={null} />
 
 
                                     <Collapse title="Dados Acadêmicos"
-                                        desc1={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Formação:</label> {info.qua_formacao}</p>)}
-                                        desc2={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Instituição:</label> {info.qua_nome_instituição}</p>)}
-                                        desc3={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Curso:</label> {info.qua_curso}</p>)}
-                                        desc4={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Línguas:</label> {info.qua_lingua}</p>)}
+                                        desc1={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Formação:</label> {info.qua_formacao}</p>)}
+                                        desc2={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Instituição:</label> {info.qua_nome_instituição}</p>)}
+                                        desc3={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Curso:</label> {info.qua_curso}</p>)}
+                                        desc4={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Línguas:</label> {info.qua_lingua}</p>)}
                                         desc5={null}
                                         desc6={null} />
 
@@ -133,7 +135,7 @@ class PerfilColab extends Component {
                                         desc6="" />
 
                                     <Collapse title="Estado Civil"
-                                        desc1={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Estado Civil:</label> {info.user_estado_civil}</p>)}
+                                        desc1={this.state.colaborador.map(info => <p key={info.col_id}><label>Estado Civil:</label> {info.col_estado_civil}</p>)}
                                         desc2="Certidão de casamento"
                                         desc3="CPF do conjuge"
                                         desc4="RG do conjuge"
@@ -141,7 +143,7 @@ class PerfilColab extends Component {
                                         desc6="" />
 
                                     <Collapse title="Paternidade/Maternidade"
-                                        desc1={this.state.colaborador.map(info => <p key={info.colaborador_con_id}><label>Dependentes:</label> {info.user_filho}</p>)}
+                                        desc1={this.state.colaborador.map(info => <p key={info.col_id}><label>Dependentes:</label> {info.col_filho}</p>)}
                                         desc2="Certidão de nascimento"
                                         desc3="Certificado de vacinação"
                                         desc4="Comprovante de frequência escolar"
@@ -159,7 +161,7 @@ class PerfilColab extends Component {
                                 <h4>Benefícios</h4>
                                 <form action="#">
                                   {this.state.colaborador.map(info=> 
-                                    <p key={info.colaborador_con_id} className="grid-check">
+                                    <p key={info.colaborador_col_id} className="grid-check">
                                         <CheckChecked value="" name="Plano de Saúde" />
 
                                         <Check value="" name="Vale Transporte" />

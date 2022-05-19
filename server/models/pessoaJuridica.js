@@ -1,18 +1,18 @@
 const db = require("../config/dbconfig")
 
 Pj = function (pj) {
-    this.emp_tempo_formalizacao = pj.tempoFormalizacao,
-    this.emp_natureza_juridica = pj.naturezajuridica, 
-    this.data_fundacao = pj.dataFundacao,
-    this.emp_nome= pj.nomeEmpresa, 
-    this.emp_cnpj = pj.cnpj,
-    this.colaborador_con_id = pj.id
+    this.col_emp_tempo_formalizacao = pj.tempoFormalizacao,
+    this.col_emp_natureza_juridica = pj.naturezajuridica, 
+    this.col_data_fundacao = pj.dataFundacao,
+    this.col_emp_nome= pj.nomeEmpresa, 
+    this.col_emp_cnpj = pj.cnpj,
+    this.colaborador_col_id = pj.id
 };
 
 
-Pj.createPessoaJuridica = (Userdata, result) => {
+Pj.createPessoaJuridica = (Userdata,id, result) => {
     console.log(Userdata);
-    db.query("INSERT INTO pessoa_juridica SET ?", Userdata, (err, res) => {
+    db.query("UPDATE colaborador SET ?  WHERE col_id = ?", Userdata,id, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);

@@ -7,7 +7,7 @@ exports.getUserByEmail = (req, res) => {
         user: [],
         car_id : Number
     }
-    Colaborador.getUserByEmail(req.params.con_email, req.params.con_senha, (err, user) => {
+    Colaborador.getUserByEmail(req.params.col_email, req.params.col_senha, (err, user) => {
         if (err) {
             res.send(err);
         } else {
@@ -16,18 +16,17 @@ exports.getUserByEmail = (req, res) => {
                 res.send("Usuário Inválido!")
                 console.log("Usuario invalido");
             } else {
-                var id = user[0].con_id
+                var id = user[0].col_id
                 console.log(id);
                 const token = jwt.sign({ id }, SECRET = "Theachievers", {
                     expiresIn: 1000
                 });
                 resposta.token = token
                 resposta.user = user
-           
-
             }
         }
-    },(err,nivel_id)=>{
+    },
+    (err,nivel_id)=>{
         if (err) {
             res.send(null);
         }else{

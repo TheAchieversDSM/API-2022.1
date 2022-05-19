@@ -9,6 +9,15 @@ exports.getAllDepart = (req,res) =>{
     })
 }
 
+exports.getUserDepart = (req,res) =>{
+    Departamento.getUserDepart(req.params.id,(err,departamento) =>{
+        if(err)
+        res.send(err);
+        console.log('Departamento:', departamento);
+        res.send(departamento)
+    })
+}
+
 exports.getDepartByCargo = (req,res) =>{
     Departamento.getDepartByCargo(req.params.id,(err,departamento)=>{
         if(err){

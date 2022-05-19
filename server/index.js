@@ -6,6 +6,7 @@ const userRoute = require("./routes/userRoutes")
 const departamentRoute = require("./routes/departamentRoutes")
 const cargosRoutes = require("./routes/cargosRoutes")
 const notificacaoRoutes = require("./routes/notificacaoRoutes")
+const historicoRoutes = require("./routes/historicoRoutes")
 const uploadRoutes = require("./routes/uploadRoutes")
 const cepRoute = require("./routes/cepRoute")
 
@@ -30,6 +31,7 @@ app.use("/departamentos", departamentRoute)
 app.use("/cargos", cargosRoutes)
 app.use("/upload", uploadRoutes)
 app.use("/consultarCEP", cepRoute)
+app.use("/historico", historicoRoutes)
 app.use("/notificacao", notificacaoRoutes)
 
 // DEFININDO PORTA

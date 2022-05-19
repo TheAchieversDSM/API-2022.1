@@ -2,20 +2,20 @@ const User = require("../models/user")
 const download = require("download")
 const fs = require("fs");
 
-exports.getAllUserInfoById = (req, res) => {
+exports.getColabInfoById = (req, res) => {
     const resposta = {
         user: [],
         head_user: []
     }
-    User.getAllUserInfoById(req.params.id, (err, user) => {
+    User.getColabInfoById(req.params.id, (err, user) => {
         if (err)
             res.send(err);
-        console.log('Resultado encontrado', user);
+        console.log('Informações do Usuário Encontradas', user);
         resposta.user = user
     }, (err, head) => {
         if (err)
             res.send(err);
-        console.log('Resultado encontrado', head);
+        console.log('Head Encontrado', head);
         resposta.head_user = head
 
         res.send(resposta)
