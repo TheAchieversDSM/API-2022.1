@@ -1,11 +1,16 @@
-import React, { Component, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { getCookie, setCookie, deleteCookie } from "../../utils/cookieUtil/cookieUtil";
+import React, { Component} from "react";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
-import uploadFile from "../../utils/uploadFiles/uploadFile";
+
 
 // LOCAL CSS
 import './pc1.css'
+
+// FUNCTIONS
+import { getCookie, setCookie, deleteCookie } from "../../utils/cookieUtil/cookieUtil";
+import uploadFile from "../../utils/uploadFiles/uploadFile";
+import validarCpf from "../../utils/validacaoDoc/cpf"
+import validarCnpj from "../../utils/validacaoDoc/cnpj"
 
 // COMPONENTS
 import General from "../../components/general";
@@ -13,8 +18,6 @@ import Input from "../../components/input/input";
 import PessoaJuridicaForm from "../../components/preCadPessoaForm/pessoaJurídica";
 import Check from "../../components/input/check";
 import ButtonMat from "../../components/button/buttonMat";
-import LoginRoute from "../../utils/login/loginAuth";
-import ButtonLink from "../../components/button/buttonLink";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
@@ -98,7 +101,32 @@ class PreCadastro1 extends Component {
         pensaoAlimenticia: File,
 
     }
+    cnpjVerify = event => {
+        let cnpj = validarCnpj(event.target.value)
+        console.log(cnpj);
+        if(cnpj != false){
+            this.setState({
+                [event.target.name]: event.target.value,
+            });
 
+            console.log(this.state);
+        };
+    }
+    cpfVerify = event => {
+        let cpf = validarCpf(event.target.value)
+        console.log(cpf);
+        if(cpf != false){
+            document.getElementById("cpfcampo").style.display = 'none'
+            this.setState({
+                [event.target.name]: event.target.value,
+            });
+
+            console.log(this.state);
+        }else{
+            document.getElementById("cpfcampo").style.display = 'block'
+            
+        }
+    }
     handleChangeFile = event => {
         this.setState({
             [event.target.name]: event.target.files[0],
@@ -250,7 +278,7 @@ class PreCadastro1 extends Component {
     render() {
         let form
         if (getCookie("tipoPessoa") == "Juridica") {
-            form = <PessoaJuridicaForm fname={this.handleChange} />
+            form = <PessoaJuridicaForm fname={this.cnpjVerify} />
         }
         return (
             <>
@@ -279,8 +307,9 @@ class PreCadastro1 extends Component {
                                         <Input stateName="novaSenha" fname={this.handleChange} div="input-field col s12" id="novaSenha" class="validate" type="password" name="Nova Senha" />
                                     </div>
 
-                                    <div className="row">
-                                        <Input stateName="cpf" fname={this.handleChange} div="input-field col col s12 m12 l7" id="cpf" class="validate" type="text" name="CPF" />
+                                    <div className="row" >
+                                        <Input stateName="cpf" fname={this.cpfVerify} div="input-field col col s12 m12 l7" id="cpf" class="validate" type="text" name="CPF" />
+                                        <p id="cpfcampo">CPF Inválido</p>
                                     </div>
 
                                     <div className="row">

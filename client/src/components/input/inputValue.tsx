@@ -19,7 +19,7 @@ class Input extends Component<props> {
     render() {
         return (
             <div className={this.props.div} >
-                <input value={this.props.value} type={this.props.type} className={this.props.class} name={this.props.stateName} id={this.props.id} onChange={this.props.fname} />
+                <input disabled value={this.props.value} type={this.props.type} className={this.props.class} name={this.props.stateName} id={this.props.id} onChange={this.props.fname} />
                 <label htmlFor={this.props.id}>{this.props.name}</label>
             </div>
         );
