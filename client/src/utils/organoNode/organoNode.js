@@ -2,7 +2,7 @@ export function nodeCreate(lenArray, colaboradores) {
     var nodes = []
     for (let index = 0; index < lenArray; index++) {
         let Telefone = `(${colaboradores[index].col_ddd}) ${colaboradores[index].col_telefone} `
-        let Endereco = `${colaboradores[index].end_rua}, N°${colaboradores[index].end_numero},${colaboradores[index].end_bairro} - ${colaboradores[index].end_estado}`
+        let Endereco = `${colaboradores[index].col_end_rua}, N°${colaboradores[index].col_end_numero},${colaboradores[index].col_end_bairro} - ${colaboradores[index].col_end_estado}`
 
         const node = {  id: colaboradores[index].col_id,
                         Nome: colaboradores[index].col_nome,
@@ -18,9 +18,9 @@ export function nodeCreate(lenArray, colaboradores) {
                         CPF: colaboradores[index].user_cpf,
                         foto: "" }
 
-        if (colaboradores[index].head_id == '1'){
-            node.tags = ["assistant"]
-        }
+        //if (colaboradores[index].car_descricao == colaboradores[index].dep_head ){
+         //   node.tags = ["assistant"]
+        //}
         nodes.push(node)
     }
     return (nodes)

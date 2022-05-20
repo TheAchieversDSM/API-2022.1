@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+import { cnpj,cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS
 import './perfil.css'
@@ -17,6 +18,8 @@ import React from "react";
 class PerfilColab extends Component {
     state = {
         colaborador: [],
+        cargo: [],
+        departamento: [],
         info_academica: [],
         head_colaborador: [],
         id: getCookie("id")
@@ -42,10 +45,25 @@ class PerfilColab extends Component {
         
         axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
             console.log(res.data);
-            const info_academica = res.data.user;
+            const info_academica = res.data;
             this.setState({ info_academica });
         }
-    )
+        )
+
+        axios.get(`http://localhost:5000/cargos/userCargo/${this.state.id}`).then((res) => {
+            console.log(res.data);
+            const cargo = res.data;
+            this.setState({ cargo });
+        }
+        )
+
+        
+        axios.get(`http://localhost:5000/departamentos/userDep/${this.state.id}`).then((res) => {
+            console.log(res.data);
+            const departamento = res.data;
+            this.setState({ departamento });
+        }
+        )
     }
 
     render() {
@@ -68,7 +86,7 @@ class PerfilColab extends Component {
                                     <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
-                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {info.col_cpf}</p>)}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}
                                             <p><label>Data de admissão:</label> xx/yy/zzzz</p>
                                             <p><label>Data de desligamento:</label> --/--/----</p>
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>Tipo de Contratação:</label> {info.cont_descricao}</p>)}
@@ -98,11 +116,11 @@ class PerfilColab extends Component {
                             <div className="teste2">
                                 <h4>Informações</h4>
                                 <div className="teste2-info ">
-                                    {this.state.colaborador.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p  key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
+                                    {this.state.departamento.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
+                                    {this.state.cargo.map(info => <p  key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
                                     <p><label>Status:</label> ----</p>
                                     {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
-                                    {this.state.colaborador.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
+                                    {this.state.cargo.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
                                     <p><label>Tempo de casa:</label> ----</p>
                                 </div>
                             </div>
@@ -113,10 +131,10 @@ class PerfilColab extends Component {
                                 <ul className="collapsible popout" data-collapsible="accordion">
 
                                     <Collapse title="Informações Pessoais" desc1={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Gênero:</label> {info.col_genero}</p>)}
-                                        desc2={this.state.colaborador.map(info => <p key={info.col_id}><label>Nacionalidade:</label> {info.user_nacionalidade}</p>)}
-                                        desc3={this.state.colaborador.map(info => <p key={info.col_id}><label>Naturalidade:</label> {info.user_naturalidade}</p>)}
+                                        desc2={this.state.colaborador.map(info => <p key={info.col_id}><label>Nacionalidade:</label> {info.col_nacionalidade}</p>)}
+                                        desc3={this.state.colaborador.map(info => <p key={info.col_id}><label>Naturalidade:</label> {info.col_naturalidade}</p>)}
                                         desc4={this.state.colaborador.map(info => <p key={info.col_id}><label>Raça:</label> {info.col_raca}</p>)}
-                                        desc5={this.state.colaborador.map(info => <p key={info.col_id}><label>Data de Nascimento:</label> {info.col_data_nascimento} <em>({info.idade} Anos)</em></p>)}
+                                        desc5={this.state.colaborador.map(info => <p key={info.col_id}><label>Data de Nascimento:</label> {info.data_nascimento} <em>({info.idade} Anos)</em></p>)}
                                         desc6={null} />
 
                                     <Collapse title="Informações do Endereço" desc1={this.state.colaborador.map(info => <p key={info.col_id}><label>Endereço:</label> {info.col_end_rua}, n° {info.col_end_numero}, {info.col_end_bairro} </p>)}

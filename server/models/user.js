@@ -44,7 +44,7 @@ User.getAllUser = (result) => {
 }
 
 User.getAllUserByDep = (id, result) => {
-    db.query(`SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN pessoa_fisica pf INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.departamento_dep_id = ${id} AND dep.dep_id = colab.departamento_dep_id  AND colab.cargo_car_id = car.car_id AND pf.colaborador_col_id = colab.col_id AND qual.colaborador_col_id = colab.col_id AND colab.tipo_contratacao_cont_id = tc.cont_id`, (err, res) => {
+    db.query(`SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.departamento_dep_id = ${id} AND dep.dep_id = colab.departamento_dep_id  AND colab.cargo_car_id = car.car_id AND qual.colaborador_col_id = colab.col_id AND colab.tipo_contratacao_cont_id = tc.cont_id`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
