@@ -75,9 +75,9 @@ RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding 
 RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
 RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
 RNF-17 | - | Manual do usuário para navegação | Média | ✔️
- 
- ####Timeline
- (https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline.jpg)
+
+##### Timeline
+![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline.jpg)
  
 <span id="estrutura-pastas">
  
