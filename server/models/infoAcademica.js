@@ -21,7 +21,7 @@ InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
     });
 }
 InfoAcademica.getInfoAcademica = (id,result) =>{
-    db.query("SELECT * FROM qualificacao WHERE colaborador_col_id = ?",id,(req,res)=>{
+    db.query("SELECT * FROM qualificacao WHERE colaborador_col_id = ?",id,(err,res)=>{
         if (err) {
             console.log("Erro ao encontrar a qualificação do usuário", err);
             result(null, err);

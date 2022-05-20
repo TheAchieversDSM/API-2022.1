@@ -9,6 +9,7 @@ const notificacaoRoutes = require("./routes/notificacaoRoutes")
 const historicoRoutes = require("./routes/historicoRoutes")
 const uploadRoutes = require("./routes/uploadRoutes")
 const cepRoute = require("./routes/cepRoute")
+const infoAcademicaRoutes = require("./routes/infoAcademicaRoutes")
 
 
 // IMPORTANDO BIBLIOTECAS
@@ -32,6 +33,7 @@ app.use("/cargos", cargosRoutes)
 app.use("/upload", uploadRoutes)
 app.use("/consultarCEP", cepRoute)
 app.use("/historico", historicoRoutes)
+app.use("/infoacademica",infoAcademicaRoutes)
 app.use("/notificacao", notificacaoRoutes)
 
 // DEFININDO PORTA

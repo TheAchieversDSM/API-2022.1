@@ -17,17 +17,18 @@ import React from "react";
 class PerfilColab extends Component {
     state = {
         colaborador: [],
+        info_academica: [],
         head_colaborador: [],
         id: getCookie("id")
     };
 
     componentDidMount() {
         let url = window.location.href.split("/")
-        if (url[3] == "PerfilColaborador") { 
-            this.state.id = url[4]
+        if (url[3] === "PerfilColaborador") { 
+            this.setState({id:url[4]})
         }
 
-        axios.get(`http://localhost:5000/infocolab/allUserInfo/${this.state.id}`)
+        axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
                 console.log(res.data);
 
@@ -38,6 +39,13 @@ class PerfilColab extends Component {
                 this.setState({ head_colaborador });
             }
         )
+        
+        axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
+            console.log(res.data);
+            const info_academica = res.data.user;
+            this.setState({ info_academica });
+        }
+    )
     }
 
     render() {
@@ -120,10 +128,10 @@ class PerfilColab extends Component {
 
 
                                     <Collapse title="Dados Acadêmicos"
-                                        desc1={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Formação:</label> {info.qua_formacao}</p>)}
-                                        desc2={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Instituição:</label> {info.qua_nome_instituição}</p>)}
-                                        desc3={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Curso:</label> {info.qua_curso}</p>)}
-                                        desc4={this.state.colaborador.map(info => <p key={info.colaborador_col_id}><label>Línguas:</label> {info.qua_lingua}</p>)}
+                                        desc1={this.state.info_academica.map(info => <p key={info.qua_id}><label>Formação:</label> {info.qua_formacao}</p>)}
+                                        desc2={this.state.info_academica.map(info => <p key={info.qua_id}><label>Instituição:</label> {info.qua_nome_instituicao}</p>)}
+                                        desc3={this.state.info_academica.map(info => <p key={info.qua_id}><label>Curso:</label> {info.qua_curso}</p>)}
+                                        desc4={this.state.info_academica.map(info => <p key={info.qua_id }><label>Línguas:</label> {info.qua_lingua}</p>)}
                                         desc5={null}
                                         desc6={null} />
 

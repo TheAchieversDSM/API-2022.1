@@ -7,7 +7,7 @@ User = function (user) {
 }
 
 User.getColabInfoById = (id, result, head_result) => {
-    db.query("SELECT *, DATE_FORMAT(user_data_nascimento ,'%d/%m/%Y')  AS data_nascimento , YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(user_data_nascimento))) AS idade FROM colaborador WHERE col_id = ?", id, (err, res) => {
+    db.query("SELECT *, DATE_FORMAT(col_data_nascimento ,'%d/%m/%Y')  AS data_nascimento , YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(col_data_nascimento))) AS idade FROM colaborador WHERE col_id = ?", id, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -18,7 +18,7 @@ User.getColabInfoById = (id, result, head_result) => {
         }
     })
 
-    db.query("SELECT colab2.col_id, colab2.col_nome,car_descricao FROM colaborador colab INNER JOIN cargo car INNER JOIN colaborador colab2 on colab.col_id = ? AND colab.head_id = colab2.col_id AND colab2.cargo_car_id = car.car_id", id, (err, res) => {
+    db.query("SELECT colab2.col_id, colab2.col_nome,car_descricao FROM colaborador colab INNER JOIN cargo car INNER JOIN colaborador colab2 on colab.col_id = ? AND colab.col_head_id = colab2.col_id AND colab2.cargo_car_id = car.car_id", id, (err, res) => {
         if (err) {
             console.log("error: ", err);
             head_result(null, err);
