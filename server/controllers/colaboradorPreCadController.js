@@ -2,6 +2,7 @@ const Colaborador = require("../models/colaboradorPreCad");
 
 exports.updateUser = (req, res) => {
     const Userdata = new Colaborador(req.body)
+    console.log(Userdata);
     console.log("Usuario: ", Userdata)
 
     // Save Tutorial in the database

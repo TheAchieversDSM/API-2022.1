@@ -13,7 +13,9 @@ exports.getUserByEmail = (req, res) => {
         } else {
             console.log(user);
             if (user.length === 0) {
-                res.send("Usuário Inválido!")
+                res.send({
+                    erro:"Email ou Senha incorreto"
+                })
                 console.log("Usuario invalido");
             } else {
                 var id = user[0].col_id
@@ -28,11 +30,13 @@ exports.getUserByEmail = (req, res) => {
     },
     (err,nivel_id)=>{
         if (err) {
-            res.send(null);
+            res.send(err);
         }else{
-            console.log(nivel_id);
-            resposta.nivel_id = nivel_id
-            res.send(resposta)
+            if (resposta.user.length != 0){
+                console.log(nivel_id);
+                resposta.nivel_id = nivel_id
+                res.send(resposta)
+            }
         }
     })
 }

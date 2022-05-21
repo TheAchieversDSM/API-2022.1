@@ -127,7 +127,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`documentos` (
   `doc_id` INT NOT NULL AUTO_INCREMENT,
-  `doc_link` VARCHAR(40) NOT NULL,
+  `doc_link` VARCHAR(200) NOT NULL,
   `doc_tipo` VARCHAR(40) NOT NULL,
   `colaborador_col_id` INT NOT NULL,
   PRIMARY KEY (`doc_id`, `colaborador_col_id`),

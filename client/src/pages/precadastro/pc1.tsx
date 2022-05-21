@@ -28,7 +28,7 @@ class PreCadastro1 extends Component {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
 
-        fomularioEnviado: false,
+
 
         // INFORMAÇÕES
         nome: String,
@@ -99,6 +99,8 @@ class PreCadastro1 extends Component {
 
         // DOCUMENTO SE FORNECER PENSAO
         pensaoAlimenticia: File,
+
+        fomularioEnviado: false
     }
 
     cnpjVerify = event => {
@@ -261,17 +263,21 @@ class PreCadastro1 extends Component {
 
         })
 
+        this.setState({
+            formularioEnviado: true
+        })
         deleteCookie("firstAcess")
         setCookie("aguardoConfirmacao", true)
 
         uploadFile(anexos)
-        alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
-        window.close()
-        window.open("/home")
+        //alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
+        //window.close()
+        //window.open("/home")
     };
 
     redirect = () => {
         if (this.state.fomularioEnviado == true) {
+            alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
             return <Navigate to="/home" />
         }
         else {
@@ -286,7 +292,7 @@ class PreCadastro1 extends Component {
         }
         return (
             <>
-
+            <this.redirect/>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
                 <script src="https://kit.fontawesome.com/4d3a0277e3.js" />
 

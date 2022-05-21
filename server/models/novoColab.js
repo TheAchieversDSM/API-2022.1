@@ -10,12 +10,10 @@ Perfil = function(perfil) {
 Perfil.createUser = (Userdata, result) => {
     db.query("INSERT INTO colaborador SET ?", Userdata, (err, res)=>{
         if (err) {
-            console.log("error: ", err);
-            result(null, err);
+            result(err);
         }
         else {
-          console.log("Criado Usuário");
-          result(null, res);
+          result(null,res);
         }
     })
 }

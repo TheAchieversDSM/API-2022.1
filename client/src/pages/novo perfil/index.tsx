@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import M from "materialize-css";
 
 // LOCAL CSS
 import './novoperfil.css'
@@ -34,9 +35,13 @@ class NovoPerfil extends Component {
             password: this.state.password,
             tipoPessoa: this.state.tipoPessoa
         }
-        axios.post("http://localhost:5000/novocolaborador/create", user )
-
-        alert('Usuário Criado.')
+        axios.post("http://localhost:5000/novocolaborador/create", user ).then((res)=>{
+            if (res.data.erro){
+                M.toast({html: res.data.erro , classes: "red darken-4"})
+            }else{
+                M.toast({html: res.data , classes: "green darken-4"})
+            }
+        })
     };
     render() {
         return (

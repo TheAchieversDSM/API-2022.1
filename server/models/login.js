@@ -9,10 +9,9 @@ Login = function (login) {
 Login.getUserByEmail = (col_email, col_senha, result,nivel_result) => {
     db.query("SELECT * FROM colaborador WHERE col_email = ? AND col_senha = ? ", [col_email, col_senha], (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log(err);
             result(null, err);
         } else {
-            console.log("Encontrado usuario:");
             result(null, res);
         }
     })
