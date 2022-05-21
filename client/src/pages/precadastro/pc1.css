@@ -89,7 +89,13 @@ form>div {
 .input-field input[type=text].valid {
     border: 3px solid #00e676 !important;
 }
-#cpfcampo{
+
+#casadoLabel,
+#casadoBody,
+#filhosLabel,
+#filhosBody,
+#homemLabel,
+#homemBody {
     display: none;
 }
 

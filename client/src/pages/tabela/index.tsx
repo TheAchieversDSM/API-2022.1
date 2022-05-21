@@ -48,7 +48,7 @@ class Funcionario extends Component {
             <General />
             <div className="conteudo">
                 <div className="func">
-                 <input type="text" id="searchBox" onKeyUp={this.search} placeholder="Search for names.."/>
+                 <input type="text" id="searchBox" onKeyUp={this.search} placeholder="Procure por um nome..."/>
                         <table id="tabela">
                             <thead>
                                 <tr>

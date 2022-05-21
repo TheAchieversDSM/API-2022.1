@@ -41,7 +41,7 @@ class Login extends Component {
 
         await axios.get(`http://localhost:5000/login/${user.email}/${user.password}`).then((res) => {
             if (res.data.erro){
-                M.toast({html: res.data.erro , classes: "red darken-4"})
+                M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
             }else{
                 if (res.data.token) {
                     setCookie("token", res.data.token);

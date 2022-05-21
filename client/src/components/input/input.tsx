@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-type props ={
+type props = {
     div: string;
     type: string, 
     class: string,

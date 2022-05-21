@@ -37,9 +37,9 @@ class NovoPerfil extends Component {
         }
         axios.post("http://localhost:5000/novocolaborador/create", user ).then((res)=>{
             if (res.data.erro){
-                M.toast({html: res.data.erro , classes: "red darken-4"})
+                M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
             }else{
-                M.toast({html: res.data , classes: "green darken-4"})
+                M.toast({html: res.data , classes: "green darken-4 rounded"})
             }
         })
     };
@@ -62,8 +62,8 @@ class NovoPerfil extends Component {
                             <label>Pessoa</label>
                             <select name="tipoPessoa" className="browser-default" id="tipoPessoa" onChange={this.handleChange}>
                                 <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option value="Fisica" name="Pessoa Física" />
-                                <Option value="Juridica" name="Pessoa Jurídica" />
+                                <Option function="" value="Fisica" name="Pessoa Física" />
+                                <Option function="" value="Juridica" name="Pessoa Jurídica" />
                             </select>
     
                             <div className="botao-novoperfil">

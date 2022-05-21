@@ -1,15 +1,17 @@
 import React, { Component, useState } from "react"
 import Input from "../../components/input/input";
+import InputOnFocus from "../input/inputOnFocus";
 
 type props = {
     fname: any,
+    focus: any,
 }
 
 class PessoaJuridicaForm extends Component<props> {
 
     render() {
         return (
-            <> 
+            <>
                 <h5 className="titulo">Dados da Empresa</h5>
                 <div className="row">
                     <Input stateName="tempoFormalizacao" fname={this.props.fname} div="input-field col s12 m12 l5 bla" id="tempoFormalizacao" type="text" class="validate" name="Tempo de Formalização" />
@@ -20,7 +22,7 @@ class PessoaJuridicaForm extends Component<props> {
 
                     <Input stateName="nomeEmpresa" fname={this.props.fname} div="input-field col s12 m12 l5 bla" id="nomeEmpresa" type="text" class="validate" name="Nome da Empresa" />
 
-                    <Input stateName="cnpj" fname={this.props.fname} div="input-field col s12 m12 l5 bla" id="cnpj" type="text" class="validate" name="CNPJ" />
+                    <InputOnFocus stateName="cnpj" focus={this.props.focus} div="input-field col s12 m12 l5 bla" id="cnpj" type="text" class="validate" name="CNPJ" />
                 </div>
             </>
         )
