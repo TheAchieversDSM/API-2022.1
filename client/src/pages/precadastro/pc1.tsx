@@ -30,8 +30,6 @@ class PreCadastro1 extends Component {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
 
-
-
         // INFORMAÇÕES
         nome: String,
         novaSenha: String,
@@ -455,16 +453,23 @@ class PreCadastro1 extends Component {
                             <div className="row">
                                 <form className="col s12">
 
-                                    <label>Possui filhos?</label>
+                                    <label id="radioLabel">Possui filhos?</label>
                                     <form name="filho" id="filho" onChange={this.handleChangeSelect}>
                                         <p>
-                                            <Check value="sim" name="Sim" />
+                                            <label>
+                                                <input name="filho" value="sim" type="radio" />
+                                                <span>Sim</span>
+                                            </label>
                                         </p>
 
                                         <p>
-                                            <Check value="nao" name="Não" />
+                                            <label>
+                                                <input name="filho" value="nao" type="radio" />
+                                                <span>Não</span>
+                                            </label>
                                         </p>
                                     </form>
+
                                 </form>
                             </div>
                         </div>

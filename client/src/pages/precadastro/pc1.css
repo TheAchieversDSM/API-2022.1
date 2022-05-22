@@ -99,6 +99,10 @@ form>div {
     display: none;
 }
 
+#radioLabel {
+    font-size: 15px;
+}
+
 .file {
     display: grid;
     grid: 1fr

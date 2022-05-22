@@ -48,7 +48,7 @@ class Login extends Component {
                     setCookie("id", res.data.user[0].col_id);
                     if (res.data.user[0].col_nome == null) {
                         setCookie("firstAcess", true)
-                        setCookie("tipoPessoa", res.data.user[0].tipo_pessoa)
+                        setCookie("tipoPessoa", res.data.user[0].col_tipo_pessoa)
                     }else if (res.data.user[0].cargo_car_id == null) {
                         setCookie("aguardoConfirmacao", true)
                     }
