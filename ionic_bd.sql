@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_ddd` INT NULL,
   `col_telefone` INT NULL,
   `col_end_rua` VARCHAR(100) NULL,
+  `col_end_cidade` VARCHAR(100) NULL,
   `col_end_numero` INT NULL,
   `col_end_bairro` VARCHAR(100) NULL,
   `col_end_cep` INT NULL,

@@ -2,6 +2,7 @@ const db = require("../config/dbconfig")
 
 Pf = function (pf) {
     this.col_cpf = pf.cpf, // pessoa_fisica
+    this.col_rg = pf.rg, // pessoa_fisica
     this.col_nacionalidade = pf.nacionalidade, // pessoa_fisica
     this.col_naturalidade = pf.naturalidade, // pessoa_fisica
     this.col_raca = pf.raca, // pessoa_fisica
