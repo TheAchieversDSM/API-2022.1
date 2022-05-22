@@ -6,7 +6,7 @@ Pj = function (pj) {
     this.col_data_fundacao = pj.dataFundacao,
     this.col_emp_nome= pj.nomeEmpresa, 
     this.col_emp_cnpj = pj.cnpj,
-    this.colaborador_col_id = pj.id
+    this.col_id = pj.id
 };
 
 

@@ -14,11 +14,11 @@ Colaborador = function (colaborador) {
     this.col_end_cep = colaborador.cep,
     this.col_end_estado = colaborador.estado,
     this.col_end_regiao = colaborador.regiao,
-    this.col_tipo_pessoa = colaborador.tipoContratacao
+    this.col_tipo_pessoa = colaborador.tipoPessoa
 }
 
 
-Colaborador.updateUser = (Userdata, Userid, result) => {
+Colaborador.updateUser = (Userdata, Userid, result,resultnotificacao) => {
     db.query("UPDATE colaborador SET ?  WHERE col_id = ?", [Userdata, Userid], (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -33,11 +33,11 @@ Colaborador.updateUser = (Userdata, Userid, result) => {
     db.query("INSERT INTO notificacao SET user_id = ?",Userid,(err,res)=>{
         if (err) {
             console.log("error: ", err);
-            result(null, err);
+            resultnotificacao(null, err);
         }
         else {
             console.log("Criado Notificacao");
-            result(null, res);
+            resultnotificacao(null, res);
         }   
     })
 }

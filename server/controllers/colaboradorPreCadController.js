@@ -9,6 +9,16 @@ exports.updateUser = (req, res) => {
     Colaborador.updateUser(Userdata, req.params.id, (err, data) => {
         if (err)
             res.send(err);
+    },
+    (err,res)=>{
+    if (err) {
+        if (err.errno == "1062"){
+            console.log("Entrada Duplicada");
+            res.send({
+              erro:"Cadastro já Enviado"
+            })
+          }
+        }
     });
 };
 

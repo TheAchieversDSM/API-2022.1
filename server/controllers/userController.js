@@ -31,7 +31,7 @@ exports.getAllUser = (req, res) => {
             console.log("Falha ao obter todos os usuários",err);
             res.send("Falha ao obter todos os usuários");
         }else{
-            console.log("Usuários Encontrados:", users);
+            console.log("Usuários Encontrados");
             res.send(users)
         }
     })

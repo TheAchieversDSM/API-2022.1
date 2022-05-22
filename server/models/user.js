@@ -68,7 +68,7 @@ User.getInfoById = (id, result) => {
 }
 
 User.getDocsById = (id, result) => {
-    db.query(`SELECT * FROM documentos docs WHERE contratado_col_id = ${id}`, (err, res) => {
+    db.query(`SELECT * FROM documentos docs WHERE colaborador_col_id = ${id}`, (err, res) => {
         if (err) {
             result(null, err)
         }

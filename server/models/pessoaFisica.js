@@ -9,7 +9,7 @@ Pf = function (pf) {
     this.col_data_nascimento = pf.data, // pessoa_fisica
     this.col_estado_civil = pf.estadoCivil, // pessoa_fisica
     this.col_filho = pf.filho, // pessoa_fisica
-    this.colaborador_col_id = pf.id
+    this.col_id = pf.id
 };
 
 Pf.createPessoaFisica = (Userdata,id, result) => {
