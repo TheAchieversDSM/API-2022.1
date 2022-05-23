@@ -44,6 +44,7 @@ class PreCadastro1 extends Component {
         idade: Number,
         ddd: Number,
         telefone: Number,
+        rg: String,
         rua: "",
         numero: Number,
         bairro: "",
@@ -70,7 +71,7 @@ class PreCadastro1 extends Component {
 
         // ANEXOS
         // DOCUMENTOS PESSOAIS
-        rg: File,
+        rgFile: File,
         carteiraTrabalho: File,
         cpfFile: File,
         cnh: File,
@@ -214,6 +215,7 @@ class PreCadastro1 extends Component {
             cidade: this.state.cidade,
             estado: this.state.estado,
             regiao: this.state.regiao,
+            tipoPessoa: getCookie("tipoPessoa"),
             id: getCookie("id"),
         }
 
@@ -252,7 +254,7 @@ class PreCadastro1 extends Component {
         }
 
         const anexos = {
-            rg: this.state.rg,
+            rg: this.state.rgFile,
             carteiraTrabalho: this.state.carteiraTrabalho,
             cpfFile: this.state.cpfFile,
             cnh: this.state.cnh,
@@ -287,9 +289,13 @@ class PreCadastro1 extends Component {
 
         const id = getCookie("id")
 
-        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user); {
-
-        }
+        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user).then((res)=>{
+            if(res.data.erro){
+                M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+            }
+        }) 
+            
+        
 
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
 
@@ -306,9 +312,9 @@ class PreCadastro1 extends Component {
         setCookie("aguardoConfirmacao", true)
 
         uploadFile(anexos)
-        //alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
-        //window.close()
-        //window.open("/home")
+        alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
+        window.close()
+        window.open("/home")
     };
 
     redirect = () => {
@@ -355,6 +361,10 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <InputOnFocus focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l7" id="cpf" class="validate" type="text" name="CPF" />
+                                    </div>
+
+                                    <div className="row">
+                                        <Input fname={this.handleChange} stateName="rg" div="input-field col col s12 m12 l7" id="rg" class="validate" type="text" name="RG" />
                                     </div>
 
                                     <div className="row">
@@ -458,11 +468,11 @@ class PreCadastro1 extends Component {
                                     <label>Possui filhos?</label>
                                     <form name="filho" id="filho" onChange={this.handleChangeSelect}>
                                         <p>
-                                            <Check value="sim" name="Sim" />
+                                            <Check fname={this.handleChange} value="sim" name="Sim" />
                                         </p>
 
                                         <p>
-                                            <Check value="nao" name="Não" />
+                                            <Check fname={this.handleChange} value="nao" name="Não" />
                                         </p>
                                     </form>
                                 </form>
@@ -502,7 +512,7 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <div className="file">
                                             <label>RG</label>
-                                            <input type="file" name="rg" onChange={this.handleChangeFile} />
+                                            <input type="file" name="rgFile" onChange={this.handleChangeFile} />
                                             <label>Carteira de Trabalho</label>
                                             <input type="file" name="carteiraTrabalho" onChange={this.handleChangeFile} />
                                         </div>

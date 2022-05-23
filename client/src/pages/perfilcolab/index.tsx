@@ -190,11 +190,11 @@ class PerfilColab extends Component {
                                     <p key={info.colaborador_col_id} className="grid-check">
                                         <CheckChecked value="" name="Plano de Saúde" />
 
-                                        <Check value="" name="Vale Transporte" />
+                                        <Check fname="" value="" name="Vale Transporte" />
 
-                                        <Check value="" name="Vale Refeição" />
+                                        <Check fname="" value="" name="Vale Refeição" />
 
-                                        <Check value="" name="Auxílio Creche" />
+                                        <Check fname="" value="" name="Auxílio Creche" />
                                     </p>
                                     )}
                                 </form>

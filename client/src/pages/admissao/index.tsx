@@ -25,6 +25,7 @@ class Admissao extends Component {
         // STATES DAS INFORMAÇÕES
         id: String,
         cargo: [],
+        info_acad: [],
         colaborador: [],
         colaboradores: [],
         documentos: [],
@@ -44,10 +45,17 @@ class Admissao extends Component {
 
         axios.get(`http://localhost:5000/infocolab/getInfoById/${id}`)
             .then((res) => {
-                const colaborador = res.data
+                const colaborador = res.data.user
                 console.log(res.data);
 
                 this.setState({ colaborador })
+            })
+        axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${id}`)
+            .then((res) => {
+                const info_acad = res.data
+                console.log(res.data);
+
+                this.setState({ info_acad })
             })
 
         axios.get(`http://localhost:5000/infocolab/getDocsById/${id}`)
@@ -153,7 +161,7 @@ class Admissao extends Component {
                 <General />
                 <div className="conteudo">
                     {this.state.colaborador.map(info =>
-                        <div key={info.colaborador_col_id}>
+                        <div key={info.col_id}>
                             <h4>Dados pessoais</h4>
                             <p><label>Nome:</label> {info.col_nome} </p>
                             <p><label>CPF:</label> {info.col_cpf} </p>
@@ -179,17 +187,22 @@ class Admissao extends Component {
                             <p><label>CEP:</label> {info.col_end_cep}</p>
                             <p><label>Cidade:</label> {info.col_end_cidade}</p>
                             <p><label>Estado:</label> {info.col_end_estado}</p>
-                            <p
-                            ><label>Região:</label> {info.col_end_regiao}</p>
+                            <p><label>Região:</label> {info.col_end_regiao}</p>
                             <hr />
+                            </div>
+                            )}
 
+                        {this.state.info_acad.map(info =>
+                        <div key={info.colaborador_col_id}>
                             <h4>Informações Acadêmicas</h4>
                             <p><label>Formação:</label> {info.qua_formacao}</p>
                             <p><label>Curso:</label> {info.qua_curso}</p>
                             <p><label>Instituição:</label> {info.qua_nome_instituição}</p>
                             <p><label>Língua:</label> {info.qua_lingua}</p>
                         </div>
-                    )}
+                        )}
+      
+                   
 
                     <h4>Documentos</h4>
                     {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>

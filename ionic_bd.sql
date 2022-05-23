@@ -71,7 +71,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_end_numero` INT NULL,
   `col_end_bairro` VARCHAR(100) NULL,
   `col_end_cep` INT NULL,
-  `col_end_estado` VARCHAR(20) NULL,
+  `col_end_cidade` VARCHAR(100) NULL,
+  `col_end_estado` VARCHAR(40) NULL,
   `col_end_complemento` VARCHAR(100) NULL,
   `col_end_regiao` VARCHAR(100) NULL,
   `tipo_contratacao_cont_id` INT NULL,
@@ -115,7 +116,7 @@ COMMENT = 'Cadastro dos colaboradores	';
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`notificacao`(
   `notificacao_id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
+  `user_id` INT NOT NULL UNIQUE,
   PRIMARY KEY (`notificacao_id`),
   FOREIGN KEY (`user_id`)
     REFERENCES `api_ionic`.`colaborador` (`col_id`))
@@ -147,13 +148,13 @@ COMMENT = 'Repositório dos documentos dos colaboradores\n';
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_id` INT NOT NULL AUTO_INCREMENT,
-  `his_data_desligamento` DATE NOT NULL,
+  `his_data_desligamento` DATE NULL,
   `his_data_admissao` DATE NOT NULL,
   `his_cargo` VARCHAR(400) NOT NULL,
   `his_salario` FLOAT NOT NULL,
-  `his_pesquisa_desligamento` VARCHAR(400) NOT NULL,
-  `his_desligamento_descricao` VARCHAR(100) NOT NULL,
-  `his_distrato` VARCHAR(100) NOT NULL,
+  `his_pesquisa_desligamento` VARCHAR(400) NULL,
+  `his_desligamento_descricao` VARCHAR(100) NULL,
+  `his_distrato` VARCHAR(100) NULL,
   `colaborador_col_id` INT NOT NULL,
   PRIMARY KEY (`his_id`, `colaborador_col_id`),
   INDEX `fk_historico_colaborador1_idx` (`colaborador_col_id` ASC)  ,

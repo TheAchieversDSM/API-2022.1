@@ -91,7 +91,7 @@ class Login extends Component {
 
                             <div className="row">
                                 <div className="col s6">
-                                    <Check value="" name="Lembrar de Mim" />
+                                    <Check fname="" value="" name="Lembrar de Mim" />
                                 </div>
 
                                 <div className="opcao col s6 right-align">
