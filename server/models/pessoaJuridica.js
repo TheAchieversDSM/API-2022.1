@@ -12,12 +12,13 @@ Pj = function (pj) {
 
 Pj.createPessoaJuridica = (Userdata,id, result) => {
     console.log(Userdata);
-    db.query("UPDATE colaborador SET ?  WHERE col_id = ?", Userdata,id, (err, res) => {
+    db.query("UPDATE colaborador SET ?  WHERE col_id = ?", [Userdata,id], (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
         }
         else {
+            console.log("Pessoa Juridica: ", err);
             result(null, res);
         }
     })

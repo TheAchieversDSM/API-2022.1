@@ -4,13 +4,14 @@ const pessoaFisicaController = require("../controllers/pessoaFisicaController")
 const pessoaJuridicaController = require("../controllers/pessoaJuridicaController")
 const router = require("express").Router()
 const multer = require("multer")
+const path = require("path")
 
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null,"uploads/")
     },
     filename: function (req,file,cb){
-        cb(null,file.originalname)
+        cb(null,file.originalname +'_'+ Date.now() + path.extname(file.originalname)) 
         console.log(file.originalname);
 
     }
@@ -18,15 +19,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-
 router.put('/updatecolaborador/:id', colaboradorController.updateUser)
 router.post('/insertpessoafisica', pessoaFisicaController.createPessoaFisica)
 router.post('/insertpessoajuridica', pessoaJuridicaController.createPessoaJuridica)
 
-
 router.post('/insertArquivos/:id',upload.fields([
     // DOCUMENTOS PESSOAIS
-        {name:"rg",maxCount:2},
+        {name:"rgDoc",maxCount:2},
         {name:"carteiraTrabalho",maxCount:2},
         {name:"cpfFile",maxCount:2},
         {name:"cnh",maxCount:2},

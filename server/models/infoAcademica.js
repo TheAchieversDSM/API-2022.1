@@ -5,7 +5,7 @@ InfoAcademica = function (infoAcademica) {
     this.qua_curso = infoAcademica.cursos,
     this.qua_lingua = infoAcademica.linguas,
     this.colaborador_col_id = infoAcademica.id,
-    this.qua_nome_instituição = infoAcademica.instituicao
+    this.qua_nome_instituicao = infoAcademica.instituicao
 }
 
 InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {

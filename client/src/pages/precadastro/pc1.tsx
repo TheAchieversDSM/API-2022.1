@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import axios from "axios";
 import M from "materialize-css";
 
-
 // LOCAL CSS
 import './pc1.css'
 
@@ -30,12 +29,11 @@ class PreCadastro1 extends Component {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
 
-
-
         // INFORMAÇÕES
         nome: String,
         novaSenha: String,
         cpf: Number,
+        rg: Number,
         nacionalidade: String,
         naturalidade: String,
         raca: String,
@@ -44,7 +42,6 @@ class PreCadastro1 extends Component {
         idade: Number,
         ddd: Number,
         telefone: Number,
-        rg: String,
         rua: "",
         numero: Number,
         bairro: "",
@@ -71,7 +68,7 @@ class PreCadastro1 extends Component {
 
         // ANEXOS
         // DOCUMENTOS PESSOAIS
-        rgFile: File,
+        rgDoc: File,
         carteiraTrabalho: File,
         cpfFile: File,
         cnh: File,
@@ -113,9 +110,10 @@ class PreCadastro1 extends Component {
             this.setState({
                 [event.target.name]: event.target.value,
             });
-            M.toast({ html: "CNPJ INVÁLIDO", classes: "red darken-4 rounded"})
+        } else {
+            M.toast({ html: "CNPJ INVÁLIDO!", classes: "red darken-4 rounded"})
             console.log(this.state);
-        };
+        }
     }
 
     cpfVerify = event => {
@@ -221,6 +219,7 @@ class PreCadastro1 extends Component {
 
         const pessoaFisica = {
             cpf: this.state.cpf,
+            rg: this.state.rg,
             nacionalidade: this.state.nacionalidade,
             naturalidade: this.state.naturalidade,
             raca: this.state.raca,
@@ -254,7 +253,7 @@ class PreCadastro1 extends Component {
         }
 
         const anexos = {
-            rg: this.state.rgFile,
+            rgDoc: this.state.rgDoc,
             carteiraTrabalho: this.state.carteiraTrabalho,
             cpfFile: this.state.cpfFile,
             cnh: this.state.cnh,
@@ -301,7 +300,7 @@ class PreCadastro1 extends Component {
 
         })
 
-        axios.post("http://localhost:5000/precad1/insertInfoAcademica", infoAcademica).then((res) => {
+        axios.post("http://localhost:5000/infoacademica/insertInfoAcademica", infoAcademica).then((res) => {
 
         })
 
@@ -312,9 +311,9 @@ class PreCadastro1 extends Component {
         setCookie("aguardoConfirmacao", true)
 
         uploadFile(anexos)
-        alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
-        window.close()
+        //alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
         window.open("/home")
+        window.close()
     };
 
     redirect = () => {
@@ -360,20 +359,18 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <InputOnFocus focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l7" id="cpf" class="validate" type="text" name="CPF" />
+                                        <InputOnFocus focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l6" id="cpf" class="validate" type="number" name="CPF" />
+
+                                        <Input stateName="rg" fname={this.handleChange} div="input-field col col s12 m12 l6" id="rg" class="validate" type="number" name="RG" />
                                     </div>
 
                                     <div className="row">
-                                        <Input fname={this.handleChange} stateName="rg" div="input-field col col s12 m12 l7" id="rg" class="validate" type="text" name="RG" />
+                                        <Input stateName="nacionalidade" fname={this.handleChange} div="input-field col col s12 m12 l6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+                                        <Input stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="nacionalidade" fname={this.handleChange} div="input-field col col s12 m12 l7" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
-                                        <Input stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l5" id="naturalidade" class="validate" type="text" name="Naturalidade" />
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="input-field col s12 m12 l5">
+                                        <div className="input-field col s12 m12 l6">
                                             <select name="genero" className="browser-default" id="genero" onChange={this.handleChangeSelect}>
                                                 <DisableOption disableValue="" disableNome="Gênero" />
                                                 <Option function="" value="Feminino" name="Feminino" />
@@ -382,7 +379,7 @@ class PreCadastro1 extends Component {
                                             </select>
                                         </div>
 
-                                        <div className="input-field col s12 m12 l7">
+                                        <div className="input-field col s12 m12 l6">
                                             <select name="raca" className="browser-default" id="raca" onChange={this.handleChange}>
                                                 <DisableOption disableValue="" disableNome="Raça" />
                                                 <Option function="" value="Branco(a)" name="Branco(a)" />
@@ -395,7 +392,7 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="data" fname={this.handleChange} div="input-field col s12 m12 l6" id="data" class="datepicker" type="date" name="Data de Nascimento" />
+                                        <Input stateName="data" fname={this.handleChange} div="input-field col s12 m12 12" id="data" class="datepicker" type="date" name="Data de Nascimento" />
                                     </div>
 
                                     <div className="row">
@@ -411,18 +408,18 @@ class PreCadastro1 extends Component {
                                 <form className="col s12">
 
                                     <div className="row">
-                                        <InputValue value={this.state.rua} ph="" stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
+                                        <InputValue value={this.state.rua} ph="Rua" stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
                                         <Input stateName="numero" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
                                     </div>
 
                                     <div className="row">
-                                        <InputValue value={this.state.bairro} stateName="bairro" ph="" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
+                                        <InputValue value={this.state.bairro} stateName="bairro" ph="Bairro" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
                                         <Input stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
                                         <Input stateName="cep" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
                                     </div>
 
                                     <div className="row">
-                                        <InputValue value={this.state.cidade} ph="" stateName="cidade" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
+                                        <InputValue value={this.state.cidade} ph="Cidade" stateName="cidade" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
 
                                        
                                         <InputValue value={this.state.estado} ph="Estado" stateName="estado" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="estado" class="validate" type="text" name="" />
@@ -465,16 +462,23 @@ class PreCadastro1 extends Component {
                             <div className="row">
                                 <form className="col s12">
 
-                                    <label>Possui filhos?</label>
+                                    <label id="radioLabel">Possui filhos?</label>
                                     <form name="filho" id="filho" onChange={this.handleChangeSelect}>
                                         <p>
-                                            <Check fname={this.handleChange} value="sim" name="Sim" />
+                                            <label>
+                                                <input name="filho" value="sim" type="radio" />
+                                                <span>Sim</span>
+                                            </label>
                                         </p>
 
                                         <p>
-                                            <Check fname={this.handleChange} value="nao" name="Não" />
+                                            <label>
+                                                <input name="filho" value="nao" type="radio" />
+                                                <span>Não</span>
+                                            </label>
                                         </p>
                                     </form>
+
                                 </form>
                             </div>
                         </div>
@@ -512,7 +516,7 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <div className="file">
                                             <label>RG</label>
-                                            <input type="file" name="rgFile" onChange={this.handleChangeFile} />
+                                            <input type="file" name="rgDoc" onChange={this.handleChangeFile} />
                                             <label>Carteira de Trabalho</label>
                                             <input type="file" name="carteiraTrabalho" onChange={this.handleChangeFile} />
                                         </div>

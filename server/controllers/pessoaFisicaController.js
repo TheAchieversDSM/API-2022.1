@@ -6,7 +6,7 @@ exports.createPessoaFisica = (req, res) => {
 
     // Save Tutorial in the database
     Pf.createPessoaFisica(Userdata,req.body.id,(err, data) => {
-        if (err)
+        if (err){}
             res.send(err);
     });
 };

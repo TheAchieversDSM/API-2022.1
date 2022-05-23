@@ -28,7 +28,7 @@ class PerfilColab extends Component {
     componentDidMount() {
         let url = window.location.href.split("/")
         if (url[3] === "PerfilColaborador") { 
-            this.setState({id:url[4]})
+            this.state.id = url[4]
         }
 
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
