@@ -46,8 +46,13 @@
     padding: 10px 10px 20px 10px !important;
 }*/
 
-p>label {
+p > label {
     margin: 10px;
+}
+
+label {
+    color: #504e51 !important;
+    font-size: 16px;
 }
 
 .browser-default {
@@ -100,7 +105,7 @@ form>div {
 }
 
 #radioLabel {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .file {

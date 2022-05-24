@@ -1,4 +1,7 @@
-.teste1, .teste2, .teste3, .teste4{
+.teste1,
+.teste2,
+.teste3,
+.teste4 {
     background-color: #f4f4f4;
     border-radius: 30px;
     padding: 10px !important;
@@ -7,7 +10,7 @@
     box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
-p > label {
+p>label {
     font-weight: bolder !important;
     font-size: 18px !important;
     color: #414042;
@@ -23,10 +26,11 @@ p > label {
 
 .teste2-info {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-h5, h4 {
+h5,
+h4 {
     background-color: #CAECF0;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
@@ -39,7 +43,7 @@ h5, h4 {
     grid-gap: 10px;
 }
 
-.collapsible-header{
+.collapsible-header {
     background-color: #ACD8DE !important;
     border-radius: 30px !important;
     font-size: 18px;
@@ -47,65 +51,67 @@ h5, h4 {
     border: 3px solid #ACD8DE !important;
 }
 
-.popout > li{
+.popout>li {
     margin: 10px !important;
 }
 
-.collapsible > li{
+.collapsible>li {
     border-radius: 30px !important;
 }
 
-.btn, .btn-large {
+.btn,
+.btn-large {
     background-color: #ACD8DE !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
 }
 
-#p1{
+#p1 {
     position: relative;
 }
 
-.btn-large{
+.btn-large {
     position: relative;
 }
 
-.foto{
+.foto {
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    background-color: #ACD8DE !important;      
-    border-radius: 25px!important;
+    background-color: #ACD8DE !important;
+    border-radius: 25px !important;
 }
 
-.foto > i{
+.foto>i {
     margin-top: 20px;
     color: #53C4CD;
     background-color: #ACD8DE !important;
 
 }
 
-p, span{
+p,
+span {
     font-size: 16px !important;
     font-family: source-sans-pro, sans-serif !important;
     color: #414042 !important;
     line-height: 15px;
 }
 
-.name{
-    color:#53C4CD ;
+.name {
+    color: #53C4CD;
 }
 
-.inform{
+.inform {
     display: inline-flex;
 }
 
-.inform > p{
+.inform>p {
     margin: 6px;
     color: #ACD8DE;
 }
 
-.s6 > p{
+.s6>p {
     color: #ACD8DE;
 }
 
@@ -114,7 +120,7 @@ p, span{
         grid-template-columns: 1fr;
     }
 
-    .collapsible-header{
+    .collapsible-header {
         font-size: 100%;
     }
 }
