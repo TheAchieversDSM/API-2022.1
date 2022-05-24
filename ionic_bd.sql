@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_tipo_pessoa` VARCHAR(100) NULL,
   `col_emp_tempo_formalizacao` FLOAT NULL,
   `col_emp_natureza_juridica` VARCHAR(40) NULL,
-  `col_data_fundacao` INT NULL,
+  `col_data_fundacao` DATE NULL,
   `col_emp_nome` VARCHAR(45) NULL,
   `col_emp_cnpj` BIGINT NULL,
   `col_cpf` BIGINT NULL UNIQUE,

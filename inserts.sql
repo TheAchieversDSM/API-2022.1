@@ -131,7 +131,7 @@ INSERT INTO colaborador (col_email, col_senha, col_nome, col_ddd, col_telefone, 
 INSERT INTO colaborador (col_email, col_senha, col_nome, col_ddd, col_telefone, col_end_rua, col_end_numero, col_end_bairro, col_end_cep, col_end_estado, col_end_complemento, col_end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, col_tipo_pessoa, col_head_id,col_cpf, col_data_nascimento, col_raca, col_naturalidade, col_genero, col_nacionalidade, col_estado_civil, col_filho) VALUES ("gabriel.telles@ionic.health", "1234", "Gabriel Telles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "76", "6  ", "Física", 6,05604765074, '1989-12-13', 'Amarelo', 'São José dos Campos', 'Feminino', 'Brasileiro', 'Solteiro', 'Não');
 INSERT INTO colaborador (col_email, col_senha, col_nome, col_ddd, col_telefone, col_end_rua, col_end_numero, col_end_bairro, col_end_cep, col_end_estado, col_end_complemento, col_end_regiao, tipo_contratacao_cont_id, cargo_car_id, departamento_dep_id, col_tipo_pessoa, col_head_id,col_cpf, col_data_nascimento, col_raca, col_naturalidade, col_genero, col_nacionalidade, col_estado_civil, col_filho) VALUES ("leonardo.salles@ionic.health", "1234", "Leonardo Salles", "12", "986571245", "Rua Estados Unidos", "47", "Vista Verde", "12245134", "SP", "", "Sudeste", "1", "80", "6  ", "Física", 19,21804846074, '1989-12-13', 'Amarelo', 'São José dos Campos', 'Feminino', 'Brasileiro', 'Solteiro', 'Não');
 
-SELECT * FROM notificacao;
+SELECT * FROM colaborador;
 
 SELECT colab.departamento_dep_id, colab.col_nome, car.car_descricao, dep_descricao 
 FROM colaborador colab 

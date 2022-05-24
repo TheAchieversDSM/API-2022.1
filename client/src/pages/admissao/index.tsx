@@ -142,8 +142,9 @@ class Admissao extends Component {
             
             axios.delete(`http://localhost:5000/notificacao/deleteNotificacao/${this.state.id}`)
 
-            //window.close()
-            //window.open("/notificacao")
+            
+            window.open("/notificacao")
+            window.close()
 
             alert('Cadastro Aprovado.\nPara mais informações, procure pela página do colaborador no Organograma ou na Lista de Colaboradores')
         })
@@ -197,7 +198,7 @@ class Admissao extends Component {
                             <h4>Informações Acadêmicas</h4>
                             <p><label>Formação:</label> {info.qua_formacao}</p>
                             <p><label>Curso:</label> {info.qua_curso}</p>
-                            <p><label>Instituição:</label> {info.qua_nome_instituição}</p>
+                            <p><label>Instituição:</label> {info.qua_nome_instituicao}</p>
                             <p><label>Língua:</label> {info.qua_lingua}</p>
                         </div>
                         )}
@@ -219,7 +220,7 @@ class Admissao extends Component {
                                     <option value=" " disabled selected>Cargo</option>
                                     {this.state.cargo.map(car => <option key={car.car_id} value={car.car_id}>{car.car_descricao}</option>)}
                                 </select>
-
+                                {/*https://www.w3schools.com/howto/howto_js_filter_dropdown.asp*/}
                                 <select className="browser-default" name='superiorSelecionado' id="superior" onChange={this.handleChange}>
                                     <option value="" disabled selected>Superior</option>
                                     {this.state.colaboradores.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option>)}
