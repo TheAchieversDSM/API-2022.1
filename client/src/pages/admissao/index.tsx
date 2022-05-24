@@ -220,7 +220,7 @@ class Admissao extends Component {
                                     <option value=" " disabled selected>Cargo</option>
                                     {this.state.cargo.map(car => <option key={car.car_id} value={car.car_id}>{car.car_descricao}</option>)}
                                 </select>
-                                {/*https://www.w3schools.com/howto/howto_js_filter_dropdown.asp*/}
+                                
                                 <select className="browser-default" name='superiorSelecionado' id="superior" onChange={this.handleChange}>
                                     <option value="" disabled selected>Superior</option>
                                     {this.state.colaboradores.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option>)}

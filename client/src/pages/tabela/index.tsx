@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Css from '../../assets/style/style';
 import General from '../../components/general';
+import tableSort from "tablesort"
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
 import TR from '../../components/tabela'
 
 class Funcionario extends Component {
     state = {
         colaboradores: []
+    }
+    tablesort = () =>{
+        new tableSort(document.getElementById('tabela'))
     }
     search = () =>{
       
@@ -52,9 +56,9 @@ class Funcionario extends Component {
                         <table id="tabela">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Departamento</th>
-                                    <th>Cargo</th>
+                                    <th onClick={this.tablesort}>Nome</th>
+                                    <th onClick={this.tablesort}>Departamento</th>
+                                    <th onClick={this.tablesort}>Cargo</th>
                                 </tr>
                             </thead>
                             
