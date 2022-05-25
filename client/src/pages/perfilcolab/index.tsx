@@ -18,6 +18,7 @@ import React from "react";
 class PerfilColab extends Component {
     state = {
         colaborador: [],
+        historico: [],
         cargo: [],
         departamento: [],
         info_academica: [],
@@ -34,10 +35,11 @@ class PerfilColab extends Component {
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
                 console.log(res.data);
-
                 const colaborador = res.data.user;
-
                 const head_colaborador = res.data.head_user;
+                const historico = res.data.historico
+
+                this.setState({ historico })
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
             }
@@ -87,8 +89,12 @@ class PerfilColab extends Component {
                                         {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}
-                                            <p><label>Data de admissão:</label> xx/yy/zzzz</p>
-                                            <p><label>Data de desligamento:</label> --/--/----</p>
+                                            {this.state.historico.map(info => 
+                                            <>
+                                            <p><label>Data de admissão:</label>{info.data_admissao}</p>
+                                            {info.hist_data_desligamento?<p><label>Data de desligamento:</label>{info.hist_data_desligamento}</p>:null}
+                                            </>
+                                            )}
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>Tipo de Contratação:</label> {info.cont_descricao}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>E-mail:</label> {info.col_email}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>Tel:</label> ({info.col_ddd}) {info.col_telefone}</p>)}
@@ -118,7 +124,12 @@ class PerfilColab extends Component {
                                 <div className="teste2-info ">
                                     {this.state.departamento.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
                                     {this.state.cargo.map(info => <p  key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
-                                    <p><label>Status:</label> ----</p>
+                                    
+                                    {this.state.historico.map(info =>
+                                    <>
+                                    {info.hist_data_desligamento?<p><label>Status:</label>Desligado</p>:<p><label>Status:</label>Ativo</p> }
+                                    </>
+                                    )}
                                     {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
                                     {this.state.cargo.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
                                     <p><label>Tempo de casa:</label> ----</p>
@@ -175,9 +186,18 @@ class PerfilColab extends Component {
                                         desc4="Comprovante de frequência escolar"
                                         desc5="Pensão alimentícia"
                                         desc6="" />
+                                    {this.state.historico.map(info =>
+                                        <>
+                                        {info.hist_data_desligamento?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Descrição:</label> {info.his_desligamento_descricao}</p>} 
 
-                                    <Collapse title="Informações do desligamento" desc1="Não houve desligamento" desc2="" desc3="" desc4="" desc5="" desc6="" />
-
+                                        desc2={<p key={info.qua_id}><label>Distrato:</label> {info.his_distrato}</p>} 
+                                        desc3={<p key={info.qua_id}><label>Pesquisa de Desligamento:</label> {info.his_pesquisa_desligamento}</p>} 
+                                        desc4="" 
+                                        desc5="" 
+                                        desc6="" /> : null}
+                                        </>
+                                        
+                                    )}
                                 </ul>
                             </div>
                         </div>
@@ -186,15 +206,16 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
-                                  {this.state.colaborador.map(info=> 
+                                  {this.state.cargo.map(info=> 
                                     <p key={info.colaborador_col_id} className="grid-check">
-                                        <CheckChecked value="" name="Plano de Saúde" />
+                                        {info.car_plano_saude? <CheckChecked value="" name="Plano de Saúde" />:<Check  fname="" value="" name="Plano de Saúde" />}
 
-                                        <Check fname="" value="" name="Vale Transporte" />
+                                        {info.car_vale_refeicao? <CheckChecked value="" name="Vale Refeição" />:<Check  fname="" value="" name="Vale Refeição" />}
 
-                                        <Check fname="" value="" name="Vale Refeição" />
+                                        {info.car_vale_transporte? <CheckChecked value="" name="Vale Transporte" />:<Check  fname="" value="" name="Vale Transporte" />}
 
-                                        <Check fname="" value="" name="Auxílio Creche" />
+                                        {info.car_auxilio_creche? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname="" value="" name="Auxílio Creche" />}
+
                                     </p>
                                     )}
                                 </form>

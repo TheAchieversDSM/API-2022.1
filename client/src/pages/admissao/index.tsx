@@ -6,18 +6,8 @@ import axios from "axios"
 
 
 // IMAGE
-import Icone from "../../assets/img/icone_azul.svg"
-
-import Input from "../../components/input/input";
-import Check from "../../components/input/check";
-import ButtonMat from "../../components/button/buttonMat";
-import DisableOption from "../../components/dropdown/disableOption";
-import Option from "../../components/dropdown";
-import InputFile from "../../components/input/file";
 import Submit from "../../components/button/submit";
-import Text from "../../components/textarea/index";
 import './admissao.css'
-import uploadFile from '../../utils/uploadFiles/uploadFile';
 
 class Admissao extends Component {
 

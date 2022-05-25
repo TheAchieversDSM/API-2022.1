@@ -3,7 +3,8 @@ const User = require("../models/user")
 exports.getColabInfoById = (req, res) => {
     const resposta = {
         user: [],
-        head_user: []
+        head_user: [],
+        historico: []
     }
     User.getColabInfoById(req.params.id, (err, user) => {
         if (err){
@@ -20,6 +21,13 @@ exports.getColabInfoById = (req, res) => {
             console.log('Head Encontrado', head);
         }else{
             resposta.head_user = head
+        }
+    },(err,hist)=>{
+        if(err){
+            console.log("Falha ao encontrar as informações do histórico");
+            resposta.historico = "Erro Ao Encontrar as informações do histórico";
+        }else{
+            resposta.historico = hist
             res.send(resposta)
         }
     })
