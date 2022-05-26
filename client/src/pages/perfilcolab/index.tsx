@@ -23,6 +23,8 @@ class PerfilColab extends Component {
         departamento: [],
         info_academica: [],
         head_colaborador: [],
+        car_id: String,
+        dep_id: String,
         id: getCookie("id")
     };
 
@@ -38,6 +40,23 @@ class PerfilColab extends Component {
                 const colaborador = res.data.user;
                 const head_colaborador = res.data.head_user;
                 const historico = res.data.historico
+                let dep_id = res.data.user[0].departamento_dep_id
+                let car_id = res.data.user[0].cargo_car_id
+
+                axios.get(`http://localhost:5000/cargos/userCargo/${car_id}`).then((res) => {
+                    console.log(res.data);
+                    const cargo = res.data;
+                    this.setState({ cargo });
+                })
+
+                axios.get(`http://localhost:5000/departamentos/userDep/${dep_id}`).then((res) => {
+                    console.log(res.data);
+                    const departamento = res.data;
+                    this.setState({ departamento });
+                }
+                )
+
+                console.log(dep_id);
 
                 this.setState({ historico })
                 this.setState({ colaborador });
@@ -52,20 +71,7 @@ class PerfilColab extends Component {
         }
         )
 
-        axios.get(`http://localhost:5000/cargos/userCargo/${this.state.id}`).then((res) => {
-            console.log(res.data);
-            const cargo = res.data;
-            this.setState({ cargo });
-        }
-        )
-
-        
-        axios.get(`http://localhost:5000/departamentos/userDep/${this.state.id}`).then((res) => {
-            console.log(res.data);
-            const departamento = res.data;
-            this.setState({ departamento });
-        }
-        )
+     
     }
 
     render() {
@@ -81,7 +87,7 @@ class PerfilColab extends Component {
                                 <div className="row" id="info">
                                     <div className="col s12 m12 l5 center-align">
                                         <div className="foto center-align">
-                                            <i className="fa-regular fa-user fa-7x"></i>
+                                                
                                         </div>
                                     </div>
 
