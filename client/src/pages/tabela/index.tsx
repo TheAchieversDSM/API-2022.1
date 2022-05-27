@@ -56,14 +56,14 @@ class Funcionario extends Component {
                         <table id="tabela">
                             <thead>
                                 <tr>
-                                    <th onClick={this.tablesort}>Nome</th>
-                                    <th onClick={this.tablesort}>Departamento</th>
-                                    <th onClick={this.tablesort}>Cargo</th>
+                                    <th onClick={this.tablesort}><a>Nome</a>   <i className="fa-solid fa-arrow-down-a-z fa"></i></th>
+                                    <th onClick={this.tablesort}><a>Departamento</a>   <i className="fa-solid fa-arrow-down-a-z"></i></th>
+                                    <th onClick={this.tablesort}><a>Cargo</a>   <i className="fa-solid fa-arrow-down-a-z"></i></th>
+                                    
                                 </tr>
                             </thead>
                             
-                            <tbody>
-                     
+                            <tbody>                  
                                     {this.state.colaboradores.map(colaborador => <TR key={colaborador.col_id} url={`/PerfilColaborador/${colaborador.col_id}`} nome={colaborador.col_nome} departamento={colaborador.dep_descricao} cargo={colaborador.car_descricao} />)}
             
                             </tbody>

@@ -12,6 +12,7 @@ import LogoMenu from "../../assets/img/logo_correto_geral.svg"
 // COMPONENTS
 import SideNav from "./sidenav"
 
+
 export default class General extends Component {
     componentDidMount() {
         appendScript("https://code.jquery.com/jquery-2.1.1.min.js")
@@ -22,10 +23,10 @@ export default class General extends Component {
     render() {
         let Navs
         if (getCookie("nivel") == 'acessoComum') {
-            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" /><SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" /></>
+            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" /><SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" /></>
         }
        else if (getCookie("nivel") == 'acessoTotal') {
-            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" /><SideNav link="/Organograma" class="fa-solid fa-location-crosshairs" name="Organograma" /><SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" /><SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" /><SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" /></>
+            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" /><SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" /><SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" /><SideNav link="/NovoDepartamento" class="fa-solid fa-layer-group" name="Novo Departamento" /><SideNav link="/NovoCargo" class="fa-solid fa-briefcase" name="Novo Cargo" /><SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" /><SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" /></>
         }
         if (getCookie("firstAcess") == 'true' || getCookie("aguardoConfirmacao") == 'true' ) {
            Navs = <><SideNav link="/Home" class="fa-solid fa-house" name="Home" /><SideNav link="" class="fa-solid fa-lock" name="Meu Perfil" /><SideNav link="" class="fa-solid fa-lock" name="Organograma" /></>

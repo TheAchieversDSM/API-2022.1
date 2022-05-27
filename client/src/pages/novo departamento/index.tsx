@@ -3,13 +3,14 @@ import axios from "axios";
 import M from "materialize-css";
 
 // LOCAL CSS
-import './novoperfil.css'
+//import './novoperfil.css'
 
 // COMPONENTS
 import Input from "../../components/input/input";
 import General from "../../components/general";
 import Check from "../../components/input/check"
 import ButtonMat from "../../components/button/buttonMat";
+import Css from "../../assets/style/style";
 
 class NovoDep extends Component {
     state = {
@@ -46,6 +47,7 @@ class NovoDep extends Component {
             <>
                 <General />
 
+                <Css ref="./novoperfil.css" />
 
                 <div className="conteudo">
                     <h3>Novo Departamento</h3>
@@ -60,10 +62,20 @@ class NovoDep extends Component {
 
                             <Input stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
 
-                            <Check fname="" name="Vale Refeição" value=""/>
-                            <Check fname="" name="Vale Transporte" value=""/>
-                            <Check fname="" name="Auxílio Creche" value=""/>
-                            <Check fname="" name="Plano de Saúde" value=""/>
+                            <ul>
+                                <li>
+                                    <Check fname="" name="Vale Refeição" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Vale Transporte" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Auxílio Creche" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Plano de Saúde" value=""/>
+                                </li>
+                            </ul>
     
                             <div className="botao-novoperfil">
                                 <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo departamento" iClass="{}" />

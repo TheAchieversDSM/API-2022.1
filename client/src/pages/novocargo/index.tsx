@@ -3,7 +3,7 @@ import axios from "axios";
 import M from "materialize-css";
 
 // LOCAL CSS
-import './novoperfil.css'
+//import './novoperfil.css'
 
 // COMPONENTS
 import Input from "../../components/input/input";

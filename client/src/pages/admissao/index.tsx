@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import General from '../../components/general';
+import fileDownload from 'js-file-download';
 import { getCookie, deleteCookie, setCookie } from '../../utils/cookieUtil/cookieUtil';
 import Caminho from "../../components/caminho/caminho";
 import axios from "axios"
@@ -8,6 +9,7 @@ import axios from "axios"
 // IMAGE
 import Submit from "../../components/button/submit";
 import './admissao.css'
+
 
 class Admissao extends Component {
 
@@ -37,32 +39,27 @@ class Admissao extends Component {
             .then((res) => {
                 const colaborador = res.data.user
                 console.log(res.data);
-
-                this.setState({ colaborador })
+                this.setState({ colaborador });
             })
         axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${id}`)
             .then((res) => {
                 const info_acad = res.data
                 console.log(res.data);
-
-                this.setState({ info_acad })
+                this.setState({ info_acad });
             })
 
         axios.get(`http://localhost:5000/infocolab/getDocsById/${id}`)
             .then((res) => {
                 const documentos = res.data
                 console.log(res.data);
-
-                this.setState({ documentos })
+                this.setState({ documentos });
             })
 
         axios.get("http://localhost:5000/infocolab/getAll")
             .then((res) => {
-                console.log(res.data)
-
-                const colaboradores = res.data
-
-                this.setState({ colaboradores })
+                console.log(res.data);
+                const colaboradores = res.data;
+                this.setState({ colaboradores });
             })
         axios.get(`http://localhost:5000/cargos/`)
             .then((res) => {
@@ -78,11 +75,13 @@ class Admissao extends Component {
     handleDownload = (filePath) => {
         filePath = filePath.split("\\")
         let file = filePath[1]
-        axios.post(`http://localhost:5000/infocolab/download/${file}`).then((res) => {
+        axios.get(`http://localhost:5000/infocolab/download/${file}`,{
+            responseType: 'blob',
+        }).then((res) => {
             const arquivo = res.data
-
-            this.setState({ arquivo })
-
+            const url = window.URL.createObjectURL(new Blob())
+            this.setState({ url })
+            fileDownload(url,file)
             console.log(this.state.arquivo);
         })
     }
@@ -192,7 +191,7 @@ class Admissao extends Component {
                             <p><label>Língua:</label> {info.qua_lingua}</p>
                         </div>
                         )}
-      
+
                    
 
                     <h4>Documentos</h4>
