@@ -1,7 +1,9 @@
 const db = require("../config/dbconfig")
 
-Cargos = function(Cargos){
-
+Cargos = function(cargos){
+    this.car_descricao = cargos.cargo_nome,
+    this.car_salario = cargos.cargo_salario,
+    this.departamento_dep_id = cargos.departamento_id
 }
 
 Cargos.getAllCargos = (result) =>{
@@ -24,6 +26,17 @@ Cargos.getUserCargo = (id,result) =>{
         }else{
             console.log('Encontrado o cargo do usuário');
             result(null,res);
+        }
+    })
+}
+
+Cargos.createNewCargo = (car_data,result) =>{
+    db.query('INSERT INTO cargo SET ?',car_data,(err,res)=>{
+        if(err){
+            console.log("Erro ao inserir um cargo");
+            result(err)
+        }else{
+            result(null,res)
         }
     })
 }

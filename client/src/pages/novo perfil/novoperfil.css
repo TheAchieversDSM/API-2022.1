@@ -16,7 +16,7 @@ h2{
 }
 
 .btn{
-    background-color: #ACD8DE !important;
+    background-color: #53C4CD !important;
     border-radius: 30px !important;
     font-family: coolvetica, sans-serif !important;
 }
@@ -54,7 +54,7 @@ label, select, option {
 
 .waves-effect.waves-light.btn{
     bottom: 5%;
-    background-color: #ACD8DE !important;
+    background-color: #53C4CD !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
     -webkit-transition: 0.5s;

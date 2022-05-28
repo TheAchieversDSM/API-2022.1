@@ -45,7 +45,7 @@ a {
     height: fit-content;
     float: right;
     padding: 50px;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 ::-webkit-scrollbar {

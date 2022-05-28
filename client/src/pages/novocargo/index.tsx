@@ -11,6 +11,8 @@ import General from "../../components/general";
 import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
 import Check from "../../components/input/check";
+import DisableOption from "../../components/dropdown/disableOption";
+import Option from "../../components/dropdown";
 
 class NovoCargo extends Component {
     state = {
@@ -50,21 +52,45 @@ class NovoCargo extends Component {
                 <Css ref="./novoperfil.css" />
 
                 <div className="conteudo">
-                    <h3>Novo Perfil</h3>
+                    <h3>Novo Cargo</h3>
 
                     <div className="form">
                         <div className="teste1 row">
+
+    
+                            <select name="" className="browser-default" id="departamento" onChange={this.handleChange}>
+                                <DisableOption disableValue="" disableNome="Departamento" />
+                                <Option function="" value="" name="" />
+                                <Option function="" value="" name="" />
+                            </select>
+
                             <Input stateName="cargo" fname={this.handleChange} div="input-field" type="text" id="cargo" name="Novo Cargo" class="validate" />
 
                             <Input stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
 
-                            <Check fname="" name="Vale Refeição" value=""/>
-                            <Check fname="" name="Vale Transporte" value=""/>
-                            <Check fname="" name="Auxílio Creche" value=""/>
-                            <Check fname="" name="Plano de Saúde" value=""/>
+                            <select name="" className="browser-default" id="" onChange={this.handleChange}>
+                                <DisableOption disableValue="" disableNome="" />
+                                <Option function="" value="" name="" />
+                                <Option function="" value="" name="" />
+                            </select>
+
+                            <ul>
+                                <li>
+                                    <Check fname="" name="Vale Refeição" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Vale Transporte" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Auxílio Creche" value=""/>
+                                </li>
+                                <li>
+                                    <Check fname="" name="Plano de Saúde" value=""/>
+                                </li>
+                            </ul>
     
                             <div className="botao-novoperfil">
-                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo perfil" iClass="{}" />
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo cargo" iClass="{}" />
                             </div>
                         </div>
                     </div>

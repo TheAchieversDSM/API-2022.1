@@ -1,7 +1,8 @@
 const db = require("../config/dbconfig")
 
 Departamento = function(departamento){
-
+    this.dep_descricao = departamento.departamento_nome
+    this.dep_head = departamento.departamento_head
 }
 
 Departamento.getAllDepart = (result) =>{
@@ -41,15 +42,38 @@ Departamento.getDepartByCargo = (id,result) =>{
     })
 }
 
+Departamento.getDepartByName = (name,result) =>{
+    db.query(`SELECT dep_id FROM departamento WHERE dep_descricao = ${name}`,(err,res)=>{
+        if(err){
+            console.log('Erro ao puxar o departamento', err);
+            result(null,err);
+        }else{
+            console.log('Departamentos Puxado',res);
+            result(res);
+        }
+    })
+}
+
 Departamento.getAllOfficefromDep = (result) =>{
     const departamentos = db.query('SELECT * FROM departamento', (err, res)=>{
         if(err){
-            console.log('Erro ao puxas os departaments', err);
+            console.log('Erro ao puxas os departamentos', err);
         }else{
             console.log('Departamentos Puxados');
         }
     })
     console.log(departamentos);
+}
+
+Departamento.createNewDep = (dep_data,result) =>{
+    db.query("INSERT INTO departamento SET ?",dep_data,(err,res)=>{
+        if(err){
+            console.log("Erro ao inserir um novo departamento");
+            result(err)
+        }else{
+            result(null,res)
+        }
+    })
 }
 
 module.exports = Departamento

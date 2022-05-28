@@ -41,16 +41,14 @@ span {
     margin-left: auto;
     width: 300px;
     color: #414042 ;
-    background-color: #ACD8DE;
-    border: 2px solid #ACD8DE;
+    background-color: #53C4CD;
     border-radius: 20px;
     -webkit-transition: 0.5s;
 }
 
 .btn.btn-primary:hover {
     color: #414042 ;
-    background-color: #ACD8DE;
-    border: 2px solid #ACD8DE;
+    background-color: #53C4CD;
     border-radius: 20px;
     -webkit-transition: 0.5s;
 }

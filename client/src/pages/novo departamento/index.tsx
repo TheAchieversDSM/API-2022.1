@@ -14,8 +14,9 @@ import Css from "../../assets/style/style";
 
 class NovoDep extends Component {
     state = {
-        email: String,
-        password: String,
+        departamento: "",
+        dep_id: "",
+        head: "",
         tipoPessoa: String
     }
 
@@ -30,16 +31,21 @@ class NovoDep extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const user = {
-            email: this.state.email,
-            password: this.state.password,
-            tipoPessoa: this.state.tipoPessoa
+            departamento_nome: this.state.departamento,
+            departamento_head: this.state.head,
         }
-        axios.post("http://localhost:5000/novocolaborador/create", user ).then((res)=>{
+        axios.post("http://localhost:5000/departamentos/createNewDep", user ).then((res)=>{
             if (res.data.erro){
                 M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
             }else{
                 M.toast({html: res.data , classes: "green darken-4 rounded"})
             }
+        })
+        axios.post(`http://localhost:5000/departamentos/getDepByName/${user.departamento_nome}`).then((res)=>{
+            console.log(res.data);
+            const dep_id = res.data
+            this.setState({ dep_id })
+            
         })
     };
     render() {

@@ -17,3 +17,20 @@ exports.getUserCargo = (req,res) =>{
         res.send(cargo) 
     })
 }
+
+exports.createNewCargo = (req,res) =>{
+    const car_data = new Cargos(req.body)
+    Cargos.createNewCargo(car_data,(err,cargo) =>{
+        if(err){
+            if (err.errno == "1062"){
+                console.log("Entrada Duplicada");
+                res.send({
+                    erro:"Um cargo com o mesmo nome já existe, por favor insira um nome válido"
+                })
+        }
+        }else{
+            console.log("Cargo criado com Sucesso!");
+            res.send("Cargo criado com Sucesso!")
+        }
+    })
+}

@@ -16,7 +16,7 @@ USE `api_ionic` ;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_id` INT NOT NULL AUTO_INCREMENT,
   `dep_head` VARCHAR(40) NOT NULL,
-  `dep_descricao` VARCHAR(45) NOT NULL,
+  `dep_descricao` UNIQUE VARCHAR(45) NOT NULL,
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB
  ;
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
   `car_vale_refeicao` FLOAT NOT NULL,
   `car_auxilio_creche` FLOAT NOT NULL,
   `car_nivel_acesso` INT NOT NULL,
-  `car_plano_saude` VARCHAR(40) NOT NULL,
-  `car_descricao` VARCHAR(120) NOT NULL,
+  `car_plano_saude` VARCHAR(80) NOT NULL,
+  `car_descricao` UNIQUE VARCHAR(120) NOT NULL,
   `car_salario` FLOAT NOT NULL,
   `departamento_dep_id` INT NOT NULL,
   PRIMARY KEY (`car_id`),
