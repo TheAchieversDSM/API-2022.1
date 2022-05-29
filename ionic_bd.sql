@@ -7,7 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema api_ionic
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `api_ionic` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `api_ionic`;
 USE `api_ionic` ;
 
 -- -----------------------------------------------------
@@ -16,7 +16,7 @@ USE `api_ionic` ;
 CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_id` INT NOT NULL AUTO_INCREMENT,
   `dep_head` VARCHAR(40) NOT NULL,
-  `dep_descricao` UNIQUE VARCHAR(45) NOT NULL,
+  `dep_descricao` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB
  ;
@@ -27,12 +27,8 @@ ENGINE = InnoDB
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
   `car_id` INT NOT NULL AUTO_INCREMENT,
-  `car_vale_transporte` FLOAT NOT NULL,
-  `car_vale_refeicao` FLOAT NOT NULL,
-  `car_auxilio_creche` FLOAT NOT NULL,
   `car_nivel_acesso` INT NOT NULL,
-  `car_plano_saude` VARCHAR(80) NOT NULL,
-  `car_descricao` UNIQUE VARCHAR(120) NOT NULL,
+  `car_descricao` VARCHAR(120) UNIQUE NOT NULL,
   `car_salario` FLOAT NOT NULL,
   `departamento_dep_id` INT NOT NULL,
   PRIMARY KEY (`car_id`),
@@ -42,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`cargo` (
     REFERENCES `api_ionic`.`departamento` (`dep_id`))
 ENGINE = InnoDB
  
-COMMENT = 'Esta tabela contém informações do cargo e seus benefícios.';
+COMMENT = 'Esta tabela contém informações do cargo.';
 
 
 -- -----------------------------------------------------
@@ -94,6 +90,10 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_nacionalidade` VARCHAR(45) NULL,
   `col_estado_civil` VARCHAR(45) NULL,
   `col_filho` VARCHAR(3) NULL,
+  `car_vale_transporte` FLOAT,
+  `car_vale_refeicao` FLOAT,
+  `car_auxilio_creche` FLOAT,
+  `car_plano_saude` VARCHAR(80),
   PRIMARY KEY (`col_id`),
   INDEX `contratado_cargo` (`cargo_car_id` ASC)  ,
   INDEX `contratado_departamento` (`departamento_dep_id` ASC)  ,
@@ -109,7 +109,13 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
     REFERENCES `api_ionic`.`tipo_contratacao` (`cont_id`))
 ENGINE = InnoDB
  
-COMMENT = 'Cadastro dos colaboradores	';
+COMMENT = 'Cadastro dos colaboradores e seus benefícios.';
+/* 
+`car_vale_transporte` FLOAT NOT NULL,
+`car_vale_refeicao` FLOAT NOT NULL,
+`car_auxilio_creche` FLOAT NOT NULL,
+`car_plano_saude` VARCHAR(80) NOT NULL,
+*/
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`notificacao`
