@@ -17,8 +17,8 @@ import PerfilColab from "../pages/perfilcolab";
 import Funcionario from "../pages/tabela";
 import UploadMateriais from "../pages/uploadMat";
 import Admissao from "../pages/admissao";
-import NovoDep from "../pages/novo departamento";
-import NovoCargo from "../pages/novocargo" 
+import Trilha from "../pages/trilha";
+import Cursos from "../pages/cursos";
 
 
 function Routes() {
@@ -46,21 +46,7 @@ function Routes() {
                 </ProtectedRoute>} />
 
                 <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>
-                    <AdmPrivateRoute redirectTo={"/home"} >
-                        <NovoPerfil/>   
-                    </AdmPrivateRoute>                     
-                </ProtectedRoute>} />
-
-                <Route path="/NovoDepartamento" element={<ProtectedRoute redirectTo={"/"}>
-                    <AdmPrivateRoute redirectTo={"/home"} >
-                        <NovoDep/>           
-                    </AdmPrivateRoute>           
-                </ProtectedRoute>} />
-
-                <Route path="/NovoCargo" element={<ProtectedRoute redirectTo={"/"}>
-                    <AdmPrivateRoute redirectTo={"/home"} >
-                        <NovoCargo/>           
-                    </AdmPrivateRoute>           
+                        <NovoPerfil/>                      
                 </ProtectedRoute>} />
 
                 <Route path="/Organograma" element={<ProtectedRoute redirectTo={"/"}>
@@ -81,6 +67,14 @@ function Routes() {
                     <AdmPrivateRoute redirectTo={"/home"} >
                         <Funcionario/>
                     </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                <Route path="/Trilha" element={<ProtectedRoute redirectTo={"/"}>
+                    <Trilha/>
+                </ProtectedRoute>} />
+
+                <Route path="/Cursos" element={<ProtectedRoute redirectTo={"/"}>
+                    <Cursos/>
                 </ProtectedRoute>} />
 
                 <Route path="/logout" element={<LogoutRoute redirectTo={"/"}/>} />
