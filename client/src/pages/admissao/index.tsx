@@ -9,6 +9,7 @@ import axios from "axios"
 // IMAGE
 import Submit from "../../components/button/submit";
 import './admissao.css'
+import Check from '../../components/input/check';
 
 
 class Admissao extends Component {
@@ -224,13 +225,15 @@ class Admissao extends Component {
                                     {/*this.state.contratacao.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option> )*/}
                                 </select>
                             </div>
-                            {/* <div className="col s6">
+                            
+                            <div className="col s6">
                                     <h4>Benefícios</h4>
-                                    <Check value="1" name="Plano de Saúde"/>
-                                    <Check value="2" name="Vale Transporte"/>
-                                    <Check value="3" name="Vale Refeição"/>
-                                    <Check value="4" name="Auxílio Creche"/>
-                                    </div> */}
+                                    <Check fname={""} value="1" name="Plano de Saúde"/>
+                                    <Check fname={""} value="2" name="Vale Transporte"/>
+                                    <Check fname={""} value="3" name="Vale Refeição"/>
+                                    <Check fname={""} value="4" name="Auxílio Creche"/>
+                            </div> 
+
                         </div>
 
                         <Submit id="aceitar" title="Aceitar" fname={this.handleSubmit} />

@@ -212,15 +212,15 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
-                                  {this.state.cargo.map(info=> 
+                                  {this.state.colaborador.map(info=> 
                                     <p key={info.colaborador_col_id} className="grid-check">
                                         {info.car_plano_saude? <CheckChecked value="" name="Plano de Saúde" />:<Check  fname="" value="" name="Plano de Saúde" />}
 
-                                        {info.car_vale_refeicao? <CheckChecked value="" name="Vale Refeição" />:<Check  fname="" value="" name="Vale Refeição" />}
+                                        {info.car_vale_refeicao !=0? <CheckChecked value="" name="Vale Refeição" />:<Check  fname="" value="" name="Vale Refeição" />}
 
-                                        {info.car_vale_transporte? <CheckChecked value="" name="Vale Transporte" />:<Check  fname="" value="" name="Vale Transporte" />}
+                                        {info.car_vale_transporte !=0? <CheckChecked value="" name="Vale Transporte" />:<Check  fname="" value="" name="Vale Transporte" />}
 
-                                        {info.car_auxilio_creche? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname="" value="" name="Auxílio Creche" />}
+                                        {info.car_auxilio_creche !=0 ? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname="" value="" name="Auxílio Creche" />}
 
                                     </p>
                                     )}

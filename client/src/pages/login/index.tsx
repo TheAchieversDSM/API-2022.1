@@ -82,10 +82,10 @@ class Login extends Component {
                         <img src={LogoLogin} />
                         <form onSubmit={this.isLoggedin} >
                             <div className="row">
-                                <Input stateName="email" div="input-field" fname={this.handleChange} type="email" id="email" name="E-mail" class="validate" />
+                                <Input lenght={100} stateName="email" div="input-field" fname={this.handleChange} type="email" id="email" name="E-mail" class="validate" />
                             </div>
                             <div className="row">
-                                <Input stateName="password" div="input-field" fname={this.handleChange} type="password" id="password" name="Senha" class="validate" />
+                                <Input lenght={20} stateName="password" div="input-field" fname={this.handleChange} type="password" id="password" name="Senha" class="validate" />
                             </div>
 
 

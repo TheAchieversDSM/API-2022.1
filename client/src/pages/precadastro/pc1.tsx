@@ -351,22 +351,22 @@ class PreCadastro1 extends Component {
                                 <form className="col s12">
 
                                     <div className="row">
-                                        <Input stateName="nome" fname={this.handleChange} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
+                                        <Input lenght={100} stateName="nome" fname={this.handleChange} div="input-field col s12" id="nome" class="validate" type="text" name="Nome Completo" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="novaSenha" fname={this.handleChange} div="input-field col s12" id="novaSenha" class="validate" type="password" name="Nova Senha" />
+                                        <Input lenght={20} stateName="novaSenha" fname={this.handleChange} div="input-field col s12" id="novaSenha" class="validate" type="password" name="Nova Senha" />
                                     </div>
 
                                     <div className="row">
-                                        <InputOnFocus focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l6" id="cpf" class="validate" type="number" name="CPF" />
+                                        <InputOnFocus lenght={11} focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l6" id="cpf" class="validate" type="number" name="CPF" />
 
-                                        <Input stateName="rg" fname={this.handleChange} div="input-field col col s12 m12 l6" id="rg" class="validate" type="number" name="RG" />
+                                        <Input lenght={12} stateName="rg" fname={this.handleChange} div="input-field col col s12 m12 l6" id="rg" class="validate" type="number" name="RG" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="nacionalidade" fname={this.handleChange} div="input-field col col s12 m12 l6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
-                                        <Input stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
+                                        <Input lenght={100} stateName="nacionalidade" fname={this.handleChange} div="input-field col col s12 m12 l6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+                                        <Input lenght={100} stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
                                     </div>
 
                                     <div className="row">
@@ -392,12 +392,12 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="data" fname={this.handleChange} div="input-field col s12 m12 12" id="data" class="datepicker" type="date" name="Data de Nascimento" />
+                                        <Input lenght={10} stateName="data" fname={this.handleChange} div="input-field col s12 m12 12" id="data" class="datepicker" type="date" name="Data de Nascimento" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="DDD" />
-                                        <Input stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="Telefone" />
+                                        <Input lenght={2} stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="DDD" />
+                                        <Input lenght={10} stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="Telefone" />
                                     </div>
                                 </form>
                             </div>
@@ -409,13 +409,13 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <InputValueDisabled value={this.state.rua} ph="Rua" stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
-                                        <Input stateName="numero" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
+                                        <Input lenght={5} stateName="numero" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
                                     </div>
 
                                     <div className="row">
                                         <InputValueDisabled value={this.state.bairro} stateName="bairro" ph="Bairro" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="bairro" class="validate" type="text" name="Bairro" />
-                                        <Input stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
-                                        <Input stateName="cep" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
+                                        <Input lenght={10} stateName="complemento" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="complemento" class="validate" type="number" name="Complemento" />
+                                        <Input lenght={8} stateName="cep" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="cep" class="validate" type="number" name="CEP" />
                                     </div>
 
                                     <div className="row">
@@ -490,19 +490,19 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
 
-                                        <Input stateName="formacao" fname={this.handleChange} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
+                                        <Input lenght={100} stateName="formacao" fname={this.handleChange} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
 
 
-                                        <Input stateName="cursos" fname={this.handleChange} div="input-field col s12 m12 l7 bla" id="cursos" type="text" class="validate" name="Cursos" />
+                                        <Input lenght={100} stateName="cursos" fname={this.handleChange} div="input-field col s12 m12 l7 bla" id="cursos" type="text" class="validate" name="Cursos" />
 
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="linguas" fname={this.handleChange} div="input-field col s12 bla" id="linguas" type="text" class="validate" name="Línguas" />
+                                        <Input lenght={100} stateName="linguas" fname={this.handleChange} div="input-field col s12 bla" id="linguas" type="text" class="validate" name="Línguas" />
                                     </div>
 
                                     <div className="row">
-                                        <Input stateName="instituicao" fname={this.handleChange} div="input-field col s12 bla" id="instituicao" type="text" class="validate" name="Instituição" />
+                                        <Input lenght={100} stateName="instituicao" fname={this.handleChange} div="input-field col s12 bla" id="instituicao" type="text" class="validate" name="Instituição" />
                                     </div>
 
                                 </form>

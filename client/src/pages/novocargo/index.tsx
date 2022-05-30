@@ -64,9 +64,9 @@ class NovoCargo extends Component {
                                 <Option function="" value="" name="" />
                             </select>
 
-                            <Input stateName="cargo" fname={this.handleChange} div="input-field" type="text" id="cargo" name="Novo Cargo" class="validate" />
+                            <Input lenght={100} stateName="cargo" fname={this.handleChange} div="input-field" type="text" id="cargo" name="Novo Cargo" class="validate" />
 
-                            <Input stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
+                            <Input lenght={10000} stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
 
                             <select name="" className="browser-default" id="" onChange={this.handleChange}>
                                 <DisableOption disableValue="" disableNome="" />

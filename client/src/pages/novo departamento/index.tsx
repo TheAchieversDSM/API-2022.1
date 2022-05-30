@@ -60,13 +60,13 @@ class NovoDep extends Component {
 
                     <div className="form">
                         <div className="teste1 row">
-                            <Input stateName="departamento" fname={this.handleChange} div="input-field" type="text" id="departamento" name="Nome do Departamento" class="validate" />
+                            <Input lenght={100} stateName="departamento" fname={this.handleChange} div="input-field" type="text" id="departamento" name="Nome do Departamento" class="validate" />
 
                             <hr/>
 
-                            <Input stateName="head" fname={this.handleChange} div="input-field" type="text" id="head" name="Head" class="validate" />
+                            <Input lenght={100} stateName="head" fname={this.handleChange} div="input-field" type="text" id="head" name="Head" class="validate" />
 
-                            <Input stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
+                            <Input lenght={100000} stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
 
                             <ul>
                                 <li>
