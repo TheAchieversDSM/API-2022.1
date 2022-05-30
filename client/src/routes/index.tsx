@@ -18,7 +18,10 @@ import Funcionario from "../pages/tabela";
 import UploadMateriais from "../pages/uploadMat";
 import Admissao from "../pages/admissao";
 import NovoDep from "../pages/novo departamento";
-import NovoCargo from "../pages/novocargo" 
+import NovoCargo from "../pages/novocargo"
+import Departamento from "../pages/tabela/departamentos"; 
+import Documentos from "../pages/documentos/index"
+import Cargo from "../pages/tabela/cargos";
 
 
 function Routes() {
@@ -31,6 +34,10 @@ function Routes() {
                 
                 <Route path ="/home" element= {<ProtectedRoute redirectTo={"/"}>
                     <Home />
+                </ProtectedRoute>} />
+
+                <Route path ="/Documentos" element= {<ProtectedRoute redirectTo={"/"}>
+                    <Documentos />
                 </ProtectedRoute>} />
 
                 <Route path="/CompletarCadastro" element={<ProtectedRoute redirectTo={"/"}>
@@ -80,6 +87,25 @@ function Routes() {
                 <Route path ="/Funcionario" element={<ProtectedRoute redirectTo={"/"}>
                     <AdmPrivateRoute redirectTo={"/home"} >
                         <Funcionario/>
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                <Route path ="/Departamentos" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
+                        <Departamento/>
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                
+                <Route path ="/VisualizarDepartamento/:id" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
+                        <Funcionario/>
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                <Route path ="/Cargos" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
+                        <Cargo/>
                     </AdmPrivateRoute>
                 </ProtectedRoute>} />
 

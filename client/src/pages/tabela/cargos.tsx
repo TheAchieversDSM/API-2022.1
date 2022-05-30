@@ -6,9 +6,9 @@ import tableSort from "tablesort"
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
 import TR from '../../components/tabela'
 
-class Funcionario extends Component {
+class Cargo extends Component {
     state = {
-        colaboradores: []
+        cargos: []
     }
     tablesort = () =>{
         new tableSort(document.getElementById('tabela'))
@@ -37,25 +37,12 @@ class Funcionario extends Component {
           
     }
     componentDidMount() {
-        let url = window.location.href.split("/")
-        if (url[3] === "VisualizarDepartamento") { 
-            var id = url[4]
-            axios.get(`http://localhost:5000/infocolab/getAllByDep/${id}`)
-            .then((res) => {
-                const colaboradores = res.data;
+        axios.get("http://localhost:5000/cargos").then((res) => {
+            console.log(res.data);
             
-                this.setState({colaboradores})                
-            }
-        )
-        }else{
-            axios.get('http://localhost:5000/infocolab/getAll')
-                .then((res) => {
-                    const colaboradores = res.data;
-                
-                    this.setState({colaboradores})                
-                }
-            )
-        }
+            const cargos = res.data
+            this.setState({ cargos })
+        })
     }
 
     render() {
@@ -68,15 +55,15 @@ class Funcionario extends Component {
                         <table id="tabela">
                             <thead>
                                 <tr>
-                                    <th onClick={this.tablesort}><a>Nome</a>   <i className="fa-solid fa-arrow-down-a-z fa"></i></th>
-                                    <th onClick={this.tablesort}><a>Departamento</a>   <i className="fa-solid fa-arrow-down-a-z"></i></th>
-                                    <th onClick={this.tablesort}><a>Cargo</a>   <i className="fa-solid fa-arrow-down-a-z"></i></th>
+                                    <th onClick={this.tablesort}><a>Cargo</a>   <i className="fa-solid fa-arrow-down-a-z fa"></i></th>
+                                    <th onClick={this.tablesort}><a>Salário</a>   <i className="fa-solid fa-arrow-down-a-z"></i></th>
+
                                     
                                 </tr>
                             </thead>
                             
                             <tbody>                  
-                                    {this.state.colaboradores.map(colaborador => <TR key={colaborador.col_id} url={`/PerfilColaborador/${colaborador.col_id}`} nome={colaborador.col_nome} departamento={colaborador.dep_descricao} cargo={colaborador.car_descricao} />)}
+                                    {this.state.cargos.map(car => <TR key={car.car_id} url={`/PerfilColaborador/${car.car_id}`} nome={car.car_descricao} departamento={car.car_salario} cargo={""} />)}
             
                             </tbody>
                         </table>
@@ -87,4 +74,4 @@ class Funcionario extends Component {
     }
 }
 
-export default Funcionario;
+export default Cargo;

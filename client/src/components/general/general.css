@@ -40,6 +40,14 @@ a {
     font-weight: bold;
 }
 
+.hoverSide {
+    display: none !important;
+}
+
+.fa-plus:hover .hoverSide {
+    display: block !important;
+}
+
 .conteudo {
     width: 80%;
     height: fit-content;

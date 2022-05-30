@@ -3,6 +3,8 @@ const colaboradorController = require("../controllers/colaboradorPreCadControlle
 const pessoaFisicaController = require("../controllers/pessoaFisicaController")
 const pessoaJuridicaController = require("../controllers/pessoaJuridicaController")
 const router = require("express").Router()
+const aws = require("aws-sdk");
+const multerS3 = require("multer-s3");
 const multer = require("multer")
 const path = require("path")
 

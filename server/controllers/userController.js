@@ -80,7 +80,7 @@ exports.getDocsById = (req, res) => {
 exports.downloadDocs = (req,res) =>{
     var path = require('path')
     const fileName = req.params.file;
-    const filePath = path.join( __dirname , '..','uploads',fileName)
+    const filePath = path.join( "http://localhost:5000/" , '..','uploads',fileName)
     console.log(filePath);
     res.send(filePath)
 }

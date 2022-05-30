@@ -43,7 +43,7 @@ Departamento.getDepartByCargo = (id,result) =>{
 }
 
 Departamento.getDepartByName = (name,result) =>{
-    db.query(`SELECT dep_id FROM departamento WHERE dep_descricao = ${name}`,(err,res)=>{
+    db.query('SELECT dep_id FROM departamento WHERE dep_descricao = ?',name, (err,res)=>{
         if(err){
             console.log('Erro ao puxar o departamento', err);
             result(null,err);
@@ -69,6 +69,17 @@ Departamento.createNewDep = (dep_data,result) =>{
     db.query("INSERT INTO departamento SET ?",dep_data,(err,res)=>{
         if(err){
             console.log("Erro ao inserir um novo departamento");
+            result(err)
+        }else{
+            result(null,res)
+        }
+    })
+}
+
+Departamento.getAllDepartAndHeads = (result) =>{
+    db.query("SELECT d.dep_descricao,d.dep_head,d.dep_id,c.col_nome FROM departamento d, colaborador c, cargo car WHERE car.car_id = c.cargo_car_id AND car.car_descricao = d.dep_head AND c.departamento_dep_id = d.dep_id ",(err,res)=>{
+        if(err){
+            console.log("Erro ao achar as informações");
             result(err)
         }else{
             result(null,res)

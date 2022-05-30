@@ -75,6 +75,7 @@ class Admissao extends Component {
 
     handleDownload = (filePath) => {
         filePath = filePath.split("\\")
+        
         let file = filePath[1]
         axios.get(`http://localhost:5000/infocolab/download/${file}`,{
             responseType: 'blob',
@@ -83,7 +84,6 @@ class Admissao extends Component {
             const url = window.URL.createObjectURL(new Blob())
             this.setState({ url })
             fileDownload(url,file)
-            console.log(this.state.arquivo);
         })
     }
 
