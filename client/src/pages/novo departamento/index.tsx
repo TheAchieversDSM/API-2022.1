@@ -17,15 +17,17 @@ class NovoDep extends Component {
         departamento: "",
         dep_id: "",
         head: "",
+        departamentos: [],
         tipoPessoa: String
     }
+
 
     handleChange = event => {
         this.setState({
             ...this.state,
             [event.target.name]: event.target.value
-          });
-          console.log(this.state);
+        });
+        console.log(this.state);
     };
 
     handleSubmit = async (event) => {
@@ -34,18 +36,18 @@ class NovoDep extends Component {
             departamento_nome: this.state.departamento,
             departamento_head: this.state.head,
         }
-        axios.post("http://localhost:5000/departamentos/createNewDep", user ).then((res)=>{
-            if (res.data.erro){
-                M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
-            }else{
-                M.toast({html: res.data , classes: "green darken-4 rounded"})
+        axios.post("http://localhost:5000/departamentos/createNewDep", user).then((res) => {
+            if (res.data.erro) {
+                M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+            } else {
+                M.toast({ html: res.data, classes: "green darken-4 rounded" })
             }
         })
-        axios.post(`http://localhost:5000/departamentos/getDepByName/${user.departamento_nome}`).then((res)=>{
+        axios.post(`http://localhost:5000/departamentos/getDepByName/${user.departamento_nome}`).then((res) => {
             console.log(res.data);
             const dep_id = res.data
             this.setState({ dep_id })
-            
+
         })
     };
     render() {
@@ -62,27 +64,12 @@ class NovoDep extends Component {
                         <div className="teste1 row">
                             <Input lenght={100} stateName="departamento" fname={this.handleChange} div="input-field" type="text" id="departamento" name="Nome do Departamento" class="validate" />
 
-                            <hr/>
+                            <hr />
 
                             <Input lenght={100} stateName="head" fname={this.handleChange} div="input-field" type="text" id="head" name="Head" class="validate" />
 
                             <Input lenght={100000} stateName="salario" fname={this.handleChange} div="input-field" type="text" id="salario" name="Salário" class="validate" />
 
-                            <ul>
-                                <li>
-                                    <Check fname="" name="Vale Refeição" value=""/>
-                                </li>
-                                <li>
-                                    <Check fname="" name="Vale Transporte" value=""/>
-                                </li>
-                                <li>
-                                    <Check fname="" name="Auxílio Creche" value=""/>
-                                </li>
-                                <li>
-                                    <Check fname="" name="Plano de Saúde" value=""/>
-                                </li>
-                            </ul>
-    
                             <div className="botao-novoperfil">
                                 <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo departamento" iClass="{}" />
                             </div>
