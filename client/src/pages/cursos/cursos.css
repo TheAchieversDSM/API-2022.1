@@ -115,10 +115,6 @@ span {
     color: #ACD8DE;
 }
 
-.video{
-    border: 2px solid #ACD8DE;
-  }
-
 @media only screen and (max-width : 992px) {
     .teste2-info {
         grid-template-columns: 1fr;
