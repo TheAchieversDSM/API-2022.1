@@ -34,7 +34,7 @@ export default class General extends Component {
                 <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
                 <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
                 <SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" />
-                <SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" />
+                
 
                 <div className="hoverSide">
                     <SideNav link="" class="fa-solid fa-binoculars" name="Visualizar" />
@@ -44,7 +44,9 @@ export default class General extends Component {
                         <SideNav link="/Cargos" class="fa-solid fa-briefcase" name="Cargos" />
                     </div>
                 </div>
-        
+                
+                <SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" />
+                
                 <div className="hoverSide">
                     <SideNav link="" class="fa-solid fa-plus" name="Criar" />
                     <div className="showSide">
