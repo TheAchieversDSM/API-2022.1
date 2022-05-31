@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
-import { cnpj,cpf } from "cpf-cnpj-validator";
+import { cnpj, cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS
 import './perfil.css'
@@ -14,6 +14,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
+import Cursos from "../../components/carouselCursos";
 
 class PerfilColab extends Component {
     state = {
@@ -30,7 +31,7 @@ class PerfilColab extends Component {
 
     componentDidMount() {
         let url = window.location.href.split("/")
-        if (url[3] === "PerfilColaborador") { 
+        if (url[3] === "PerfilColaborador") {
             this.state.id = url[4]
         }
 
@@ -62,8 +63,8 @@ class PerfilColab extends Component {
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
             }
-        )
-        
+            )
+
         axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
             console.log(res.data);
             const info_academica = res.data;
@@ -71,7 +72,7 @@ class PerfilColab extends Component {
         }
         )
 
-     
+
     }
 
     render() {
@@ -87,7 +88,7 @@ class PerfilColab extends Component {
                                 <div className="row" id="info">
                                     <div className="col s12 m12 l5 center-align">
                                         <div className="foto center-align">
-                                                
+
                                         </div>
                                     </div>
 
@@ -95,11 +96,11 @@ class PerfilColab extends Component {
                                         {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}
-                                            {this.state.historico.map(info => 
-                                            <>
-                                            <p><label>Data de admissão:</label>{info.data_admissao}</p>
-                                            {info.hist_data_desligamento?<p><label>Data de desligamento:</label>{info.hist_data_desligamento}</p>:null}
-                                            </>
+                                            {this.state.historico.map(info =>
+                                                <>
+                                                    <p><label>Data de admissão:</label>{info.data_admissao}</p>
+                                                    {info.hist_data_desligamento ? <p><label>Data de desligamento:</label>{info.hist_data_desligamento}</p> : null}
+                                                </>
                                             )}
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>Tipo de Contratação:</label> {info.cont_descricao}</p>)}
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>E-mail:</label> {info.col_email}</p>)}
@@ -129,12 +130,12 @@ class PerfilColab extends Component {
                                 <h4>Informações</h4>
                                 <div className="teste2-info ">
                                     {this.state.departamento.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
-                                    {this.state.cargo.map(info => <p  key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
-                                    
+                                    {this.state.cargo.map(info => <p key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
+
                                     {this.state.historico.map(info =>
-                                    <>
-                                    {info.hist_data_desligamento?<p><label>Status:</label>Desligado</p>:<p><label>Status:</label>Ativo</p> }
-                                    </>
+                                        <>
+                                            {info.hist_data_desligamento ? <p><label>Status:</label>Desligado</p> : <p><label>Status:</label>Ativo</p>}
+                                        </>
                                     )}
                                     {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
                                     {this.state.cargo.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
@@ -166,7 +167,7 @@ class PerfilColab extends Component {
                                         desc1={this.state.info_academica.map(info => <p key={info.qua_id}><label>Formação:</label> {info.qua_formacao}</p>)}
                                         desc2={this.state.info_academica.map(info => <p key={info.qua_id}><label>Instituição:</label> {info.qua_nome_instituicao}</p>)}
                                         desc3={this.state.info_academica.map(info => <p key={info.qua_id}><label>Curso:</label> {info.qua_curso}</p>)}
-                                        desc4={this.state.info_academica.map(info => <p key={info.qua_id }><label>Línguas:</label> {info.qua_lingua}</p>)}
+                                        desc4={this.state.info_academica.map(info => <p key={info.qua_id}><label>Línguas:</label> {info.qua_lingua}</p>)}
                                         desc5={null}
                                         desc6={null} />
 
@@ -194,15 +195,15 @@ class PerfilColab extends Component {
                                         desc6="" />
                                     {this.state.historico.map(info =>
                                         <>
-                                        {info.hist_data_desligamento?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Descrição:</label> {info.his_desligamento_descricao}</p>} 
+                                            {info.hist_data_desligamento ? <Collapse title="Informações do desligamento" desc1={<p key={info.qua_id}><label>Descrição:</label> {info.his_desligamento_descricao}</p>}
 
-                                        desc2={<p key={info.qua_id}><label>Distrato:</label> {info.his_distrato}</p>} 
-                                        desc3={<p key={info.qua_id}><label>Pesquisa de Desligamento:</label> {info.his_pesquisa_desligamento}</p>} 
-                                        desc4="" 
-                                        desc5="" 
-                                        desc6="" /> : null}
+                                                desc2={<p key={info.qua_id}><label>Distrato:</label> {info.his_distrato}</p>}
+                                                desc3={<p key={info.qua_id}><label>Pesquisa de Desligamento:</label> {info.his_pesquisa_desligamento}</p>}
+                                                desc4=""
+                                                desc5=""
+                                                desc6="" /> : null}
                                         </>
-                                        
+
                                     )}
                                 </ul>
                             </div>
@@ -212,17 +213,17 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <h4>Benefícios</h4>
                                 <form action="#">
-                                  {this.state.colaborador.map(info=> 
-                                    <p key={info.colaborador_col_id} className="grid-check">
-                                        {info.car_plano_saude? <CheckChecked value="" name="Plano de Saúde" />:<Check  fname="" value="" name="Plano de Saúde" />}
+                                    {this.state.colaborador.map(info =>
+                                        <p key={info.colaborador_col_id} className="grid-check">
+                                            {info.car_plano_saude ? <CheckChecked value="" name="Plano de Saúde" /> : <Check fname="" value="" name="Plano de Saúde" />}
 
-                                        {info.car_vale_refeicao !=0? <CheckChecked value="" name="Vale Refeição" />:<Check  fname="" value="" name="Vale Refeição" />}
+                                            {info.car_vale_refeicao != 0 ? <CheckChecked value="" name="Vale Refeição" /> : <Check fname="" value="" name="Vale Refeição" />}
 
-                                        {info.car_vale_transporte !=0? <CheckChecked value="" name="Vale Transporte" />:<Check  fname="" value="" name="Vale Transporte" />}
+                                            {info.car_vale_transporte != 0 ? <CheckChecked value="" name="Vale Transporte" /> : <Check fname="" value="" name="Vale Transporte" />}
 
-                                        {info.car_auxilio_creche !=0 ? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname="" value="" name="Auxílio Creche" />}
+                                            {info.car_auxilio_creche != 0 ? <CheckChecked value="" name="Auxílio Creche" /> : <Check fname="" value="" name="Auxílio Creche" />}
 
-                                    </p>
+                                        </p>
                                     )}
                                 </form>
                             </div>
@@ -234,13 +235,44 @@ class PerfilColab extends Component {
                                     <p>
                                         <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
                                     </p>
-                                    
+
                                     <p>
                                         <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
                                     </p>
                                 </div>
                             </div>
                         </div>
+
+                        <div className="col col s12 m12 l8">
+                            <div className="teste3">
+                                <h4>Conteúdo do Curso</h4>
+                                    <Cursos />
+                            </div>
+                        </div>
+
+                        <div className="col col s12 m12 l4">
+                            <div className="teste3">
+                                <h4>Aulas</h4>
+                                <form action="#">
+                                    {this.state.colaborador.map(info =>
+                                        <p className="grid-check">
+                                            { <Check fname="" value="" name="Aula 01" />}
+
+                                            { <Check fname="" value="" name="Aula 02" />}
+
+                                            { <Check fname="" value="" name="Aula 03" />}
+
+                                            { <Check fname="" value="" name="Aula 04" />}
+
+                                            { <Check fname="" value="" name="Aula 05" />}
+
+                                        </p>
+                                    )}
+                                </form>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </>
