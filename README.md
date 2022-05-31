@@ -74,7 +74,9 @@ RNF-13 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Bai
 RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | 🔲
 RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
 RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
-RNF-17 | - | Manual do usuário para navegação | Média | ✔️
+RNF-17 | 3 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
+RNF-18 | - | Manual do usuário para navegação | Média | ✔️
+
 
 ##### Timeline
 ![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline.jpg)
