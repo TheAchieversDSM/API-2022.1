@@ -28,7 +28,7 @@ class PreCadastro1 extends Component {
     state = {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
-
+        colaborador: [],
         // INFORMAÇÕES
         nome: String,
         novaSenha: String,
@@ -100,7 +100,54 @@ class PreCadastro1 extends Component {
         // DOCUMENTO SE FORNECER PENSAO
         pensaoAlimenticia: File,
 
-        fomularioEnviado: false
+        fomularioEnviado: false,
+        id: getCookie("id")
+    };
+
+    componentDidMount() {
+        let url = window.location.href.split("/")
+        if (url[3] === "EditarCadastro") { 
+            this.state.id = url[4]
+        }
+
+        axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
+            .then((res) => {
+                const colaborador = res.data.user;
+                const head_colaborador = res.data.head_user;
+                const historico = res.data.historico
+                let dep_id = res.data.user[0].departamento_dep_id
+                let car_id = res.data.user[0].cargo_car_id
+
+                axios.get(`http://localhost:5000/cargos/userCargo/${car_id}`).then((res) => {
+                    console.log(res.data);
+                    const cargo = res.data;
+                    this.setState({ cargo });
+                })
+
+                axios.get(`http://localhost:5000/departamentos/userDep/${dep_id}`).then((res) => {
+                    console.log(res.data);
+                    const departamento = res.data;
+                    this.setState({ departamento });
+                }
+                )
+
+                console.log(dep_id);
+
+                this.setState({ historico })
+                this.setState({ colaborador });
+                this.setState({ head_colaborador });
+                this.state.nome = colaborador.col_nome;
+            }
+        )
+        
+        axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
+            console.log(res.data);
+            const info_academica = res.data;
+            this.setState({ info_academica });
+        }
+        )
+
+     
     }
 
     cnpjVerify = event => {
