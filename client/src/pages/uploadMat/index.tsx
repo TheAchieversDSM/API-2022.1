@@ -61,17 +61,10 @@ class UploadMateriais extends Component {
 
             <Css ref="./home.css" />
             <div className="conteudo">
-                    <h2>Upload de Materiais</h2>
+                    <h4>Upload de Materiais</h4>
 
                     <div className="form">
                         <div className="teste1 row">
-
-                            <label>Departamento</label>
-                            <select className="browser-default" id="departamento"  onChange={this.handleChangeDepartamento}>
-                                <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option function="" value="Financeiro" name="Financeiro" />
-                                <Option function="" value="Marketing" name="Marketing" />
-                            </select>
                             
                             <label>Cargo</label>
                             <select className="browser-default" id="cargo"   onChange={this.handleChangeCargo}>
@@ -83,6 +76,8 @@ class UploadMateriais extends Component {
                                     <input type='file' name='file' onChange={this.handleChangeFile}/>
                                     <input type="button"/>
                                 </form>
+
+                                <Submit id="publicar" title="Publicar" fname="" />
 
                         </div>
                     </div>

@@ -11,7 +11,7 @@
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
     padding: 6px;
 }
 
@@ -19,7 +19,7 @@
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
     padding: 10px;
 }
 
@@ -28,7 +28,7 @@
     border-radius: 30px;
     padding: 5px 15px 0px 15px !important;
     margin-bottom: 20px;
-    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
     padding: 6px;
 }
 
@@ -38,7 +38,7 @@
     background-color: #f4f4f4;
     border-radius: 30px;
     margin-bottom: 20px;
-    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
     padding: 10px;
 }
 

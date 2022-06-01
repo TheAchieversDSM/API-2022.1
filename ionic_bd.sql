@@ -18,9 +18,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_head` VARCHAR(40) NOT NULL,
   `dep_descricao` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`dep_id`))
-ENGINE = InnoDB
- ;
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`cargo`
@@ -156,12 +154,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_id` INT NOT NULL AUTO_INCREMENT,
   `his_data_desligamento` DATE NULL,
   `his_data_admissao` DATE NOT NULL,
-  `his_cargo` VARCHAR(400) NOT NULL,
-  `his_salario` FLOAT NOT NULL,
-  `his_pesquisa_desligamento` VARCHAR(400) NULL,
   `his_desligamento_descricao` VARCHAR(100) NULL,
-  `his_distrato` VARCHAR(100) NULL,
-  `colaborador_col_id` INT NOT NULL,
+  `colaborador_col_id` INT NOT NULL UNIQUE,
   PRIMARY KEY (`his_id`, `colaborador_col_id`),
   INDEX `fk_historico_colaborador1_idx` (`colaborador_col_id` ASC)  ,
   CONSTRAINT `fk_historico_colaborador1`
@@ -170,8 +164,31 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+
+COMMENT = 'Esta tabela armazenará informações sobre admissão e desligamento do colaborador.';
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`historico_cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`historico_cargo` (
+  `his_car_id` INT NOT NULL AUTO_INCREMENT,
+  `his_car_data` DATE NOT NULL,
+  `his_car_cargo` VARCHAR(400) NOT NULL,
+  `his_car_salario` FLOAT NOT NULL,
+  `his_car_descricao` VARCHAR(400) NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`his_car_id`, `colaborador_col_id`),
+  INDEX `fk_historico_cargo_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_historico_cargo_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+COMMENT = 'Esta tabela armazenará informações sobre os cargos que o colaborador tem ou teve em todo tempo em que esteve na empresa.';
+
  
-COMMENT = 'Esta tabela armazenará informações sobre a trajetória dos colaboradores durante a sua fase laboral. Tanto de Pessoa Jurídica quanto da Pessoa Física.';
 
 
 -- -----------------------------------------------------

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+import swal from "sweetalert";
 import { cnpj,cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS
@@ -14,6 +15,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
+import { text } from "stream/consumers";
 
 class PerfilColab extends Component {
     state = {
@@ -25,8 +27,86 @@ class PerfilColab extends Component {
         head_colaborador: [],
         car_id: String,
         dep_id: String,
+        mensagem: "",
         id: getCookie("id")
     };
+    handleChange = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        });
+        console.log(this.state);
+    };
+    desligamento = () =>{
+        swal({
+            title: "Você tem certeza ?",
+            text: `Tem certeza que quer desligar ${this.state.colaborador[0].col_nome} ?`,
+            icon: "warning",
+            buttons: {
+                cancelar:{
+                    value: false,
+                    text: "Cancelar",
+                    className: "cancelarButton"
+                },
+                desligar:{
+                    className: "continuarButton",
+                    value: true,
+                    text: "Continuar"
+                
+                },
+            }
+          })
+          .then(prosseguir => {
+            if (prosseguir) {
+                swal({
+                    icon: "info",
+                    title: "Motivo do Desligamento",
+                    content: {           
+                      element: "input",
+                      attributes: {
+                        placeholder: "Motivo de Desligamento",
+                        type: "text",
+                        name: "mensagem",
+                        id: "mensagem"
+                      },
+            
+                    },
+                    buttons:{
+                        cancelar:{
+                        value: false,
+                        text: "Cancelar",
+                        className: "cancelarButton"
+                    },
+                        desligar:{
+                        className: "continuarButton",
+                        value: true,
+                        text: "Continuar"
+                    
+                    },
+                    }
+                  }).then(desligarColaborador =>{
+                      console.log(desligarColaborador);
+                      if(desligarColaborador){
+                        var his_desligamento_descricao =( document.getElementById("mensagem") as HTMLInputElement ).value
+                        var today = new Date()
+                        const his_data = {
+                            his_desligamento_descricao: his_desligamento_descricao,
+                            his_data_desligamento: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+                        }
+                        axios.post(`http://localhost:5000/historico/desligamento/${this.state.id}`,his_data).then((res=>{
+                            if (res.data.erro) {
+                                M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+                            } else {
+                                M.toast({ html: res.data, classes: "green darken-4 rounded" })
+                            }
+                        }))
+                        swal("Usuário Desligado!", `${this.state.colaborador[0].col_nome} foi desligado(a).`, "success");
+
+                      }
+                })
+            }
+        });
+    }
 
     componentDidMount() {
         let url = window.location.href.split("/")
@@ -61,6 +141,8 @@ class PerfilColab extends Component {
                 this.setState({ historico })
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
+                console.log(historico);
+                
             }
         )
         
@@ -70,8 +152,6 @@ class PerfilColab extends Component {
             this.setState({ info_academica });
         }
         )
-
-     
     }
 
     render() {
@@ -194,10 +274,10 @@ class PerfilColab extends Component {
                                         desc6="" />
                                     {this.state.historico.map(info =>
                                         <>
-                                        {info.hist_data_desligamento?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Descrição:</label> {info.his_desligamento_descricao}</p>} 
+                                        {info.his_data_desligamento!=null?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Data do Desligamento:</label> {info.data_desligamento}</p>}
 
-                                        desc2={<p key={info.qua_id}><label>Distrato:</label> {info.his_distrato}</p>} 
-                                        desc3={<p key={info.qua_id}><label>Pesquisa de Desligamento:</label> {info.his_pesquisa_desligamento}</p>} 
+                                        desc2= {<p key={info.qua_id}><label>Motivo:</label> {info.his_desligamento_descricao}</p>}
+                                        desc3="" 
                                         desc4="" 
                                         desc5="" 
                                         desc6="" /> : null}
@@ -236,7 +316,7 @@ class PerfilColab extends Component {
                                     </p>
                                     
                                     <p>
-                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
+                                        <ButtonMat fname={this.desligamento} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
                                     </p>
                                 </div>
                             </div>

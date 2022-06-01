@@ -1,7 +1,21 @@
+
 p > label {
     font-weight: bolder !important;
     font-size: 18px !important;
     color: #414042;
+}
+
+.checkGrid label {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 15px;
+}
+
+.planoSaude,
+.valeTransporte,
+.valeRefeicao,
+.auxilioCreche {
+    display: none;
 }
 
 p > a {

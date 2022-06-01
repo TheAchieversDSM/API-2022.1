@@ -57,6 +57,7 @@ export default class General extends Component {
                 </div>
 
                 <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
+                <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload dos Cursos" />
             </>
         }
 

@@ -7,7 +7,7 @@
     padding: 10px !important;
     margin: 10px;
     height: fit-content;
-    box-shadow: 0px 11px 16px 8px rgba(89, 148, 148, 0.5);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
 }
 
 p>label {
@@ -27,6 +27,22 @@ p>label {
 .teste2-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cancelarButton{
+    background-color: #b71c1c ;
+}
+
+.cancelarButton:hover{
+    background-color: #cd1f1f !important;
+}
+
+.continuarButton{
+    background-color: #1b5e20 !important;
+}
+
+.continuarButton:hover{
+    background-color: #217227 !important;
 }
 
 h5,

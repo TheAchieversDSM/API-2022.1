@@ -146,7 +146,41 @@ class PreCadastro1 extends Component {
         });
         console.log(this.state);
     };
+    
+    handleChangeSelectFilho = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        });
+        console.log(this.state);
 
+        if (event.target.value == "sim") {
+            document.getElementById("filhosLabel").style.display = "block";
+            document.getElementById("filhosBody").style.display = "block";
+        }
+        else {
+            document.getElementById("filhosLabel").style.display = "none";
+            document.getElementById("filhosBody").style.display = "none";
+        }
+    }
+
+    handleChangeSelectHomem = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        });
+        console.log(this.state);
+
+        if (event.target.value == "Masculino") {
+            document.getElementById("homemLabel").style.display = "block";
+            document.getElementById("homemBody").style.display = "block";
+        }
+        else {
+            document.getElementById("homemLabel").style.display = "none";
+            document.getElementById("homemBody").style.display = "none";
+        }
+    }
+    
     handleChangeSelect = event => {
         this.setState({
             ...this.state,
@@ -155,30 +189,12 @@ class PreCadastro1 extends Component {
         console.log(this.state);
         
         if (event.target.value == "Casado(a)") {
-            document.getElementById("casadoLabel").style.display = "block"
-            document.getElementById("casadoBody").style.display = "block"
+            document.getElementById("casadoLabel").style.display = "block";
+            document.getElementById("casadoBody").style.display = "block";
         }
         else {
-            document.getElementById("casadoLabel").style.display = "none"
-            document.getElementById("casadoBody").style.display = "none"
-        }
-
-        if (event.target.value == "Masculino") {
-            document.getElementById("homemLabel").style.display = "block"
-            document.getElementById("homemBody").style.display = "block"
-        }
-        else {
-            document.getElementById("homemLabel").style.display = "none"
-            document.getElementById("homemBody").style.display = "none"
-        }
-
-        if (event.target.value == "sim") {
-            document.getElementById("filhosLabel").style.display = "block"
-            document.getElementById("filhosBody").style.display = "block"
-        }
-        else {
-            document.getElementById("filhosLabel").style.display = "none"
-            document.getElementById("filhosBody").style.display = "none"
+            document.getElementById("casadoLabel").style.display = "none";
+            document.getElementById("casadoBody").style.display = "none";
         }
     };
 
@@ -293,8 +309,6 @@ class PreCadastro1 extends Component {
                 M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
             }
         }) 
-            
-        
 
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
 
@@ -342,8 +356,9 @@ class PreCadastro1 extends Component {
                 <Css ref="./pc1" />
 
                 <div className="conteudo">
+
                     <div className="row">
-                        <div className="collapsible-header"><h6>Formulário</h6></div>
+                        <h4>Formulário</h4>
                         <div className="campo1">
                             <div className="row">
                                 {form}
@@ -371,7 +386,7 @@ class PreCadastro1 extends Component {
 
                                     <div className="row">
                                         <div className="input-field col s12 m12 l6">
-                                            <select name="genero" className="browser-default" id="genero" onChange={this.handleChangeSelect}>
+                                            <select name="genero" className="browser-default" id="genero" onChange={this.handleChangeSelectHomem}>
                                                 <DisableOption disableValue="" disableNome="Gênero" />
                                                 <Option function="" value="Feminino" name="Feminino" />
                                                 <Option function="" value="Masculino" name="Masculino" />
@@ -399,14 +414,10 @@ class PreCadastro1 extends Component {
                                         <Input lenght={2} stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="DDD" />
                                         <Input lenght={10} stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="Telefone" />
                                     </div>
-                                </form>
-                            </div>
-                        </div>
 
-                        <div className="campo1">
-                            <div className="row">
-                                <form className="col s12">
+                                    <hr />
 
+                                    <h5 className="titulo">Endereço</h5>
                                     <div className="row">
                                         <InputValueDisabled value={this.state.rua} ph="Rua" stateName="rua" fname={this.handleChange} div="input-field col s12 m12 l9 bla" id="rua" class="validate" type="text" name="Rua" />
                                         <Input lenght={5} stateName="numero" fname={this.handleChange} div="input-field col s12 m12 l3 bla" id="numero" class="validate" type="number" name="Número" />
@@ -437,15 +448,10 @@ class PreCadastro1 extends Component {
 
                                         <ButtonMat fname={this.buscarCep} class="waves-effect waves-light btn center-align" name="Buscar! " iClass="fa-solid fa-arrow-right-long" />
                                     </div>
-                                </form>
-                            </div>
-                        </div>
 
-                        <div className="campo1">
-                            <div className="row">
-                                <form className="col s12">
+                                    <hr />
 
-                                    <label>Estado Civil</label>
+                                    <h5 className="titulo">Estado Civil</h5>
                                     <select name="estadoCivil" className="browser-default" id="estadoCivil" onChange={this.handleChangeSelect}>
                                         <DisableOption disableValue="" disableNome="Escolha uma das opções" />
                                         <Option function="" value="Solteiro(a)" name="Solteiro(a)" />
@@ -454,16 +460,10 @@ class PreCadastro1 extends Component {
                                         <Option function="" value="Viúvo(a)" name="Viúvo(a)" />
                                     </select>
 
-                                </form>
-                            </div>
-                        </div>
+                                    <hr />
 
-                        <div className="campo1">
-                            <div className="row">
-                                <form className="col s12">
-
-                                    <label id="radioLabel">Possui filhos?</label>
-                                    <form name="filho" id="filho" onChange={this.handleChangeSelect}>
+                                    <h5 className="titulo">Possui filhos?</h5>
+                                    <form name="filho" id="filho" onChange={this.handleChangeSelectFilho}>
                                         <p>
                                             <label>
                                                 <input name="filho" value="sim" type="radio" />
@@ -479,16 +479,11 @@ class PreCadastro1 extends Component {
                                         </p>
                                     </form>
 
-                                </form>
-                            </div>
-                        </div>
-
-                        <div className="campo1">
-                            <div className="row">
-                                <form className="col s12">
-                                    <h5 className="titulo">Dados Acadêmicos</h5>
+                                    <hr />
 
                                     <div className="row">
+
+                                        <h5 className="titulo">Dados Acadêmicos</h5>
 
                                         <Input lenght={100} stateName="formacao" fname={this.handleChange} div="input-field col s12 m12 l5 bla" id="formacao" type="text" class="validate" name="Formação" />
 
@@ -509,9 +504,11 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-                        <div className="collapsible-header"><h6>Documentos Pessoais</h6></div>
+
+                        <h4>Documentos</h4>
                         <div className=" campo2">
                             <div className="row">
+                                <h5 className="titulo">Documentos Pessoais</h5>
                                 <form className="col s12" datatype='multipart/form-data'>
                                     <div className="row">
                                         <div className="file">
@@ -547,112 +544,114 @@ class PreCadastro1 extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Comprovante de Escolaridade</label>
-                                            <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
+                                        <hr />
+
+                                    <h5 className="titulo">Certificados</h5>
+                                    <div datatype='multipart/form-data'>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Comprovante de Escolaridade</label>
+                                                <input type="file" name="comprovanteEscolaridade" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Ensino Fundamental</label>
+                                                <input type="file" name="ensinoFundamental" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Ensino Médio</label>
+                                                <input type="file" name="ensinoMedio" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Ensino Superior</label>
+                                                <input type="file" name="ensinoSuperior" onChange={this.handleChangeFile} />
+                                            </div>
                                         </div>
                                     </div>
+
+                                        <hr/>
+
+                                    <h5 className="titulo">Documentos profissionais</h5>
+                                    <div datatype='multipart/form-data'>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Contribuição Sindical</label>
+                                                <input type="file" name="contribuicao" onChange={this.handleChangeFile} />
+                                                <label>Termo de PI</label>
+                                                <input type="file" name="termo" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Cartão do PIS</label>
+                                                <input type="file" name="pis" onChange={this.handleChangeFile} />
+                                                <label id="homemLabel">Certificado de Reservista</label>
+                                                <input id="homemBody" type="file" name="reservista" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Atestado de Saúde Ocupacional</label>
+                                                <input type="file" name="atestadoSaude" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="casadoBody">
+                                        <hr/>
+                                        <h5 className="titulo" id="casadoLabel">Documentos do Cônjuge</h5>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Certidão de Casamento</label>
+                                                <input type="file" name="certidaoCasamento" onChange={this.handleChangeFile} />
+                                            </div>
+  
+                                            <div className="file" >
+                                                <label>RG do Cônjuge</label>
+                                                <input type="file" name="RGconjuge" onChange={this.handleChangeFile} />
+                                            </div>
+
+                                            <div className="file">
+                                                <label>CPF do Cônjuge</label>
+                                                <input type="file" name="CPFconjuge" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="filhosBody">
+                                        <hr/>
+                                        <h5 className="titulo" id="filhosLabel">Documentos dos filhos</h5>
+                                        <div className="row">
+                                            <div className="file">
+                                                <label>Certidão de Nascimento</label>
+                                                <input type="file" name="certidaoNascFilho" onChange={this.handleChangeFile} />
+                                            </div>
+
+                                            <div className="file" id="vac">
+                                                <label>Certidão de Vacinação</label>
+                                                <input type="file" name="certidaoVacFilho" onChange={this.handleChangeFile} />
+                                            </div>
+
+                                            <div className="file">
+                                                <label>Comprovante de Frequência Escolar</label>
+                                                <input type="file" name="comproEscolar" onChange={this.handleChangeFile} />
+                                            </div>
+                                            <div className="file">
+                                                <label>Pensão Alimentícia</label>
+                                                <input type="file" name="pensao" onChange={this.handleChangeFile} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>
 
-
-
-                        <div className="collapsible-header"><h6>Certificados</h6></div>
-                        <div className=" campo3">
-                            <div className="row">
-                                <form className="col s12" datatype='multipart/form-data'>
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Ensino Fundamental</label>
-                                            <input type="file" name="ensinoFundamental" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Ensino Médio</label>
-                                            <input type="file" name="ensinoMedio" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Ensino Superior</label>
-                                            <input type="file" name="ensinoSuperior" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div className="collapsible-header"><h6>Documentos Profissionais</h6></div>
-                        <div className="campo4">
-                            <div className="row">
-                                <form className="col s12" datatype='multipart/form-data'>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Contribuição Sindical</label>
-                                            <input type="file" name="contribuicao" onChange={this.handleChangeFile} />
-
-
-                                            <label>Termo de PI</label>
-                                            <input type="file" name="termo" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Cartão do PIS</label>
-                                            <input type="file" name="pis" onChange={this.handleChangeFile} />
-                                            <label id="homemLabel">Certificado de Reservista</label>
-                                            <input id="homemBody" type="file" name="reservista" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Atestado de Saúde Ocupacional</label>
-                                            <input type="file" name="atestadoSaude" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-
-
-
-                        <div className="collapsible-header" id="casadoLabel"><h6>Estado Civil</h6></div>
-                        <div className=" campo5" id="casadoBody">
-                            <div className="row">
-                                <form className="col s12" datatype='multipart/form-data'>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Certidao de Casamento</label>
-                                            <input type="file" name="certidaoCasamento" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>RG do Cônjuge</label>
-                                            <input type="file" name="rgConjuge" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>CPF do Cônjuge</label>
-                                            <input type="file" name="cpfConjuge" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
 
                         <div className="collapsible-header" id="filhosLabel"><h6>Filhos</h6></div>
                         <div className="campo6" id="filhosBody">

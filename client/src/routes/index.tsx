@@ -23,7 +23,6 @@ import Departamento from "../pages/tabela/departamentos";
 import Documentos from "../pages/documentos/index"
 import Cargo from "../pages/tabela/cargos";
 
-
 function Routes() {
     return (
         <BrowserRouter>
@@ -48,7 +47,7 @@ function Routes() {
                     <Notificacao/>
                 </ProtectedRoute>} />
                 
-                <Route path="/uploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
+                <Route path="/UploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
                     <UploadMateriais/>
                 </ProtectedRoute>} />
 
