@@ -26,7 +26,6 @@ class Admissao extends Component {
         colaborador: [],
         colaboradores: [],
         documentos: [],
-        beneficios: [],
 
         // STATES DOS SELECTS
         cargoSelecionado: String,
@@ -34,6 +33,10 @@ class Admissao extends Component {
         tipoContratacao: String,
         carDep: String,
         arquivo: "",
+        planoSaude: String,
+        valeTransporte: String,
+        valeRefeicao: String,
+        auxilioCreche: String
     };
 
     componentDidMount() {
@@ -80,15 +83,15 @@ class Admissao extends Component {
 
     handleDownload = (filePath) => {
         filePath = filePath.split("\\")
-        
+
         let file = filePath[1]
-        axios.get(`http://localhost:5000/infocolab/download/${file}`,{
+        axios.get(`http://localhost:5000/infocolab/download/${file}`, {
             responseType: 'blob',
         }).then((res) => {
             const arquivo = res.data
             const url = window.URL.createObjectURL(new Blob())
             this.setState({ url })
-            fileDownload(url,file)
+            fileDownload(url, file)
         })
     }
 
@@ -107,8 +110,8 @@ class Admissao extends Component {
         });
         console.log(this.state);
         console.log(event.target.value);
-        
-        if (event.target.value == 'sim' ) {
+
+        if (event.target.value == 'sim') {
             document.getElementById("planoSaude").style.display = "block"
         }
         else {
@@ -175,7 +178,7 @@ class Admissao extends Component {
                 head_id: this.state.superiorSelecionado,
                 tipo_contratacao: this.state.tipoContratacao
             }
-            
+
             var salario = 0
             var cargo = 0
             this.state.cargo.map(info => {
@@ -192,22 +195,36 @@ class Admissao extends Component {
                 id: this.state.id,
             }
             var today = new Date();
-            
+
             const cargoHist = {
                 colaborador_col_id: this.state.id,
                 his_car_data: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
                 his_car_cargo: cargo,
                 his_car_salario: salario
             }
+
+            const beneficios = {
+                car_vale_transporte: this.state.valeTransporte,
+                car_vale_refeicao: this.state.valeRefeicao,
+                car_auxilio_creche: this.state.auxilioCreche,
+                car_plano_saude: this.state.planoSaude
+            }
+
+            axios.put(`http://localhost:5000/precad1/updateBenfits/${this.state.id}`, beneficios).then((res)=>{
+                if(res.data.erro){
+                    M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+                }
+            }) 
+
             axios.put(`http://localhost:5000/infocolab/setWorkInfoUser/${this.state.id}`, InfoWork)
 
-            axios.post(`http://localhost:5000/historico/admissao`,infoHist)
+            axios.post(`http://localhost:5000/historico/admissao`, infoHist)
 
             axios.post(`http://localhost:5000/historico/newHistoricoCargo`, cargoHist)
-            
+
             axios.delete(`http://localhost:5000/notificacao/deleteNotificacao/${this.state.id}`)
 
-            
+
             window.open("/notificacao")
             window.close()
 
@@ -255,10 +272,10 @@ class Admissao extends Component {
                             <p><label>Estado:</label> {info.col_end_estado}</p>
                             <p><label>Região:</label> {info.col_end_regiao}</p>
                             <hr />
-                            </div>
-                            )}
+                        </div>
+                    )}
 
-                        {this.state.info_acad.map(info =>
+                    {this.state.info_acad.map(info =>
                         <div key={info.colaborador_col_id}>
                             <h4>Informações Acadêmicas</h4>
                             <p><label>Formação:</label> {info.qua_formacao}</p>
@@ -266,7 +283,7 @@ class Admissao extends Component {
                             <p><label>Instituição:</label> {info.qua_nome_instituicao}</p>
                             <p><label>Língua:</label> {info.qua_lingua}</p>
                         </div>
-                        )}
+                    )}
 
                     <h4>Documentos</h4>
                     {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>
@@ -283,7 +300,7 @@ class Admissao extends Component {
                                     <option value=" " disabled selected>Cargo</option>
                                     {this.state.cargo.map(car => <option key={car.car_id} value={car.car_id}>{car.car_descricao}</option>)}
                                 </select>
-                                
+
                                 <select className="browser-default" name='superiorSelecionado' id="superior" onChange={this.handleChange}>
                                     <option value="" disabled selected>Superior</option>
                                     {this.state.colaboradores.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option>)}
@@ -298,83 +315,87 @@ class Admissao extends Component {
                                     {/*this.state.contratacao.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option> )*/}
                                 </select>
                             </div>
-                            
+
                             <div className="col s12">
                                 <h4>Benefícios</h4>
-                                <h5 className="titulo">Possui Plano de Saúde?</h5>
-                                <form name="planoDeSaude" id="planoDeSaude" onChange={this.handleChangeSelect}>
-                                    <p>
-                                        <label>
-                                            <input name="planoDeSaude" value="sim" type="radio" />
-                                            <span>Sim</span>
-                                        </label>
-                                    </p>
+                                <div className="inputGrid">
+                                    <div className="divdiv">
+                                        <h5 className="titulo">Possui Plano de Saúde?</h5>
+                                        <form name="planoDeSaude" id="planoDeSaude" onChange={this.handleChangeSelect}>
+                                            <p>
+                                                <label>
+                                                    <input name="planoDeSaude" value="sim" type="radio" />
+                                                    <span>Sim</span>
+                                                </label>
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input name="planoDeSaude" value="nao" type="radio" />
+                                                    <span>Não</span>
+                                                </label>
+                                            </p>
+                                        </form>
+                                        <InputCheck lenght={20} stateName="planoSaude" fname={this.handleChange} div="input-field col s12 m12 l6 bla planoSaude" id="planoSaude" class="validate" type="text" name="Insira o Plano de Saúde: " />
+                                    </div>
+                                    <div className="divdiv">
+                                        <h5 className="titulo">Possui Vale Transporte?</h5>
+                                        <form name="valeDeTransporte" id="valeDeTransporte" onChange={this.handleChangeSelect2}>
+                                            <p>
+                                                <label>
+                                                    <input name="valeDeTransporte" value="sim" type="radio" />
+                                                    <span>Sim</span>
+                                                </label>
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input name="valeDeTransporte" value="nao" type="radio" />
+                                                    <span>Não</span>
+                                                </label>
+                                            </p>
+                                        </form>
 
-                                    <p>
-                                        <label>
-                                            <input name="planoDeSaude" value="nao" type="radio" />
-                                            <span>Não</span>
-                                        </label>
-                                    </p>
-                                </form>
+                                        <InputCheck lenght={8} stateName="valeTransporte" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeTransporte" id="valeTransporte" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
+                                    </div>
+                                    <div className="divdiv">
+                                        <h5 className="titulo">Possui Vale Refeição?</h5>
+                                        <form name="valeDeRefeicao" id="valeDeRefeicao" onChange={this.handleChangeSelect3}>
+                                            <p>
+                                                <label>
+                                                    <input name="valeDeRefeicao" value="sim" type="radio" />
+                                                    <span>Sim</span>
+                                                </label>
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input name="valeDeRefeicao" value="nao" type="radio" />
+                                                    <span>Não</span>
+                                                </label>
+                                            </p>
+                                        </form>
 
-                                <h5 className="titulo">Possui Vale Transporte?</h5>
-                                <form name="valeDeTransporte" id="valeDeTransporte" onChange={this.handleChangeSelect2}>
-                                    <p>
-                                        <label>
-                                            <input name="valeDeTransporte" value="sim" type="radio" />
-                                            <span>Sim</span>
-                                        </label>
-                                    </p>
+                                        <InputCheck lenght={8} stateName="valeRefeicao" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeRefeicao" id="valeRefeicao" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
+                                    </div>
+                                    <div className="divdiv">
+                                        <h5 className="titulo">Possui Auxílio Creche?</h5>
+                                        <form name="auxilioDeCreche" id="auxilioDeCreche" onChange={this.handleChangeSelect4}>
+                                            <p>
+                                                <label>
+                                                    <input name="auxilioDeCreche" value="sim" type="radio" />
+                                                    <span>Sim</span>
+                                                </label>
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <input name="auxilioDeCreche" value="nao" type="radio" />
+                                                    <span>Não</span>
+                                                </label>
+                                            </p>
+                                        </form>
 
-                                    <p>
-                                        <label>
-                                            <input name="valeDeTransporte" value="nao" type="radio" />
-                                            <span>Não</span>
-                                        </label>
-                                    </p>
-                                </form>
-                        
-                                <h5 className="titulo">Possui Vale Refeição?</h5>
-                                <form name="valeDeRefeicao" id="valeDeRefeicao" onChange={this.handleChangeSelect3}>
-                                    <p>
-                                        <label>
-                                            <input name="valeDeRefeicao" value="sim" type="radio" />
-                                            <span>Sim</span>
-                                        </label>
-                                    </p>
-
-                                    <p>
-                                        <label>
-                                            <input name="valeDeRefeicao" value="nao" type="radio" />
-                                            <span>Não</span>
-                                        </label>
-                                    </p>
-                                </form>
-                            
-                                <h5 className="titulo">Possui Auxílio Creche?</h5>
-                                <form name="auxilioDeCreche" id="auxilioDeCreche" onChange={this.handleChangeSelect4}>
-                                    <p>
-                                        <label>
-                                            <input name="auxilioDeCreche" value="sim" type="radio" />
-                                            <span>Sim</span>
-                                        </label>
-                                    </p>
-
-                                    <p>
-                                        <label>
-                                            <input name="auxilioDeCreche" value="nao" type="radio" />
-                                            <span>Não</span>
-                                        </label>
-                                    </p>
-                                </form>
-                                
-                                <InputCheck lenght={20} stateName="planoSaude" fname={this.handleChange} div="input-field col s12 m12 l5 bla planoSaude" id="planoSaude" class="validate" type="text" name="Insira o Plano de Saúde: " />
-                                <InputCheck lenght={8} stateName="valeTransporte" fname={this.handleChange} div="input-field col s12 m12 l5 bla valeTransporte" id="valeTransporte" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
-                                <InputCheck lenght={8} stateName="valeRefeicao" fname={this.handleChange} div="input-field col s12 m12 l5 bla valeRefeicao" id="valeRefeicao" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
-                                <InputCheck lenght={8} stateName="auxilioCreche" fname={this.handleChange} div="input-field col s12 m12 l5 bla auxilioCreche" id="auxilioCreche" class="validate" type="number" name="Insira o valor do Auxílio Creche: " />
-                              
-                            </div> 
+                                        <InputCheck lenght={8} stateName="auxilioCreche" fname={this.handleChange} div="input-field col s12 m12 l6 bla auxilioCreche" id="auxilioCreche" class="validate" type="number" name="Insira o valor do Auxílio Creche: " />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <Submit id="aceitar" title="Aceitar" fname={this.handleSubmit} />

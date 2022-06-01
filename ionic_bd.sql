@@ -167,6 +167,7 @@ ENGINE = InnoDB
 
 COMMENT = 'Esta tabela armazenará informações sobre admissão e desligamento do colaborador.';
 
+
 -- -----------------------------------------------------
 -- Table `api_ionic`.`historico_cargo`
 -- -----------------------------------------------------
@@ -187,8 +188,6 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico_cargo` (
 ENGINE = InnoDB
 
 COMMENT = 'Esta tabela armazenará informações sobre os cargos que o colaborador tem ou teve em todo tempo em que esteve na empresa.';
-
- 
 
 
 -- -----------------------------------------------------

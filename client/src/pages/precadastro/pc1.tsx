@@ -311,7 +311,6 @@ class PreCadastro1 extends Component {
         }) 
 
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
-
         })
 
         axios.post("http://localhost:5000/infoacademica/insertInfoAcademica", infoAcademica).then((res) => {

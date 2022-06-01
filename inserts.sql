@@ -290,7 +290,7 @@ INSERT INTO qualificacao  (qua_id, qua_nome_instituicao, qua_formacao, qua_curso
 SELECT * FROM qualificacao;
 
 -- HISTÓRICO
--- INSERT INTO historico (his_data_admissao, his_cargo, his_salario, colaborador_col_id) VALUES ('2022-05-27', 'Estagiário de RH', 1500, 1); 
+-- INSERT INTO historico (his_data_admissao, colaborador_col_id) VALUES ('2022-05-27', 'Estagiário de RH', 1500, 1); 
 
 -- ACESSO AO SISTEMA --
 INSERT INTO colaborador (col_email, col_senha)  VALUES ('adm@ionic.health",', '1234'); 

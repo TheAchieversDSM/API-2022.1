@@ -5,10 +5,9 @@ p > label {
     color: #414042;
 }
 
-.checkGrid label {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-left: 15px;
+.inputGrid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
 }
 
 .planoSaude,
