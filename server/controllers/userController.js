@@ -1,4 +1,7 @@
 const User = require("../models/user")
+const download = require('download');
+const fs = require('fs');
+const https = require('https');
 
 exports.getColabInfoById = (req, res) => {
     const resposta = {
@@ -78,12 +81,31 @@ exports.getDocsById = (req, res) => {
     })
 }
 exports.downloadDocs = (req,res) =>{
+        // Image will be stored at this path
     var path = require('path')
     const fileName = req.params.file;
-    const filePath = path.join( __dirname , '..','uploads',fileName)
-    console.log(filePath);
-    res.send(filePath)
+    const caminhoArquivo = path.join( __dirname , '..', 'uploads', fileName);
+    const writeStream = fs.createWriteStream(caminhoArquivo);
+    console.log("Starting download ...")
+    console.log("filePath = " + caminhoArquivo);
+    console.log("filename = " + fileName);
+
+    res.pipe(writeStream);
+
+    writeStream.on('finish',() => {
+        writeStream.close();
+        console.log('Download Completed'); 
+    })
 }
+
+
+
+  
+
+
+
+  
+
       
 exports.setWorkInfoUser = (req,res) => {
     const data = new User(req.body)
