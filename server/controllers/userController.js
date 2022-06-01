@@ -1,5 +1,4 @@
 const User = require("../models/user")
-const download = require('download');
 const fs = require('fs');
 const https = require('https');
 
@@ -80,14 +79,7 @@ exports.getDocsById = (req, res) => {
         res.send(user)
     })
 }
-exports.downloadDocs = (req,res) =>{
-        // Image will be stored at this path
-    var path = require('path')
-    const fileName = req.params.file;
-    const filePath = path.join( "http://localhost:5000/" , '..','uploads',fileName)
-    console.log(filePath);
-    res.send(filePath)
-}
+
 
 
 
