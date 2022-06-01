@@ -77,7 +77,7 @@ class Admissao extends Component {
         filePath = filePath.split("\\")
         let file = filePath[1]
         alert(file);
-        axios.get(`http://localhost:5000/infocolab/download/`,{
+        axios.get(`http://localhost:5000/infocolab/download/${file}`,{
             responseType: 'blob',
         }).then((res) => {
             const arquivo = res.data
@@ -199,13 +199,7 @@ class Admissao extends Component {
                     <h4>Documentos</h4>
                     {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>
 
-                        <p><label>{doc.doc_tipo.toUpperCase()}:</label>
-                        <form action="/download" method="get">
-                            <button type="submit">{doc.doc_link}</button>
-                        </form>
-
-                        
-                        </p>
+                        <p><label>{doc.doc_tipo.toUpperCase()}:</label><a href={this.state.arquivo} onClick={() => this.handleDownload(doc.doc_link)} download>{doc.doc_link}</a></p>
 
                     </div>)}
 
