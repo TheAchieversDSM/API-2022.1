@@ -36,5 +36,22 @@ app.use("/historico", historicoRoutes)
 app.use("/infoacademica",infoAcademicaRoutes)
 app.use("/notificacao", notificacaoRoutes)
 
+const path = require('path')
+const diretorioPrincipal = path.join( __dirname, 'uploads');
+// GET request for single file
+app.get('/infocolab/uploads/:file',function(req, res) {
+    const docLink = req.params.file;
+    const caminhoArquivo = diretorioPrincipal + '/' + docLink;
+    console.log('downloading file...');
+    console.log("caminhoArquivo = " + caminhoArquivo);
+
+    // Download function provided by express
+    res.download(caminhoArquivo, function(err) {
+        if(err) {
+            console.log(err);
+        }
+    })
+})
+
 // DEFININDO PORTA
 app.listen(5000, () => console.log('Servidor rodando'))
