@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import M from "materialize-css";
+import swal from "sweetalert";
 
 // LOCAL CSS
 import './pc1.css'
@@ -16,7 +17,6 @@ import validarCnpj from "../../utils/validacaoDoc/cnpj"
 import General from "../../components/general";
 import Input from "../../components/input/input";
 import PessoaJuridicaForm from "../../components/preCadPessoaForm/pessoaJurídica";
-import Check from "../../components/input/check";
 import ButtonMat from "../../components/button/buttonMat";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
@@ -92,6 +92,9 @@ class PreCadastro1 extends Component {
         rgConjuge: File,
         cpfConjuge: File,
 
+        // DOCUMENTO DIVÓRCIO SE DIVORCIADO
+        divorcioDoc: File,
+
         // DOCUMENTOS DOS FILHOS SE FOR PAI/MÃE    
         cerNasc: File,
         cerVaci: File,
@@ -111,7 +114,7 @@ class PreCadastro1 extends Component {
                 [event.target.name]: event.target.value,
             });
         } else {
-            M.toast({ html: "CNPJ INVÁLIDO!", classes: "red darken-4 rounded"})
+            M.toast({ html: "CNPJ INVÁLIDO!", classes: "red darken-4 rounded" })
             console.log(this.state);
         }
     }
@@ -146,7 +149,7 @@ class PreCadastro1 extends Component {
         });
         console.log(this.state);
     };
-    
+
     handleChangeSelectFilho = event => {
         this.setState({
             ...this.state,
@@ -180,14 +183,29 @@ class PreCadastro1 extends Component {
             document.getElementById("homemBody").style.display = "none";
         }
     }
-    
+
+    handleChangeSelectDivorcio = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        });
+        console.log(this.state);
+
+        if (event.target.value == "Divorcio(a)") {
+            document.getElementById("divorcioBody").style.display = "block";
+        }
+        else {
+            document.getElementById("divorcioBody").style.display = "none";
+        }
+    }
+
     handleChangeSelect = event => {
         this.setState({
             ...this.state,
             [event.target.name]: event.target.value
         });
         console.log(this.state);
-        
+
         if (event.target.value == "Casado(a)") {
             document.getElementById("casadoLabel").style.display = "block";
             document.getElementById("casadoBody").style.display = "block";
@@ -268,6 +286,24 @@ class PreCadastro1 extends Component {
             }
         }
 
+        swal({
+            title: "Cadastro realizado!",
+            text: `Aguarde a validação.`,
+            icon: "success",
+            buttons: {
+                cancelar: {
+                    value: false,
+                    text: "Cancelar",
+                    className: "cancelarButton"
+                },
+                desligar: {
+                    className: "continuarButton",
+                    value: true,
+                    text: "OK!"
+                }
+            }
+        })
+
         const anexos = {
             rgDoc: this.state.rgDoc,
             carteiraTrabalho: this.state.carteiraTrabalho,
@@ -293,22 +329,25 @@ class PreCadastro1 extends Component {
             rgConjuge: this.state.rgConjuge,
             cpfConjuge: this.state.cpfConjuge,
 
+            // DOCUMENTO DO DIVÓRCIO SE DIVORCIADO
+            divorcioDoc: this.state.divorcioDoc,
+
             // DOCUMENTOS DOS FILHOS SE FOR PAI/MÃE    
-            cerNasc: File,
-            cerVaci: File,
-            comprovanteEscolarFilho: File,
+            cerNasc: this.state.cerNasc,
+            cerVaci: this.state.cerVaci,
+            comprovanteEscolarFilho: this.state.comprovanteEscolarFilho,
 
             // DOCUMENTO SE FORNECER PENSAO
-            pensaoAlimenticia: File
+            pensaoAlimenticia: this.state.pensaoAlimenticia
         }
 
         const id = getCookie("id")
 
-        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user).then((res)=>{
-            if(res.data.erro){
+        axios.put(`http://localhost:5000/precad1/updatecolaborador/${id}`, user).then((res) => {
+            if (res.data.erro) {
                 M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
             }
-        }) 
+        })
 
         axios.post("http://localhost:5000/precad1/insertpessoafisica", pessoaFisica).then((res) => {
         })
@@ -431,7 +470,7 @@ class PreCadastro1 extends Component {
                                     <div className="row">
                                         <InputValueDisabled value={this.state.cidade} ph="Cidade" stateName="cidade" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="cidade" class="validate" type="text" name="Cidade" />
 
-                                       
+
                                         <InputValueDisabled value={this.state.estado} ph="Estado" stateName="estado" fname={this.handleChange} div="input-field col s12 m12 l6 bla" id="estado" class="validate" type="text" name="" />
 
                                         {/*<div className="input-field col s12 m12 l3 bla">
@@ -543,7 +582,7 @@ class PreCadastro1 extends Component {
                                         </div>
                                     </div>
 
-                                        <hr />
+                                    <hr />
 
                                     <h5 className="titulo">Certificados</h5>
                                     <div datatype='multipart/form-data'>
@@ -573,7 +612,7 @@ class PreCadastro1 extends Component {
                                         </div>
                                     </div>
 
-                                        <hr/>
+                                    <hr />
 
                                     <h5 className="titulo">Documentos profissionais</h5>
                                     <div datatype='multipart/form-data'>
@@ -602,14 +641,14 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div id="casadoBody">
-                                        <hr/>
+                                        <hr />
                                         <h5 className="titulo" id="casadoLabel">Documentos do Cônjuge</h5>
                                         <div className="row">
                                             <div className="file">
                                                 <label>Certidão de Casamento</label>
                                                 <input type="file" name="certidaoCasamento" onChange={this.handleChangeFile} />
                                             </div>
-  
+
                                             <div className="file" >
                                                 <label>RG do Cônjuge</label>
                                                 <input type="file" name="RGconjuge" onChange={this.handleChangeFile} />
@@ -621,9 +660,8 @@ class PreCadastro1 extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div id="filhosBody">
-                                        <hr/>
                                         <h5 className="titulo" id="filhosLabel">Documentos dos filhos</h5>
                                         <div className="row">
                                             <div className="file">
@@ -644,44 +682,6 @@ class PreCadastro1 extends Component {
                                                 <label>Pensão Alimentícia</label>
                                                 <input type="file" name="pensao" onChange={this.handleChangeFile} />
                                             </div>
-                                        </div>
-                                    </div>
-                                    
-                                </form>
-                            </div>
-                        </div>
-
-
-                        <div className="collapsible-header" id="filhosLabel"><h6>Filhos</h6></div>
-                        <div className="campo6" id="filhosBody">
-                            <div className="row">
-                                <form className="col s12" datatype='multipart/form-data'>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Certidão de Nascimento</label>
-                                            <input type="file" name="certidaoNascFilho" onChange={this.handleChangeFile} />
-                                        </div>
-
-                                        <div className="row">
-                                            <div className="file" id="vac">
-                                                <label>Certidão de Vacinação</label>
-                                                <input type="file" name="certidaoVacFilho" onChange={this.handleChangeFile} />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Comprovante de Frequência Escolar</label>
-                                            <input type="file" name="comproEscolar" onChange={this.handleChangeFile} />
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="file">
-                                            <label>Pensão Alimentícia</label>
-                                            <input type="file" name="pensao" onChange={this.handleChangeFile} />
                                         </div>
                                     </div>
                                 </form>

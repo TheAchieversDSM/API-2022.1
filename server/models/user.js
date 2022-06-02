@@ -28,7 +28,7 @@ User.getColabInfoById = (id, result, head_result,hist_result) => {
             head_result(null, res);
         }
     })
-    db.query("SELECT *,DATE_FORMAT(his_data_admissao ,'%d/%m/%Y')  AS data_admissao , DATE_FORMAT(his_data_desligamento ,'%d/%m/%Y')  AS data_desligamento FROM historico WHERE colaborador_col_id = ?",id,(err,res)=>{
+    db.query("SELECT *,DATE_FORMAT(his_data_admissao ,'%d/%m/%Y')  AS data_admissao , DATE_FORMAT(his_data_desligamento ,'%d/%m/%Y') AS data_desligamento, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(his_data_admissao))) tempo_casa FROM historico WHERE colaborador_col_id = ?",id,(err,res)=>{
         if (err) {
             console.log("ERRO AO ENCONTRAR O HISTORICO: ", err);
             hist_result(null, err);

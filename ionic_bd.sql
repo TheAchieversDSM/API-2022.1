@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_nacionalidade` VARCHAR(45) NULL,
   `col_estado_civil` VARCHAR(45) NULL,
   `col_filho` VARCHAR(3) NULL,
+  `col_status` BIT DEFAULT 1, 
   `car_vale_transporte` FLOAT,
   `car_vale_refeicao` FLOAT,
   `car_auxilio_creche` FLOAT,
