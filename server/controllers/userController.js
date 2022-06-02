@@ -79,17 +79,7 @@ exports.getDocsById = (req, res) => {
         res.send(user)
     })
 }
-
-
-
-
-  
-
-
-
-  
-
-      
+     
 exports.setWorkInfoUser = (req,res) => {
     const data = new User(req.body)
     console.log(data);

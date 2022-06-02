@@ -190,13 +190,13 @@ class Admissao extends Component {
             }
 
             const beneficios = {
-                car_vale_transporte: this.state.valeTransporte,
-                car_vale_refeicao: this.state.valeRefeicao,
-                car_auxilio_creche: this.state.auxilioCreche,
-                car_plano_saude: this.state.planoSaude
+                valeTransporte: this.state.valeTransporte,
+                valeRefeicao: this.state.valeRefeicao,
+                auxilioCreche: this.state.auxilioCreche,
+                planoSaude: this.state.planoSaude
             }
 
-            axios.put(`http://localhost:5000/precad1/updateBenfits/${this.state.id}`, beneficios).then((res)=>{
+            axios.post(`http://localhost:5000/precad1/updatebenefits/${this.state.id}`, beneficios).then((res)=>{
                 if(res.data.erro){
                     M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
                 }
