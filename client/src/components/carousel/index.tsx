@@ -3,22 +3,18 @@ import M from "materialize-css";
 import "./carousel.css"
 type props = {
 }
-    
+
 class Carousel extends Component<props> {
     componentDidMount() {
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems)   
+            var instances = M.Carousel.init(elems)
+            instances[0].pressed = true
             instances[0].options.indicators = true
             instances[0].options.fullWidth = true
-
-     
+            
             console.log(instances[0].options);
-            
-            
-
-            
-          });
+        });
     }
 
     render() {

@@ -218,7 +218,7 @@ class PerfilColab extends Component {
                                     )}
                                     {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
                                     {this.state.cargo.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
-                                    <p><label>Tempo de casa:</label> ----</p>
+                                    {this.state.historico.map(info => <p key={info.col_id}><label>Tempo de Casa:</label> {info.tempo_casa} mês(es)</p>)}
                                 </div>
                             </div>
                         </div>
