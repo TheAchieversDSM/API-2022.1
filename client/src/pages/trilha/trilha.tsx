@@ -2,7 +2,6 @@ import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import { cnpj,cpf } from "cpf-cnpj-validator";
-import { Line, Circle } from 'rc-progress';
 // LOCAL CSS
 import './trilha.css'
 
@@ -14,6 +13,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
+import Grafico from "../../components/grafico";
 
 class Trilha extends Component {
     state = {
@@ -83,27 +83,27 @@ class Trilha extends Component {
                 <div className="conteudo">
                     <div className="row">
 
-                        <div className="col col s12 m12 l4">
+                        <div className="col col s12 m12 l7">
                             <div className="teste3">
-                                
+                                <h4>Aulas</h4>
+                                <p>
+                                    {<p><label>Aula</label></p>}
+
+                                </p>
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l8">
+                        <div className="col col s12 m12 l5">
                             <div className="teste3">
                               
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l4">
-                            <div className="teste3">
-                                
-                            </div>
-                        </div>
+    
 
-                        <div className="col col s12 m12 l8">
-                            <div className="teste3">
-                              
+                        <div className="col col s12">
+                            <div className="teste3 center-align">
+                              <Grafico/>
                             </div>
                         </div>
 
