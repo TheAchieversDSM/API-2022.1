@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import M from "materialize-css";
+import swal from "sweetalert";
 
 // LOCAL CSS
 import './pc1.css'
@@ -267,6 +268,24 @@ class PreCadastro1 extends Component {
             axios.post("http://localhost:5000/precad1/insertpessoajuridica", pessoaJuridica); {
             }
         }
+
+        swal({
+            title: "Cadastro realizado!",
+            text: `Aguarde a validação.`,
+            icon: "success",
+            buttons: {
+                cancelar:{
+                    value: false,
+                    text: "Cancelar",
+                    className: "cancelarButton"
+                },
+                desligar:{
+                    className: "continuarButton",
+                    value: true,
+                    text: "OK!"
+                }
+            }
+        })
 
         const anexos = {
             rgDoc: this.state.rgDoc,
