@@ -1,7 +1,20 @@
+
 p > label {
     font-weight: bolder !important;
     font-size: 18px !important;
     color: #414042;
+}
+
+.inputGrid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+}
+
+.planoSaude,
+.valeTransporte,
+.valeRefeicao,
+.auxilioCreche {
+    display: none;
 }
 
 p > a {

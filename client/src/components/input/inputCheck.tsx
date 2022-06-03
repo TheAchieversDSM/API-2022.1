@@ -11,19 +11,19 @@ type props = {
     lenght: number,
 }
 
-class Input extends Component<props> {
+class InputCheck extends Component<props> {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className={this.props.div} >
-                <input maxLength={this.props.lenght} type={this.props.type} className={this.props.class} name = {this.props.stateName} id={this.props.id} onChange={this.props.fname} required />
+            <div className={this.props.div} id={this.props.id}>
+                <input maxLength={this.props.lenght} type={this.props.type} className={this.props.class} name = {this.props.stateName} id={this.props.id} onChange={this.props.fname} />
                 <label htmlFor={this.props.id}>{this.props.name}</label>
             </div>
         );
     }
 }
 
-export default Input;
+export default InputCheck;

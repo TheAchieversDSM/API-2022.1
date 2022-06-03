@@ -12,7 +12,7 @@ h2{
     height: 250px;
     padding: 20px;
     margin: 10px !important;
-    box-shadow: 0px 11px 16px 8px rgba(89, 148, 148, 0.5);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
 }
 
 .btn{
@@ -22,7 +22,7 @@ h2{
 }
 
 .input-field > input{
-    border: 3px solid #ACD8DE !important;
+    border: 3px solid #53C4CD !important;
     border-radius: 30px !important;
 }
 

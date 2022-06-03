@@ -40,6 +40,23 @@ a {
     font-weight: bold;
 }
 
+.showSide {
+    display: none;
+}
+
+.showSide a {
+    font-size: 16px !important;
+}
+
+.hoverSide:hover .showSide {
+    display: block;
+ }
+
+.showSide > li:hover {
+    background-color: white;
+    border-radius: 20px;
+ }
+
 .conteudo {
     width: 80%;
     height: fit-content;
@@ -49,7 +66,7 @@ a {
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {

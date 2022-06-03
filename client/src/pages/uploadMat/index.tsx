@@ -61,17 +61,10 @@ class UploadMateriais extends Component {
 
             <Css ref="./home.css" />
             <div className="conteudo">
-                    <h2>Upload de Materiais</h2>
+                    <h4>Upload de Materiais</h4>
 
                     <div className="form">
                         <div className="teste1 row">
-
-                            <label>Departamento</label>
-                            <select className="browser-default" id="departamento"  onChange={this.handleChangeDepartamento}>
-                                <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option function="" value="Financeiro" name="Financeiro" />
-                                <Option function="" value="Marketing" name="Marketing" />
-                            </select>
                             
                             <label>Cargo</label>
                             <select className="browser-default" id="cargo"   onChange={this.handleChangeCargo}>
@@ -79,10 +72,22 @@ class UploadMateriais extends Component {
                                 <Option function="" value="Diretor de Marketing" name="Diretor de Marketing" />
                                 <Option function="" value="Diretor financeiro" name="Diretor financeiro" />
                             </select>
+
+                            <label>Curso</label>
+                            <select className="browser-default" id="curso" onChange={this.handleChangeCargo}>
+                                <DisableOption disableValue="" disableNome="Escolha um curso" />
+                                <Option function="" value="LGPD" name="LGPD" />
+                                <Option function="" value="JavaScript" name="JavaScript" />
+                                <Option function="" value="Ingles" name="Inglês" />
+                            </select>
+
+
                                 <form   datatype='multipart/form-data' >
-                                    <input type='file' name='file' onChange={this.handleChangeFile}/>
+                                    <input type='file' name='file' onChange={this.handleChangeFile} multiple/>
                                     <input type="button"/>
                                 </form>
+
+                                <Submit id="publicar" title="Publicar" fname="" />
 
                         </div>
                     </div>

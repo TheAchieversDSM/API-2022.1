@@ -7,3 +7,25 @@ exports.createNewHistorico = (req, res) => {
             res.send(err);
     })
 }
+
+exports.newHistoricoCargo = (req,res) =>{
+    const data = req.body
+    Historico.newHistoricoCargo(data, (err, hist) =>{
+        if (err)
+            res.send(err);   
+    }) 
+}
+
+exports.desligamento = (req,res) =>{
+    const data = req.body
+    Historico.desligamento(data,req.params.id,(err,hist) =>{
+        if(err){
+            console.log(err);
+            res.send({
+                erro:'Erro ao Desligar o colaborador'
+            })
+        }else{
+            res.send('Desligamento Realizado')
+        }
+    })
+}

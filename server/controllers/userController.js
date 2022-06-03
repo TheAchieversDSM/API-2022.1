@@ -1,4 +1,6 @@
 const User = require("../models/user")
+const fs = require('fs');
+const https = require('https');
 
 exports.getColabInfoById = (req, res) => {
     const resposta = {
@@ -77,14 +79,7 @@ exports.getDocsById = (req, res) => {
         res.send(user)
     })
 }
-exports.downloadDocs = (req,res) =>{
-    var path = require('path')
-    const fileName = req.params.file;
-    const filePath = path.join( __dirname , '..','uploads',fileName)
-    console.log(filePath);
-    res.send(filePath)
-}
-      
+     
 exports.setWorkInfoUser = (req,res) => {
     const data = new User(req.body)
     console.log(data);
@@ -92,6 +87,27 @@ exports.setWorkInfoUser = (req,res) => {
         if (err){
             console.log("Erro ao inserir as informações",err);
             res.send("Erro ao inserir as informações");
+        }
+    })
+}
+
+exports.desligamento = (req,res) => {
+    User.desligamento(req.params.id,(err,data) =>{
+        if (err){
+            console.log("Erro ao inserir as informações",err);
+            res.send("Erro ao inserir as informações");
+        }
+    })
+}
+
+exports.getAllInactiveUser = (req,res) => {
+    User.getAllInactiveUser((err,users)=>{
+        if (err){
+            console.log("Falha ao obter todos os usuários",err);
+            res.send("Falha ao obter todos os usuários");
+        }else{
+            console.log("Usuários Encontrados");
+            res.send(users)
         }
     })
 }

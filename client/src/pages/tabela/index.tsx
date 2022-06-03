@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Css from '../../assets/style/style';
+import Button from '../../components/button/button';
 import General from '../../components/general';
 import tableSort from "tablesort"
 import {getCookie } from '../../utils/cookieUtil/cookieUtil';
@@ -37,13 +37,32 @@ class Funcionario extends Component {
           
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/infocolab/getAll')
+        let url = window.location.href.split("/")
+        if (url[3] === "VisualizarDepartamento") { 
+            var id = url[4]
+            axios.get(`http://localhost:5000/infocolab/getAllByDep/${id}`)
             .then((res) => {
                 const colaboradores = res.data;
-                
+            
                 this.setState({colaboradores})                
             }
         )
+        }else if (url[3] === "Inativos"){
+            axios.get('http://localhost:5000/infocolab/getAllInactiveUser')
+            .then((res) => {
+                const colaboradores = res.data;
+
+                this.setState({colaboradores})
+            })
+        }else{
+            axios.get('http://localhost:5000/infocolab/getAll')
+                .then((res) => {
+                    const colaboradores = res.data;
+                
+                    this.setState({colaboradores})                
+                }
+            )
+        }
     }
 
     render() {
@@ -52,6 +71,7 @@ class Funcionario extends Component {
             <General />
             <div className="conteudo">
                 <div className="func">
+                    <a href='/Inativos' className='waves-effect waves-light btn center-align'>Inativos</a>
                  <input type="text" id="searchBox" onKeyUp={this.search} placeholder="Procure por um nome..."/>
                         <table id="tabela">
                             <thead>

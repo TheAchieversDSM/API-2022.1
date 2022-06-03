@@ -2,7 +2,10 @@ const express = require('express');
 const colaboradorController = require("../controllers/colaboradorPreCadController");
 const pessoaFisicaController = require("../controllers/pessoaFisicaController")
 const pessoaJuridicaController = require("../controllers/pessoaJuridicaController")
+const beneficiosController = require ("../controllers/beneficiosControllers")
 const router = require("express").Router()
+const aws = require("aws-sdk");
+const multerS3 = require("multer-s3");
 const multer = require("multer")
 const path = require("path")
 
@@ -22,6 +25,7 @@ const upload = multer({storage})
 router.put('/updatecolaborador/:id', colaboradorController.updateUser)
 router.post('/insertpessoafisica', pessoaFisicaController.createPessoaFisica)
 router.post('/insertpessoajuridica', pessoaJuridicaController.createPessoaJuridica)
+router.post('/updatebenefits/:id', beneficiosController.updateBenefits)
 
 router.post('/insertArquivos/:id',upload.fields([
     // DOCUMENTOS PESSOAIS

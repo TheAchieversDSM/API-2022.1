@@ -54,3 +54,13 @@ exports.createNewDep = (req,res) =>{
         }
     })
 }
+
+exports.getAllDepartAndHeads = (req,res) =>{
+    Departamento.getAllDepartAndHeads((err,departamentos)=>{
+        if (err) {
+            console.log(err);
+        }else{
+            res.send(departamentos)
+        }
+    })
+}

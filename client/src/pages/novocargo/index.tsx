@@ -3,7 +3,7 @@ import axios from "axios";
 import M from "materialize-css";
 
 // LOCAL CSS
-//import './novoperfil.css'
+import './novocargo.css'
 
 // COMPONENTS
 import Input from "../../components/input/input";
@@ -57,6 +57,7 @@ class NovoCargo extends Component {
             }
         })
     };
+
     render() {
         return (
             <>
@@ -88,8 +89,23 @@ class NovoCargo extends Component {
                                 <Option function="" value="0" name="Usuário Comum - Acesso Comum" />
                             </select>
 
+                            <div className="eeeee">
+                                <span>
+                                    <ul>
+                                        <li>Administrador - Acesso Total: Visualização sem restrição alguma. Pode criar, alterar e inativar usuários, departamentos e cargos.</li>
+                                        <div className="divisor"></div>
+                                        <li>Gestor - Acesso Parcial: Ações limitadas. Pode criar, alterar e inativar usuários. </li>
+                                        <div className="divisor"></div>
+                                        <li>Consultor - Acesso Parcial: Ações limitadas. Pode consultar o andamento da Trilha de Aprendizagem. </li>
+                                        <div className="divisor"></div>
+                                        <li>Usuário comum - Acesso Parcial: Ações limitadas. Permissão para visualizar sua Trilha de Aprendizagem, perfil, organograma e documentos da empresa. </li>
+                                    </ul>
+                                </span>
+                                <i className="fa-solid fa-question"></i>
+                            </div>
+
                             <div className="botao-novoperfil">
-                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar novo cargo" iClass="{}" />
+                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar!" iClass="{}" />
                             </div>
                         </div>
                     </div>

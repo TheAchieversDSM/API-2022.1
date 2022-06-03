@@ -18,9 +18,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_head` VARCHAR(40) NOT NULL,
   `dep_descricao` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`dep_id`))
-ENGINE = InnoDB
- ;
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`cargo`
@@ -89,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_genero` VARCHAR(45) NULL,
   `col_nacionalidade` VARCHAR(45) NULL,
   `col_estado_civil` VARCHAR(45) NULL,
+  `col_status` BIT DEFAULT 1, 
   `col_filho` VARCHAR(3) NULL,
   `car_vale_transporte` FLOAT,
   `car_vale_refeicao` FLOAT,
@@ -110,12 +109,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
 ENGINE = InnoDB
  
 COMMENT = 'Cadastro dos colaboradores e seus benefícios.';
-/* 
-`car_vale_transporte` FLOAT NOT NULL,
-`car_vale_refeicao` FLOAT NOT NULL,
-`car_auxilio_creche` FLOAT NOT NULL,
-`car_plano_saude` VARCHAR(80) NOT NULL,
-*/
+
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`notificacao`
@@ -156,12 +150,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
   `his_id` INT NOT NULL AUTO_INCREMENT,
   `his_data_desligamento` DATE NULL,
   `his_data_admissao` DATE NOT NULL,
-  `his_cargo` VARCHAR(400) NOT NULL,
-  `his_salario` FLOAT NOT NULL,
-  `his_pesquisa_desligamento` VARCHAR(400) NULL,
   `his_desligamento_descricao` VARCHAR(100) NULL,
-  `his_distrato` VARCHAR(100) NULL,
-  `colaborador_col_id` INT NOT NULL,
+  `colaborador_col_id` INT NOT NULL UNIQUE,
   PRIMARY KEY (`his_id`, `colaborador_col_id`),
   INDEX `fk_historico_colaborador1_idx` (`colaborador_col_id` ASC)  ,
   CONSTRAINT `fk_historico_colaborador1`
@@ -170,8 +160,30 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`historico` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
- 
-COMMENT = 'Esta tabela armazenará informações sobre a trajetória dos colaboradores durante a sua fase laboral. Tanto de Pessoa Jurídica quanto da Pessoa Física.';
+
+COMMENT = 'Esta tabela armazenará informações sobre admissão e desligamento do colaborador.';
+
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`historico_cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`historico_cargo` (
+  `his_car_id` INT NOT NULL AUTO_INCREMENT,
+  `his_car_data` DATE NOT NULL,
+  `his_car_cargo` VARCHAR(400) NOT NULL,
+  `his_car_salario` FLOAT NOT NULL,
+  `his_car_descricao` VARCHAR(400) NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`his_car_id`, `colaborador_col_id`),
+  INDEX `fk_historico_cargo_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_historico_cargo_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+COMMENT = 'Esta tabela armazenará informações sobre os cargos que o colaborador tem ou teve em todo tempo em que esteve na empresa.';
 
 
 -- -----------------------------------------------------
@@ -181,7 +193,11 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_aprendizagem` (
   `tri_id` INT NOT NULL AUTO_INCREMENT,
   `tri_status` VARCHAR(40) NOT NULL,
   `tri_curso` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`tri_id`))
+  `cargo_car_id` INT NOT NULL,
+  PRIMARY KEY (`tri_id`),
+  CONSTRAINT `trilha_cargo`
+    FOREIGN KEY (`cargo_car_id`)
+    REFERENCES `api_ionic`.`cargo` (`car_id`))
 ENGINE = InnoDB
  
 COMMENT = 'Cadastros de Trilha de Aprendizado e Status de Realização';
@@ -213,14 +229,52 @@ COMMENT = 'Esta tabela conecta a pessoa física a trilha de aprendizagem corresp
 
 
 -- -----------------------------------------------------
+-- Table `api_ionic`.`cursos_colaborador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`cursos_colaborador` (
+  `cur_col_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_formacao` VARCHAR(40) NOT NULL,
+  `qua_curso` VARCHAR(40) NOT NULL,
+  `qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`cur_col_id`, `colaborador_col_id`),
+  INDEX `fk_cursos_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_cursos_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`linguas_colaborador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`linguas_colaborador` (
+  `lin_col_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_lingua` VARCHAR(100) NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`lin_col_id`, `colaborador_col_id`),
+  INDEX `fk_linguas_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_linguas_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `api_ionic`.`qualificacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_lingua` VARCHAR(40) NOT NULL,
   `qua_formacao` VARCHAR(40) NOT NULL,
   `qua_curso` VARCHAR(40) NOT NULL,
-  `qua_lingua` VARCHAR(40) NOT NULL,
   `qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  `lin_cur_id` INT,
+  `cur_col_id`INT,
   `colaborador_col_id` INT NOT NULL,
   PRIMARY KEY (`qua_id`, `colaborador_col_id`),
   INDEX `fk_qualificacao_colaborador1_idx` (`colaborador_col_id` ASC)  ,
@@ -229,9 +283,9 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
     REFERENCES `api_ionic`.`colaborador` (`col_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
- 
-COMMENT = 'Esta tabela armazenará informações curriculares.';
+ENGINE = InnoDB;
+
+-- COMMENT = 'Esta tabela armazenará informações curriculares.';
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

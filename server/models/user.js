@@ -28,7 +28,7 @@ User.getColabInfoById = (id, result, head_result,hist_result) => {
             head_result(null, res);
         }
     })
-    db.query("SELECT *,DATE_FORMAT(his_data_admissao ,'%d/%m/%Y')  AS data_admissao FROM historico WHERE colaborador_col_id = ?",id,(err,res)=>{
+    db.query("SELECT *,DATE_FORMAT(his_data_admissao ,'%d/%m/%Y')  AS data_admissao , DATE_FORMAT(his_data_desligamento ,'%d/%m/%Y') AS data_desligamento, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(his_data_admissao))) tempo_casa FROM historico WHERE colaborador_col_id = ?",id,(err,res)=>{
         if (err) {
             console.log("ERRO AO ENCONTRAR O HISTORICO: ", err);
             hist_result(null, err);
@@ -41,7 +41,7 @@ User.getColabInfoById = (id, result, head_result,hist_result) => {
 }
 
 User.getAllUser = (result) => {
-    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id AND qual.colaborador_col_id = colab.col_id AND colab.tipo_contratacao_cont_id = tc.cont_id ORDER BY col_nome ", (err, res) => {
+    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.col_status = 1 AND colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id AND qual.colaborador_col_id = colab.col_id AND colab.tipo_contratacao_cont_id = tc.cont_id ORDER BY col_nome ", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -89,7 +89,7 @@ User.getDocsById = (id, result) => {
 }
 
 User.setWorkInfoUser = (data, id, result) => {
-    db.query("UPDATE colaborador SET ?  WHERE col_id = ?", [data, id], (err, res) => {
+    db.query("UPDATE colaborador SET ? WHERE col_id = ?", [data, id], (err, res) => {
         if (err) {
             result(null, err)
         }
@@ -99,6 +99,29 @@ User.setWorkInfoUser = (data, id, result) => {
     })
 }
 
+User.desligamento = (id,result) => {
+    db.query(`UPDATE colaborador SET col_status = 0 WHERE col_id = ${id}`,(err,res) => {
+        if (err) {
+            result(null, err)
+        }
+        else {
+            result(null, res)
+        }
+    })
+}
+
+User.getAllInactiveUser = (result) => {
+    db.query("SELECT * FROM colaborador colab INNER JOIN cargo car INNER JOIN departamento dep INNER JOIN qualificacao qual INNER JOIN tipo_contratacao tc ON colab.col_status = 0 AND colab.cargo_car_id = car.car_id AND colab.departamento_dep_id = dep.dep_id AND qual.colaborador_col_id = colab.col_id AND colab.tipo_contratacao_cont_id = tc.cont_id ORDER BY col_nome ", (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else {
+            console.log("Encontrado os Usuários");
+            result(null, res);
+        }
+    })
+}
 
 module.exports = User
 
