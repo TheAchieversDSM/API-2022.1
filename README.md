@@ -39,33 +39,28 @@
 ##### Requisitos Funcionais
 ID | Sprint | Requisitos | Prioridade | Status 
 ---|--------|------------|------------|--------
-RF-1 | 1 | Cadastro do colaborador | Alta | ✔️
-RF-2 | 1 | Completar cadastro do colaborador | Alta | ✔️
-RF-3 | 1 | Visualizar informações fornecidas pelo colaborador | Alta | ✔️
-RF-4 | 1 | Atualização das informações do colaborador | Média | 🔲
-RF-5 | 1 | Exclusão de colaboradores | Baixa | 🔲
-RF-6 | 2 | Visualizar diferentes níveis de cargo por um organograma | Alta | ✔️
-RF-7 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | ✔️
-RF-8 | 2 | Visualizar e realizar download de relatórios com informações dos colaboradores | Média | ✔️
-RF-9 | 3 | Acesso às documentações e normas da empresa | Baixa | 🔲
-RF-10 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | 🔲
-RF-11 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | 🔲
-RF-12 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | 🔲
-RF-13 | 3 | Visualização do progresso individual dos cursos de Onboarding cadastrados na Trilha de Aprendizagem | Média | 🔲
-RF-14 | 3 | Cadastro de possíveis novos cargos | Baixa | 🔲
+RF-1 | 1 | CRUD do cadastro do colaborador | Alta | ✔️
+RF-2 | 2 | Visualizar diferentes níveis de cargo por um organograma | Alta | ✔️
+RF-3 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | ✔️
+RF-4 | 2 | Visualizar e realizar download de relatórios com informações dos colaboradores | Média | ✔️
+RF-5 | 3 | Acesso às documentações e normas da empresa | Baixa | ✔️
+RF-6 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | 🔲
+RF-7 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | 🔲
+RF-8 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | 🔲
+RF-9 | 3 | Visualização do progresso individual dos cursos de Onboarding cadastrados na Trilha de Aprendizagem | Média | 🔲
+RF-10 | 3 | Cadastro de possíveis novos cargos e departamentos | Baixa | ✔️
 
 ##### Requisitos Não Funcionais
 ID | Sprint | Requisitos | Prioridade | Status 
 ---|--------|------------|------------|--------
 RNF-1 | 1 | Desenvolvimento de banco de dados *MySQL* para armazenamento de dados | Alta | ✔️
 RNF-2 | 1 | Desenho da arquitetura da solução | Alta | ✔️
-RNF-2 | 1 | Conexão do banco de dados ao sistema | Alta | ✔️
 RNF-3 | 1 | Utilizar *Node.JS*, *TypesScript* e *JavaScript* | Alta | ✔️
 RNF-4 | 1 | Utilizar a biblioteca *React.js* | Alta | ✔️
 RNF-5 | 1 | Limitar acesso de não-colaboradores ao sistema | Média | ✔️
 RNF-6 | 1 | Diferentes níveis de acesso no sistema | Alta | ✔️
 RNF-7 | 1 | Display de informações gravadas no banco de dados | Alta | ✔️
-RNF-8 | 1 | Criação das funções _Delete_ e _Update_ | Alta | 🔲
+RNF-8 | 1 | Criação das funções de CRUD | Alta | ✔️
 RNF-9 | 2 | Armazenar documentos dos colaboradores em um repositório específico | Alta | ✔️
 RNF-10 | 2 | Completar organograma com informações do banco de dados | Alta | ✔️
 RNF-11 | 2 | Gerar notificação ao cadastro ter sido completo | Alta | ✔️
@@ -74,7 +69,7 @@ RNF-13 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Bai
 RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | 🔲
 RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
 RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
-RNF-17 | 3 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
+RNF-17 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
 RNF-18 | - | Manual do usuário para navegação | Média | ✔️
 
 
