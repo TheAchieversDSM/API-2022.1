@@ -74,7 +74,7 @@ RNF-18 | - | Manual do usuário para navegação | Média | ✔️
 
 
 ##### Timeline
-![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline.jpg)
+![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline_atualizada.jpg)
  
 <span id="estrutura-pastas">
  
