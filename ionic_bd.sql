@@ -10,7 +10,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `api_ionic`;
 USE `api_ionic` ;
 
-
 -- -----------------------------------------------------
 -- Table `api_ionic`.`departamento`
 -- -----------------------------------------------------
@@ -20,7 +19,6 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_descricao` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`cargo`
@@ -89,8 +87,8 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
   `col_genero` VARCHAR(45) NULL,
   `col_nacionalidade` VARCHAR(45) NULL,
   `col_estado_civil` VARCHAR(45) NULL,
-  `col_filho` VARCHAR(3) NULL,
   `col_status` BIT DEFAULT 1, 
+  `col_filho` VARCHAR(3) NULL,
   `car_vale_transporte` FLOAT,
   `car_vale_refeicao` FLOAT,
   `car_auxilio_creche` FLOAT,
@@ -195,7 +193,11 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_aprendizagem` (
   `tri_id` INT NOT NULL AUTO_INCREMENT,
   `tri_status` VARCHAR(40) NOT NULL,
   `tri_curso` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`tri_id`))
+  `cargo_car_id` INT NOT NULL,
+  PRIMARY KEY (`tri_id`),
+  CONSTRAINT `trilha_cargo`
+    FOREIGN KEY (`cargo_car_id`)
+    REFERENCES `api_ionic`.`cargo` (`car_id`))
 ENGINE = InnoDB
  
 COMMENT = 'Cadastros de Trilha de Aprendizado e Status de Realização';
@@ -242,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`cursos_colaborador` (
     REFERENCES `api_ionic`.`colaborador` (`col_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -259,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`linguas_colaborador` (
     REFERENCES `api_ionic`.`colaborador` (`col_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -267,8 +269,10 @@ ENGINE = InnoDB
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
-  --`qua_lingua` VARCHAR(40) NOT NULL,
-  --`qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  `qua_lingua` VARCHAR(40) NOT NULL,
+  `qua_formacao` VARCHAR(40) NOT NULL,
+  `qua_curso` VARCHAR(40) NOT NULL,
+  `qua_nome_instituicao` VARCHAR(100) NOT NULL,
   `lin_cur_id` INT,
   `cur_col_id`INT,
   `colaborador_col_id` INT NOT NULL,
@@ -279,9 +283,9 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
     REFERENCES `api_ionic`.`colaborador` (`col_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
- 
-COMMENT = 'Esta tabela armazenará informações curriculares.';
+ENGINE = InnoDB;
+
+-- COMMENT = 'Esta tabela armazenará informações curriculares.';
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -200,15 +200,16 @@ div.eeeee span {
     background-color: #ACD8DE;
     color: black;
     padding: 5px 10px;
-    margin-bottom: 20px !important;
+    left: 30px !important;
+    top: -50px !important
 }
 
 div.eeeee span:after {
     content: '';
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -195px;
+    bottom: 45% !important;
+    left: 183px !important;
+    transform: rotate(-90deg);
     width: 0; 
     height: 0;
     border-bottom: 8px solid #ACD8DE;
@@ -224,8 +225,19 @@ div:hover.eeeee span {
     z-index: 999;
 }
 
-.Buttom{
+.Buttom,
+.Buttommm{
     text-align: center;
+}
+
+div.eeeee span ul li a {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    font-size: 16px;
+}
+
+.Buttommm a {
+    width: 250px !important;
 }
 
 @media only screen and (max-width : 992px) {}

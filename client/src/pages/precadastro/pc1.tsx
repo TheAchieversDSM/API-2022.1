@@ -185,20 +185,18 @@ class PreCadastro1 extends Component {
         }
     }
 
-    handleChangeSelectDivorcio = event => {
+    handleChangeSelectTermos = event => {
         this.setState({
             ...this.state,
             [event.target.name]: event.target.value
         });
         console.log(this.state);
 
-        if (event.target.value == "Divorcio(a)") {
-            document.getElementById("divorcioBody").style.display = "block";
+        if (event.target.value == "aceito") {
+            document.getElementById("termosUsoCheck").style.display = "block";
+            document.getElementById("termosUsoNoCheck").style.display = "none";
         }
-        else {
-            document.getElementById("divorcioBody").style.display = "none";
-        }
-    }
+    };
 
     handleChangeSelect = event => {
         this.setState({
@@ -698,12 +696,20 @@ class PreCadastro1 extends Component {
                         </div>
 
                         <div className="termosUso">
-                            <Check fname="" value="aceito" name="Eu concordo com o Termos de Uso." />
+                            
+                                <label>
+                                    <form action="">
+                                    <input type="checkbox" value="Aceito" required={true} />
+                                        <span>Eu concordo com o Termos de Uso.</span>
+                                    </form>
+                                </label>
+                            
+                            
                             <div className="eeeee">
                                 <span>
                                     <ul>
                                         <li>Eu aceito usarem e armazenarem meus dados no sistema Ionic Health.</li>
-                                        <li>Leia mais sobre aqui!</li>
+                                        <li>Leia mais sobre <a href="https://drive.google.com/file/d/196kDFHwXdQUsYKsde_D00Fzs0g2-1IX4/view?usp=sharing" target="_blank">aqui</a>!</li>
                                     </ul>
                                 </span>
                                 <i className="fa-solid fa-question"></i>
