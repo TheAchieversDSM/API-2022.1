@@ -23,6 +23,7 @@ import Option from "../../components/dropdown";
 import Css from "../../assets/style/style";
 import InputValueDisabled from "../../components/input/inputValueDisabled";
 import InputOnFocus from "../../components/input/inputOnFocus";
+import Check from "../../components/input/check";
 
 class PreCadastro1 extends Component {
     state = {
@@ -418,7 +419,15 @@ class PreCadastro1 extends Component {
                                     </div>
 
                                     <div className="row">
-                                        <Input lenght={100} stateName="nacionalidade" fname={this.handleChange} div="input-field col col s12 m12 l6" id="nacionalidade" class="validate" type="text" name="Nacionalidade" />
+                                        <div className="input-field col s12 m12 l6">
+                                            <select name="Nacionalidade" className="browser-default" id="nacionalidade" onChange={this.handleChangeSelect}>
+                                                <DisableOption disableValue="" disableNome="Nacionalidade" />
+                                                <Option function="" value="Nato" name="Brasileiro nato - Aquisição da nacionalidade originária brasileira" />
+                                                <Option function="" value="Natural" name="Brasileiro naturalizado - aquisição secundária da nacionalidade brasileira" />
+                                                <Option function="" value="Estrangeiro" name="Estrangeiro" />
+                                            </select>
+                                        </div>
+
                                         <Input lenght={100} stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
                                     </div>
 
@@ -685,6 +694,19 @@ class PreCadastro1 extends Component {
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+
+                        <div className="termosUso">
+                            <Check fname="" value="aceito" name="Eu concordo com o Termos de Uso." />
+                            <div className="eeeee">
+                                <span>
+                                    <ul>
+                                        <li>Eu aceito usarem e armazenarem meus dados no sistema Ionic Health.</li>
+                                        <li>Leia mais sobre aqui!</li>
+                                    </ul>
+                                </span>
+                                <i className="fa-solid fa-question"></i>
                             </div>
                         </div>
 

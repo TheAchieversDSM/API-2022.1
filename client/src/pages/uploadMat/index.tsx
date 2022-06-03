@@ -72,8 +72,18 @@ class UploadMateriais extends Component {
                                 <Option function="" value="Diretor de Marketing" name="Diretor de Marketing" />
                                 <Option function="" value="Diretor financeiro" name="Diretor financeiro" />
                             </select>
+
+                            <label>Curso</label>
+                            <select className="browser-default" id="curso" onChange={this.handleChangeCargo}>
+                                <DisableOption disableValue="" disableNome="Escolha um curso" />
+                                <Option function="" value="LGPD" name="LGPD" />
+                                <Option function="" value="JavaScript" name="JavaScript" />
+                                <Option function="" value="Ingles" name="Inglês" />
+                            </select>
+
+
                                 <form   datatype='multipart/form-data' >
-                                    <input type='file' name='file' onChange={this.handleChangeFile}/>
+                                    <input type='file' name='file' onChange={this.handleChangeFile} multiple/>
                                     <input type="button"/>
                                 </form>
 

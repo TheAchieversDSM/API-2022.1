@@ -90,3 +90,24 @@ exports.setWorkInfoUser = (req,res) => {
         }
     })
 }
+
+exports.desligamento = (req,res) => {
+    User.desligamento(req.params.id,(err,data) =>{
+        if (err){
+            console.log("Erro ao inserir as informações",err);
+            res.send("Erro ao inserir as informações");
+        }
+    })
+}
+
+exports.getAllInactiveUser = (req,res) => {
+    User.getAllInactiveUser((err,users)=>{
+        if (err){
+            console.log("Falha ao obter todos os usuários",err);
+            res.send("Falha ao obter todos os usuários");
+        }else{
+            console.log("Usuários Encontrados");
+            res.send(users)
+        }
+    })
+}

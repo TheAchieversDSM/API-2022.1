@@ -371,6 +371,6 @@ INSERT INTO historico (his_data_admissao, colaborador_col_id) VALUES ('2022-05-2
 INSERT INTO historico (his_data_admissao, colaborador_col_id) VALUES ('2022-05-27', 79); 
 INSERT INTO historico (his_data_admissao, colaborador_col_id) VALUES ('2022-05-27', 80); 
 
-SELECT * FROM historico;
+SELECT * FROM documentos;
 
 SELECT * FROM historico_cargo;

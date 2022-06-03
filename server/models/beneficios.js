@@ -9,7 +9,7 @@ Beneficios = function (ben) {
 
 Beneficios.updateBenefits = (Userdata, id, result) => {
     console.log(Userdata);
-    db.query(`UPDATE colaborador SET ?  WHERE col_id = ${id}`, Userdata, (err, res) => {
+    db.query(`UPDATE colaborador SET ? WHERE col_id = ${id}`, Userdata, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err);

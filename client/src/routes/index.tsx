@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter, Routes as Switch } from "react-router-dom";
 
 //IMPORT ROUTES
-import {ProtectedRoute , AdmPrivateRoute} from "../utils/protectedRoute";
+import {ProtectedRoute , AdmPrivateRoute , AdmGestorPrivateRoute} from "../utils/protectedRoute";
 import LoggedinRoute from "../utils/login/LoggedinRoute";
 import LogoutRoute from "../utils/logoutRoute/logoutRoute";
 
@@ -22,6 +22,7 @@ import NovoCargo from "../pages/novocargo"
 import Departamento from "../pages/tabela/departamentos"; 
 import Documentos from "../pages/documentos/index"
 import Cargo from "../pages/tabela/cargos";
+import Trilha from "../pages/trilha/trilha";
 
 function Routes() {
     return (
@@ -51,6 +52,10 @@ function Routes() {
                     <UploadMateriais/>
                 </ProtectedRoute>} />
 
+                <Route path="/TrilhaDeAprendizagem" element={<ProtectedRoute redirectTo={"/"}>
+                    <Trilha/>
+                </ProtectedRoute>} />
+
                 <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>
                     <AdmPrivateRoute redirectTo={"/home"} >
                         <NovoPerfil/>   
@@ -74,9 +79,9 @@ function Routes() {
                 </ProtectedRoute>} />
                 
                 <Route path="/PerfilColaborador/:id" element={<ProtectedRoute redirectTo={"/"}>
-                    <AdmPrivateRoute redirectTo={"/home"} >
+                    <AdmGestorPrivateRoute redirectTo={"/home"} >
                         <PerfilColab/>
-                    </AdmPrivateRoute>
+                    </AdmGestorPrivateRoute>
                 </ProtectedRoute>} /> 
 
                 <Route path ="/MeuPerfil" element={<ProtectedRoute redirectTo={"/"}>
@@ -84,6 +89,12 @@ function Routes() {
                 </ProtectedRoute>} />
 
                 <Route path ="/Funcionario" element={<ProtectedRoute redirectTo={"/"}>
+                    <AdmPrivateRoute redirectTo={"/home"} >
+                        <Funcionario/>
+                    </AdmPrivateRoute>
+                </ProtectedRoute>} />
+
+                <Route path ="/Inativos" element={<ProtectedRoute redirectTo={"/"}>
                     <AdmPrivateRoute redirectTo={"/home"} >
                         <Funcionario/>
                     </AdmPrivateRoute>

@@ -10,6 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `api_ionic`;
 USE `api_ionic` ;
 
+
 -- -----------------------------------------------------
 -- Table `api_ionic`.`departamento`
 -- -----------------------------------------------------
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`departamento` (
   `dep_descricao` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`dep_id`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`cargo`
@@ -109,12 +111,7 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`colaborador` (
 ENGINE = InnoDB
  
 COMMENT = 'Cadastro dos colaboradores e seus benefícios.';
-/* 
-`car_vale_transporte` FLOAT NOT NULL,
-`car_vale_refeicao` FLOAT NOT NULL,
-`car_auxilio_creche` FLOAT NOT NULL,
-`car_plano_saude` VARCHAR(80) NOT NULL,
-*/
+
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`notificacao`
@@ -230,14 +227,50 @@ COMMENT = 'Esta tabela conecta a pessoa física a trilha de aprendizagem corresp
 
 
 -- -----------------------------------------------------
+-- Table `api_ionic`.`cursos_colaborador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`cursos_colaborador` (
+  `cur_col_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_formacao` VARCHAR(40) NOT NULL,
+  `qua_curso` VARCHAR(40) NOT NULL,
+  `qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`cur_col_id`, `colaborador_col_id`),
+  INDEX `fk_cursos_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_cursos_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`linguas_colaborador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`linguas_colaborador` (
+  `lin_col_id` INT NOT NULL AUTO_INCREMENT,
+  `qua_lingua` VARCHAR(100) NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`lin_col_id`, `colaborador_col_id`),
+  INDEX `fk_linguas_colaborador1_idx` (`colaborador_col_id` ASC)  ,
+  CONSTRAINT `fk_linguas_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+
+-- -----------------------------------------------------
 -- Table `api_ionic`.`qualificacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`qualificacao` (
   `qua_id` INT NOT NULL AUTO_INCREMENT,
-  `qua_formacao` VARCHAR(40) NOT NULL,
-  `qua_curso` VARCHAR(40) NOT NULL,
-  `qua_lingua` VARCHAR(40) NOT NULL,
-  `qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  --`qua_lingua` VARCHAR(40) NOT NULL,
+  --`qua_nome_instituicao` VARCHAR(100) NOT NULL,
+  `lin_cur_id` INT,
+  `cur_col_id`INT,
   `colaborador_col_id` INT NOT NULL,
   PRIMARY KEY (`qua_id`, `colaborador_col_id`),
   INDEX `fk_qualificacao_colaborador1_idx` (`colaborador_col_id` ASC)  ,

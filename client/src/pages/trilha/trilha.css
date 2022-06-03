@@ -1,0 +1,126 @@
+.teste1,
+.teste2,
+.teste3,
+.teste4 {
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 10px !important;
+    margin: 10px;
+    height: fit-content;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+}
+
+p>label {
+    font-weight: bolder !important;
+    font-size: 18px !important;
+    color: #414042;
+}
+
+#info {
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    padding: 10px !important;
+    margin: 10px;
+    height: fit-content;
+}
+
+.teste2-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+h5,
+h4 {
+    background-color: #CAECF0;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+    text-align: center !important;
+}
+
+.grid-check {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.collapsible-header {
+    background-color: #ACD8DE !important;
+    border-radius: 30px !important;
+    font-size: 18px;
+    font-family: coolvetica, sans-serif !important;
+    border: 3px solid #ACD8DE !important;
+}
+
+.popout>li {
+    margin: 10px !important;
+}
+
+.collapsible>li {
+    border-radius: 30px !important;
+}
+
+.btn,
+.btn-large {
+    background-color: #ACD8DE !important;
+    border-radius: 30px !important;
+    color: #414042 !important;
+    font-family: coolvetica, sans-serif !important;
+}
+
+#p1 {
+    position: relative;
+}
+
+.btn-large {
+    position: relative;
+}
+
+.foto {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #ACD8DE !important;
+    border-radius: 25px !important;
+}
+
+.foto>i {
+    margin-top: 20px;
+    color: #53C4CD;
+    background-color: #ACD8DE !important;
+
+}
+
+p,
+span {
+    font-size: 16px !important;
+    font-family: source-sans-pro, sans-serif !important;
+    color: #414042 !important;
+    line-height: 15px;
+}
+
+.name {
+    color: #53C4CD;
+}
+
+.inform {
+    display: inline-flex;
+}
+
+.inform>p {
+    margin: 6px;
+    color: #ACD8DE;
+}
+
+.s6>p {
+    color: #ACD8DE;
+}
+
+@media only screen and (max-width : 992px) {
+    .teste2-info {
+        grid-template-columns: 1fr;
+    }
+
+    .collapsible-header {
+        font-size: 100%;
+    }
+}

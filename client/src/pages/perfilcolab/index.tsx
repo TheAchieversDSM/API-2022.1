@@ -99,6 +99,8 @@ class PerfilColab extends Component {
                             } else {
                                 M.toast({ html: res.data, classes: "green darken-4 rounded" })
                             }
+                            
+                            axios.get(`http://localhost:5000/infocolab/desligamento/${this.state.id}`)
                         }))
                         swal("Usuário Desligado!", `${this.state.colaborador[0].col_nome} foi desligado(a).`, "success");
 
@@ -213,7 +215,7 @@ class PerfilColab extends Component {
                                     
                                     {this.state.historico.map(info =>
                                     <>
-                                    {info.hist_data_desligamento?<p><label>Status:</label>Desligado</p>:<p><label>Status:</label>Ativo</p> }
+                                    {info.his_data_desligamento?<p><label>Status:</label>Inativo</p>:<p><label>Status:</label>Ativo</p> }
                                     </>
                                     )}
                                     {this.state.head_colaborador.map(info => <p key={info.col_id}><label>Head:</label> {info.col_nome} - {info.car_descricao}</p>)}
