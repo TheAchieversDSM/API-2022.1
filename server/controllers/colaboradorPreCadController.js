@@ -3,7 +3,7 @@ const Colaborador = require("../models/colaboradorPreCad");
 exports.updateUser = (req, res) => {
     const Userdata = new Colaborador(req.body)
     console.log(Userdata);
-    console.log("Usuario: ", Userdata)
+    console.log("Atualizando Usuario: ", Userdata)
 
     // Save Tutorial in the database
     Colaborador.updateUser(Userdata, req.params.id, (err, data) => {
@@ -11,21 +11,6 @@ exports.updateUser = (req, res) => {
             res.send(err);
     });
 };
-
-exports.inserirNotificacao = (req, res) => {
-    
-    Colaborador.inserirNotificacao(req.params.id, 
-        (err,res)=>{
-            if (err) {
-                if (err.errno == "1062"){
-                    console.log("Entrada Duplicada");
-                    res.send({
-                    erro:"Cadastro já Enviado"
-                    })
-                }
-                }
-            });
-}
 
 exports.insertDocuments = (req,res)=>{
     Object.keys(req.files).map(file =>{
