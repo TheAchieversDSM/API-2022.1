@@ -18,7 +18,7 @@ Colaborador = function (colaborador) {
 }
 
 
-Colaborador.updateUser = (Userdata, Userid, result,resultnotificacao) => {
+Colaborador.updateUser = (Userdata, Userid, result) => {
     db.query("UPDATE colaborador SET ?  WHERE col_id = ?", [Userdata, Userid], (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -29,8 +29,11 @@ Colaborador.updateUser = (Userdata, Userid, result,resultnotificacao) => {
             result(null, res);
         }
     })
+}
 
-    db.query("INSERT INTO notificacao SET user_id = ?",Userid,(err,res)=>{
+Colaborador.inserirNotificacao = (Userid, resultnotificacao) => {
+
+    db.query("INSERT INTO notificacao SET user_id = ?", Userid,(err,res)=>{
         if (err) {
             console.log("error: ", err);
             resultnotificacao(null, err);

@@ -63,7 +63,7 @@ class Cargo extends Component {
                             </thead>
                             
                             <tbody>                  
-                                    {this.state.cargos.map(car => <TR key={car.car_id} url={`/PerfilColaborador/${car.car_id}`} nome={car.car_descricao} departamento={car.car_salario} cargo={""} />)}
+                                    {this.state.cargos.map(car => <TR key={car.car_id} urlVisualizacao={`/PerfilColaborador/${car.car_id}`} urlEdicao={`/PerfilColaborador/${car.car_id}`}  nome={car.car_descricao} departamento={car.car_salario} cargo={""} />)}
             
                             </tbody>
                         </table>

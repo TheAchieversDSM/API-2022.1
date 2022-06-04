@@ -23,6 +23,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
 
 router.put('/updatecolaborador/:id', colaboradorController.updateUser)
+router.put('/inserirNotificacao/:id', colaboradorController.inserirNotificacao)
 router.post('/insertpessoafisica', pessoaFisicaController.createPessoaFisica)
 router.post('/insertpessoajuridica', pessoaJuridicaController.createPessoaJuridica)
 router.post('/updatebenefits/:id', beneficiosController.updateBenefits)

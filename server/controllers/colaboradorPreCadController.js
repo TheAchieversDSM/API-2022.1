@@ -9,18 +9,23 @@ exports.updateUser = (req, res) => {
     Colaborador.updateUser(Userdata, req.params.id, (err, data) => {
         if (err)
             res.send(err);
-    },
-    (err,res)=>{
-    if (err) {
-        if (err.errno == "1062"){
-            console.log("Entrada Duplicada");
-            res.send({
-              erro:"Cadastro já Enviado"
-            })
-          }
-        }
     });
 };
+
+exports.inserirNotificacao = (req, res) => {
+    
+    Colaborador.inserirNotificacao(req.params.id, 
+        (err,res)=>{
+            if (err) {
+                if (err.errno == "1062"){
+                    console.log("Entrada Duplicada");
+                    res.send({
+                    erro:"Cadastro já Enviado"
+                    })
+                }
+                }
+            });
+}
 
 exports.insertDocuments = (req,res)=>{
     Object.keys(req.files).map(file =>{
