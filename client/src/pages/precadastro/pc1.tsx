@@ -319,32 +319,62 @@ class PreCadastro1 extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-       
-        const user = {
-            nome: this.state.nome,
-            novaSenha: this.state.novaSenha,
-            ddd: this.state.ddd,
-            telefone: this.state.telefone,
-            rua: this.state.rua,
-            numero: this.state.numero,
-            bairro: this.state.bairro,
-            complemento: this.state.complemento,
-            cep: this.state.cep,
-            cidade: this.state.cidade,
-            estado: this.state.estado,
-            regiao: this.state.regiao,
-            tipoPessoa: getCookie("tipoPessoa"),
-            cpf: this.state.cpf,
-            rg: this.state.rg,
-            nacionalidade: this.state.nacionalidade,
-            naturalidade: this.state.naturalidade,
-            raca: this.state.raca,
-            genero: this.state.genero,
-            data: this.state.data,
-            estadoCivil: this.state.estadoCivil,
-            filho: this.state.filho,
-            id: this.state.id
+        let user = {};
+        
+        if(!this.edicao){
+            user = {
+                nome: this.state.nome,
+                novaSenha: this.state.novaSenha,
+                ddd: this.state.ddd,
+                telefone: this.state.telefone,
+                rua: this.state.rua,
+                numero: this.state.numero,
+                bairro: this.state.bairro,
+                complemento: this.state.complemento,
+                cep: this.state.cep,
+                cidade: this.state.cidade,
+                estado: this.state.estado,
+                regiao: this.state.regiao,
+                tipoPessoa: getCookie("tipoPessoa"),
+                cpf: this.state.cpf,
+                rg: this.state.rg,
+                nacionalidade: this.state.nacionalidade,
+                naturalidade: this.state.naturalidade,
+                raca: this.state.raca,
+                genero: this.state.genero,
+                data: this.state.data,
+                estadoCivil: this.state.estadoCivil,
+                filho: this.state.filho,
+                id: this.state.id
+            }
         }
+        else{
+            user = {
+                nome: this.state.nome,
+                novaSenha: this.state.novaSenha,
+                ddd: this.state.ddd,
+                telefone: this.state.telefone,
+                rua: this.state.rua,
+                numero: this.state.numero,
+                bairro: this.state.bairro,
+                complemento: this.state.complemento,
+                cep: this.state.cep,
+                cidade: this.state.cidade,
+                estado: this.state.estado,
+                regiao: this.state.regiao,
+                tipoPessoa: getCookie("tipoPessoa"),
+                cpf: this.state.cpf,
+                rg: this.state.rg,
+                nacionalidade: this.state.nacionalidade,
+                naturalidade: this.state.naturalidade,
+                raca: this.state.raca,
+                genero: this.state.genero,                
+                estadoCivil: this.state.estadoCivil,
+                filho: this.state.filho,
+                id: this.state.id
+            }
+        }
+        
 
 
         const infoAcademica = {
