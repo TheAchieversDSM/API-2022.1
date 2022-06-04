@@ -1,29 +1,29 @@
-import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import React, {useState} from 'react';
+import './progressBar.css';
 
-
-type Props = {
-    per_params: string
-    params: number
-}
-
-
-const ProgressBar = ({per_params, params }: Props) => {
+const Range = (props) => {
     return (
-        <>
-        <p><label>Progresso das aulas</label></p>
-            <ul className="flex ">
-              <li className="w-11/12 mr-4">
-                <div className="relative pt-1">
-                  <div className="overflow-hidden h-[1rem] mb-4 text-xs flex rounded bg-green-200">
-                    <div style={{ width: `${per_params}` }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
-                  </div>
-                </div>
-              </li>
-              <li className="w-1/12 text-[#008c8d] font-semibold">{params}%</li>
-            </ul>
-        </>
-    )
-}
+        <div className="range" style={{width: `${props.percentRange}%`}}/>
+    );
+};
 
-export default ProgressBar;
+const ProgressBar = (props) => {
+    return (
+        <div className="progress-bar">
+            <Range percentRange={props.percentRange}/>
+        </div>
+    );
+};
+
+export const ProgressBarContainer = () => {
+    let [percentRange, setProgress] = useState(0);
+
+    return (
+        <div className="container">
+            <ProgressBar percentRange={percentRange}/>
+            <div className="toggle-buttons">
+                <button onClick={() => setProgress(percentRange < 100 ? percentRange + 20 : 100)}>Increase</button>
+            </div>
+        </div>
+    );
+};

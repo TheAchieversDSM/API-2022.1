@@ -14,7 +14,21 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
-import ProgressBar from "../../components/progressBar/progressBar";
+import { ProgressBarContainer } from "../../components/progressBar/progressBar";
+
+const Range = (props) => {
+    return (
+        <div className="range" style={{width: `${props.percentRange}%`}}/>
+    );
+};
+
+const ProgressBar = (props) => {
+    return (
+        <div className="progress-bar">
+            <Range percentRange={props.percentRange}/>
+        </div>
+    );
+};
 
 class Cursos extends Component {
     state = {
@@ -87,7 +101,7 @@ class Cursos extends Component {
 
                         <div className="col col s12 m12 l7">
                             <div className="teste3">
-                                <ProgressBar per_params={"0%"} params={0} />
+                                <ProgressBarContainer />
                             </div>
                         </div>
 
@@ -159,7 +173,7 @@ class Cursos extends Component {
                             <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Voltar" iClass="fa-solid fa-arrow-left-long"></ButtonMat>
                             <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Avançar" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
                     </div>
-                   
+                    
                 </div>
 
             </>
