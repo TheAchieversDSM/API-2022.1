@@ -12,8 +12,8 @@ import ButtonMat from "../../components/button/buttonMat";
 
 class Notificacao extends Component {
     state = {
-        notificacao:[],
-        colab:[],
+        notificacao: [],
+        colab: [],
         info_colab: [],
         info_pf: [],
         info_acad: [],
@@ -24,17 +24,17 @@ class Notificacao extends Component {
             .then((res) => {
                 console.log(res.data);
                 const notificacao = res.data;
-                this.setState({ notificacao }); 
+                this.setState({ notificacao });
             }
-        )
+            )
     }
-    axiosget = (id)=>{
-        let nome =  String
-          axios.get(`http://localhost:5000/infocolab/${id}`) .then((res) => {
-              nome = res.data.user.col_nome
-              console.log(res.data);
-              
-        })  
+    axiosget = (id) => {
+        let nome = String
+        axios.get(`http://localhost:5000/infocolab/${id}`).then((res) => {
+            nome = res.data.user.col_nome
+            console.log(res.data);
+
+        })
         return (nome)
     }
 
@@ -45,18 +45,18 @@ class Notificacao extends Component {
                 <General />
 
                 <Css ref="./notificao.css" />
-                
+
                 <div className="conteudo">
                     <h3>Notificações</h3>
-                    {this.state.notificacao.map(notif => 
-                    <>
-                        <div key={notif.notificacao_id} className="not row">
+                    {this.state.notificacao.map(notif =>
+                        <>
+                            <div key={notif.notificacao_id} className="not row">
 
-                            <h5 className="col s6">{notif.col_nome}</h5>
-                            
-                            <Link to={`/admissao/${notif.col_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
-                        </div>
-                    </>)}
+                                <h5 className="col s6">{notif.col_nome} Finalizou o pré cadastro!</h5>
+
+                                <Link to={`/admissao/${notif.col_id}`}><ButtonMat fname="" class="waves-effect waves-light btn modal-trigger col s6 botaoNot" name="Visualizar!" iClass="" /></Link>
+                            </div>
+                        </>)}
                 </div>
             </>
         );

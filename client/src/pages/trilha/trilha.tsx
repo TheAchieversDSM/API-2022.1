@@ -13,7 +13,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
-//import Grafico from "../../components/grafico";
+import Teste from "../../components/grafico/charts";
 
 class Trilha extends Component {
     state = {
@@ -103,7 +103,7 @@ class Trilha extends Component {
 
                         <div className="col col s12">
                             <div className="teste3 center-align">
-                               {/*<Grafico/>*/}
+                               <Teste/>
                             </div>
                         </div>
 

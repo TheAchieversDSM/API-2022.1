@@ -70,10 +70,7 @@ class Cursos extends Component {
             console.log(res.data);
             const info_academica = res.data;
             this.setState({ info_academica });
-        }
-        )
-
-
+        })
     }
 
     render() {
@@ -111,45 +108,67 @@ class Cursos extends Component {
                             </div>
                         </div>
 
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Descrição" desc1={<p><label>Conteúdo:</label> </p>}
-                                        desc2={<p><label>Duração:</label> </p>}
-                                        desc3={null}
-                                        desc4={null}
-                                        desc5={null}
-                                        desc6={null} />
-                                </ul>
+                        <div className="col col s12 teste3" >
+                            <h4>Conteúdo dos cursos</h4>
+                            <div className="col col s12">
+                                
+                                    <ul className="collapsible popout" data-collapsible="accordion">
+                                        <Collapse title="JavaScript" desc1={<p><label>Aula 1:</label></p>}
+                                            desc2={<p><label>Aula 2:</label></p>}
+                                            desc3={<p><label>Aula 3:</label></p>}
+                                            desc4={<p><label>Aula 4:</label></p>}
+                                            desc5={<p><label>Aula 5:</label></p>}
+                                            desc6={null} />
+                                    </ul>
+                                
                             </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Módulos" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
+                            <div className="col col s12">
+                                
+                                    <ul className="collapsible popout" data-collapsible="accordion">
+                                        <Collapse title="React" desc1={<p><label>Aula 1:</label></p>}
+                                            desc2={<p><label>Aula 2:</label></p>}
+                                            desc3={<p><label>Aula 3:</label></p>}
+                                            desc4={<p><label>Aula 4:</label></p>}
+                                            desc5={<p><label>Aula 5:</label></p>}
+                                            desc6={null} />
+                                    </ul>
+                                
                             </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Materiais" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
+                            <div className="col col s12">
+                                
+                                    <ul className="collapsible popout" data-collapsible="accordion">
+                                        <Collapse title="LGPD" desc1={<p><label>Aula 1:</label></p>}
+                                            desc2={<p><label>Aula 2:</label></p>}
+                                            desc3={<p><label>Aula 3:</label></p>}
+                                            desc4={<p><label>Aula 4:</label></p>}
+                                            desc5={<p><label>Aula 5:</label></p>}
+                                            desc6={null} />
+                                    </ul>
+                                
+                            </div>
+                            <div className="col col s12">
+                                
+                                    <ul className="collapsible popout" data-collapsible="accordion">
+                                        <Collapse title="GitHub" desc1={<p><label>Aula 1:</label></p>}
+                                            desc2={<p><label>Aula 2:</label></p>}
+                                            desc3={<p><label>Aula 3:</label></p>}
+                                            desc4={<p><label>Aula 4:</label></p>}
+                                            desc5={<p><label>Aula 5:</label></p>}
+                                            desc6={null} />
+                                    </ul>
+                                
+                            </div>
+                            <div className="col col s12">
+                               
+                                    <ul className="collapsible popout" data-collapsible="accordion">
+                                        <Collapse title="Typescript" desc1={<p><label>Aula 1:</label></p>}
+                                            desc2={<p><label>Aula 2:</label></p>}
+                                            desc3={<p><label>Aula 3:</label></p>}
+                                            desc4={<p><label>Aula 4:</label></p>}
+                                            desc5={<p><label>Aula 5:</label></p>}
+                                            desc6={null} />
+                                    </ul>
+                                
                             </div>
                         </div>
 

@@ -37,16 +37,16 @@ class Cursos extends Component<props> {
                 }}
                 className="carousel"
             >
-                <a className="carousel-item  center-align">
+                <a className="carousel-item  center-align center" href="/Cursos">
                     <div className="col s12 center-align">
-                        <img src={JS} width={200} />
-                        <div className="col s12 center-align">
+                        <img src={JS} width={200}  />
+                        <div className="col s12 center-align" >
                             <p><label>Javascript</label></p>
-                        </div>    
+                        </div>
                     </div>
                 </a>
 
-                <a className="carousel-item center-align">
+                <a className="carousel-item center-align center" href="/Cursos">
                     <div className="col s12 center-align">
                         <img src={Rt} width={200}/>
                         <div className="col s12 center-align">
@@ -55,7 +55,7 @@ class Cursos extends Component<props> {
                     </div>
                 </a>
 
-                <a className="carousel-item center-align">
+                <a className="carousel-item center-align center" href="/Cursos">
                     <div className="col s12 center-align">
                         <img src={LGPD} width={250}/>
                         <div className="col s12 center-align">
@@ -64,7 +64,7 @@ class Cursos extends Component<props> {
                     </div>
                 </a>
 
-                <a className="carousel-item  center-align">
+                <a className="carousel-item  center-align center" href="/Cursos">
                     <div className="col s12 center-align">
                         <img src={GitHub} width={220}/>
                         <div className="col s12 center-align">
@@ -73,7 +73,7 @@ class Cursos extends Component<props> {
                     </div>
                 </a>
 
-                <a className="carousel-item  center-align">
+                <a className="carousel-item  center-align center" href="/Cursos">
                     <div className="col s12 center-align">
                         <img src={Typescript} width={220}/>
                         <div className="col s12 center-align">
@@ -81,7 +81,7 @@ class Cursos extends Component<props> {
                         </div>
                     </div>
                 </a>
-               
+
             </div>
         );
     }

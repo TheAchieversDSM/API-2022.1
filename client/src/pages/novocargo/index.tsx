@@ -89,7 +89,7 @@ class NovoCargo extends Component {
                                 <Option function="" value="0" name="Usuário Comum - Acesso Comum" />
                             </select>
 
-                            <div className="eeeee">
+                            <div className="eeeee1">
                                 <span>
                                     <ul>
                                         <li>Administrador - Acesso Total: Visualização sem restrição alguma. Pode criar, alterar e inativar usuários, departamentos e cargos.</li>

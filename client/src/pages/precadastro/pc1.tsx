@@ -131,7 +131,6 @@ class PreCadastro1 extends Component {
             console.log(this.state);
         } else {
             M.toast({ html: "CPF INVÁLIDO!", classes: "red darken-4 rounded" })
-
         }
     }
 
