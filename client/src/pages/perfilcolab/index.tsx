@@ -8,6 +8,7 @@ import './perfil.css'
 
 // COMPONENTS
 import ButtonMat from '../../components/button/buttonMat'
+import ButtonSubLink from "../../components/button/buttonSubLink";
 import Check from "../../components/input/check";
 import CheckChecked from "../../components/input/checkChecked";
 import General from "../../components/general";
@@ -111,8 +112,8 @@ class PerfilColab extends Component {
                             </div>
                         </div>
                         <div className="col s12 m12 l5">
-                        <div className="teste4">
-                            <h4>Colaborador</h4>
+                            <div className="teste4">
+                                <h4>Colaborador</h4>
                                 <div className="botao-edicao center-align">
                                     <p>
                                         <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
@@ -230,15 +231,18 @@ class PerfilColab extends Component {
                         </div>
 
                         <div className="col col s12 m12 l4">
-                            
+                            <div className="teste3 center-align">
+                                <h6>Visualizar Trilha de Aprendizagem</h6>
+                                <ButtonSubLink id="" title="Aqui!" fname="" link="/TrilhaDeAprendizagem" />
+                            </div>
                         </div>
 
-                        
+
 
                         <div className="col col s12 m12 l8">
                             <div className="teste3">
                                 <h4>Cursos</h4>
-                                    <Cursos />
+                                <Cursos />
                             </div>
                         </div>
 
@@ -248,15 +252,15 @@ class PerfilColab extends Component {
                                 <form action="#">
                                     {this.state.colaborador.map(info =>
                                         <p className="grid-check">
-                                            { <Check fname="" value="" name="JavaScript" />}
+                                            {<Check fname="" value="" name="JavaScript" />}
 
-                                            { <Check fname="" value="" name="React" />}
+                                            {<Check fname="" value="" name="React" />}
 
-                                            { <Check fname="" value="" name="LGPD" />}
+                                            {<Check fname="" value="" name="LGPD" />}
 
-                                            { <Check fname="" value="" name="GitHub" />}
+                                            {<Check fname="" value="" name="GitHub" />}
 
-                                            { <Check fname="" value="" name="Typescript" />}
+                                            {<Check fname="" value="" name="Typescript" />}
 
                                         </p>
                                     )}

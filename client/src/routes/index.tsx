@@ -24,6 +24,7 @@ import Documentos from "../pages/documentos/index"
 import Cargo from "../pages/tabela/cargos";
 import Trilha from "../pages/trilha/trilha";
 import Cursos from "../pages/cursos/cursos";
+import NovoCurso from "../pages/novo curso/index";
 
 function Routes() {
     return (
@@ -51,6 +52,10 @@ function Routes() {
 
                 <Route path="/UploadMateriais" element={<ProtectedRoute redirectTo={"/"}>
                     <UploadMateriais />
+                </ProtectedRoute>} />
+
+                <Route path="/NovoCurso" element={<ProtectedRoute redirectTo={"/"}>
+                    <NovoCurso />
                 </ProtectedRoute>} />
 
                 <Route path="/TrilhaDeAprendizagem" element={<ProtectedRoute redirectTo={"/"}>

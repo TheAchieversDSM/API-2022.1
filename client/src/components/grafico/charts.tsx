@@ -8,19 +8,12 @@ class Teste extends Component {
                 id: "basic-bar"
             },
             xaxis: {
-                labels: {
-                    datetimeFormatter: {
-                        year: 'yyyy',
-                        month: 'MMM \'yy',
-                        day: 'dd MMM',
-                        hour: 'HH:mm'
-                    }
-                }
+                categories:["2001","2001","2001","2001","2001","2001","2001","2001","2001","2001"]
             }
         },
         series: [
             {
-                name: "series-1",
+                name: "Aulas Assistidas",
                 data: []
             },
             {
@@ -31,13 +24,16 @@ class Teste extends Component {
     };
 
     teste = () => {
-        const valores = [10, 10, 10, 10, 10, 10, 10, 10]
+        const valores = [10, 15, 14, 1, 10, 10, 10, 10]
         const newSeries = []
         this.state.series.forEach((s) => {
             const data =  valores
             newSeries.push({data, name: s.name })
 
         })
+        this.setState({
+            series: newSeries
+          })
 
     }
 
@@ -50,7 +46,8 @@ class Teste extends Component {
                             options={this.state.options}
                             series={this.state.series}
                             type="line"
-                            width="500"
+                            width="90%"
+                            height="240%"
                         />
                         <button onClick={this.teste}>TESTE</button>
                     </div>

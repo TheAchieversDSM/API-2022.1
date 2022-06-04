@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
-import { cnpj,cpf } from "cpf-cnpj-validator";
+import { cnpj, cpf } from "cpf-cnpj-validator";
 // LOCAL CSS
 import './trilha.css'
 
@@ -30,7 +30,7 @@ class Trilha extends Component {
 
     componentDidMount() {
         let url = window.location.href.split("/")
-        if (url[3] === "PerfilColaborador") { 
+        if (url[3] === "PerfilColaborador") {
             this.state.id = url[4]
         }
 
@@ -62,8 +62,8 @@ class Trilha extends Component {
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
             }
-        )
-        
+            )
+
         axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
             console.log(res.data);
             const info_academica = res.data;
@@ -71,7 +71,7 @@ class Trilha extends Component {
         }
         )
 
-     
+
     }
 
     render() {
@@ -83,27 +83,28 @@ class Trilha extends Component {
                 <div className="conteudo">
                     <div className="row">
 
-                        <div className="col col s12 m12 l7">
+                        <div className="col col s12 m12 l6">
                             <div className="teste3">
-                                <h4>Aulas</h4>
+                                <h5>Aulas</h5>
                                 <p>
-                                    {<p><label>Aula</label></p>}
-
+                                    <p><label>Assistidas: </label></p>
+                                    <p><label>Faltam: </label></p>
                                 </p>
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l5">
+                        <div className="col col s12 m12 l6">
                             <div className="teste3">
-                              
+                                <h5>Cursos</h5>
+                                <p></p>
                             </div>
                         </div>
 
-    
+
 
                         <div className="col col s12">
                             <div className="teste3 center-align">
-                               <Teste/>
+                                <Teste />
                             </div>
                         </div>
 

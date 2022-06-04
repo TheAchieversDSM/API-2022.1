@@ -10,19 +10,20 @@ import InputValue from "../../components/input/inputValue";
 import General from "../../components/general";
 import DisableOption from "../../components/dropdown/disableOption";
 import Option from "../../components/dropdown";
-import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
-import { FormErrors } from "./teste";
-import InputOnFocus from "../../components/input/inputOnFocus";
+import { FormErrors } from "../../utils/formErrors/formErrors";
 
 class NovoPerfil extends Component {
     state = {
         email: "",
         password: "",
-        tipoPessoa: String,
-        formErrors: {email: '', password: ''},
+        tipoPessoa: "",
+
+        // VALIDAÇÃO
+        formErrors: {email: '', password: '', tipoPessoa: ''},
         emailValid: false,
         passwordValid: false,
+        tipoPessoaValid: false,
         formValid: false
     }
 
@@ -30,6 +31,7 @@ class NovoPerfil extends Component {
         let fieldValidationErrors = this.state.formErrors;
         let emailValid = this.state.emailValid;
         let passwordValid = this.state.passwordValid;
+        let tipoPessoaValid = this.state.tipoPessoaValid
       
         switch(fieldName) {
             case 'email':
@@ -37,8 +39,12 @@ class NovoPerfil extends Component {
                 fieldValidationErrors.email = emailValid ? '' : ' inválido';
                 break;
             case 'password':
-                passwordValid = value.length >= 6;
+                passwordValid = value.length >= 2;
                 fieldValidationErrors.password = passwordValid ? '': ' inválida';
+                break;
+            case 'tipoPessoa':
+                tipoPessoaValid = value.length > 0;
+                fieldValidationErrors.tipoPessoa = tipoPessoaValid ? '': ' inválida';
                 break;
             default:
                 break;
@@ -46,13 +52,14 @@ class NovoPerfil extends Component {
 
         this.setState({formErrors: fieldValidationErrors,
                         emailValid: emailValid,
-                        passwordValid: passwordValid
+                        passwordValid: passwordValid,
+                        tipoPessoaValid: tipoPessoaValid
                       }, this.validateForm);
       }
       
-      validateForm() {
-        this.setState({formValid: this.state.emailValid && this.state.passwordValid}); 
-      }
+    validateForm() {
+        this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.tipoPessoaValid}); 
+    }
 
     handleChange = event => {
         this.setState({
@@ -95,20 +102,21 @@ class NovoPerfil extends Component {
 
                 <div className="conteudo">
                     <h3>Novo Perfil</h3>
-                    <FormErrors formErrors={this.state.formErrors} />
                     <div className="form">
                         <div className="teste1 row">
                             <form action="">
                                 <InputValue value={this.state.email} stateName="email" fname={this.handleChange} div="input-field" type="email" id="email" name="E-mail" class="validate" />
                                 <InputValue value={this.state.password}  stateName="password" fname={this.handleChange} div="input-field" type="password" id="password" name="Senha" class="validate" />
-                            </form>
+                            
 
-                            <label>Pessoa</label>
-                            <select name="tipoPessoa" className="browser-default" id="tipoPessoa" onChange={this.handleChange}>
-                                <DisableOption disableValue="" disableNome="Escolha uma das opções" />
-                                <Option function="" value="Fisica" name="Pessoa Física" />
-                                <Option function="" value="Juridica" name="Pessoa Jurídica" />
-                            </select>
+                                <label>Pessoa</label>
+                                <select name="tipoPessoa" className="browser-default" id="tipoPessoa" onChange={this.handleChange}>
+                                    <DisableOption disableValue="" disableNome="Escolha uma das opções" />
+                                    <Option function="" value="Fisica" name="Pessoa Física" />
+                                    <Option function="" value="Juridica" name="Pessoa Jurídica" />
+                                </select>
+                            </form>
+                            <FormErrors formErrors={this.state.formErrors} />
     
                             <div className="botao-novoperfil">
                             <button type="submit" className="btn btn-primary" onClick={this.handleSubmit} disabled={!this.state.formValid}>Criar!</button>

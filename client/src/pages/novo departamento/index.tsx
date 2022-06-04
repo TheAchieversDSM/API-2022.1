@@ -8,22 +8,68 @@ import M from "materialize-css";
 // COMPONENTS
 import Input from "../../components/input/input";
 import General from "../../components/general";
-import Check from "../../components/input/check"
-import ButtonMat from "../../components/button/buttonMat";
 import Css from "../../assets/style/style";
 import Option from "../../components/dropdown";
 import DisableOption from "../../components/dropdown/disableOption";
+import { FormErrors } from "../../utils/formErrors/formErrors";
 
 class NovoDep extends Component {
     state = {
         departamento: "",
         departamento_id: "",
         departamentos: [],
-        nivel_acesso: String,
+        nivel_acesso: "",
         car_salario: "",
-        car_descricao: ""
+        car_descricao: "",
+
+        // VALIDAÇÃO
+        departamentoValid: false,
+        car_salarioValid: false,
+        car_descricaoValid: false,
+        nivel_acessoValid: false,
+        formValid: false,
+        formErrors: {departamento: '', car_salario: '', car_descricao: '', nivel_acesso: ''}
     }
 
+    validateField(fieldName, value) {
+        let fieldValidationErrors = this.state.formErrors;
+        let departamentoValid = this.state.departamentoValid;
+        let car_salarioValid = this.state.car_salarioValid;
+        let car_descricaoValid = this.state.car_descricaoValid;
+        let nivel_acessoValid = this.state.nivel_acessoValid;
+      
+        switch(fieldName) {
+            case 'departamento':
+                departamentoValid = value.length > 0;
+                fieldValidationErrors.departamento = departamentoValid ? '' : ' inválido';
+                break;
+            case 'car_salario':
+                car_salarioValid = value.match(/^(^[0-9,]*$)$/i);
+                fieldValidationErrors.car_salario = car_salarioValid ? '' : ' inválido';
+                break;
+            case 'car_descricao':
+                car_descricaoValid = value.length > 1;
+                fieldValidationErrors.car_descricao = car_descricaoValid ? '': ' inválida';
+                break;
+            case 'nivel_acesso':
+                nivel_acessoValid = value.length > 0;
+                fieldValidationErrors.nivel_acesso = nivel_acessoValid ? '': ' inválida';
+            break;
+            default:
+                break;
+        }
+
+        this.setState({formErrors: fieldValidationErrors,
+                        departamentoValid: departamentoValid,
+                        car_salarioValid: car_salarioValid,
+                        car_descricaoValid: car_descricaoValid,
+                        nivel_acessoValid: nivel_acessoValid,
+                      }, this.validateForm);
+      }
+      
+      validateForm() {
+        this.setState({formValid: this.state.departamentoValid && this.state.car_salarioValid && this.state.car_descricaoValid && this.state.nivel_acessoValid }); 
+      }
 
     handleChange = event => {
         this.setState({
@@ -31,6 +77,11 @@ class NovoDep extends Component {
             [event.target.name]: event.target.value
         });
         console.log(this.state);
+
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({[name]: value}, 
+            () => { this.validateField(name, value) });
     };
 
     handleSubmit = async (event) => {
@@ -67,7 +118,6 @@ class NovoDep extends Component {
             
         })
 
-
         this.setState({
             
         })
@@ -103,8 +153,12 @@ class NovoDep extends Component {
                                 <Option function="" value="0" name="Usuário Comum - Acesso Comum" />
                             </select>
 
+                            <FormErrors formErrors={this.state.formErrors} />
+
                             <div className="botao-novoperfil">
-                                <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar!" iClass="{}" />
+                                <button type="submit" className="btn btn-primary" onClick={this.handleSubmit} disabled={!this.state.formValid}>Criar!</button>
+
+                                {/*<ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn" name="Criar!" iClass="{}" />*/}
                             </div>
                         </div>
                     </div>

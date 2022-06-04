@@ -90,10 +90,8 @@ class Cursos extends Component {
 
                         <div className="col s12 m12 l5">
                             <div className="teste3">
-                                <p>
-                                    {<p><label>Aula</label></p>}
-
-                                </p>
+                                <p><label>Total de aulas: </label></p>
+                                <p></p>
                             </div>
                         </div>
 
@@ -174,10 +172,6 @@ class Cursos extends Component {
 
                     </div>
 
-                    <div className="Buttom">
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Voltar" iClass="fa-solid fa-arrow-left-long"></ButtonMat>
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Avançar" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
-                    </div>
                    
                 </div>
 

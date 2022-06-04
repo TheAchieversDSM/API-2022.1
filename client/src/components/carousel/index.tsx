@@ -19,12 +19,10 @@ class Carousel extends Component<props> {
     render() {
         return (
             <>
-                <div ref={Carousel => {
-                    this.Carousel = Carousel;
-                }}
-                className="carousel">
-                    <div className="carousel carousel-slider center">
-                        <div className="carousel-item white-text">
+                <div>
+                    <div className="carousel carousel-slider center" ref={Carousel => {
+                    this.Carousel = Carousel;}}>
+                        <div className="carousel-item white-text center">
                             <h2>Normas de Treinamento e Desenvolvimento</h2>
                             <h1><i className="fa-solid fa-chalkboard-user"></i></h1>
                             <a className="btn waves-effect white grey-text darken-text-2" target="_blank" href="https://drive.google.com/file/d/1RpqbTCcnuoqe57E-UMdkKcilXxaYaZXe/view?usp=sharing">Visualizar PDF</a>
