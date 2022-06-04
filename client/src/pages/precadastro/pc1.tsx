@@ -218,6 +218,7 @@ class PreCadastro1 extends Component {
             console.log(this.state);
         } else {
             M.toast({ html: "CPF INVÁLIDO!", classes: "red darken-4 rounded" })
+
         }
     }
 
@@ -270,6 +271,19 @@ class PreCadastro1 extends Component {
             document.getElementById("homemBody").style.display = "none";
         }
     }
+
+    handleChangeSelectTermos = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        });
+        console.log(this.state);
+
+        if (event.target.value == "aceito") {
+            document.getElementById("termosUsoCheck").style.display = "block";
+            document.getElementById("termosUsoNoCheck").style.display = "none";
+        }
+    };
 
     handleChangeSelect = event => {
         this.setState({
@@ -780,7 +794,7 @@ class PreCadastro1 extends Component {
                         <div className="termosUso">
                                 <label>
                                     <form action="">
-                                        <input type="checkbox" value="Aceito" id="termos" name='termos'/>
+                                    <input type="checkbox" value="Aceito" required={true} />
                                         <span>Eu concordo com o Termos de Uso.</span>
                                     </form>
                                 </label>
@@ -797,7 +811,7 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-                        <div className="Buttom" id="teste">
+                        <div className="Buttom">
                             <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
                         </div>
                     </div>
