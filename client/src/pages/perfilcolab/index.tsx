@@ -182,7 +182,7 @@ class PerfilColab extends Component {
                                     <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
-                                            {/*{this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}*/}
+                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}
                                             {this.state.historico.map(info => 
                                             <>
                                             <p><label>Data de admissão:</label>{info.data_admissao}</p>

@@ -53,7 +53,7 @@ function Routes() {
                 </ProtectedRoute>} />
 
                 <Route path="/TrilhaDeAprendizagem" element={<ProtectedRoute redirectTo={"/"}>
-                    <Trilha/>
+                    <Trilha />
                 </ProtectedRoute>} />
 
                 <Route path="/NovoPerfil" element={<ProtectedRoute redirectTo={"/"}>
