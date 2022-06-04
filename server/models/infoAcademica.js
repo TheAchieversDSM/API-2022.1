@@ -20,6 +20,23 @@ InfoAcademica.createInfoAcademica = (InfoAcademica,result) => {
         }
     });
 }
+
+
+InfoAcademica.updateInfoAcademica = (Userdata, Userid, result) => {
+   console.log("infoAcademica (BD):  " + Userdata);
+
+    db.query("UPDATE qualificacao SET ? WHERE colaborador_col_id = ?", [Userdata, Userid], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else {
+            console.log("Qualificacao atualizada!");
+            result(null, res);
+        }
+    })
+}
+
 InfoAcademica.getInfoAcademica = (id,result) =>{
     db.query("SELECT * FROM qualificacao WHERE colaborador_col_id = ?",id,(err,res)=>{
         if (err) {

@@ -2,9 +2,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
 flush privileges;
 
-select * from colaborador;
-
-select * from pessoa_fisica;
+select * from colaborador order by col_nome;
 
 select * from qualificacao;
 

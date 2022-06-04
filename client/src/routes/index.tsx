@@ -45,6 +45,10 @@ function Routes() {
                     <PreCadastro1 />
                 </ProtectedRoute>} />
 
+                <Route path="/EditarCadastro/:id" element={<ProtectedRoute redirectTo={"/"}>
+                    <PreCadastro1/>
+                </ProtectedRoute>} />
+
                 <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao />
                 </ProtectedRoute>} />

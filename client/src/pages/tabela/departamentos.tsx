@@ -63,7 +63,7 @@ class Departamento extends Component {
                             </thead>
                             
                             <tbody>                  
-                                    {this.state.departamentos.map(depart => <TR key={depart.dep_id} url={`/VisualizarDepartamento/${depart.dep_id}`} nome={depart.dep_descricao} departamento={depart.col_nome + "  -   "+depart.dep_head} cargo={""} />)}
+                                    {this.state.departamentos.map(depart => <TR key={depart.dep_id} urlVisualizacao={`/VisualizarDepartamento/${depart.dep_id}`} urlEdicao={`/VisualizarDepartamento/${depart.dep_id}`} nome={depart.dep_descricao} departamento={depart.col_nome + "  -   "+depart.dep_head} cargo={""} />)}
             
                             </tbody>
                         </table>

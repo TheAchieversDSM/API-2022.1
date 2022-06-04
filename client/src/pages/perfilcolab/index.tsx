@@ -37,6 +37,7 @@ class PerfilColab extends Component {
 
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
+                
                 console.log(res.data);
                 const colaborador = res.data.user;
                 const head_colaborador = res.data.head_user;
