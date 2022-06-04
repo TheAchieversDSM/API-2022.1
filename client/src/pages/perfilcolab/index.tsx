@@ -2,7 +2,7 @@ import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import swal from "sweetalert";
-import { cnpj,cpf } from "cpf-cnpj-validator";
+import { cnpj, cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS
 import './perfil.css'
@@ -30,6 +30,7 @@ class PerfilColab extends Component {
         mensagem: "",
         id: getCookie("id")
     };
+
     handleChange = event => {
         this.setState({
             ...this.state,
@@ -37,9 +38,10 @@ class PerfilColab extends Component {
         });
         console.log(this.state);
     };
+
     desligamento = () =>{
         swal({
-            title: "Você tem certeza ?",
+            title: "Você tem certeza?",
             text: `Tem certeza que quer desligar ${this.state.colaborador[0].col_nome} ?`,
             icon: "warning",
             buttons: {
@@ -144,7 +146,6 @@ class PerfilColab extends Component {
                 this.setState({ colaborador });
                 this.setState({ head_colaborador });
                 console.log(historico);
-                
             }
         )
         
@@ -152,8 +153,13 @@ class PerfilColab extends Component {
             console.log(res.data);
             const info_academica = res.data;
             this.setState({ info_academica });
-        }
-        )
+        })
+
+        axios.get(`http://localhost:5000/upload/getArquivo/${this.state.id}`).then((res) => {
+            console.log(res.data);
+            const documentos = res.data;
+            this.setState({ documentos });
+        })
     }
 
     render() {
@@ -176,7 +182,7 @@ class PerfilColab extends Component {
                                     <div className="col s12 m12 l7 center-align">
                                         {this.state.colaborador.map(info => <h5 key={info.col_id} className="name">{info.col_nome}</h5>)}
                                         <p>
-                                            {this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}
+                                            {/*{this.state.colaborador.map(info => <p key={info.col_id}><label>CPF:</label> {cpf.format(info.col_cpf.toString())}</p>)}*/}
                                             {this.state.historico.map(info => 
                                             <>
                                             <p><label>Data de admissão:</label>{info.data_admissao}</p>
@@ -193,14 +199,14 @@ class PerfilColab extends Component {
                         </div>
                         <div className="col s12 m12 l5">
                             <div className="teste1">
-                                <h4>Contrato</h4>
-                                <div className="contrato-info center-align">
+                                <div className="botao-edicao center-align">
+                                <h4>Colaborador</h4>
                                     <p>
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align " name="Visualizar" iClass="fa-solid fa-book-open-reader" />
+                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
                                     </p>
                                     <p id="p1">ou</p>
-                                    <p id="p2">
-                                        <ButtonMat fname={"a"} class="waves-effect waves-light btn-large center-align" name="Baixar em PDF" iClass="fa-solid fa-file-arrow-down" />
+                                    <p>
+                                        <ButtonMat fname={this.desligamento} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
                                     </p>
                                 </div>
                             </div>
@@ -266,7 +272,7 @@ class PerfilColab extends Component {
                                         desc4="RG do conjuge"
                                         desc5=""
                                         desc6="" />
-
+                                    
                                     <Collapse title="Paternidade/Maternidade"
                                         desc1={this.state.colaborador.map(info => <p key={info.col_id}><label>Dependentes:</label> {info.col_filho}</p>)}
                                         desc2="Certidão de nascimento"
@@ -274,17 +280,16 @@ class PerfilColab extends Component {
                                         desc4="Comprovante de frequência escolar"
                                         desc5="Pensão alimentícia"
                                         desc6="" />
-                                    {this.state.historico.map(info =>
-                                        <>
-                                        {info.his_data_desligamento!=null?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Data do Desligamento:</label> {info.data_desligamento}</p>}
-
-                                        desc2= {<p key={info.qua_id}><label>Motivo:</label> {info.his_desligamento_descricao}</p>}
-                                        desc3="" 
-                                        desc4="" 
-                                        desc5="" 
-                                        desc6="" /> : null}
-                                        </>
-                                        
+                                   
+                                        {this.state.historico.map(info => 
+                                            <>
+                                            {info.his_data_desligamento!=null?<Collapse title="Informações do desligamento" desc1= {<p key={info.qua_id}><label>Data do Desligamento:</label> {info.data_desligamento}</p>}
+                                            desc2= {<p key={info.qua_id}><label>Motivo:</label> {info.his_desligamento_descricao}</p>}
+                                            desc3=""
+                                            desc4=""
+                                            desc5=""
+                                            desc6="" /> : null} 
+                                            </>
                                     )}
                                 </ul>
                             </div>
@@ -298,29 +303,15 @@ class PerfilColab extends Component {
                                     <p key={info.colaborador_col_id} className="grid-check">
                                         {info.car_plano_saude? <CheckChecked value="" name="Plano de Saúde" />:<Check  fname="" value="" name="Plano de Saúde" />}
 
-                                        {info.car_vale_refeicao !=0? <CheckChecked value="" name="Vale Refeição" />:<Check  fname="" value="" name="Vale Refeição" />}
+                                        {info.car_vale_refeicao !=0? <CheckChecked value="" name="Vale Refeição" />:<Check  fname=""  value="" name="Vale Refeição" />}
 
                                         {info.car_vale_transporte !=0? <CheckChecked value="" name="Vale Transporte" />:<Check  fname="" value="" name="Vale Transporte" />}
 
-                                        {info.car_auxilio_creche !=0 ? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname="" value="" name="Auxílio Creche" />}
+                                        {info.car_auxilio_creche !=0 ? <CheckChecked value="" name="Auxílio Creche" />:<Check  fname=""  value="" name="Auxílio Creche" />}
 
                                     </p>
                                     )}
                                 </form>
-                            </div>
-                        </div>
-
-                        <div className="col col s12 m12 l4">
-                            <div className="teste4">
-                                <div className="botao-edicao center-align">
-                                    <p>
-                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
-                                    </p>
-                                    
-                                    <p>
-                                        <ButtonMat fname={this.desligamento} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -185,19 +185,6 @@ class PreCadastro1 extends Component {
         }
     }
 
-    handleChangeSelectTermos = event => {
-        this.setState({
-            ...this.state,
-            [event.target.name]: event.target.value
-        });
-        console.log(this.state);
-
-        if (event.target.value == "aceito") {
-            document.getElementById("termosUsoCheck").style.display = "block";
-            document.getElementById("termosUsoNoCheck").style.display = "none";
-        }
-    };
-
     handleChangeSelect = event => {
         this.setState({
             ...this.state,
@@ -699,7 +686,7 @@ class PreCadastro1 extends Component {
                             
                                 <label>
                                     <form action="">
-                                    <input type="checkbox" value="Aceito" required={true} />
+                                        <input type="checkbox" value="Aceito" id="termos" name='termos'/>
                                         <span>Eu concordo com o Termos de Uso.</span>
                                     </form>
                                 </label>
@@ -716,7 +703,7 @@ class PreCadastro1 extends Component {
                             </div>
                         </div>
 
-                        <div className="Buttom">
+                        <div className="Buttom" id="teste">
                             <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Finalizar!" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
                         </div>
                     </div>

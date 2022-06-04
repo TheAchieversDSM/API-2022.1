@@ -59,7 +59,7 @@ class UploadMateriais extends Component {
             <>
             <General />
 
-            <Css ref="./home.css" />
+            <Css ref="./novoperfil.css" />
             <div className="conteudo">
                     <h4>Upload de Materiais</h4>
 

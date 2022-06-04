@@ -19,5 +19,18 @@ Arquivo.insertArquivo = (id,path,result) =>{
     })
 }
 
+Arquivo.getArquivo = (id,result) =>{
+    db.query("SELECT * FROM documentos WHERE colaborador_col_id = ?",id,(err,res)=>{
+        if (err) {
+            console.log("Erro ao encontrar documentos do usuário", err);
+            result(null, err);
+        }
+        else {
+            console.log("Encontrado os documentos do Usuário");
+            result(null, res);
+        }
+    })
+}
+
 module.exports = Arquivo
 

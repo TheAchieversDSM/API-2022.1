@@ -12,7 +12,7 @@ class Carousel extends Component<props> {
             instances[0].pressed = true
             instances[0].options.indicators = true
             instances[0].options.fullWidth = true
-            
+
             console.log(instances[0].options);
         });
     }

@@ -240,4 +240,8 @@ div.eeeee span ul li a {
     width: 250px !important;
 }
 
+#teste {
+    display: none;
+}
+
 @media only screen and (max-width : 992px) {}
