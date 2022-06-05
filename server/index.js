@@ -9,6 +9,9 @@ const notificacaoRoutes = require("./routes/notificacaoRoutes")
 const historicoRoutes = require("./routes/historicoRoutes")
 const uploadRoutes = require("./routes/uploadRoutes")
 const cepRoute = require("./routes/cepRoute")
+const cursoRoutes = require("./routes/cursoRoutes")
+const materialRoutes = require("./routes/materialRoutes")
+const aulaRoutes = require("./routes/aulaRoutes")
 const infoAcademicaRoutes = require("./routes/infoAcademicaRoutes")
 
 
@@ -33,21 +36,24 @@ app.use("/cargos", cargosRoutes)
 app.use("/upload", uploadRoutes)
 app.use("/consultarCEP", cepRoute)
 app.use("/historico", historicoRoutes)
-app.use("/infoacademica",infoAcademicaRoutes)
+app.use("/infoacademica", infoAcademicaRoutes)
 app.use("/notificacao", notificacaoRoutes)
+app.use("/material", materialRoutes)
+app.use("/aula",aulaRoutes)
+app.use("/curso", cursoRoutes)
 
 const path = require('path')
-const diretorioPrincipal = path.join( __dirname, 'uploads');
+const diretorioPrincipal = path.join(__dirname, 'uploads');
 // GET request for single file
-app.get('/infocolab/uploads/:file',function(req, res) {
+app.get('/infocolab/uploads/:file', function (req, res) {
     const docLink = req.params.file;
     const caminhoArquivo = diretorioPrincipal + '/' + docLink;
     console.log('downloading file...');
     console.log("caminhoArquivo = " + caminhoArquivo);
 
     // Download function provided by express
-    res.download(caminhoArquivo, function(err) {
-        if(err) {
+    res.download(caminhoArquivo, function (err) {
+        if (err) {
             console.log(err);
         }
     })

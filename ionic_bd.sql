@@ -201,20 +201,34 @@ CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_curso`(
 
 
 -- -----------------------------------------------------
--- Table `api_ionic`.`trilha_material`
+-- Table `api_ionic`.`curso_aula`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_material` (
-  `trilha_material_id` INT NOT NULL AUTO_INCREMENT,
-  `link_trilha_material` VARCHAR(80) NULL,
+CREATE TABLE IF NOT EXISTS `api_ionic`.`curso_aula` (
+  `curso_aula_id` INT NOT NULL AUTO_INCREMENT,
+  `curso_aula_nome` VARCHAR(80) NOT NULL,
   `trilha_curso_id` INT NOT NULL,
-  PRIMARY KEY (`trilha_material_id`),
-  INDEX `fk_trilha_material_trilha_curso_id1_idx` (`trilha_curso_id` ASC)  ,
-  CONSTRAINT `fk_trilha_material_trilha_curso1`
+  PRIMARY KEY (`curso_aula_id`),
+  INDEX `fk_curso_aula_trilha_curso_id1_idx` (`trilha_curso_id` ASC)  ,
+  CONSTRAINT `fk_curso_aula_trilha_curso1`
     FOREIGN KEY (`trilha_curso_id`)
     REFERENCES `api_ionic`.`trilha_curso` (`trilha_curso_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
- 
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`aula_material`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`aula_material`(
+  `material_aula_id` INT NOT NULL AUTO_INCREMENT,
+  `material_link` VARCHAR(80) NOT NULL,
+  `curso_aula_id` INT NOT NULL,
+  PRIMARY KEY (`material_aula_id`),
+  INDEX `fk_material_aula_curso)aula_id1_idx` (`curso_aula_id` ASC)  ,
+  CONSTRAINT `fk_material_aula_curso_aula_id1`
+    FOREIGN KEY (`curso_aula_id`)
+    REFERENCES `api_ionic`.`curso_aula` (`curso_aula_id`)
+  
+) ;
 -- -----------------------------------------------------
 -- Table `api_ionic`.`trilha_aprendizagem`
 -- -----------------------------------------------------

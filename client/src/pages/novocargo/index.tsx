@@ -140,7 +140,7 @@ class NovoCargo extends Component {
                                 </select>
                             </form>
 
-                            <div className="eeeee1">
+                            <div className="aaa">
                                 <span>
                                     <ul>
                                         <li>Administrador - Acesso Total: Visualização sem restrição alguma. Pode criar, alterar e inativar usuários, departamentos e cargos.</li>

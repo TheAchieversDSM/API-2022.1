@@ -2,7 +2,7 @@
     margin-left: 6px;
 }
 
-.eeeee1 {
+.aaa {
     background-color: #ACD8DE;
     height: 22px !important;
     width: 22px;
@@ -13,7 +13,7 @@
     position: relative;
 }
 
-div.eeeee1 span li {
+div.aaa span li {
     margin: 10px;
     line-height: 20px;
 }
@@ -22,7 +22,7 @@ div.eeeee1 span li {
     border: 0.1px solid rgba(71, 71, 71, 0.518);
 }
 
-div.eeeee1 span {
+div.aaa span {
     position: absolute;
     text-align: center;
     visibility: hidden;
@@ -32,7 +32,7 @@ div.eeeee1 span {
     margin-bottom: 20px !important;
 }
 
-div.eeeee1 span:after {
+div.aaa span:after {
     content: '';
     position: absolute;
     bottom: 100%;
@@ -45,7 +45,7 @@ div.eeeee1 span:after {
     border-left: 8px solid transparent;
 }
 
-div:hover.eeeee1 span {
+div:hover.aaa span {
     visibility: visible;
     opacity: 0.9;
     top: 30px;

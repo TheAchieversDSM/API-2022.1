@@ -25,6 +25,7 @@ import Cargo from "../pages/tabela/cargos";
 import Trilha from "../pages/trilha/trilha";
 import Cursos from "../pages/cursos/cursos";
 import NovoCurso from "../pages/novo curso/index";
+import Atualizar from "../pages/atualizar/index";
 
 function Routes() {
     return (
@@ -45,6 +46,12 @@ function Routes() {
                 <Route path="/CompletarCadastro" element={<ProtectedRoute redirectTo={"/"}>
                     <PreCadastro1 />
                 </ProtectedRoute>} />
+
+                <Route path="/EditarCadastro/:id" element={<ProtectedRoute redirectTo={"/"}>
+                    <Atualizar/>
+                </ProtectedRoute>} />
+
+
 
                 <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao />

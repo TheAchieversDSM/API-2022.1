@@ -38,6 +38,7 @@ class PerfilColab extends Component {
 
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
+
                 console.log(res.data);
                 const colaborador = res.data.user;
                 const head_colaborador = res.data.head_user;
@@ -116,7 +117,7 @@ class PerfilColab extends Component {
                                 <h4>Colaborador</h4>
                                 <div className="botao-edicao center-align">
                                     <p>
-                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Editar" iClass="fa-solid fa-user-pen" />
+                                        <ButtonSubLink id="" title="Editar" fname="" link="/EditarCadastro/:id" />
                                     </p>
                                     <p>ou</p>
                                     <p>

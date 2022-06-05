@@ -84,7 +84,13 @@ class Funcionario extends Component {
                             </thead>
                             
                             <tbody>                  
-                                    {this.state.colaboradores.map(colaborador => <TR key={colaborador.col_id} url={`/PerfilColaborador/${colaborador.col_id}`} nome={colaborador.col_nome} departamento={colaborador.dep_descricao} cargo={colaborador.car_descricao} />)}
+                                    {this.state.colaboradores.map(colaborador => 
+                                        <TR key={colaborador.col_id} 
+                                            urlEdicao={`/EditarCadastro/${colaborador.col_id}`} 
+                                            urlVisualizacao={`/PerfilColaborador/${colaborador.col_id}`} 
+                                            nome={colaborador.col_nome} 
+                                            departamento={colaborador.dep_descricao} 
+                                            cargo={colaborador.car_descricao} />)}
             
                             </tbody>
                         </table>
