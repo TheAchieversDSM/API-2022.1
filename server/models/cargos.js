@@ -43,6 +43,18 @@ Cargos.createNewCargo = (car_data,result) =>{
     })
 }
 
+Cargos.getAllUserIdFromCargo = (id,result) =>{
+    db.query('SELECT col_id FROM colaborador WHERE cargo_car_id = ?',id,(err,res) =>{
+        if(err){
+            console.log('Erro ao Encontrar ID dos usuários', err);
+            result(null,err);
+        }else{
+            console.log('Encontrado o ID dos usuários');
+            result(null,res);
+        }
+    })
+}
+
 
 
 module.exports = Cargos

@@ -12,6 +12,8 @@ const cepRoute = require("./routes/cepRoute")
 const cursoRoutes = require("./routes/cursoRoutes")
 const materialRoutes = require("./routes/materialRoutes")
 const aulaRoutes = require("./routes/aulaRoutes")
+const trilhaRoutes = require("./routes/trilhaRoutes")
+const aulaAndamentoRoutes = require("./routes/aulaAndamentoRoutes")
 const infoAcademicaRoutes = require("./routes/infoAcademicaRoutes")
 
 
@@ -40,6 +42,8 @@ app.use("/infoacademica", infoAcademicaRoutes)
 app.use("/notificacao", notificacaoRoutes)
 app.use("/material", materialRoutes)
 app.use("/aula",aulaRoutes)
+app.use("/aulaAndamento",aulaAndamentoRoutes)
+app.use("/trilha",trilhaRoutes)
 app.use("/curso", cursoRoutes)
 
 const path = require('path')

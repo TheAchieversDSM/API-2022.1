@@ -32,7 +32,7 @@ export default function Navbar() {
             <SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" />
             <SideNav link="/NovoDepartamento" class="fa-solid fa-layer-group" name="Novo Departamento" />
             <SideNav link="/NovoCargo" class="fa-solid fa-briefcase" name="Novo Cargo" />
-            <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload dos Cursos" />
+            <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload de Materiais" />
             <SideNav link="/NovoCurso" class="fa-solid fa-laptop-file" name="Novo Curso" />
 
         </>

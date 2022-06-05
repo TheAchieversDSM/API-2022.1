@@ -13,6 +13,7 @@ import Caminho from "../../components/caminho/caminho";
 import Submit from '../../components/button/submit';
 import InputFile from "../../components/input/file";
 import InputValue from "../../components/input/inputValue";
+import './upload.css'
 
 class UploadMateriais extends Component {
     state = {
@@ -23,6 +24,8 @@ class UploadMateriais extends Component {
         curso_id: "",
         aula_nome: "",
         aula_id: "",
+        video_link: "",
+        ids: ""
     }
 
     componentDidMount() {
@@ -47,36 +50,49 @@ class UploadMateriais extends Component {
         console.log(this.state);
     };
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();   
         const data = {
             aula_nome: this.state.aula_nome,
             aula_id: this.state.curso_id
         }
-
         axios.post(`http://localhost:5000/aula/newAula`, data).then((res) => {
-
-        })
-        const aula = this.state.aula_nome
-        console.log(aula)
-        axios.post(`http://localhost:5000/aula/getAulaIdByName`, aula).then((res) => {
-            const tamanho = this.state.file.length
-            console.log(res.data);
-
-            const aula_id = res.data
-            this.setState({ aula_id })
-        })
-        /*
-        for (let index = 0; index < tamanho; index++) {
-            var dado = new FormData()
-            dado.append("file", this.state.file[index])
-            axios.post(`http://localhost:5000/material/newMaterial/${this.state.aula_id}`, dado).then((res) => {
+            if (res.data.erro) {
+              M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+              return false 
+            }
+      })
+              
+      var aula_nome =  this.state.aula_nome 
+      axios.post(`http://localhost:5000/aula/getAulaIdByName/${aula_nome}`).then((res) => {
+          const tamanho = this.state.file.length
+          console.log(res.data[0].curso_aula_id);
+          const aula_id = res.data[0].curso_aula_id
+          this.setState({ aula_id })
+          for (let index = 0; index < tamanho; index++) {
+              var dado = new FormData()
+              dado.append("file", this.state.file[index])
+              axios.post(`http://localhost:5000/material/newMaterial/${this.state.aula_id}`, dado).then((res) => {
+                console.log(res.data);
                 M.toast({ html: res.data, classes: "green darken-4 rounded" })
-            })
+              })
+          }
+        axios.get(`http://localhost:5000/trilha/getAllUsersIdByCurso/${this.state.curso_id}`).then((res)=>{
+            console.log(res.data.length);
+            for (let index = 0; index < res.data.length; index++) {
+                console.log("aqui");
+                
+                const data = {
+                    colaborador_col_id: res.data[index].colaborador_col_id,
+                    curso_aula_id: this.state.curso_id
+                }
+                axios.post("http://localhost:5000/aulaAndamento/createProgresso",data).then((res)=>{
 
-        }
-    })*/
+                })
+            }
+        })
+      })
     }
-
 
 
     render() {
@@ -101,9 +117,14 @@ class UploadMateriais extends Component {
                             <InputValue value={this.state.aula_nome} lenght={100} div="input-field" type="text" class="validate" stateName="aula_nome" id="aula_nome" fname={this.handleChange} name="Nome da Aula" />
 
                             <form datatype='multipart/form-data' >
-                                <label>Insira um ou mais arquivos</label>
+                                <p><label>Insira um ou mais arquivos</label></p>
                                 <input type='file' name='file' onChange={this.handleChangeFile} multiple />
                             </form>
+
+                            <div className="videoLink">
+                                <p><label>Para vídeos, insira o Link do YouTube.</label></p>
+                                <InputValue value={this.state.video_link} lenght={200} div="input-field" type="text" class="validate" stateName="video_link" id="video_link" fname={this.handleChange} name="Link do Youtube" />
+                            </div>
 
                             <Submit id="publicar" title="Publicar" fname={this.handleSubmit} />
 

@@ -18,6 +18,8 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 
+
+
 router.post('/newMaterial/:id', upload.single("file"), materialController.createNewMaterial)
 
 module.exports = router

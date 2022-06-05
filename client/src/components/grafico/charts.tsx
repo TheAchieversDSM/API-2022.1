@@ -8,23 +8,20 @@ class Teste extends Component {
                 id: "basic-bar"
             },
             xaxis: {
-                categories:["2001","2001","2001","2001","2001","2001","2001","2001","2001","2001"]
+                categories:["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out", "Nov", "Dez"]
             }
         },
         series: [
             {
                 name: "Aulas Assistidas",
                 data: []
-            },
-            {
-                name: "series-2",
-                data: []
             }
         ]
     };
 
     teste = () => {
-        const valores = [10, 15, 14, 1, 10, 10, 10, 10]
+        const valores= [10, 15, 14, 1, 10, 10, 10, 10, 5, 3, 6]
+
         const newSeries = []
         this.state.series.forEach((s) => {
             const data =  valores
@@ -40,8 +37,10 @@ class Teste extends Component {
     render() {
         return (
             <div className="app">
+                <h4>Aulas assistidas</h4>
                 <div className="row">
                     <div className="mixed-chart">
+                        
                         <Chart
                             options={this.state.options}
                             series={this.state.series}

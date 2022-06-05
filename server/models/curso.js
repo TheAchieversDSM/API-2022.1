@@ -27,5 +27,26 @@ Curso.getAll = (result) => {
         }
     })
 }
+Curso.getAllCursoInfoById = (id_curso,result) =>{
+    db.query('SELECT * FROM trilha_curso tc INNER JOIN curso_aula ca ON ca.trilha_curso_id = tc.trilha_curso_id AND tc.trilha_curso_id = ? ',[id_curso],(err, res) => {
+        if (err) {
+            console.log(err);
+            result(err)
+        } else {
+            result(res)
+        }
 
+})
+}
+
+Curso.getCursoIdByName = (curso_name,result) => {
+    db.query('SELECT trilha_curso_id FROM trilha_curso WHERE trilha_curso_nome = ?',curso_name,(err,res)=>{
+        if (err) {
+            console.log(err);
+            result(err)
+        } else {
+            result(res)
+        }
+    })
+}
 module.exports = Curso

@@ -82,6 +82,12 @@ class Trilha extends Component {
                 <Css ref="./perfil.css" />
                 <div className="conteudo">
                     <div className="row">
+                    <div className="col col s12 m12 l6">
+                            <div className="teste3">
+                                <h5>Curso</h5>
+                                <p></p>
+                            </div>
+                        </div>
 
                         <div className="col col s12 m12 l6">
                             <div className="teste3">
@@ -92,15 +98,6 @@ class Trilha extends Component {
                                 </p>
                             </div>
                         </div>
-
-                        <div className="col col s12 m12 l6">
-                            <div className="teste3">
-                                <h5>Cursos</h5>
-                                <p></p>
-                            </div>
-                        </div>
-
-
 
                         <div className="col col s12">
                             <div className="teste3 center-align">

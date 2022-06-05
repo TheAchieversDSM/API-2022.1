@@ -34,3 +34,13 @@ exports.createNewCargo = (req,res) =>{
         }
     })
 }
+
+exports.getAllUserIdFromCargo = (req,res) =>{
+    Cargos.getAllUserIdFromCargo(req.params.id,(err,ids) =>{
+        if(err){
+            res.send(err)
+        }else{
+            res.send(ids)
+        }
+    })
+}

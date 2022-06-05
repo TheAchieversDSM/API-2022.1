@@ -53,7 +53,7 @@ ENGINE = InnoDB
  
 COMMENT = 'Esta tabela armazenará informações sobre a contratação do colaborador, se foi interna ou externa.';
 
-SELECT * FROM tipo_contratacai;
+SELECT * FROM tipo_contratacao ;
 
 -- -----------------------------------------------------
 -- Table `api_ionic`.`colaborador`
@@ -231,7 +231,8 @@ SELECT * FROM curso_aula;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`aula_andamento` (
     `aula_andamento_id` INT NOT NULL AUTO_INCREMENT,
-    `aula_andamento_data_termino` DATE NOT NULL,
+    `aula_andamento_data_termino` DATE NULL,
+    `progresso` FLOAT DEFAULT 0, 
     `colaborador_col_id` INT NOT NULL,
     `curso_aula_id` INT NOT NULL,
     PRIMARY KEY (`aula_andamento_id`),

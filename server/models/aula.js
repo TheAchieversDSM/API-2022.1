@@ -9,21 +9,21 @@ Aula.createNewAula = (data, result) => {
     db.query(`INSERT INTO curso_aula SET ?`, data, (err, res) => {
         if (err) {
             console.log("Erro ao criar uma nova aula", err)
-            result(null, err)
+            result(err)
         } else {
-            result(null, res)
+            result(res)
         }
     })
 }
 
 Aula.getAulaIdByName = (aula_nome, result) => {
     console.log(aula_nome)
-    db.query(`SELECT * FROM curso_aula WHERE curso_aula_nome = ${aula_nome.toString()}`, (err, res) => {
+    db.query(`SELECT curso_aula_id FROM curso_aula WHERE curso_aula_nome = ?`,aula_nome, (err, res) => {
         if (err) {
             console.log("Erro ao encontrar a aula")
             result(null, err)
         } else {
-            result(null, res)
+            result(res)
         }
     })
 }

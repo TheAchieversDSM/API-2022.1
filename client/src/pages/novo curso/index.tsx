@@ -18,7 +18,8 @@ class NovoCurso extends Component {
     state = {
         cargos: [],
         curso_nome: "",
-        car_id: ""
+        car_id: "",
+        curso_id: ""
     }
     componentDidMount() {
         axios.get(`http://localhost:5000/cargos/`)
@@ -48,13 +49,30 @@ class NovoCurso extends Component {
         axios.post("http://localhost:5000/curso/createNewCurso", data).then((res) => {
             M.toast({ html: res.data, classes: "green darken-4 rounded" })
 
+            axios.get(`http://localhost:5000/curso/getCursoIdByName/${this.state.curso_nome}`).then((res)=>{
+                const curso_id = res.data[0].trilha_curso_id
+                this.setState({curso_id})
+            })
+
+            axios.get(`http://localhost:5000/cargos/getAllUserIdFromCargo/${this.state.car_id}`).then((res)=>{
+                console.log(res.data); 
+                for (let index = 0; index < res.data.length; index++) {
+                    const curso_data = {
+                        trilha_curso_id: this.state.curso_id,
+                        colaborador_col_id: res.data[index].col_id
+                    }
+                    axios.post(`http://localhost:5000/trilha/createNewTrilha`,curso_data).then((res)=>{
+                        console.log(res.data);
+                    })
+                }            
+            })
             this.setState({
                 curso_nome: "",
                 car_id: "",
             })
         })
 
-
+       
     }
     render() {
         return (

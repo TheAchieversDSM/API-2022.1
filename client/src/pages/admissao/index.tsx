@@ -287,7 +287,7 @@ class Admissao extends Component {
                             <div className="col s12">
                                 <h4>Informações do trabalho</h4>
                                 <select className="browser-default" name='cargoSelecionado' id="cargo" onChange={this.handleChange}>
-                                    <option value=" " disabled selected>Cargo</option>
+                                    <option value="" disabled selected>Cargo</option>
                                     {this.state.cargo.map(car => <option key={car.car_id} value={car.car_id}>{car.car_descricao}</option>)}
                                 </select>
 
@@ -389,7 +389,6 @@ class Admissao extends Component {
                         </div>
 
                         <Submit id="aceitar" title="Aceitar" fname={this.handleSubmit} />
-
                     </div>
 
                     <div className="rejeitar">

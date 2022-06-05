@@ -65,7 +65,7 @@ export default class General extends Component {
                 <div className="hoverSide">
                     <SideNav link="" class="fa-solid fa-book-bookmark" name="Cursos" />
                     <div className="showSide">
-                        <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload dos Cursos" />
+                        <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload de Materiais" />
                         <SideNav link="/NovoCurso" class="fa-solid fa-laptop-file" name="Novo Curso" />
                     </div>
                 </div>

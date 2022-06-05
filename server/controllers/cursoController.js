@@ -22,3 +22,27 @@ exports.getAll = (req, res) => {
         }
     })
 }
+
+exports.getCursoIdByName = (req,res) => {
+    Curso.getCursoIdByName(req.params.id,(err,id) =>{
+        if (err) {
+            console.log(err);
+            res.send(err)
+        }else{
+            console.log("Cursos encontrados!")
+            res.send(id)
+        }
+    })
+}
+
+exports.getAllCursoInfoById = (req,res) =>{
+    Curso.getAllCursoInfoById(req.params.curso_id,(err,info)=>{
+        if (err) {
+            console.log(err);
+            res.send(err)
+        }else{
+            console.log("Cursos encontrados!")
+            res.send(info)
+        }
+    })
+}

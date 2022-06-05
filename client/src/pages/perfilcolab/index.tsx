@@ -89,7 +89,7 @@ class PerfilColab extends Component {
                         <div className="col s12 m12 l7">
                             <div className="teste1">
                                 <div className="row" id="info">
-                                    <div className="col s12 m12 l5 center-align">
+                                    <div className="col s12 m12 l5 center-align ft">
                                         <div className="foto center-align">
                                             <img src={perfil}></img>
                                         </div>
@@ -232,13 +232,7 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l4">
-                            <div className="teste3 center-align">
-                                <h6>Visualizar Trilha de Aprendizagem</h6>
-                                <ButtonSubLink id="" title="Aqui!" fname="" link="/TrilhaDeAprendizagem" />
-                            </div>
-                        </div>
-
+                        
 
 
                         <div className="col col s12 m12 l8">
