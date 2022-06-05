@@ -48,28 +48,33 @@ class UploadMateriais extends Component {
     };
 
     handleSubmit = () => {
-        const aula_data = {
+        const data = {
             aula_nome: this.state.aula_nome,
-            curso_id: this.state.curso_id
+            aula_id: this.state.curso_id
         }
-        axios.post("http://localhost:5000/aula/newAula", aula_data).then((res) => {
-            axios.get(`http://localhost:5000/aula/getAulaIdByName/${this.state.aula_nome}`).then((res) => {
-                const tamanho = this.state.file.length
-                const aula_id = res.data[0]
-                this.setState({ aula_id })
-                for (let index = 0; index < tamanho; index++) {
-                    const material_data = {
-                        aula_id: this.state.aula_id,
-                        file: this.state.file[index]
-                    }
-                    axios.post("http://localhost:5000/material/newMaterial", material_data).then((res) => {
-                        M.toast({ html: res.data, classes: "green darken-4 rounded" })
-                    })
 
-                }
-            })
+        axios.post(`http://localhost:5000/aula/newAula`, data).then((res) => {
+
         })
+        const aula = this.state.aula_nome
+        console.log(aula)
+        axios.post(`http://localhost:5000/aula/getAulaIdByName`, aula).then((res) => {
+            const tamanho = this.state.file.length
+            console.log(res.data);
 
+            const aula_id = res.data
+            this.setState({ aula_id })
+        })
+        /*
+        for (let index = 0; index < tamanho; index++) {
+            var dado = new FormData()
+            dado.append("file", this.state.file[index])
+            axios.post(`http://localhost:5000/material/newMaterial/${this.state.aula_id}`, dado).then((res) => {
+                M.toast({ html: res.data, classes: "green darken-4 rounded" })
+            })
+
+        }
+    })*/
     }
 
 

@@ -114,7 +114,7 @@ class PreCadastro1 extends Component {
         // INFORMAÇÕES
         nomeValid: false,
         novaSenhaValid: false,
-        cpfValid: false,
+        //cpfValid: false,
         rgValid: false,
         nacionalidadeValid: false,
         naturalidadeValid: false,
@@ -137,14 +137,14 @@ class PreCadastro1 extends Component {
         instituicaoValid: false,
 
         formValid: false,
-        formErrors: { nome: '', novaSenha: '', cpf: '', rg: '', nacionalidade: '', naturalidade: '', raca: '', genero: '', data: '', ddd: '', telefone: '', numero: '', cep: '', estadoCivil: '', filho: '', termosUso: '', formacao: '', cursos: '', linguas: '', instituicao: '' }
+        formErrors: { nome: '', novaSenha: '', /*cpf: '',*/ rg: '', nacionalidade: '', naturalidade: '', raca: '', genero: '', data: '', ddd: '', telefone: '', numero: '', cep: '', estadoCivil: '', filho: '', termosUso: '', formacao: '', cursos: '', linguas: '', instituicao: '' }
     }
 
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let nomeValid = this.state.nomeValid;
         let novaSenhaValid = this.state.novaSenhaValid;
-        let cpfValid = this.state.cpfValid;
+        //let cpfValid = this.state.cpfValid;
         let rgValid = this.state.rgValid;
         let nacionalidadeValid = this.state.nacionalidadeValid;
         let naturalidadeValid = this.state.naturalidadeValid;
@@ -165,17 +165,17 @@ class PreCadastro1 extends Component {
 
         switch (fieldName) {
             case 'nome':
-                nomeValid = value.length > 5;
+                nomeValid = value.length >= 5;
                 fieldValidationErrors.nome = nomeValid ? '' : ' inválido';
                 break;
             case 'novaSenha':
-                novaSenhaValid = value.length >= 6;
+                novaSenhaValid = value.length >= 5;
                 fieldValidationErrors.novaSenha = novaSenhaValid ? '' : ' inválida';
                 break;
-            case 'cpf':
+            /*case 'cpf':
                 cpfValid = value.length >= 11;
                 fieldValidationErrors.cpf = cpfValid ? '' : ' inválido';
-                break;
+                break;*/
             case 'rg':
                 rgValid = value.length >= 6;
                 fieldValidationErrors.rg = rgValid ? '' : ' inválido';
@@ -185,7 +185,7 @@ class PreCadastro1 extends Component {
                 fieldValidationErrors.nacionalidade = nacionalidadeValid ? '' : ' inválida';
                 break;
             case 'naturalidade':
-                naturalidadeValid = value.length >= 6;
+                naturalidadeValid = value.length >= 4;
                 fieldValidationErrors.naturalidade = naturalidadeValid ? '' : ' inválida';
                 break;
             case 'raca':
@@ -197,7 +197,7 @@ class PreCadastro1 extends Component {
                 fieldValidationErrors.genero = generoValid ? '' : ' inválido';
                 break;
             case 'data':
-                dataValid = value.length > 0;
+                dataValid = value.length != 0;
                 fieldValidationErrors.data = dataValid ? '' : ' inválida';
                 break;
             case 'ddd':
@@ -209,7 +209,7 @@ class PreCadastro1 extends Component {
                 fieldValidationErrors.telefone = telefoneValid ? '' : ' inválido';
                 break;
             case 'cep':
-                cepValid = value.length >= 5;
+                cepValid = value.length >= 8;
                 fieldValidationErrors.cep = cepValid ? '' : ' inválido';
                 break;
             case 'numero':
@@ -233,7 +233,7 @@ class PreCadastro1 extends Component {
                 fieldValidationErrors.cursos = cursosValid ? '' : ' inválidos';
                 break;
             case 'linguas':
-                linguasValid = value.length > 2;
+                linguasValid = value.length > 1;
                 fieldValidationErrors.linguas = linguasValid ? '' : ' inválidas';
                 break;
             case 'instituicao':
@@ -252,7 +252,7 @@ class PreCadastro1 extends Component {
             formErrors: fieldValidationErrors,
             nomeValid: nomeValid,
             novaSenhaValid: novaSenhaValid,
-            cpfValid: cpfValid,
+            //cpfValid: cpfValid,
             rgValid: rgValid,
             nacionalidadeValid: nacionalidadeValid,
             naturalidadeValid: naturalidadeValid,
@@ -275,7 +275,7 @@ class PreCadastro1 extends Component {
 
     validateForm() {
         this.setState({
-            formValid: /*this.state.nomeValid && this.state.novaSenhaValid && this.state.rgValid && this.state.naturalidadeValid && this.state.dddValid && this.state.telefoneValid && this.state.numeroValid && this.state.cepValid && this.state.formacaoValid && this.state.cursosValid && this.state.linguasValid && this.state.instituicaoValid && this.state.nacionalidadeValid && this.state.racaValid && this.state.generoValid && this.state.estadoCivilValid && this.state.dataValid && this.state.filhoValid && this.state.termosUsoValid && */this.state.cpfValid
+            formValid: this.state.nomeValid && this.state.novaSenhaValid && this.state.rgValid && this.state.naturalidadeValid && this.state.dddValid && this.state.telefoneValid && this.state.numeroValid && this.state.cepValid && this.state.formacaoValid && this.state.cursosValid && this.state.linguasValid && this.state.instituicaoValid && this.state.nacionalidadeValid && this.state.racaValid && this.state.generoValid && this.state.estadoCivilValid && this.state.dataValid && this.state.filhoValid && this.state.termosUsoValid /*&& this.state.cpfValid*/
         });
     }
 
@@ -324,7 +324,6 @@ class PreCadastro1 extends Component {
         if (termosAceito != null) {
             termosAceito.disabled = true;
         }
-
     };
 
     handleChangeFile = event => {

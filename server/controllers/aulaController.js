@@ -15,7 +15,7 @@ exports.createNewAula = (req, res) => {
 }
 
 exports.getAulaIdByName = (req, res) => {
-    Aula.createNewAula(req.params.aula_nome, (err, id) => {
+    Aula.getAulaIdByName(req.params.nome, (err, id) => {
         if (err) {
             console.log(err)
             res.send(err)

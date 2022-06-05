@@ -68,7 +68,7 @@ h6{
     border-radius: 30px !important;
     font-size: 18px;
     font-family: coolvetica, sans-serif !important;
-    border: 3px solid #ACD8DE !important;
+    border: 3px solid #53C4CD !important;
 }
 
 .popout>li {
@@ -77,6 +77,7 @@ h6{
 
 .collapsible>li {
     border-radius: 30px !important;
+    border: 2px solid #53C4CD !important;
 }
 
 .btn,

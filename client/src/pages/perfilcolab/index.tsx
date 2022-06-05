@@ -16,6 +16,8 @@ import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
 import Cursos from "../../components/carouselCursos";
+import Button from "../../components/button/buttonFun";
+import perfil from "./profile.png"
 
 class PerfilColab extends Component {
     state = {
@@ -38,7 +40,6 @@ class PerfilColab extends Component {
 
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
-
                 console.log(res.data);
                 const colaborador = res.data.user;
                 const head_colaborador = res.data.head_user;
@@ -90,7 +91,7 @@ class PerfilColab extends Component {
                                 <div className="row" id="info">
                                     <div className="col s12 m12 l5 center-align">
                                         <div className="foto center-align">
-
+                                            <img src={perfil}></img>
                                         </div>
                                     </div>
 
@@ -121,7 +122,7 @@ class PerfilColab extends Component {
                                     </p>
                                     <p>ou</p>
                                     <p>
-                                        <ButtonMat fname={""} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
+                                        <Button class="btn btn-primary" name="" type="" label="Inativar" iClass="fa-solid fa-user-large-slash" func="" />
                                     </p>
                                 </div>
                             </div>

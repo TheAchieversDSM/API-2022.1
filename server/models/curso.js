@@ -2,7 +2,7 @@ const db = require("../config/dbconfig")
 
 Curso = function (curso) {
     this.trilha_curso_nome = curso.curso_nome,
-        this.cargo_car_id = curso.car_id
+    this.cargo_car_id = curso.car_id
 }
 
 Curso.createNewCurso = (cur_data, result) => {

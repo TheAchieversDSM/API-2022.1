@@ -23,17 +23,18 @@ export default function Navbar() {
         Navs = <>
             <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
             <SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" />
+            <SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" />
+            <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
+            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
             <SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" />
             <SideNav link="/Departamentos" class="fa-solid fa-layer-group" name="Departamentos" />
             <SideNav link="/Cargos" class="fa-solid fa-briefcase" name="Cargos" />
-            <SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" />
             <SideNav link="/NovoPerfil" class="fa-solid fa-user-plus" name="Novo Perfil" />
             <SideNav link="/NovoDepartamento" class="fa-solid fa-layer-group" name="Novo Departamento" />
             <SideNav link="/NovoCargo" class="fa-solid fa-briefcase" name="Novo Cargo" />
-            <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
             <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload dos Cursos" />
             <SideNav link="/NovoCurso" class="fa-solid fa-laptop-file" name="Novo Curso" />
-            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
+
         </>
     }
     if (getCookie("firstAcess") == 'true' || getCookie("aguardoConfirmacao") == 'true' ) {

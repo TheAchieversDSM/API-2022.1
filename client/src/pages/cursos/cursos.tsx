@@ -15,6 +15,7 @@ import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
 import ProgressBar from "../../components/progressBar/progressBar";
+//import Video from "../../assets/img/video.mp4"
 
 class Cursos extends Component {
     state = {
@@ -91,7 +92,7 @@ class Cursos extends Component {
                         <div className="col s12 m12 l5">
                             <div className="teste3">
                                 <p><label>Total de aulas: </label></p>
-                                <p></p>
+                                <p>25 aulas</p>
                             </div>
                         </div>
 
@@ -99,7 +100,7 @@ class Cursos extends Component {
                             <div className="teste3">
                                 <div className="video center-align">
                                     <video width="90%" controls>
-                                        <source ref={"https://www.youtube.com/watch?v=CyJ4mKuv6E0"} type="video/mp4" />
+                                        <source src={""} type="video/mp4" />
                                     </video>
                                 </div>
                             </div>

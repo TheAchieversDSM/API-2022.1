@@ -604,8 +604,8 @@ class Atualizar extends Component {
         }
 
         swal({
-            title: "Cadastro realizado!",
-            text: `Aguarde a validação.`,
+            title: "Atualização realizada!",
+            text: `As informações foram atualizadas com sucesso.`,
             icon: "success",
             buttons: {
                 cancelar: {
