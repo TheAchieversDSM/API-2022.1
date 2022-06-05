@@ -37,6 +37,7 @@ class Atualizar extends Component {
         // ARQUIVOS INSERIDOS
         arqInseridos: [],
         colaborador: [],
+        colaboradores: [],
         cargo: [],
 
 
@@ -50,7 +51,6 @@ class Atualizar extends Component {
         raca: "",
         genero: "",
         data: new Date(),
-        dataString: "",
         idade: "",
         ddd: "",
         telefone: "",
@@ -144,7 +144,23 @@ class Atualizar extends Component {
         linguasValid: false,
         instituicaoValid: false,
         formValid: false,
-        formErrors: { nome: '', novaSenha: '', cpf: '', rg: '', nacionalidade: '', naturalidade: '', raca: '', genero: '', data: '', ddd: '', telefone: '', /*rua: '',*/ numero: '', cep: '', estadoCivil: '', filho: '', termosUso: '', formacao: '', cursos: '', linguas: '', instituicao: '' }
+        formErrors: { nome: '', novaSenha: '', cpf: '', rg: '', nacionalidade: '', naturalidade: '', raca: '', genero: '', data: '', ddd: '', telefone: '', /*rua: '',*/ numero: '', cep: '', estadoCivil: '', filho: '', termosUso: '', formacao: '', cursos: '', linguas: '', instituicao: '' },
+        
+        // STATES DOS SELECTS
+        cargoSelecionado: String,
+        superiorSelecionado: String,
+        tipoContratacao: "",
+
+        carDep: String,
+        arquivo: "",
+        planoSaude: "",
+        valeTransporte: "",
+        valeRefeicao: "",
+        auxilioCreche: "",
+        possuiPlanoSaude: false,
+        possuiValeTransporte: false,
+        possuiValeRefeicao: false,
+        possuiAuxilioCreche: false,
     }
 
     validateField(fieldName, value) {
@@ -521,6 +537,8 @@ class Atualizar extends Component {
             this.state.id = getCookie("id")
         }
 
+        
+
         axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
             .then((res) => {
                 const colaborador = res.data.user;
@@ -528,12 +546,13 @@ class Atualizar extends Component {
                 const historico = res.data.historico
                 let dep_id = res.data.user[0].departamento_dep_id
                 let car_id = res.data.user[0].cargo_car_id
+                this.state.cargoSelecionado = car_id;
 
-                axios.get(`http://localhost:5000/cargos/userCargo/${car_id}`).then((res) => {
-                    console.log(res.data);
-                    const cargo = res.data;
-                    this.setState({ cargo });
-                })
+                // axios.get(`http://localhost:5000/cargos/userCargo/${car_id}`).then((res) => {
+                //     console.log(res.data);
+                //     const cargoSelecionado = res.data;
+                //     this.setState({ cargoSelecionado });
+                // })
 
                 axios.get(`http://localhost:5000/departamentos/userDep/${dep_id}`).then((res) => {
                     console.log(res.data);
@@ -557,7 +576,7 @@ class Atualizar extends Component {
                 this.state.raca = this.state.colaborador[0].col_raca;
                 this.state.genero = this.state.colaborador[0].col_genero;
                 
-                this.state.dataString = moment(new Date(this.state.colaborador[0].col_data_nascimento)).format('DD/MM/YYYY');
+                this.state.data = this.state.colaborador[0].data_nascimento;
                 this.state.ddd = this.state.colaborador[0].col_ddd;
                 this.state.telefone = this.state.colaborador[0].col_telefone;
                 this.state.rua = this.state.colaborador[0].col_end_rua;
@@ -570,6 +589,16 @@ class Atualizar extends Component {
                 this.state.regiao = this.state.colaborador[0].col_end_regiao;
                 this.state.estadoCivil = this.state.colaborador[0].col_estado_civil;
                 this.state.filho = this.state.colaborador[0].col_filho;
+                this.state.tipoContratacao = this.state.colaborador[0].tipo_contratacao_cont_id;
+                this.state.planoSaude = this.state.colaborador[0].car_plano_saude;
+                this.state.valeTransporte = this.state.colaborador[0].car_vale_transporte;
+                this.state.valeRefeicao = this.state.colaborador[0].car_vale_refeicao;
+                this.state.auxilioCreche = this.state.colaborador[0].car_auxilio_creche;
+
+                this.state.possuiPlanoSaude = this.state.planoSaude.length > 0;
+                this.state.possuiValeTransporte = this.state.valeTransporte.length > 0;
+                this.state.possuiValeRefeicao= this.state.valeRefeicao.length > 0;
+                this.state.possuiAuxilioCreche = this.state.auxilioCreche.length > 0;
                 // this.state.
             }
         )
@@ -597,15 +626,20 @@ class Atualizar extends Component {
                 this.setState({ cargo })
             })
 
+        axios.get("http://localhost:5000/infocolab/getAll")
+            .then((res) => {
+                console.log(res.data);
+                const colaboradores = res.data;
+                this.setState({ colaboradores });
+            })
+
     }
 
 
     handleSubmit = async (event) => {
         event.preventDefault();
         let user = {};
-        
-        this.state.data = new Date(this.state.dataString);
-
+        const dataNascimento = moment(this.state.data).format('YYYY-MM-DD');
         user = {
             nome: this.state.nome,
             novaSenha: this.state.novaSenha,
@@ -626,7 +660,7 @@ class Atualizar extends Component {
             naturalidade: this.state.naturalidade,
             raca: this.state.raca,
             genero: this.state.genero,
-            data: this.state.data,
+            data: dataNascimento,
             estadoCivil: this.state.estadoCivil,
             filho: this.state.filho,
             id: this.state.id
@@ -713,10 +747,66 @@ class Atualizar extends Component {
 
         const id = this.state.id
 
-        axios.put(`http://localhost:5000/precad1/updatecolaborador/${this.state.id}`, user).then((res) => {
+        axios.put(`http://localhost:5000/precad1/updatecolaboradorEdicao/${this.state.id}`, user).then((res) => {
             if (res.data.erro) {
                 M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
             }
+        })
+
+        axios.get(`http://localhost:5000/departamentos/getDepByCar/${this.state.cargoSelecionado}`).then((res) => {
+            const carDep = res.data
+            this.setState({ carDep })
+
+            const InfoWork = {
+                dep_id: this.state.carDep[0].dep_id,
+                car_id: this.state.cargoSelecionado,
+                head_id: this.state.superiorSelecionado,
+                tipo_contratacao: this.state.tipoContratacao
+            }
+
+            var salario = 0
+            var cargo = 0
+            this.state.cargo.map(info => {
+                if (info.car_id == this.state.cargoSelecionado) {
+                    salario = info.car_salario
+                    cargo = info.car_descricao
+                }
+            })
+            console.log(salario)
+            console.log(cargo)
+
+            const infoHist = {
+                id: this.state.id,
+            }
+            var today = new Date();
+
+            const cargoHist = {
+                colaborador_col_id: this.state.id,
+                his_car_data: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+                his_car_cargo: cargo,
+                his_car_salario: salario
+            }
+
+            const beneficios = {
+                valeTransporte: this.state.valeTransporte,
+                valeRefeicao: this.state.valeRefeicao,
+                auxilioCreche: this.state.auxilioCreche,
+                planoSaude: this.state.planoSaude
+            }
+
+            axios.post(`http://localhost:5000/precad1/updatebenefits/${this.state.id}`, beneficios).then((res)=>{
+                if(res.data.erro){
+                    M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+                }
+            }) 
+
+            
+            axios.put(`http://localhost:5000/infocolab/setWorkInfoUser/${this.state.id}`, InfoWork);
+
+            axios.post(`http://localhost:5000/historico/admissao`, infoHist)
+
+            axios.post(`http://localhost:5000/historico/newHistoricoCargo`, cargoHist)
+
         })
 
         if (this.edicao) {
@@ -739,6 +829,8 @@ class Atualizar extends Component {
         uploadFile(anexos)
         //alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
         const urlRedirect = this.edicao ? "/Funcionario" : "/home";
+
+        // Atualizando info de cargo:
 
         window.location.href = "http://localhost:3000" + urlRedirect;
         // window.open("/home")
@@ -823,7 +915,7 @@ class Atualizar extends Component {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <Input value={this.state.dataString} lenght={10}
+                                        <Input value={this.state.data.toString()} lenght={10}
                                             stateName="data" fname={this.handleChange} div="input-field col s12 m12 12"
                                             id="data" class=""
                                             type="text" name="Data de Nascimento" />
@@ -1041,21 +1133,27 @@ class Atualizar extends Component {
                                             <div className="col s12">
                                                 <h4>Informações do trabalho</h4>
                                                 <select className="browser-default" name='cargoSelecionado' id="cargo" onChange={this.handleChange}>
-                                                    <option value=" " disabled selected>Cargo</option>
-                                                    {this.state.cargo.map(car => <option key={car.car_id} value={car.car_id}>{car.car_descricao}</option>)}
+                                                    <option value=" " disabled>Cargo</option>
+                                                    {this.state.cargo.map(car => 
+                                                        <option key={car.car_id} value={car.car_id} selected={this.state.cargoSelecionado == car.car_id?true:false}>
+                                                            {car.car_descricao}
+                                                        </option>)}
                                                 </select>
 
                                                 <select className="browser-default" name='superiorSelecionado' id="superior" onChange={this.handleChange}>
                                                     <option value="" disabled selected>Superior</option>
-                                                    {this.state.colaborador.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option>)}
+                                                    {this.state.colaboradores.map(colaborador => 
+                                                        <option key={colaborador.col_id} value={colaborador.col_id} selected={this.state.id == colaborador.col_id ? true : false}> 
+                                                            {colaborador.col_nome} - {colaborador.car_descricao} 
+                                                        </option>)}
                                                 </select>
 
                                                 <select className="browser-default" name='tipoContratacao' id="contratacao" onChange={this.handleChange} >
                                                     <option value="" disabled selected>Contratação</option>
-                                                    <option value="1" >CLT</option>
-                                                    <option value="2" >PJ</option>
-                                                    <option value="3" >Estagiário</option>
-                                                    <option value="4" >Temporário</option>
+                                                    <option value="1" selected={this.state.tipoContratacao == "1"} >CLT</option>
+                                                    <option value="2" selected={this.state.tipoContratacao == "2"} >PJ</option>
+                                                    <option value="3" selected={this.state.tipoContratacao == "3"} >Estagiário</option>
+                                                    <option value="4" selected={this.state.tipoContratacao == "4"} >Temporário</option>
                                                     {/*this.state.contratacao.map(colaborador => <option key={colaborador.col_id} value={colaborador.col_id}> {colaborador.col_nome} - {colaborador.car_descricao} </option> )*/}
                                                 </select>
                                             </div>
@@ -1079,7 +1177,7 @@ class Atualizar extends Component {
                                                                 </label>
                                                             </p>
                                                         </form>
-                                                        <InputCheck lenght={20} stateName="planoSaude" fname={this.handleChange} div="input-field col s12 m12 l6 bla planoSaude" id="planoSaude" class="validate" type="text" name="Insira o Plano de Saúde: " />
+                                                        <InputCheck value={this.state.planoSaude} lenght={20} stateName="planoSaude" fname={this.handleChange} div="input-field col s12 m12 l6 bla planoSaude" id="planoSaude" class="validate" type="text" name="Insira o Plano de Saúde: " />
                                                     </div>
                                                     <div className="divdiv">
                                                         <h5 className="titulo">Possui Vale Transporte?</h5>
@@ -1098,7 +1196,7 @@ class Atualizar extends Component {
                                                             </p>
                                                         </form>
 
-                                                        <InputCheck lenght={8} stateName="valeTransporte" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeTransporte" id="valeTransporte" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
+                                                        <InputCheck value={this.state.valeTransporte} lenght={8} stateName="valeTransporte" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeTransporte" id="valeTransporte" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
                                                     </div>
                                                     <div className="divdiv">
                                                         <h5 className="titulo">Possui Vale Refeição?</h5>
@@ -1117,7 +1215,7 @@ class Atualizar extends Component {
                                                             </p>
                                                         </form>
 
-                                                        <InputCheck lenght={8} stateName="valeRefeicao" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeRefeicao" id="valeRefeicao" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
+                                                        <InputCheck value={this.state.valeRefeicao} lenght={8} stateName="valeRefeicao" fname={this.handleChange} div="input-field col s12 m12 l6 bla valeRefeicao" id="valeRefeicao" class="validate" type="number" name="Insira o valor do Vale Transporte: " />
                                                     </div>
                                                     <div className="divdiv">
                                                         <h5 className="titulo">Possui Auxílio Creche?</h5>
@@ -1136,7 +1234,7 @@ class Atualizar extends Component {
                                                             </p>
                                                         </form>
 
-                                                        <InputCheck lenght={8} stateName="auxilioCreche" fname={this.handleChange} div="input-field col s12 m12 l6 bla auxilioCreche" id="auxilioCreche" class="validate" type="number" name="Insira o valor do Auxílio Creche: " />
+                                                        <InputCheck value={this.state.auxilioCreche} lenght={8} stateName="auxilioCreche" fname={this.handleChange} div="input-field col s12 m12 l6 bla auxilioCreche" id="auxilioCreche" class="validate" type="number" name="Insira o valor do Auxílio Creche: " />
                                                     </div>
                                                 </div>
                                             </div>

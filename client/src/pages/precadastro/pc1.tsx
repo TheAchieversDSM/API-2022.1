@@ -452,6 +452,15 @@ class PreCadastro1 extends Component {
         estado: this.state.estado,
         regiao: this.state.regiao,
         tipoPessoa: getCookie("tipoPessoa"),
+        cpf: this.state.cpf,
+        rg: this.state.rg,
+        nacionalidade: this.state.nacionalidade,
+        naturalidade: this.state.naturalidade,
+        raca: this.state.raca,
+        genero: this.state.genero,
+        data: this.state.data,
+        estadoCivil: this.state.estadoCivil,
+        filho: this.state.filho,
         id: getCookie("id"),
     }
 
