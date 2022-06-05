@@ -14,7 +14,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
-import ProgressBar from "../../components/progressBar/progressBar";
+import { ProgressBarContainer } from "../../components/progressBar/progressBar";
 
 class Cursos extends Component {
     state = {
@@ -70,10 +70,7 @@ class Cursos extends Component {
             console.log(res.data);
             const info_academica = res.data;
             this.setState({ info_academica });
-        }
-        )
-
-
+        })
     }
 
     render() {
@@ -82,86 +79,8 @@ class Cursos extends Component {
             <>
                 <General />
                 <Css ref="./perfil.css" />
-                <div className="conteudo">
-                    <div className="row">
-
-                        <div className="col col s12 m12 l7">
-                            <div className="teste3">
-                                <ProgressBar per_params={"0%"} params={0} />
-                            </div>
-                        </div>
-
-                        <div className="col s12 m12 l5">
-                            <div className="teste3">
-                                <p>
-                                    {<p><label>Aula</label></p>}
-
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                    <div className="video center-align">
-                                        <video width="90%" controls>
-                                            <source src="movie.mp4" type="video/mp4" />
-                                        </video>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Descrição" desc1={<p><label>Conteúdo:</label> </p>}
-                                        desc2={<p><label>Duração:</label> </p>}
-                                        desc3={null}
-                                        desc4={null}
-                                        desc5={null}
-                                        desc6={null} />
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Módulos" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <ul className="collapsible popout" data-collapsible="accordion">
-
-                                    <Collapse title="Materiais" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className="Buttom">
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Voltar" iClass="fa-solid fa-arrow-left-long"></ButtonMat>
-                            <ButtonMat fname={this.handleSubmit} class="waves-effect waves-light btn center-align" name="Avançar" iClass="fa-solid fa-arrow-right-long"></ButtonMat>
-                    </div>
-                   
-                </div>
-
+                <ProgressBarContainer/>
+               
             </>
         )
     }
