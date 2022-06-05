@@ -1,14 +1,14 @@
 <br id="inicio">
 
-
 <h1 align="center">API 1° Semestre de 2022 - The Achievers & Ionic Health :microscope:</h1>
  <p align="center">
      <a href="#sobre">Sobre</a> • 
      <a href="#status">Status</a> •
      <a href="#techtools">Ferramentas e Tecnologias</a> •
+     <a href="#arquitetura">Arquitetura de Software</a> •  
      <a href="#backlog">Backlog</a> •
-     <a href="#entregas">Entregas</a> • 
      <a href="#estrutura-pastas">Estruturação das Pastas</a> • 
+     <a href="#entregas">Entregas</a> • 
      <a href="#equipe">Equipe</a> 
 </p>
 
@@ -18,9 +18,14 @@
 <p>Em conjunto à àrea de Recursos Humanos e Departamento Pessoal, deve-se desenvolver uma plataforma para controle de todos os talentos da empresa, ou seja, funcionários. O sistema deve conter a parte de cadastro de colaboradores, seja ele CLT ou PJ, trazendo, assim, informações sobre a sua contratação, controle de documenttos, dados, entre outros recursos, levando sempre em consideração a Lei Geral de Proteção de Dados Pessoais (LGPD) para acesso restrito de informações confidenciais.</p>
 <p>A ideia do sistema, definida entre a equipe em conjunto a cliente, é uma unificação de processos importantes, não só ao departamento de Recursos Humanos, mas sim para a empresa como um todo. Assim como descrito no backlog, a aplicação tem como objetivo facilitar o processo de contratação, ficando nas mãos do Administrador de RH apenas a criação inicial do novo colaborador e, depois que ele fizer todo o processo de auto-cadastro, o administrador tem a possibilidade de ver as informações enviadas e aprovar ou não. Além disso, cada colaborador terá um perfil próprio com todas as informações, acesso a um organograma separado por departamento, lista de usuários e acesso a uma Trilha de Aprendizagem, na qual é possível fazer envio de materiais a um curso e destinar este a um colaborador.</p>
  
+<a href="#inicio">[Voltar ao início]</a>
+
+ 
  <span id="status">
 
  ### :bookmark_tabs: Status do projeto: Iniciado :hourglass:	
+  
+ <a href="#inicio">[Voltar ao início]</a>
   
  <span id="techtools">
  
@@ -29,6 +34,17 @@
  <p align="center">
  <img src="https://img.shields.io/badge/Slack-292A2D?style=for-the-badge&logo=slack&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Discord-292A2D?style=for-the-badge&logo=discord&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Trello-292A2D?style=for-the-badge&logo=trello&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Figma-292A2D?style=for-the-badge&logo=figma&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/CSS3-292A2D?style=for-the-badge&logo=css3&logoColor=54C5CE"/> <br> <img src="https://img.shields.io/badge/JavaScript-292A2D?style=for-the-badge&logo=javascript&logoColor=54C5CE"/>  <img src="https://img.shields.io/badge/TypeScript-292A2D?style=for-the-badge&logo=typescript&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/Node.js-292A2D?style=for-the-badge&logo=nodedotjs&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/React-292A2D?style=for-the-badge&logo=react&logoColor=54C5CE"/> <img src="https://img.shields.io/badge/MySQL-292A2D?style=for-the-badge&logo=mysql&logoColor=54C5CE"/>
 </p>
+  
+<a href="#inicio">[Voltar ao início]</a>
+  
+  
+<span id="arquitetura">
+
+### :triangular_ruler: Arquitetura de Software
+![Arquitetura de Software](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/arquitetura-software/arquitetura-software.png)
+
+<a href="#inicio">[Voltar ao início]</a> 
+ 
   
 <span id="backlog"> 
 
@@ -76,6 +92,8 @@ RNF-18 | - | Manual do usuário para navegação | Média | ✔️
 ##### Timeline
 ![Timeline](https://github.com/TheAchieversDSM/API-2022.1/blob/main/doc/total/backlog/Timeline_atualizada.jpg)
  
+<a href="#inicio">[Voltar ao início]</a> 
+ 
 <span id="estrutura-pastas">
  
 ### :clipboard: Estruturação das pastas
@@ -110,6 +128,7 @@ RNF-18 | - | Manual do usuário para navegação | Média | ✔️
     └───server
 ```
  
+<a href="#inicio">[Voltar ao início]</a>
  
 <span id="entregas">
 
@@ -120,6 +139,8 @@ Sprint ID | Data | Tag | Vídeo | Status
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
 #2 | 25.04.22 - 15.05.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%232">Aqui</a> | <a href="https://www.youtube.com/watch?v=CyJ4mKuv6E0">Link</a> | :heavy_check_mark:
 #3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign: | :stop_sign:
+ 
+<a href="#inicio">[Voltar ao início]</a>
 
 <span id="equipe">
 
@@ -137,3 +158,5 @@ Dev Team | Rodrigo de Andrade | [<img src="https://img.shields.io/badge/github%2
 > Instituição: Fatec São José dos Campos - Prof. Jessen Vidal
 > 
 > Curso: Desenvolvimento de Software Multiplataforma/2º Semestre
+ 
+<a href="#inicio">[Voltar ao início]</a>
