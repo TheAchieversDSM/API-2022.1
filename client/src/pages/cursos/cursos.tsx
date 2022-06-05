@@ -14,8 +14,7 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
-import ProgressBar from "../../components/progressBar/progressBar";
-//import Video from "../../assets/img/video.mp4"
+import { ProgressBarContainer } from "../../components/progressBar/progressBar";
 
 class Cursos extends Component {
     state = {
@@ -80,101 +79,8 @@ class Cursos extends Component {
             <>
                 <General />
                 <Css ref="./perfil.css" />
-                <div className="conteudo">
-                    <div className="row">
-
-                        <div className="col col s12 m12 l7">
-                            <div className="teste3">
-                                <ProgressBar per_params={"0%"} params={0} />
-                            </div>
-                        </div>
-
-                        <div className="col s12 m12 l5">
-                            <div className="teste3">
-                                <p><label>Total de aulas: </label></p>
-                                <p>25 aulas</p>
-                            </div>
-                        </div>
-
-                        <div className="col col s12">
-                            <div className="teste3">
-                                <div className="video center-align">
-                                    <video width="90%" controls>
-                                        <source src={""} type="video/mp4" />
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col col s12 teste3" >
-                            <h4>Conteúdo dos cursos</h4>
-                            <div className="col col s12">
-
-                                <ul className="collapsible popout" data-collapsible="accordion">
-                                    <Collapse title="JavaScript" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-
-                            </div>
-                            <div className="col col s12">
-
-                                <ul className="collapsible popout" data-collapsible="accordion">
-                                    <Collapse title="React" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-
-                            </div>
-                            <div className="col col s12">
-
-                                <ul className="collapsible popout" data-collapsible="accordion">
-                                    <Collapse title="LGPD" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-
-                            </div>
-                            <div className="col col s12">
-
-                                <ul className="collapsible popout" data-collapsible="accordion">
-                                    <Collapse title="GitHub" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-
-                            </div>
-                            <div className="col col s12">
-
-                                <ul className="collapsible popout" data-collapsible="accordion">
-                                    <Collapse title="Typescript" desc1={<p><label>Aula 1:</label></p>}
-                                        desc2={<p><label>Aula 2:</label></p>}
-                                        desc3={<p><label>Aula 3:</label></p>}
-                                        desc4={<p><label>Aula 4:</label></p>}
-                                        desc5={<p><label>Aula 5:</label></p>}
-                                        desc6={null} />
-                                </ul>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
+                <ProgressBarContainer/>
+               
             </>
         )
     }
