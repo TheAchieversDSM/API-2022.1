@@ -915,7 +915,7 @@ class Atualizar extends Component {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <Input value={this.state.data.toString()} lenght={10}
+                                        <Input value={this.state.data != null?this.state.data.toString(): ""} lenght={10}
                                             stateName="data" fname={this.handleChange} div="input-field col s12 m12 12"
                                             id="data" class=""
                                             type="text" name="Data de Nascimento" />
