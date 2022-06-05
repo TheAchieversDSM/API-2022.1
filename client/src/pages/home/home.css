@@ -3,14 +3,14 @@
 }
 
 .logo1{
-    width: 150px;
-    margin: 10px 0px 20px 20px;
+    width: 250px;
+    margin: 0px 0px 0px 20px;
 }
 
 .mensagem {
-    height: 210px;
+    height: 180px;
     display: flex;
-    margin-top: 20px;
+    margin-top: 0px;
     flex-direction: row;
     justify-content: center;
     align-items: center
@@ -41,6 +41,7 @@ h4 {
 
 .redes-icons{
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .redes-icons i{
@@ -63,7 +64,7 @@ h4 {
         width: 100%;
     }
     h1{
-        font-size: 200%;
+        font-size: 350%;
     }
 
     .mensagem h5{

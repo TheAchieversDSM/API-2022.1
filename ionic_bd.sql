@@ -185,85 +185,67 @@ ENGINE = InnoDB
 
 COMMENT = 'Esta tabela armazenará informações sobre os cargos que o colaborador tem ou teve em todo tempo em que esteve na empresa.';
 
+-- -----------------------------------------------------
+-- Table `api_ionic`.`trilha_curso`
+-- -----------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_curso`(
+  `trilha_curso_id`INT NOT NULL AUTO_INCREMENT,
+  `trilha_curso_nome` VARCHAR(40) NOT NULL,
+  `cargo_car_id` INT NOT NULL,
+  PRIMARY KEY (`trilha_curso_id`),
+  CONSTRAINT `fK_cargo_id`
+    FOREIGN KEY (`cargo_car_id`)
+    REFERENCES `api_ionic`.`cargo` (`car_id`)
+  );
+
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`curso_aula`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`curso_aula` (
+  `curso_aula_id` INT NOT NULL AUTO_INCREMENT,
+  `curso_aula_nome` VARCHAR(80) NOT NULL,
+  `trilha_curso_id` INT NOT NULL,
+  PRIMARY KEY (`curso_aula_id`),
+  INDEX `fk_curso_aula_trilha_curso_id1_idx` (`trilha_curso_id` ASC)  ,
+  CONSTRAINT `fk_curso_aula_trilha_curso1`
+    FOREIGN KEY (`trilha_curso_id`)
+    REFERENCES `api_ionic`.`trilha_curso` (`trilha_curso_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+-- -----------------------------------------------------
+-- Table `api_ionic`.`aula_material`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `api_ionic`.`aula_material`(
+  `material_aula_id` INT NOT NULL AUTO_INCREMENT,
+  `material_link` VARCHAR(80) NOT NULL,
+  `curso_aula_id` INT NOT NULL,
+  PRIMARY KEY (`material_aula_id`),
+  INDEX `fk_material_aula_curso)aula_id1_idx` (`curso_aula_id` ASC)  ,
+  CONSTRAINT `fk_material_aula_curso_aula_id1`
+    FOREIGN KEY (`curso_aula_id`)
+    REFERENCES `api_ionic`.`curso_aula` (`curso_aula_id`)
+  
+) ;
 -- -----------------------------------------------------
 -- Table `api_ionic`.`trilha_aprendizagem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`trilha_aprendizagem` (
-  `tri_id` INT NOT NULL AUTO_INCREMENT,
-  `tri_status` VARCHAR(40) NOT NULL,
-  `tri_curso` VARCHAR(40) NOT NULL,
-  `cargo_car_id` INT NOT NULL,
-  PRIMARY KEY (`tri_id`),
-  CONSTRAINT `trilha_cargo`
-    FOREIGN KEY (`cargo_car_id`)
-    REFERENCES `api_ionic`.`cargo` (`car_id`))
+CREATE TABLE IF NOT EXISTS `api_ionic`.`trilhas_aprendizagem` (
+  `trilhas_aprendizagem_id` INT NOT NULL AUTO_INCREMENT,
+  `trilha_curso_id` INT NOT NULL,
+  `colaborador_col_id` INT NOT NULL,
+  PRIMARY KEY (`trilhas_aprendizagem_id`),
+  CONSTRAINT `fK_trilha_curso_id`
+    FOREIGN KEY (`trilha_curso_id`)
+    REFERENCES `api_ionic`.`trilha_curso` (`trilha_curso_id`),
+  CONSTRAINT `fk_cursos_colaborador1`
+    FOREIGN KEY (`colaborador_col_id`)
+    REFERENCES `api_ionic`.`colaborador` (`col_id`))
 ENGINE = InnoDB
  
 COMMENT = 'Cadastros de Trilha de Aprendizado e Status de Realização';
-
-
--- -----------------------------------------------------
--- Table `api_ionic`.`item_aprendizado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`item_aprendizado` (
-  `data_inicio_trilha` DATE NOT NULL,
-  `data_termino_trilha` DATE NOT NULL,
-  `colaborador_col_id` INT NOT NULL,
-  `trilha_aprendizagem_tri_id` INT NOT NULL,
-  PRIMARY KEY (`colaborador_col_id`, `trilha_aprendizagem_tri_id`),
-  INDEX `fk_item_aprendizado_trilha_aprendizagem1_idx` (`trilha_aprendizagem_tri_id` ASC)  ,
-  CONSTRAINT `fk_item_aprendizado_colaborador1`
-    FOREIGN KEY (`colaborador_col_id`)
-    REFERENCES `api_ionic`.`colaborador` (`col_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_item_aprendizado_trilha_aprendizagem1`
-    FOREIGN KEY (`trilha_aprendizagem_tri_id`)
-    REFERENCES `api_ionic`.`trilha_aprendizagem` (`tri_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
- 
-COMMENT = 'Esta tabela conecta a pessoa física a trilha de aprendizagem correspondente.';
-
-
--- -----------------------------------------------------
--- Table `api_ionic`.`cursos_colaborador`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`cursos_colaborador` (
-  `cur_col_id` INT NOT NULL AUTO_INCREMENT,
-  `qua_formacao` VARCHAR(40) NOT NULL,
-  `qua_curso` VARCHAR(40) NOT NULL,
-  `qua_nome_instituicao` VARCHAR(100) NOT NULL,
-  `colaborador_col_id` INT NOT NULL,
-  PRIMARY KEY (`cur_col_id`, `colaborador_col_id`),
-  INDEX `fk_cursos_colaborador1_idx` (`colaborador_col_id` ASC)  ,
-  CONSTRAINT `fk_cursos_colaborador1`
-    FOREIGN KEY (`colaborador_col_id`)
-    REFERENCES `api_ionic`.`colaborador` (`col_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `api_ionic`.`linguas_colaborador`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `api_ionic`.`linguas_colaborador` (
-  `lin_col_id` INT NOT NULL AUTO_INCREMENT,
-  `qua_lingua` VARCHAR(100) NOT NULL,
-  `colaborador_col_id` INT NOT NULL,
-  PRIMARY KEY (`lin_col_id`, `colaborador_col_id`),
-  INDEX `fk_linguas_colaborador1_idx` (`colaborador_col_id` ASC)  ,
-  CONSTRAINT `fk_linguas_colaborador1`
-    FOREIGN KEY (`colaborador_col_id`)
-    REFERENCES `api_ionic`.`colaborador` (`col_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `api_ionic`.`qualificacao`
 -- -----------------------------------------------------

@@ -14,15 +14,14 @@ export default function Navbar() {
     if (getCookie("nivel") == 'acessoComum') {
         Navs = <>
             <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
-            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
             <SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" />
             <SideNav link="/Organograma" class="fa-solid fa-sitemap" name="Organograma" />
+            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
         </>
     }
    else if (getCookie("nivel") == 'acessoTotal') {
         Navs = <>
             <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
-            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
             <SideNav link="/MeuPerfil" class="fa-solid fa-user" name="Meu Perfil" />
             <SideNav link="/Funcionario" class="fa-solid fa-people-group" name="Funcionarios" />
             <SideNav link="/Departamentos" class="fa-solid fa-layer-group" name="Departamentos" />
@@ -32,14 +31,17 @@ export default function Navbar() {
             <SideNav link="/NovoDepartamento" class="fa-solid fa-layer-group" name="Novo Departamento" />
             <SideNav link="/NovoCargo" class="fa-solid fa-briefcase" name="Novo Cargo" />
             <SideNav link="/Notificacao" class="fa-solid fa-message" name="Notificações" />
+            <SideNav link="/UploadMateriais" class="fa-solid fa-chalkboard" name="Upload dos Cursos" />
+            <SideNav link="/NovoCurso" class="fa-solid fa-laptop-file" name="Novo Curso" />
+            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
         </>
     }
     if (getCookie("firstAcess") == 'true' || getCookie("aguardoConfirmacao") == 'true' ) {
         Navs = <>
             <SideNav link="/Home" class="fa-solid fa-house" name="Home" />
-            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
             <SideNav link="" class="fa-solid fa-lock" name="Meu Perfil" />
             <SideNav link="" class="fa-solid fa-lock" name="Organograma" />
+            <SideNav link="/Documentos" class="fa-solid fa-file-lines" name="Documentos" />
         </>
     }
 

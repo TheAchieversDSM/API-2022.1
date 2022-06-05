@@ -1,5 +1,8 @@
-const router = require("express").Router()
-const uploadArquivoController = require("../controllers/uploadArquivoController")
+const express = require('express');
+const materialController = require("../controllers/materialController");
+const router = require("express").Router();
+const path = require("path")
+
 const multer = require("multer")
 
 const storage = multer.diskStorage({
@@ -12,10 +15,8 @@ const storage = multer.diskStorage({
         console.log(file.originalname);
     }
 })
-
 const upload = multer({ storage })
 
-router.post(`/:id`, upload.single("file"), uploadArquivoController.insertArquivo)
-router.get(`/:id`, uploadArquivoController.getArquivo)
+router.post('/newMaterial', upload.single("file"), materialController.createNewMaterial)
 
 module.exports = router

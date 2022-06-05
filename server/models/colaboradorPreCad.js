@@ -15,7 +15,6 @@ Colaborador = function (colaborador) {
     this.col_end_estado = colaborador.estado,
     this.col_end_regiao = colaborador.regiao,
     this.col_tipo_pessoa = colaborador.tipoPessoa
-
     this.col_cpf = colaborador.cpf, 
     this.col_rg = colaborador.rg, 
     this.col_nacionalidade = colaborador.nacionalidade, 

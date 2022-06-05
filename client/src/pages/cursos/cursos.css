@@ -7,7 +7,7 @@
     padding: 10px !important;
     margin: 10px;
     height: fit-content;
-    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
+    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
 }
 
 p>label {
@@ -29,32 +29,12 @@ p>label {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.cancelarButton{
-    background-color: #b71c1c ;
-}
-
-.cancelarButton:hover{
-    background-color: #cd1f1f !important;
-}
-
-.continuarButton{
-    background-color: #1b5e20 !important;
-}
-
-.continuarButton:hover{
-    background-color: #217227 !important;
-}
-
 h5,
 h4 {
     background-color: #CAECF0;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
     text-align: center !important;
-}
-
-h6{
-    text-align: center;
 }
 
 .grid-check {
@@ -81,7 +61,7 @@ h6{
 
 .btn,
 .btn-large {
-    background-color: #53C4CD !important;
+    background-color: #ACD8DE !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
@@ -89,10 +69,9 @@ h6{
 
 #p1 {
     position: relative;
-    margin: -10px;
 }
 
-.btn-large{
+.btn-large {
     position: relative;
 }
 

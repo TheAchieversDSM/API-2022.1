@@ -88,17 +88,6 @@ class Login extends Component {
                                 <Input lenght={20} stateName="password" div="input-field" fname={this.handleChange} type="password" id="password" name="Senha" class="validate" />
                             </div>
 
-
-                            <div className="row">
-                                <div className="col s6">
-                                    <Check fname="" value="" name="Lembrar de Mim" />
-                                </div>
-
-                                <div className="opcao col s6 right-align">
-                                    <a href="#">Esqueci a senha</a>
-                                </div>
-                            </div>
-
                             <div className="row col-12 center-align">
                                 <Submit id="" fname={this.handleSubmit} title="Log In" />
                             </div>
