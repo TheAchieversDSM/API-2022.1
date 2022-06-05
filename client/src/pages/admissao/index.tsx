@@ -256,7 +256,6 @@ class Admissao extends Component {
                             <p><label>CEP:</label> {info.col_end_cep}</p>
                             <p><label>Cidade:</label> {info.col_end_cidade}</p>
                             <p><label>Estado:</label> {info.col_end_estado}</p>
-                            <p><label>Região:</label> {info.col_end_regiao}</p>
                             <hr />
                         </div>
                     )}

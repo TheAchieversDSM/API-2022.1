@@ -53,6 +53,10 @@ h4 {
     text-align: center !important;
 }
 
+h6{
+    text-align: center;
+}
+
 .grid-check {
     display: grid;
     grid-template-columns: 1fr;
@@ -64,7 +68,7 @@ h4 {
     border-radius: 30px !important;
     font-size: 18px;
     font-family: coolvetica, sans-serif !important;
-    border: 3px solid #ACD8DE !important;
+    border: 3px solid #53C4CD !important;
 }
 
 .popout>li {
@@ -73,6 +77,7 @@ h4 {
 
 .collapsible>li {
     border-radius: 30px !important;
+    border: 2px solid #53C4CD !important;
 }
 
 .btn,
@@ -88,7 +93,7 @@ h4 {
     margin: -10px;
 }
 
-.btn-large {
+.btn-large{
     position: relative;
 }
 
