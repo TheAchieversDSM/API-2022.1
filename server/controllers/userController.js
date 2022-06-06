@@ -80,9 +80,10 @@ exports.getDocsById = (req, res) => {
     })
 }
      
-exports.setWorkInfoUser = (req,res) => {
+exports.setWorkInfoUser = (req, res) => {
     const data = new User(req.body)
-    console.log(data);
+    console.log("Atualizando usuário setWorkInfoUser: " + data);
+    
     User.setWorkInfoUser(data,req.params.id,(err,data)=>{
         if (err){
             console.log("Erro ao inserir as informações",err);

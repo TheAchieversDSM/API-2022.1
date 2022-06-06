@@ -31,7 +31,7 @@ class PerfilColab extends Component {
         car_id: String,
         dep_id: String,
         id: getCookie("id")
-    };
+    }
 
     componentDidMount() {
         let url = window.location.href.split("/")

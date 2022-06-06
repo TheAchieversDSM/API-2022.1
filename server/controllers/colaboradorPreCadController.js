@@ -12,6 +12,17 @@ exports.updateUser = (req, res) => {
     });
 };
 
+exports.updateUserEdicao = (req, res) => {
+    const Userdata = new Colaborador(req.body)
+    console.log(Userdata);
+
+    // Save Tutorial in the database
+    Colaborador.updateUserEdicao(Userdata, req.params.id, (err, data) => {
+        if (err)
+            res.send(err);
+    });
+};
+
 exports.insertDocuments = (req,res)=>{
     Object.keys(req.files).map(file =>{
         console.log(file);

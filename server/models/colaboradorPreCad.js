@@ -51,6 +51,19 @@ Colaborador.updateUser = (Userdata, Userid, result) => {
     })
 }
 
+Colaborador.updateUserEdicao = (Userdata, Userid, result) => {
+    db.query("UPDATE colaborador SET ?  WHERE col_id = ?", [Userdata, Userid], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else {
+            console.log("Criado Usuário");
+            result(null, res);
+        }
+    })
+}
+
 Colaborador.insertDocuments = (user_id,path,name,result) =>{
     const data = {
         colaborador_col_id: user_id,
