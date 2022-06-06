@@ -1,0 +1,8 @@
+.videoLink {
+    margin-top: 20px !important;
+    margin-left: 5px !important;
+}
+
+.videoLink p label {
+    font-weight: bold !important;
+}

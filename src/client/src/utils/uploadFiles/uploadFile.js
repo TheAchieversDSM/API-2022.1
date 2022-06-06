@@ -3,6 +3,7 @@ import { getCookie } from "../cookieUtil/cookieUtil"
 
 function uploadFile(files) {
     Object.keys(files).map(file => {
+        console.log('files');
         var dado = new FormData()
         let id = getCookie('id')
         dado.append(file, files[file])

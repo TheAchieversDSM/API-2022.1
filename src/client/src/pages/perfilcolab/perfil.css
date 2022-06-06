@@ -1,13 +1,44 @@
-.teste1, .teste2, .teste3, .teste4{
+.teste1,
+.teste2,
+.teste3,
+.teste4 {
     background-color: #f4f4f4;
     border-radius: 30px;
     padding: 10px !important;
     margin: 10px;
     height: fit-content;
-    box-shadow: 10px 10px 10px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
 }
 
-p > label {
+.ft{
+    height: 250px;
+    
+}
+
+.collection{
+    border-radius: 20px !important;
+    color: #f4f4f4 !important;
+    box-shadow: rgba(89, 148, 148, 0.5) 0px 6px 12px -2px, rgba(89, 148, 148, 0.5) 0px 3px 7px -3px !important;
+    margin: 10px;
+}
+
+.foto{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #ACD8DE !important;
+
+    
+}
+
+.foto > i{
+    margin-top: 20px;
+    color: #53C4CD;
+    background-color: #ACD8DE !important;
+}
+
+
+p>label {
     font-weight: bolder !important;
     font-size: 18px !important;
     color: #414042;
@@ -21,92 +52,132 @@ p > label {
     height: fit-content;
 }
 
-.teste2-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+
+.cancelarButton{
+    background-color: #b71c1c ;
 }
 
-h5, h4 {
+.cancelarButton:hover{
+    background-color: #cd1f1f !important;
+}
+
+.continuarButton{
+    background-color: #1b5e20 !important;
+}
+
+.continuarButton:hover{
+    background-color: #217227 !important;
+}
+
+h5,
+h4 {
     background-color: #CAECF0;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
     text-align: center !important;
 }
 
+h6{
+    text-align: center;
+}
+
 .grid-check {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-gap: 10px;
 }
 
-.collapsible-header{
+.teste2-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+    grid-gap: 10px;
+}
+
+.collapsible-header {
     background-color: #ACD8DE !important;
     border-radius: 30px !important;
     font-size: 18px;
     font-family: coolvetica, sans-serif !important;
-    border: 3px solid #ACD8DE !important;
+    border: 3px solid #53C4CD !important;
 }
 
-.popout > li{
+.popout>li {
     margin: 10px !important;
 }
 
-.collapsible > li{
+.collapsible>li {
     border-radius: 30px !important;
+    border: 2px solid #53C4CD !important;
 }
 
-.btn, .btn-large {
-    background-color: #ACD8DE !important;
+.btn,
+.btn-large {
+    background-color: #53C4CD !important;
     border-radius: 30px !important;
     color: #414042 !important;
     font-family: coolvetica, sans-serif !important;
 }
 
-#p1{
+#p1 {
     position: relative;
+    margin: -10px;
 }
 
 .btn-large{
     position: relative;
 }
 
-.foto{
+.foto {
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    background-color: #ACD8DE !important;      
-    border-radius: 25px!important;
+    background-color: #ACD8DE !important;
+    border-radius: 25px !important;
 }
 
-.foto > i{
+.foto>i {
     margin-top: 20px;
     color: #53C4CD;
     background-color: #ACD8DE !important;
 
 }
 
-p, span{
+p,
+span {
     font-size: 16px !important;
     font-family: source-sans-pro, sans-serif !important;
     color: #414042 !important;
     line-height: 15px;
 }
 
-.name{
-    color:#53C4CD ;
+.name {
+    color: #53C4CD;
 }
 
-.inform{
+.inform {
     display: inline-flex;
 }
 
-.inform > p{
+.inform>p {
     margin: 6px;
     color: #ACD8DE;
 }
 
-.s6 > p{
+.s6>p {
     color: #ACD8DE;
+}
+
+.btn:hover {
+    animation: pulsate 1s ease-in-out;
+}
+
+@keyframes pulsate {
+    0%{
+        box-shadow: 0 0 25px #53C4CD, 0 0 50px #53C4CD;  
+        border: 1px solid black;  
+        transform: translateY(-3px);
+    }
 }
 
 @media only screen and (max-width : 992px) {
@@ -114,7 +185,7 @@ p, span{
         grid-template-columns: 1fr;
     }
 
-    .collapsible-header{
+    .collapsible-header {
         font-size: 100%;
     }
 }

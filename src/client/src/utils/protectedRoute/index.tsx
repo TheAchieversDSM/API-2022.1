@@ -12,3 +12,8 @@ export const AdmPrivateRoute = ({children,redirectTo}) => {
     const adm = getCookie("nivel") == "acessoTotal"
     return adm ? children : <Navigate to={redirectTo}/>
 }
+
+export const AdmGestorPrivateRoute = ({children,redirectTo}) => {
+    const priv = getCookie("nivel") == "acessoGestor" ||  getCookie("nivel") == "acessoTotal"
+    return priv ? children : <Navigate to={redirectTo}/>
+}

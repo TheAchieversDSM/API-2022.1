@@ -1,0 +1,55 @@
+.fa-question:before {
+    margin-left: 6px;
+}
+
+.aaa {
+    background-color: #ACD8DE;
+    height: 22px !important;
+    width: 22px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+div.aaa span li {
+    margin: 10px;
+    line-height: 20px;
+}
+
+.divisor {
+    border: 0.1px solid rgba(71, 71, 71, 0.518);
+}
+
+div.aaa span {
+    position: absolute;
+    text-align: center;
+    visibility: hidden;
+    background-color: #ACD8DE;
+    color: black;
+    padding: 5px 10px;
+    margin-bottom: 20px !important;
+}
+
+div.aaa span:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -195px;
+    width: 0; 
+    height: 0;
+    border-bottom: 8px solid #ACD8DE;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+div:hover.aaa span {
+    visibility: visible;
+    opacity: 0.9;
+    top: 30px;
+    left: 0;
+    width: 400px;
+    z-index: 999;
+}

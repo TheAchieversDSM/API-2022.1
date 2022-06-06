@@ -1,0 +1,89 @@
+Cap. 9 - Gerência de Memória
+
+MEMÓRIA
+
+- Recurso escasso
+
+- Muito caro
+
+- Otimizar o uso para aguentar os múltiplos usuários e aplicações 
+
+- Manter o maior número de processos ativos residentes na memória ram
+
+
+
+ALOCAÇÃO CONTÍGUA SIMPLES
+
+- Ambiente monoprogramável
+
+- Dividia a memória em duas partes
+- - Sistema operacional (memória alta)
+- - Área para programação (memória baixa)
+
+- Roda programas até o limite de memória disponível
+
+- Problemas
+- - Subutilização da memória
+
+
+OVERLAY
+
+Criada para melhor aproveitamento da memória 
+
+Se a tarefa for maior que o limite da memória, ela é quebrada em módulos
+
+Área de overlay tem o mesmo tamanho que o maior módulo para ser possível rodá-lo
+
+Carrega os módulos conforme for precisando
+
+
+ALOCAÇÃO PARTICIONADA 
+
+Alocação Particionada Estática
+- Cria partições ao iniciar a máquina
+
+- Para mudar algo nas partições, deveria desligar ou reiniciar a máquina
+
+- Absoluta:
+- - Aloca em lugares com tamanhos parecidos (2k na partição de 2k, 4k na partição de 5k etc) 
+- - Problema
+- - - -  Fragmentação interna
+
+- - Relocável:
+- - - Aloca onde cabe
+
+Alocação Particionada Dinâmica
+- Resolve o problema da fragmentação interna
+- Não tem partições pré-criadas, vai alocando os programas 
+
+- Problemas
+- - Fragmentação externa
+- - Como vai formando uma fila de programas e eles não se mexem, dependendo daqueles que forem terminados primeiro, vão ter espaços definidos que podem não ter o tamanho suficiente para a próxima tarefa
+- - Solução
+- - - Tentar alocar nos espaços adjacentes
+- - - Realocar e subir as tarefas remanescentes
+
+
+ESTRATÉGIAS PARA ALOCAÇÃO
+
+Worst-fit
+- Encaixa na área que vai criar a maior fragmentação
+
+Best-fit
+- Encaixa na área que vai criar a menor fragmentação
+
+First-fit
+- Encaixa na primeira partição que couber
+- Não tem análise
+- A pior entre as três
+
+
+SWAPPING
+
+Swap out
+- Tem que liberar um espaço para rodar o próximo programa
+- Joga o programa menos requisitado para a área de swap
+
+Swap in
+- O arquivo que está em swap (em disco) precisa voltar para a área principal
+- Se não couber, deverá ocorrer um swap out para possibilitar o swap in

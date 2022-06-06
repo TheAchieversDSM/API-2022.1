@@ -2,10 +2,22 @@ const Colaborador = require("../models/colaboradorPreCad");
 
 exports.updateUser = (req, res) => {
     const Userdata = new Colaborador(req.body)
-    console.log("Usuario: ", Userdata)
+    console.log(Userdata);
+    console.log("Atualizando Usuario: ", Userdata)
 
     // Save Tutorial in the database
     Colaborador.updateUser(Userdata, req.params.id, (err, data) => {
+        if (err)
+            res.send(err);
+    });
+};
+
+exports.updateUserEdicao = (req, res) => {
+    const Userdata = new Colaborador(req.body)
+    console.log(Userdata);
+
+    // Save Tutorial in the database
+    Colaborador.updateUserEdicao(Userdata, req.params.id, (err, data) => {
         if (err)
             res.send(err);
     });

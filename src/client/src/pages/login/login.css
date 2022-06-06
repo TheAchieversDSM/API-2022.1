@@ -3,8 +3,8 @@
 @import url("https://fonts.adobe.com/fonts/coolvetica");
 
 main {
-      position: absolute;
-    top: 15%;
+    position: relative;
+    top: 175px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -41,16 +41,14 @@ span {
     margin-left: auto;
     width: 300px;
     color: #414042 ;
-    background-color: #ACD8DE;
-    border: 2px solid #ACD8DE;
+    background-color: #53C4CD;
     border-radius: 20px;
     -webkit-transition: 0.5s;
 }
 
 .btn.btn-primary:hover {
     color: #414042 ;
-    background-color: #ACD8DE;
-    border: 2px solid #ACD8DE;
+    background-color: #53C4CD;
     border-radius: 20px;
     -webkit-transition: 0.5s;
 }

@@ -5,7 +5,7 @@ Notificacao = function (notificacao){
 }
 
 Notificacao.getAll = (result) =>{
-      db.query('SELECT *,con_nome FROM notificacao notif INNER JOIN colaborador colab ON notif.user_id = colab.con_id ',(err,res) => {
+      db.query('SELECT *,col_nome FROM notificacao notif INNER JOIN colaborador colab ON notif.user_id = colab.col_id ',(err,res) => {
         if (err) {
             console.log("error: ", err);
             result(null,err);

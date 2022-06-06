@@ -6,6 +6,9 @@ export default function nivelCheck(nivelId){
         return("acessoTotal")
     }
     else if(nivelId =="2"){
-        return("acessoParcial")
+        return("acessoGestor")
+    }
+    else if(nivelId =="3"){
+        return("acessoConsultor")
     }
 }
