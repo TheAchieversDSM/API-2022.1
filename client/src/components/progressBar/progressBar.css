@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-bar {
+    margin-top: 20px;
+    width: 100%;
+    height: 35px;
+    border-radius: 50px;
+    border: 2px solid #666;
+    margin-bottom: 40px;
+}
+
+.range {
+    background: #ACD8DE !important;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .3s ease-in;
+}
+
+.toggle-buttons button {
+    margin: 0 30px;
+    border-radius: 5px;
+    outline: 0;
+    color: #414042 !important;
+    font-size: 18px;
+    font-weight: bold;
+    background: #ACD8DE !important;
+    cursor: pointer;
+}
+
+.toggle-buttons button:hover {
+    color: black;
+    background: #666;
+}
