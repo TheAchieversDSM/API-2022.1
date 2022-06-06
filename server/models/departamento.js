@@ -36,7 +36,7 @@ Departamento.getDepartByCargo = (id,result) =>{
             console.log('Erro ao puxar os departamentos', err);
             result(null,err);
         }else{
-            console.log('Departamentos Puxados',res);
+            console.log('Departamentos Puxados (getDepartByCargo)',res);
             result(res);
         }
     })
