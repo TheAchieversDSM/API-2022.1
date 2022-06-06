@@ -125,7 +125,7 @@ class PerfilColab extends Component {
                                 <h4>Colaborador</h4>
                                 <div className="botao-edicao center-align">
                                     <p>
-                                        <ButtonSubLink id="" title="Editar" fname="" link="/EditarCadastro/:id" />
+                                        <ButtonSubLink id="" title="Editar" fname="" link={"/EditarCadastro/" + this.state.id} />
                                     </p>
                                     <p>ou</p>
                                     <p>
