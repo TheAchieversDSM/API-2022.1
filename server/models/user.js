@@ -123,5 +123,25 @@ User.getAllInactiveUser = (result) => {
     })
 }
 
+User.getAllCurso = (col_id,result) => {
+    db.query("SELECT * FROM trilhas_aprendizagem ta INNER JOIN trilha_curso tc ON ta.trilha_curso_id = tc.trilha_curso_id AND colaborador_col_id = ?",col_id,(err,res)=>{
+        if (err) {
+            result(null, err);
+        }
+        else {
+            result(null, res);
+        }
+    })
+}
+User.getProgressoAulas = (col_id,result) => {
+    db.query("SELECT * FROM aula_andamento WHERE colaborador_col_id = ?",col_id,(err,res)=>{
+        if (err) {
+            result(null, err);
+        }
+        else {
+            result(null, res);
+        }
+    })
+}
 module.exports = User
 

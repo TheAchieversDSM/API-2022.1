@@ -16,7 +16,14 @@ Material.createNewMaterial = (mat_data, path, result) => {
 }
 
 Material.getAllMaterialFromAula = (aula_id,result) =>{
-    db.query('SELECT * FROM')
+    db.query('SELECT * FROM aula_material WHERE curso_aula_id = ?', aula_id,(err,res)=>{
+        if (err) {
+            console.log("ERRO")
+            result(null,err)
+        } else {
+            result(null,res)
+        }
+    })
 }
 
 module.exports = Material

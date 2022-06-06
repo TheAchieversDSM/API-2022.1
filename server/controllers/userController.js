@@ -111,3 +111,27 @@ exports.getAllInactiveUser = (req,res) => {
         }
     })
 }
+
+exports.getAllCurso = (req,res) => {
+    User.getAllCurso(req.params.id,(err,cursos) =>{
+        if (err){
+            console.log("Falha ao obter todos os usuários",err);
+            res.send("Falha ao obter todos os usuários");
+        }else{
+            console.log("Usuários Encontrados");
+            res.send(cursos)
+        }
+    })
+}
+
+exports.getProgressoAulas = (req,res) => {
+    User.getProgressoAulas(req.params.id,(err,progresso)=>{
+        if (err){
+            console.log("Falha ao obter todos os usuários",err);
+            res.send("Falha ao obter todos os usuários");
+        }else{
+            console.log("Usuários Encontrados");
+            res.send(progresso)
+        }
+    })
+}

@@ -49,4 +49,15 @@ Curso.getCursoIdByName = (curso_name,result) => {
         }
     })
 }
+
+Curso.getCursoNameById = (cur_id,result) => {
+    db.query('SELECT trilha_curso_nome FROM trilha_curso WHERE trilha_curso_id = ?',cur_id,(err,res)=>{
+        if (err) {
+            console.log(err);
+            result(err)
+        } else {
+            result(res)
+        }
+    })
+}
 module.exports = Curso

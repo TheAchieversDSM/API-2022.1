@@ -13,6 +13,7 @@ import Caminho from "../../components/caminho/caminho";
 import Submit from '../../components/button/submit';
 import InputFile from "../../components/input/file";
 import InputValue from "../../components/input/inputValue";
+import { FormErrors } from "../../utils/formErrors/formErrors";
 import './upload.css'
 
 class UploadMateriais extends Component {
@@ -107,7 +108,7 @@ class UploadMateriais extends Component {
                     <div className="form">
                         <div className="teste1 row">
                             <label>Curso</label>
-                            <select className="browser-default" name='curso_id' id="curso_id" onChange={this.handleChange}>
+                            <select className="browser-default" value="curso_id" name='curso_id' id="curso_id" onChange={this.handleChange}>
                                 <DisableOption disableValue="" disableNome="Escolha um curso" />
                                 {this.state.cursos.map(curso =>
                                     <Option function="" value={curso.trilha_curso_id} name={curso.trilha_curso_nome} />

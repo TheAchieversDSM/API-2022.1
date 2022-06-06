@@ -24,6 +24,7 @@ class PerfilColab extends Component {
         colaborador: [],
         historico: [],
         cargo: [],
+        cursos: [],
         departamento: [],
         info_academica: [],
         head_colaborador: [],
@@ -74,6 +75,12 @@ class PerfilColab extends Component {
             this.setState({ info_academica });
         }
         )
+        axios.get(`http://localhost:5000/infocolab/getAllCurso/${this.state.id}`).then((res)=>{
+            const cursos = res.data
+            console.log(res.data);
+            
+            this.setState({cursos})
+        })
 
 
     }
@@ -174,6 +181,14 @@ class PerfilColab extends Component {
                                         desc5={null}
                                         desc6={null} />
 
+                                    <Collapse title="Documentos Pessoais" 
+                                        desc1="RG"
+                                        desc2="CPF"
+                                        desc3="Carteira de Trabalho"
+                                        desc4="Comprovante de Residência"
+                                        desc5="Comprovante de Escolaridade"
+                                        desc6="Certidão de Nascimento" />
+
                                     <Collapse title="Documentos Profissionais" desc1="Contribuição Sindical"
                                         desc2="Termo de PI"
                                         desc3="Cartão de PIS"
@@ -238,7 +253,12 @@ class PerfilColab extends Component {
                         <div className="col col s12 m12 l8">
                             <div className="teste3">
                                 <h4>Cursos</h4>
-                                <Cursos />
+                                <div className="collection">
+                                    <Cursos href="" name="JavaScript"/>
+                                    <Cursos href="" name="Typescript"/>
+                                    <Cursos href="" name="LGPD"/>
+                                    <Cursos href="" name="GitHub"/>
+                                </div>
                             </div>
                         </div>
 
@@ -246,17 +266,10 @@ class PerfilColab extends Component {
                             <div className="teste3">
                                 <h4>Cursos completados</h4>
                                 <form action="#">
-                                    {this.state.colaborador.map(info =>
+                                    {this.state.cursos.map(info =>
                                         <p className="grid-check">
-                                            {<Check fname="" value="" name="JavaScript" />}
-
-                                            {<Check fname="" value="" name="React" />}
-
-                                            {<Check fname="" value="" name="LGPD" />}
-
-                                            {<Check fname="" value="" name="GitHub" />}
-
-                                            {<Check fname="" value="" name="Typescript" />}
+                                            {info.trilha_status == 1?
+                                            <CheckChecked key={info.trilha_curso_id} value="" name={info.trilha_curso_nome} />: <Check key={info.trilha_curso_id} fname="" value="" name={info.trilha_curso_nome} /> }
 
                                         </p>
                                     )}

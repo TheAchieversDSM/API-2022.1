@@ -268,6 +268,7 @@ SELECT * FROM aula_material;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `api_ionic`.`trilhas_aprendizagem` (
   `trilhas_aprendizagem_id` INT NOT NULL AUTO_INCREMENT,
+  `trilha_status` BIT DEFAULT 0, 
   `trilha_curso_id` INT NOT NULL,
   `colaborador_col_id` INT NOT NULL,
   PRIMARY KEY (`trilhas_aprendizagem_id`),

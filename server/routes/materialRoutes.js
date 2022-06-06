@@ -21,5 +21,5 @@ const upload = multer({ storage })
 
 
 router.post('/newMaterial/:id', upload.single("file"), materialController.createNewMaterial)
-
+router.get('/getAllMaterialFromAula/:id',materialController.getAllMaterialFromAula)
 module.exports = router

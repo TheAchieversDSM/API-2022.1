@@ -69,7 +69,7 @@ function Routes() {
                     <Trilha />
                 </ProtectedRoute>} />
 
-                <Route path="/Cursos" element={<ProtectedRoute redirectTo={"/"}>
+                <Route path="/cursos/:curso_id/:col_id" element={<ProtectedRoute redirectTo={"/"}>
                     <Cursos />
                 </ProtectedRoute>} />
 

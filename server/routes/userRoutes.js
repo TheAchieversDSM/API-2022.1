@@ -9,5 +9,6 @@ router.get('/getDocsById/:id',userController.getDocsById)
 router.get('/getAllByDep/:dep_id',userController.getAllUserByDep)
 router.get('/desligamento/:id',userController.desligamento)
 router.put('/setWorkInfoUser/:id',userController.setWorkInfoUser)
-
+router.get('/getAllCurso/:id',userController.getAllCurso)
+router.get('/getProgressoAulas/:id',userController.getProgressoAulas)
 module.exports = router

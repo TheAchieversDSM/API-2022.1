@@ -13,3 +13,14 @@ exports.createNewMaterial = (req, res) => {
     })
 }
 
+exports.getAllMaterialFromAula = (req,res) => {
+    Material.getAllMaterialFromAula(req.params.id,(err,materiais)=>{
+        if (err) {
+            console.log(err)
+            res.send(err)
+        } else {
+            res.send(materiais)
+        }
+    })
+}
+

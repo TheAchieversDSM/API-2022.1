@@ -532,9 +532,6 @@ class PreCadastro1 extends Component {
         rgConjuge: this.state.rgConjuge,
         cpfConjuge: this.state.cpfConjuge,
 
-        // DOCUMENTO DO DIVÓRCIO SE DIVORCIADO
-        divorcioDoc: this.state.divorcioDoc,
-
         // DOCUMENTOS DOS FILHOS SE FOR PAI/MÃE    
         cerNasc: this.state.cerNasc,
         cerVaci: this.state.cerVaci,
@@ -869,6 +866,7 @@ render() {
                     </div>
 
                     <FormErrors formErrors={this.state.formErrors} />
+
                     <div className="Buttom">
                         <button type="submit" className="btn btn-primary" onClick={this.handleSubmit} disabled={!this.state.formValid}>Criar!</button>
 

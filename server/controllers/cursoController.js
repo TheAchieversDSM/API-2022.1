@@ -46,3 +46,15 @@ exports.getAllCursoInfoById = (req,res) =>{
         }
     })
 }
+
+exports.getCursoNameById = (req,res) =>{
+    Curso.getCursoNameById(req.params.id,(err,nome)=>{
+        if (err) {
+            console.log(err);
+            res.send(err)
+        }else{
+            console.log("Cursos encontrados!")
+            res.send(nome)
+        } 
+    })
+}

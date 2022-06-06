@@ -15,72 +15,96 @@ import General from "../../components/general";
 import Collapse from "../../components/collapse";
 import Css from "../../assets/style/style";
 import React from "react";
-import { ProgressBarContainer } from "../../components/progressBar/progressBar";
+import { Link } from "react-router-dom";
+import YoutubeEmbed from "../../components/youtubeEmbed/youtube";
 import ReactPlayer from 'react-player';
-class Cursos extends Component {
+
+    
+class Cursos extends Component {     
     state = {
-        colaborador: [],
-        historico: [],
-        cargo: [],
-        departamento: [],
-        info_academica: [],
-        head_colaborador: [],
-        car_id: String,
-        dep_id: String,
-        id: getCookie("id")
-    };
-    handleSubmit: any;
+        curso_id : "",
+        colab_id : "",
+        curso: [],
+        materiais: [],
+        curso_nome: ""
+    }
 
-    componentDidMount() {
+    componentDidMount(){
         let url = window.location.href.split("/")
-        if (url[3] === "PerfilColaborador") {
-            this.state.id = url[4]
-        }
-
-        axios.get(`http://localhost:5000/infocolab/getInfoById/${this.state.id}`)
-            .then((res) => {
-                console.log(res.data);
-                const colaborador = res.data.user;
-                const head_colaborador = res.data.head_user;
-                const historico = res.data.historico
-                let dep_id = res.data.user[0].departamento_dep_id
-                let car_id = res.data.user[0].cargo_car_id
-
-                axios.get(`http://localhost:5000/cargos/userCargo/${car_id}`).then((res) => {
-                    console.log(res.data);
-                    const cargo = res.data;
-                    this.setState({ cargo });
-                })
-
-                axios.get(`http://localhost:5000/departamentos/userDep/${dep_id}`).then((res) => {
-                    console.log(res.data);
-                    const departamento = res.data;
-                    this.setState({ departamento });
-                }
-                )
-
-                console.log(dep_id);
-
-                this.setState({ historico })
-                this.setState({ colaborador });
-                this.setState({ head_colaborador });
-            }
-            )
-
-        axios.get(`http://localhost:5000/infoacademica/getInfoAcademica/${this.state.id}`).then((res) => {
+        this.state.curso_id = url[4]
+        this.state.colab_id = url[5]
+        axios.get(`http://localhost:5000/curso/getAllCursoInfoById/${this.state.curso_id}`).then((res)=>{
             console.log(res.data);
-            const info_academica = res.data;
-            this.setState({ info_academica });
+            const curso = res.data
+            this.setState({curso})
+            const materiais = []
+            for (let index = 0; index < curso.length; index++) {
+           
+            axios.get(`http://localhost:5000/material/getAllMaterialFromAula/${this.state.curso[index].curso_aula_id}`).then((res)=>{
+                console.log(res.data);
+                
+                const data = res.data
+                materiais.push(data)
+                
+            })
+            this.setState({materiais})   
+            console.log(this.state);
+            
+        }      
+        axios.get(`http://localhost:5000/curso/getCursoNameById/${this.state.curso_id}`).then((res)=>{
+            console.log(res.data);
+            const curso_nome = res.data[0].trilha_curso_nome
+            this.setState({curso_nome}) 
         })
+        })     
     }
 
     render() {
-
         return (
             <>
                 <General />
                 <Css ref="./perfil.css" />
-                <ProgressBarContainer/>
+                <div className="conteudo">
+                <h1>{this.state.curso_nome}</h1>
+                <div className="row">
+
+                    <div className="col s12 m12 l5">
+                        <div className="teste3">
+                            <p><label>Total de aulas: </label></p>
+                            <p>** aulas</p>
+                        </div>
+                    </div>
+
+                    <div className="col col s12 teste3" >
+                        <div className="video center-align">
+                            <YoutubeEmbed embedId="CyJ4mKuv6E0" />
+                        </div>
+                    </div>
+                {this.state.curso.map(info=>
+                    <div className="col col s12 teste3" >
+                            <div className="col col s12">
+                                <ul className="collapsible popout" data-collapsible="accordion">
+                                    <Collapse title={<p><label><input name={info.curso_aula_nome} value="1" type="radio" /><span>{info.curso_aula_nome}</span></label></p>} desc1={<p><label>Conteúdo 1:</label></p>}
+                                        desc2={<p><label>Conteúdo 2:</label></p>}
+                                        desc3={<p><label>Conteúdo 3:</label></p>}
+                                        desc4={<p><label>Conteúdo 4:</label></p>}
+                                        desc5={<p><label>Conteúdo 5:</label></p>}
+                                        desc6={null} />
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+                    <div className="col s12 ">
+                        <div className="teste3 center-align">
+                            <div className="toggle-buttons">
+                                <Link to="/PerfilColaborador/:id"><button>Voltar
+                                </button></Link>
+                                <Link to="/Cursos"><button >Avançar</button></Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                
             </>
         )
