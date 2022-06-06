@@ -60,9 +60,9 @@ RF-2 | 2 | Visualizar diferentes níveis de cargo por um organograma | Alta | �
 RF-3 | 2 | Visualizar informações cadastradas pelo colaborador e avaliar possível aprovação | Alta | ✔️
 RF-4 | 2 | Visualizar e realizar download de relatórios com informações dos colaboradores | Média | ✔️
 RF-5 | 3 | Acesso às documentações e normas da empresa | Baixa | ✔️
-RF-6 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | 🔲
-RF-7 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | 🔲
-RF-8 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | 🔲
+RF-6 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | ✔️
+RF-7 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | ✔️
+RF-8 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | ✔️
 RF-9 | 3 | Visualização do progresso individual dos cursos de Onboarding cadastrados na Trilha de Aprendizagem | Média | 🔲
 RF-10 | 3 | Cadastro de possíveis novos cargos e departamentos | Baixa | ✔️
 
@@ -81,9 +81,9 @@ RNF-9 | 2 | Armazenar documentos dos colaboradores em um repositório específic
 RNF-10 | 2 | Completar organograma com informações do banco de dados | Alta | ✔️
 RNF-11 | 2 | Gerar notificação ao cadastro ter sido completo | Alta | ✔️
 RNF-12 | 2 | Puxar informações do banco de dados e passar para um _.pdf_ para possíveis relatórios | Média | ✔️
-RNF-13 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Baixa | 🔲
-RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | 🔲
-RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | 🔲
+RNF-13 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Baixa | ✔️
+RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | ✔️
+RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | ✔️
 RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
 RNF-17 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
 RNF-18 | - | Manual do usuário para navegação | Média | ✔️
@@ -121,6 +121,7 @@ RNF-18 | - | Manual do usuário para navegação | Média | ✔️
 │   │   ├───user stories
 │   │   └───wireframe
 │   └───total
+│       ├───arquitetura-software
 │       ├───backlog
 │       └───user stories
 └───src
@@ -138,7 +139,7 @@ Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%231">Aqui</a> | <a href="https://www.youtube.com/watch?v=tuS3RCgVZbA&t=1s">Link</a> | :heavy_check_mark:
 #2 | 25.04.22 - 15.05.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%232">Aqui</a> | <a href="https://www.youtube.com/watch?v=CyJ4mKuv6E0">Link</a> | :heavy_check_mark:
-#3 | 16.05.22 - 05.06.22 | :stop_sign: | :stop_sign: | :stop_sign:
+#3 | 16.05.22 - 05.06.22 | <a href="https://github.com/TheAchieversDSM/API-2022.1/releases/tag/%233">Aqui</a> | :stop_sign: | :heavy_check_mark:
  
 <a href="#inicio">[Voltar ao início]</a>
 
