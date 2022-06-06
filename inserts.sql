@@ -375,3 +375,36 @@ INSERT INTO historico (his_data_admissao, colaborador_col_id) VALUES ('2022-05-2
 SELECT * FROM documentos;
 
 SELECT * FROM historico_cargo;
+
+-- TRILHA CURSOS 
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (1,'Front-End: Início', 10);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (2,'Back-End: Início', 10);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (3,'Gestão de pessoas', 8);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (4,'Segurança da informação', 8);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (5,'Segurança do trabalho', 80);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (6,'Segurança da informação', 80);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (7,'Segurança do trabalho', 70);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (8,'Segurança da informação', 70);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (9,'Segurança do trabalho', 55);
+INSERT INTO trilha_curso (trilha_curso_id, trilha_curso_nome, cargo_car_id) VALUES (10,'Segurança da informação', 55);
+
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',1);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',1);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',2);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',2);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',3);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',3);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',4);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',4);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',5);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',5);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',6);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',6);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',7);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',7);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',8);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',8);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',9);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',9);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 1',10);
+INSERT INTO curso_aula (curso_aula_nome, trilha_curso_id) VALUES('AULA - 2',10);
