@@ -8,7 +8,9 @@ type props = {
 }
 
 class Cursos extends Component<props> {
-    componentDidMount() {}
+    componentDidMount() {
+    
+    }
     render() {
         return (
             <>

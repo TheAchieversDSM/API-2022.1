@@ -51,8 +51,6 @@ function Routes() {
                     <Atualizar/>
                 </ProtectedRoute>} />
 
-
-
                 <Route path="/Notificacao" element={<ProtectedRoute redirectTo={"/"}>
                     <Notificacao />
                 </ProtectedRoute>} />

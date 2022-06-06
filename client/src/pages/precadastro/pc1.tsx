@@ -564,8 +564,8 @@ class PreCadastro1 extends Component {
 
     uploadFile(anexos)
     //alert('Cadastro Enviado.\nAguarde seu cadastro e aguarde ser aprovado.')
-    window.open("/home")
-    window.close()
+    //window.open("/home")
+    //window.close()
 };
 
 redirect = () => {

@@ -43,6 +43,8 @@ class Login extends Component {
             if (res.data.erro){
                 M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
             }else{
+                if (res.data.user[0].col_status != 0) {
+
                 if (res.data.token) {
                     setCookie("token", res.data.token);
                     setCookie("id", res.data.user[0].col_id);
@@ -58,6 +60,7 @@ class Login extends Component {
                     this.setState({
                         loggedin: true
                     })
+                }
                 }
             }
         })

@@ -50,7 +50,7 @@ class Carousel extends Component<props> {
                         <div className="carousel-item white-text center">
                             <h2>LGPD</h2>
                             <h1><i className="fa-solid fa-file-shield"></i></h1>
-                            <a className="btn waves-effect white grey-text darken-text-2" href="https://drive.google.com/file/d/1gMaoylG8icXhcGCiCYXVrMIR_ZEagz1G/view?usp=sharing">Visualizar PDF</a>
+                            <a className="btn waves-effect white grey-text darken-text-2" target="_blank" href="https://drive.google.com/file/d/1gMaoylG8icXhcGCiCYXVrMIR_ZEagz1G/view?usp=sharing">Visualizar PDF</a>
                         </div>
                     </div>
                 </div>

@@ -98,7 +98,7 @@ class PerfilColab extends Component {
                                 <div className="row" id="info">
                                     <div className="col s12 m12 l5 center-align ft">
                                         <div className="foto center-align">
-                                            <img src={perfil}></img>
+                                            <i className="fa-regular fa-user fa-7x"></i>
                                         </div>
                                     </div>
 
@@ -117,31 +117,28 @@ class PerfilColab extends Component {
                                             {this.state.colaborador.map(info => <p key={info.col_id}><label>Tel:</label> ({info.col_ddd}) {info.col_telefone}</p>)}
                                         </p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col s12 m12 l5">
-                            <div className="teste4">
-                                <h4>Colaborador</h4>
-                                <div className="botao-edicao center-align">
-                                    <p>
-                                        <ButtonSubLink id="" title="Editar" fname="" link="/EditarCadastro/:id" />
-                                    </p>
-                                    <p>ou</p>
-                                    <p>
-                                        <Button class="btn btn-primary" name="" type="" label="Inativar" iClass="fa-solid fa-user-large-slash" func="" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="col s12">
+                                    <div className="col s12 m12 l12">
+                                            <h5>Editar colaborador</h5>
+                                            <div className="botao-edicao center-align">
+                                                <p>
+                                                    <ButtonSubLink id="" title="Aqui!" fname="" link="/EditarCadastro/:id" />
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+
+
+                        <div className="col s12 m12 l5">
                             <div className="teste2">
                                 <h4>Informações</h4>
                                 <div className="teste2-info ">
                                     {this.state.departamento.map(info => <p key={info.col_id}><label>Departamento:</label> {info.dep_descricao}</p>)}
                                     {this.state.cargo.map(info => <p key={info.col_id}><label>Cargo:</label> {info.car_descricao}</p>)}
-
                                     {this.state.historico.map(info =>
                                         <>
                                             {info.hist_data_desligamento ? <p><label>Status:</label>Desligado</p> : <p><label>Status:</label>Ativo</p>}
@@ -151,6 +148,22 @@ class PerfilColab extends Component {
                                     {this.state.cargo.map(info => <p key={info.col_id}><label>Salário:</label> R${info.car_salario}</p>)}
                                     {this.state.historico.map(info => <p key={info.col_id}><label>Tempo de Casa:</label> {info.tempo_casa} mês(es)</p>)}
                                 </div>
+                            </div>
+                        </div>
+
+                        <div className="col col s12 m12 l12">
+                            <div className="teste3">
+                                <h4>Benefícios</h4>
+                                    <form action="#">
+                                        {this.state.colaborador.map(info =>
+                                            <p key={info.colaborador_col_id} className="grid-check">
+                                                {info.car_plano_saude ? <CheckChecked value="" name="Plano de Saúde" /> : <Check fname="" value="" name="Plano de Saúde" />}
+                                                {info.car_vale_refeicao != 0 ? <CheckChecked value="" name="Vale Refeição" /> : <Check fname="" value="" name="Vale Refeição" />}
+                                                {info.car_vale_transporte != 0 ? <CheckChecked value="" name="Vale Transporte" /> : <Check fname="" value="" name="Vale Transporte" />}
+                                                {info.car_auxilio_creche != 0 ? <CheckChecked value="" name="Auxílio Creche" /> : <Check fname="" value="" name="Auxílio Creche" />}
+                                            </p>
+                                        )}
+                                    </form>
                             </div>
                         </div>
 
@@ -227,55 +240,22 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l4">
-                            <div className="teste3">
-                                <h4>Benefícios</h4>
-                                <form action="#">
-                                    {this.state.colaborador.map(info =>
-                                        <p key={info.colaborador_col_id} className="grid-check">
-                                            {info.car_plano_saude ? <CheckChecked value="" name="Plano de Saúde" /> : <Check fname="" value="" name="Plano de Saúde" />}
-
-                                            {info.car_vale_refeicao != 0 ? <CheckChecked value="" name="Vale Refeição" /> : <Check fname="" value="" name="Vale Refeição" />}
-
-                                            {info.car_vale_transporte != 0 ? <CheckChecked value="" name="Vale Transporte" /> : <Check fname="" value="" name="Vale Transporte" />}
-
-                                            {info.car_auxilio_creche != 0 ? <CheckChecked value="" name="Auxílio Creche" /> : <Check fname="" value="" name="Auxílio Creche" />}
-
-                                        </p>
-                                    )}
-                                </form>
-                            </div>
-                        </div>
-
                         
 
 
-                        <div className="col col s12 m12 l8">
+                        <div className="col col s12 m12 l4">
                             <div className="teste3">
                                 <h4>Cursos</h4>
                                 <div className="collection">
-                                    <Cursos href="" name="JavaScript"/>
-                                    <Cursos href="" name="Typescript"/>
-                                    <Cursos href="" name="LGPD"/>
-                                    <Cursos href="" name="GitHub"/>
+                                    {this.state.cursos.map( info=>
+                                    <Cursos href={`/cursos/${info.trilha_curso_id}/${this.state.id}`} name={info.trilha_curso_nome}/>
+                                    )}
+
                                 </div>
                             </div>
                         </div>
 
-                        <div className="col col s12 m12 l4">
-                            <div className="teste3">
-                                <h4>Cursos completados</h4>
-                                <form action="#">
-                                    {this.state.cursos.map(info =>
-                                        <p className="grid-check">
-                                            {info.trilha_status == 1?
-                                            <CheckChecked key={info.trilha_curso_id} value="" name={info.trilha_curso_nome} />: <Check key={info.trilha_curso_id} fname="" value="" name={info.trilha_curso_nome} /> }
-
-                                        </p>
-                                    )}
-                                </form>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </>

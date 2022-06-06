@@ -75,21 +75,6 @@ h4 {
     position: relative;
 }
 
-.foto {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    background-color: #ACD8DE !important;
-    border-radius: 25px !important;
-}
-
-.foto>i {
-    margin-top: 20px;
-    color: #53C4CD;
-    background-color: #ACD8DE !important;
-
-}
-
 p,
 span {
     font-size: 16px !important;
