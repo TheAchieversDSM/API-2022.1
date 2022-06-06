@@ -63,8 +63,7 @@ RF-5 | 3 | Acesso às documentações e normas da empresa | Baixa | ✔️
 RF-6 | 3 | Plataforma com materiais para Onbording de colaboradores referentes à seus departamentos | Alta | ✔️
 RF-7 | 3 | Upload de materiais para compor os cursos de Onboarding na Trilha de Aprendizagem | Alta | ✔️
 RF-8 | 3 | Definir público-alvo dos materiais adicionados ao sistema na Trilha de Aprendizagem | Alta | ✔️
-RF-9 | 3 | Visualização do progresso individual dos cursos de Onboarding cadastrados na Trilha de Aprendizagem | Média | 🔲
-RF-10 | 3 | Cadastro de possíveis novos cargos e departamentos | Baixa | ✔️
+RF-9 | 3 | Cadastro de possíveis novos cargos e departamentos | Baixa | ✔️
 
 ##### Requisitos Não Funcionais
 ID | Sprint | Requisitos | Prioridade | Status 
