@@ -11,4 +11,6 @@ router.get('/desligamento/:id',userController.desligamento)
 router.put('/setWorkInfoUser/:id',userController.setWorkInfoUser)
 router.get('/getAllCurso/:id',userController.getAllCurso)
 router.get('/getProgressoAulas/:id',userController.getProgressoAulas)
+router.put('/setWorkInfoUser/:id',userController.setWorkInfoUser)
+
 module.exports = router

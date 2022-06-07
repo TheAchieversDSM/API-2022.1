@@ -270,7 +270,7 @@ class Admissao extends Component {
                         </div>
                     )}
 
-                    <h4>Documentos</h4>
+                    {/*<h4>Documentos</h4>
                     {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>
 
                         <p>
@@ -280,7 +280,7 @@ class Admissao extends Component {
                             </a>
                         </p>
 
-                    </div>)}
+                    </div>)}*/}
 
                     <div className="aceitar">
                         <div className="row">
