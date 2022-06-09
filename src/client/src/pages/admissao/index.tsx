@@ -78,7 +78,7 @@ class Admissao extends Component {
 
                 this.setState({ cargo })
             }
-        )
+            )
     }
 
     handleChange = event => {
@@ -196,11 +196,11 @@ class Admissao extends Component {
                 planoSaude: this.state.planoSaude
             }
 
-            axios.post(`http://localhost:5000/precad1/updatebenefits/${this.state.id}`, beneficios).then((res)=>{
-                if(res.data.erro){
+            axios.post(`http://localhost:5000/precad1/updatebenefits/${this.state.id}`, beneficios).then((res) => {
+                if (res.data.erro) {
                     M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
                 }
-            }) 
+            })
 
             axios.put(`http://localhost:5000/infocolab/setWorkInfoUser/${this.state.id}`, InfoWork)
 
@@ -211,17 +211,48 @@ class Admissao extends Component {
             axios.delete(`http://localhost:5000/notificacao/deleteNotificacao/${this.state.id}`)
 
 
-            window.open("/notificacao")
-            window.close()
+            //window.open("/notificacao")
+            //window.close()
 
-            alert('Cadastro Aprovado.\nPara mais informações, procure pela página do colaborador no Organograma ou na Lista de Colaboradores')
+            swal({
+                title: "Cadastro aceito!",
+                text: `Agora o colaborador terá acesso aos recursos do sistema`,
+                icon: "success",
+                buttons: {
+                    cancelar: {
+                        value: false,
+                        text: "Cancelar",
+                        className: "cancelarButton"
+                    },
+                    desligar: {
+                        className: "continuarButton",
+                        value: true,
+                        text: "OK!"
+                    }
+                }
+            })
         })
     }
 
     handleRejeitado = (event) => {
         axios.delete(`http://localhost:5000/notificacao/deleteNotificacao/${this.state.id}`)
-        swal({})
-        alert('Cadastro rejeitado.\nEnviado aviso ao usuário para atualização de informação.')
+        swal({
+            title: "Cadastro negado!",
+            text: `Aguarde a resposta do colaborador.`,
+            icon: "warning",
+            buttons: {
+                cancelar: {
+                    value: false,
+                    text: "Cancelar",
+                    className: "cancelarButton"
+                },
+                desligar: {
+                    className: "continuarButton",
+                    value: true,
+                    text: "OK!"
+                }
+            }
+        })
     }
 
     render() {
@@ -270,17 +301,17 @@ class Admissao extends Component {
                         </div>
                     )}
 
-                    {/*<h4>Documentos</h4>
+                    <h4>Documentos</h4>
                     {this.state.documentos.map(doc => <div key={doc.colaborador_col_id}>
 
                         <p>
                             <label>{doc.doc_tipo.toUpperCase()}:</label>
-                            <a href={`http://localhost:5000/infocolab/` + doc.doc_link}  download>
+                            <a href={`http://localhost:5000/infocolab/` + doc.doc_link} download>
                                 <button className="btn btn-primary">Download</button>
                             </a>
                         </p>
 
-                    </div>)}*/}
+                    </div>)}
 
                     <div className="aceitar">
                         <div className="row">
