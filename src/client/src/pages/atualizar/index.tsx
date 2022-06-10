@@ -881,7 +881,7 @@ class Atualizar extends Component {
                                         <InputOnFocus value={this.state.cpf} lenght={11} focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l6" id="cpf" class="validate" type="number" name="CPF" />
                                         <Input value={this.state.rg} lenght={12} stateName="rg" fname={this.handleChange} div="input-field col col s12 m12 l6" id="rg" class="validate" type="number" name="RG" />
                                     </div>*/}
-                                    <div className="row">
+                                    {/*<div className="row">
                                         <div className="input-field col s12 m12 l6">
                                             <select name="nacionalidade" className="browser-default" id="nacionalidade" onChange={this.handleChangeSelect} value={this.state.nacionalidade}>
                                                 <DisableOption disableValue="" disableNome="Nacionalidade" />
@@ -892,7 +892,8 @@ class Atualizar extends Component {
                                         </div>
 
                                         <Input lenght={100} value={this.state.naturalidade} stateName="naturalidade" fname={this.handleChange} div="input-field col s12 m12 l6" id="naturalidade" class="validate" type="text" name="Naturalidade" />
-                                    </div>
+                                    </div>*/}
+
                                     <div className="row">
                                         <div className="input-field col s12 m12 l6">
                                             <select name="genero" className="browser-default" id="genero" onChange={this.handleChangeSelectHomem} value={this.state.genero}>
