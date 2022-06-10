@@ -83,9 +83,8 @@ RNF-12 | 2 | Puxar informações do banco de dados e passar para um _.pdf_ para 
 RNF-13 | 3 | Anexar arquivos referentes às normas e políticas da empresa | Baixa | ✔️
 RNF-14 | 3 | Restringir acesso aos arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem | Baixa | ✔️
 RNF-15 | 3 | Upload de arquivos referentes aos cursos de Onboarding da Trilha de Aprendizagem em um repositório específico | Baixa | ✔️
-RNF-16 | 3 | Identificar progresso de conclusão dos cursos de Onboarding da Trilha de Aprendizagem | Média | 🔲
-RNF-17 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
-RNF-18 | - | Manual do usuário para navegação | Média | ✔️
+RNF-16 | 3 | Possibilitar a criação de novos cargos e departamentos e inseri-los no banco de dados | Média | ✔️
+RNF-17 | - | Manual do usuário para navegação | Média | ✔️
 
 
 ##### Timeline
