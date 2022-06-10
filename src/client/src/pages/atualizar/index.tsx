@@ -831,7 +831,7 @@ class Atualizar extends Component {
 
         // Atualizando info de cargo:
 
-        window.location.href = "http://localhost:3000" + urlRedirect;
+        //window.location.href = "http://localhost:3000" + urlRedirect;
         // window.open("/home")
         // window.close()
     };
@@ -877,10 +877,10 @@ class Atualizar extends Component {
                                     <div className="row">
                                         <Input lenght={20} stateName="novaSenha" value={this.state.novaSenha} fname={this.handleChange} div="input-field col s12" id="novaSenha" class="validate" type="password" name="Nova Senha" />
                                     </div>
-                                    <div className="row">
+                                    {/*<div className="row">
                                         <InputOnFocus value={this.state.cpf} lenght={11} focus={this.cpfVerify} stateName="cpf" div="input-field col col s12 m12 l6" id="cpf" class="validate" type="number" name="CPF" />
                                         <Input value={this.state.rg} lenght={12} stateName="rg" fname={this.handleChange} div="input-field col col s12 m12 l6" id="rg" class="validate" type="number" name="RG" />
-                                    </div>
+                                    </div>*/}
                                     <div className="row">
                                         <div className="input-field col s12 m12 l6">
                                             <select name="nacionalidade" className="browser-default" id="nacionalidade" onChange={this.handleChangeSelect} value={this.state.nacionalidade}>
@@ -913,12 +913,12 @@ class Atualizar extends Component {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    {/*<div className="row">
                                         <Input value={this.state.data != null?this.state.data.toString(): ""} lenght={10}
                                             stateName="data" fname={this.handleChange} div="input-field col s12 m12 12"
                                             id="data" class=""
                                             type="text" name="Data de Nascimento" />
-                                    </div>
+                                    </div>*/}
                                     <div className="row">
                                         <Input value={this.state.ddd != null ? this.state.ddd.toString() : ""} lenght={2} stateName="ddd" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="DDD" />
                                         <Input value={this.state.telefone != null ? this.state.telefone.toString() : ""} lenght={10} stateName="telefone" fname={this.handleChange} div="input-field col s12 m12 l6" id="icol_telephone" class="validate" type="tel" name="Telefone" />
