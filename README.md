@@ -23,7 +23,7 @@
  
  <span id="status">
 
- ### :bookmark_tabs: Status do projeto: Iniciado :hourglass:	
+ ### :bookmark_tabs: Status do projeto: Finalizado ✔️	
   
  <a href="#inicio">[Voltar ao início]</a>
   
