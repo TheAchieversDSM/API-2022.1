@@ -1,6 +1,8 @@
 import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
+import swal from "sweetalert";
+import {M} from "materialize-css"
 import { cnpj, cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS
@@ -31,6 +33,78 @@ class PerfilColab extends Component {
         car_id: String,
         dep_id: String,
         id: getCookie("id")
+    }
+    desligamento = () =>{
+        swal({
+            title: "Você tem certeza?",
+            text: `Tem certeza que quer desligar ${this.state.colaborador[0].col_nome} ?`,
+            icon: "warning",
+            buttons: {
+                cancelar:{
+                    value: false,
+                    text: "Cancelar",
+                    className: "cancelarButton"
+                },
+                desligar:{
+                    className: "continuarButton",
+                    value: true,
+                    text: "Continuar"
+                
+                },
+            }
+          })
+          .then(prosseguir => {
+            if (prosseguir) {
+                swal({
+                    icon: "info",
+                    title: "Motivo do Desligamento",
+                    content: {           
+                      element: "input",
+                      attributes: {
+                        placeholder: "Motivo de Desligamento",
+                        type: "text",
+                        name: "mensagem",
+                        id: "mensagem"
+                      },
+            
+                    },
+                    buttons:{
+                        cancelar:{
+                        value: false,
+                        text: "Cancelar",
+                        className: "cancelarButton"
+                    },
+                        desligar:{
+                        className: "continuarButton",
+                        value: true,
+                        text: "Continuar"
+                    
+                    },
+                    }
+                  }).then(desligarColaborador =>{
+                      console.log(desligarColaborador);
+                      if(desligarColaborador){
+                        var his_desligamento_descricao =( document.getElementById("mensagem") as HTMLInputElement ).value
+                        var today = new Date()
+                        const his_data = {
+                            his_desligamento_descricao: his_desligamento_descricao,
+                            his_data_desligamento: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+                        }
+                        axios.post(`http://localhost:5000/historico/desligamento/${this.state.id}`,his_data).then((res=>{
+                            if (res.data.erro) {
+                                M.toast({ html: res.data.erro, classes: "red darken-4 rounded" })
+                            } else {
+                                M.toast({ html: res.data, classes: "green darken-4 rounded" })
+                            }
+                            
+                            axios.get(`http://localhost:5000/infocolab/desligamento/${this.state.id}`)
+                        }))
+                        swal("Usuário Desligado!", `${this.state.colaborador[0].col_nome} foi desligado(a).`, "success");
+
+                      }
+                })
+            }
+        });
     }
 
     componentDidMount() {
@@ -81,6 +155,8 @@ class PerfilColab extends Component {
             
             this.setState({cursos})
         })
+
+        
 
 
     }
