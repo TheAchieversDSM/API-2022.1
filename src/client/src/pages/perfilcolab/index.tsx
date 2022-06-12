@@ -2,7 +2,7 @@ import { Component } from "react";
 import axios from "axios";
 import { getCookie } from "../../utils/cookieUtil/cookieUtil";
 import swal from "sweetalert";
-import {M} from "materialize-css"
+import M from "materialize-css"
 import { cnpj, cpf } from "cpf-cnpj-validator";
 
 // LOCAL CSS

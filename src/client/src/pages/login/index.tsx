@@ -43,7 +43,8 @@ class Login extends Component {
             if (res.data.erro){
                 M.toast({html: res.data.erro , classes: "red darken-4 rounded"})
             }else{
-                if (res.data.user[0].col_status != 0) {
+                
+                if (res.data.user[0].col_status.data[0] == 1) {
 
                 if (res.data.token) {
                     setCookie("token", res.data.token);
@@ -61,6 +62,8 @@ class Login extends Component {
                         loggedin: true
                     })
                 }
+                }else{
+                    M.toast({html: "Usuário Inativo" , classes: "red darken-4 rounded"})
                 }
             }
         })
