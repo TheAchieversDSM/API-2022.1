@@ -331,7 +331,16 @@ class PerfilColab extends Component {
                             </div>
                         </div>
 
-                        
+                        <div className="col col s12 m12 l4">
+                            <div className="teste3">
+                                <h4>Inativar</h4>
+                                <div className="botao-edicao center-align">                                  
+                                    <p>
+                                        <ButtonMat fname={this.desligamento} class="waves-effect waves-light btn-large" name="Excluir" iClass="fa-solid fa-user-slash" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
